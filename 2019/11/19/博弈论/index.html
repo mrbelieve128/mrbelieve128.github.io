@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Hello World! ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>博弈论 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 十一月 18日 2019, 9:02 上午
+                  星期二, 十一月 19日 2019, 9:01 上午
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    382 字
+                    852 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      3 分钟
                   </span>&nbsp;
                 
 
@@ -161,13 +161,115 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <p>2019/8/3日 15：22，我的网站算是正式开通了。这里可能是我展现最真实的我的地方，也用来记录我的学习过程和学习资料。在此先感谢一下毛同学的大力鼓吹，让我搞了这个，也感谢我的学校给我报销（笑</p>
-<p>最近在学校的大数据班学习了在centOS搭建hadoop平台（使用java进行程序编写），最开始的是计算和管理都在一个模拟机里的伪分布式，一主一仆的也在回家后在自家电脑上完成了搭建。</p>
-<p>后来为了搞github和gitee备份代码，又去研究了git如何使用，以及在vscode里同步代码，现在也是可以啦~点这可以看 相关代码和操作</p>
-<p>为了在学校更好的敲代码（装逼），也是打算买一个豆子峡谷，装上黑苹果和centOS，平时用黑苹果和我的surface，计算时就用centOS。不得不说i58259U这东西好像挺强的，2/3个8700k，对比i7 8559u差距也不大。</p>
-<p>今天也开始了DVWA的学习，学习使用kali，（虽然今早也没搞多少。。好像就搞了个Brup Force，连Brup Suite的爆破也没完全弄懂咋搞。。</p>
-<p>就先这样吧。还有很多很多没搞懂，但最首先的先享受一下我最后的十来天暑假吧!</p>
-<p>更新：11/19 使用hexo并部署到了github上，打算使用自己的云服务器做加速= =</p>
+            <p><a href="https://www.bilibili.com/video/av41333177?p=2" target="_blank" rel="noopener"><br>LINK</a><br>《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。<br>基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。</p>
+<h2 id="Class1"><a href="#Class1" class="headerlink" title="Class1"></a>Class1</h2><p><strong><em>定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\</em></strong></p>
+<p><strong>结论1：不要选择严格劣势策略</strong></p>
+<p><strong>结论2：理性的选择，使得总结果变得更坏</strong></p>
+<p>改变收益，就会改变目的。</p>
+<p><strong><em>结论3：予欲得之，必先知之\</em></strong></p>
+<p>结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做</p>
+<blockquote>
+<p>2019/8/6</p>
+</blockquote>
+<hr>
+<h2 id="Class2"><a href="#Class2" class="headerlink" title="Class2"></a>Class2</h2><p>博弈的要素：参与人（i,j）、策略（si,Si策略集合，s某一次博弈）、收益（U，Ui(s)）</p>
+<p>s-i:除了i以外其他参与人每人的策略</p>
+<table>
+<thead>
+<tr>
+<th align="left">1/2</th>
+<th align="left">L</th>
+<th align="left">C</th>
+<th align="left">R</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">T</td>
+<td align="left">5,-1</td>
+<td align="left">11,3</td>
+<td align="left">0,0</td>
+</tr>
+<tr>
+<td align="left">B</td>
+<td align="left">6,4</td>
+<td align="left">0,2</td>
+<td align="left">2,0</td>
+</tr>
+</tbody></table>
+<p>S1={T,B} S2={L,C,R}</p>
+<p>U1(T,C)=11 U2(T，C)=3</p>
+<p>定义：参与人i的策略s’i严格劣于另一个策略si，在其他人选择s-i时，选择si的收益UI严格优于此情况下选择s’i的收益UI</p>
+<table>
+<thead>
+<tr>
+<th align="left">De/Attach</th>
+<th align="left">ez</th>
+<th align="left">hard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">E</td>
+<td align="left">1,1</td>
+<td align="left">1,1</td>
+</tr>
+<tr>
+<td align="left">H</td>
+<td align="left">0,2</td>
+<td align="left">2,0</td>
+</tr>
+</tbody></table>
+<p><strong><em>定义：参与者i的策略s’i，弱劣于策略si当且仅当在对手选择s-i的情况下，参与人i选择si的收益等于对手选s-i下他选s’i的收益，而且在任何情况下均成立。除此之外，对手选s-i参与者的i的策略si，严格优于其他策略s’i，至少在某种情况下成立\</em></strong>（参与者i的策略s’i弱劣于策略si，当且仅当无论对手怎么做，他选择si的收益至少与选择s‘i的相等，有些情况甚至是严格占优的）</p>
+<p>共同知识：我知道一个事情，你也知道这件事，我知道你知道，你知道我知道……</p>
+<p>相互知识不是共同知识，共同知识定义很严格。</p>
+<blockquote>
+<p>2019/8/7</p>
+</blockquote>
+<hr>
+<h2 id="Class-3"><a href="#Class-3" class="headerlink" title="Class 3"></a>Class 3</h2><p>迭代剔除劣势策略：揣测对手意图，揣测对手知道我们的意图</p>
+<p>商业会集中获得附近客源</p>
+<p>==第三竞选者如何影响选举结果?==</p>
+<p>最佳对策：最大化预期收益</p>
+<p><a href="https://i.loli.net/2019/08/10/g9hIt6PSRsxrcul.png" target="_blank" rel="noopener"><img src="/2019/11/19/%E5%8D%9A%E5%BC%88%E8%AE%BA/g9hIt6PSRsxrcul.png" srcset="undefined" alt="Class 3 画图"></a></p>
+<p>画图用数据解释比较好</p>
+<blockquote>
+<p>2019/8/8</p>
+</blockquote>
+<hr>
+<h2 id="Class4"><a href="#Class4" class="headerlink" title="Class4"></a>Class4</h2><table>
+<thead>
+<tr>
+<th align="left">F/D</th>
+<th align="left">L</th>
+<th align="left">R</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">L</td>
+<td align="left">4.-4</td>
+<td align="left">9,-9</td>
+</tr>
+<tr>
+<td align="left">M</td>
+<td align="left">6,-6</td>
+<td align="left">6,-6</td>
+</tr>
+<tr>
+<td align="left">R</td>
+<td align="left">9,-9</td>
+<td align="left">4,-4</td>
+</tr>
+</tbody></table>
+<p><a href="https://i.loli.net/2019/08/10/3XoNK7aLYSU5VTM.png" target="_blank" rel="noopener"><img src="/2019/11/19/%E5%8D%9A%E5%BC%88%E8%AE%BA/3XoNK7aLYSU5VTM.png" srcset="undefined" alt="Class4 另一种画图方法"></a></p>
+<p>不要选择一个任何选择下都非最佳对策的策略。</p>
+<p><strong><em>最佳对策：参与人i的策略Si，是一个最佳对策（BR），是对手的策略S-i的最佳对策。如果参与人i在对手的s-i策略下，选Si的收益弱优于对手的其他策略Si’\</em></strong></p>
+<p><strong><em>最佳对策：Si满足所有情况中，最大化了对手选S-i时我的收益\</em></strong></p>
+<p>合伙人：两个实体共同完成一个协作项目，并且平分利润</p>
+<p>外部性：我的努力不仅对我有利，对你也有利</p>
+<p>纳什均衡：没人想选择其他策略，在这个点，互相都采用的是最佳策略</p>
+<blockquote>
+<p>2019/8/9</p>
+</blockquote>
+<p><strong><em>未完待续\</em></strong></p>
 
             <hr>
           </div>
@@ -329,7 +431,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hello World!&nbsp;",
+        "博弈论&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
