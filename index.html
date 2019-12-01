@@ -134,7 +134,167 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/23/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
+      <a href="/2019/11/30/HCNP-SEC-19.11.23/">
+        <p class="h4 index-header">HCNP-SEC-19.11.23</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">HCNP-SEC-19.11.23
+
+eSight网管 可管其他厂商设备，几乎都可以
+CIS可用于抵御APT攻击。它从海量数据中提取关键信息，智能可视化，还原攻击链，防御攻击
+FireHunter还原流量，在虚拟环境对网络中传输的文件进行检测
+UMA 审计上网行为
+NGFW USG9000 网络运营商，广电（超大型网络）USG6000 中大型企业
+业务随行
+S12700 整个网络核心 S9k S7k
+
+
+网络安全运维安全策略：简单，稳定，安全
+端口要加端口描述
+脚本配置
+
+
+
+
+
+监控（类似只读）
+
+
+
+
+
+
+
+
+
+
+
+
+
+QS 优先级？优先保证业务
+FW作为出口且有多条出口链路，两条链路一接，最起码也要做一个链路聚合（Eth-Trunck）
+在ensp中，fw连接router，在实际中不会占用GE0/0/0（这是个管理口）
+智能选路应用场景网络差，如何优化：增加带宽，增加IP，调整点位
+
+
+全局选路策略：动态选择出接口，充分利用资源
+策略路由：依据制定的策略进行数据转发
+ISP路由：可以实现流量按照运营商转发，指定选路
+健康检查，感知服务器或链路状态变化，保证流量传输
+
+
+园区网的四</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-30&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/29/19920%E7%AC%94%E8%AE%B0/">
+        <p class="h4 index-header">19/9/20笔记</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">逆向笔记PE是windows下的文件，ELF是linux/unix下的文件
+packer壳
+28537194573619560LL LL-&gt;长长整型
+可在汇编语言中寻找到mov rax ，指针 沿着指针 再按R看转换后的内容（由于低尾端，栈地址向低地址扩展，所以要将字符串反过来）
+GDBb 函数名
+
+下断点breakpoint
+b __libc_start_main #在主函数设置断点
+set
+set $eip=地址 #跳转到某函数地址
+set $eip=0x0804849br
+
+run 运行到我们下断点的地方，停止
+
+n
+
+运行一步
+
+x/200wx $寄存器
+
+x:就是用来查看内存中数值的，后面的200代表查看多少个，wx代表是以word字节查看看，$eax代表的eax寄存器中的值
+
+反编译pyc
+uncompyle2 -h
+
+==md5(md5($pass)) ：第一次加密后，结果转换成小写，对结果再加密一次.解密为：解密一次后，再解密一次==
+
+
+Re2-cpp-is-awesome
+
+if ( a1 != 2 )
+  {
+    v3 = *a2;
+    v4 = s</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-29&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/25/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
+        <p class="h4 index-header">git同步到github和gitee</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
+一、准备工作1、建立一个仓库https://gitee.com/
+2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
+二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东西，这就是你的SSH key
+2、添加key到Giteegitee-&gt;设置-&gt;SSH公钥把key粘贴进去，标题默认是本机的名字
+3、git连接到giteehttps连接拷贝下来你仓库的链接，如 https://gitee.com/xxxxx然后在你想同步的文件夹上右键点击GIt Bash Here，输入
+git init
+git remote add origin https://gite</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/22/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
         <p class="h4 index-header">Python中下划线的5种含义</p>
         
         
@@ -170,7 +330,7 @@ def main():
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-23&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
         
         
         
@@ -182,25 +342,54 @@ def main():
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
-        <p class="h4 index-header">手动脱壳</p>
+      <a href="/2019/11/19/What%20a%20day/">
+        <p class="h4 index-header">What a day</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
-注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
-ESP定律
-参考
-nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
-首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od可==
-ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转，继续F8
+          <div class="index-text mb-1">明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。
+想学逆向发现了mac上的一些软件之类的，link
+入门link
+pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码
+在线ctf平台![ctf平台](What a day.assets/Jht7r9DY4xadcQZ.png)
+下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯
+GOGOGO！过几天重新开始一大早起床跑步吧!</div>
+        </div>
+      </a>
 
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
 
-
-
-</div>
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
+        <p class="h4 index-header">转载-编写shellcode测试工具</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
+shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
+该程序的实现很简单：
+1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
+代码如下：
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &</div>
         </div>
       </a>
 
@@ -257,81 +446,25 @@ DLL程序没有自己的“私有”空间，它们称之为动态链接库文�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        <p class="h4 index-header">转载-编写shellcode测试工具</p>
+      <a href="/2019/11/19/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
+        <p class="h4 index-header">手动脱壳</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
-shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
-该程序的实现很简单：
-1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
-代码如下：
-#include &lt;sys/types.h&gt;
-#include &lt;sys/stat.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;stdio.h&gt;
-#include &</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/19920%E7%AC%94%E8%AE%B0/">
-        <p class="h4 index-header">19/9/20笔记</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">逆向笔记PE是windows下的文件，ELF是linux/unix下的文件
-packer壳
-28537194573619560LL LL-&gt;长长整型
-可在汇编语言中寻找到mov rax ，指针 沿着指针 再按R看转换后的内容（由于低尾端，栈地址向低地址扩展，所以要将字符串反过来）
-GDBb 函数名
-
-下断点breakpoint
-b __libc_start_main #在主函数设置断点
-set
-set $eip=地址 #跳转到某函数地址
-set $eip=0x0804849br
-
-run 运行到我们下断点的地方，停止
-
-n
-
-运行一步
-
-x/200wx $寄存器
-
-x:就是用来查看内存中数值的，后面的200代表查看多少个，wx代表是以word字节查看看，$eax代表的eax寄存器中的值
-
-反编译pyc
-uncompyle2 -h
-
-==md5(md5($pass)) ：第一次加密后，结果转换成小写，对结果再加密一次.解密为：解密一次后，再解密一次==
+          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
+注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
+ESP定律
+参考
+nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
+首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od可==
+ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转，继续F8
 
 
-Re2-cpp-is-awesome
 
-if ( a1 != 2 )
-  {
-    v3 = *a2;
-    v4 = s</div>
+
+</div>
         </div>
       </a>
 
@@ -393,38 +526,6 @@ ESI： 源变</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        <p class="h4 index-header">git同步到github和gitee</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
-一、准备工作1、建立一个仓库https://gitee.com/
-2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
-二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东西，这就是你的SSH key
-2、添加key到Giteegitee-&gt;设置-&gt;SSH公钥把key粘贴进去，标题默认是本机的名字
-3、git连接到giteehttps连接拷贝下来你仓库的链接，如 https://gitee.com/xxxxx然后在你想同步的文件夹上右键点击GIt Bash Here，输入
-git init
-git remote add origin https://gite</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/19/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
         <p class="h4 index-header">汇编、逆向工程基础</p>
         
@@ -462,99 +563,6 @@ EIP： 指令指针寄存器
 EBP： EBP在栈中运用最广，刚开始没有什么需要特别注意的 ;) 
 
 ESP： ESP指向栈区域的栈顶位置。栈是一个存放即将会被用到的数据的地方，你可以去搜索一下push/pop 指令</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        <p class="h4 index-header">博弈论</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
-Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\
-结论1：不要选择严格劣势策略
-结论2：理性的选择，使得总结果变得更坏
-改变收益，就会改变目的。
-结论3：予欲得之，必先知之\
-结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做
-
-2019/8/6
-
-
-Class2博弈的要素：参与人（i,j）、策略（si,Si策略集合，s某一次博弈）、收益（U，Ui(s)）
-s-i:除了i以外其他参与人每人的策略
-
-
-
-1/2
-L
-C
-R
-
-
-
-T
-5,-1
-11,3
-0,0
-
-
-B
-6,4
-0,2
-2,0
-
-
-S1={T,B} S2={L,C,R}
-U1(T,C)=11 U2(T，C)=3
-定义：参与人i的策略s’i严格劣于另一个策略si，在其他人选择s-i时，选择si的收益UI严格优于此</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/What%20a%20day/">
-        <p class="h4 index-header">What a day</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。
-想学逆向发现了mac上的一些软件之类的，link
-入门link
-pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码
-在线ctf平台![ctf平台](What a day.assets/Jht7r9DY4xadcQZ.png)
-下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯
-GOGOGO！过几天重新开始一大早起床跑步吧!</div>
         </div>
       </a>
 
