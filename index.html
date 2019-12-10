@@ -141,7 +141,9 @@
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">安洵杯线下AWD总结事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
+          <div class="index-text mb-1">安洵杯线下AWD总结
+
+事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
 线下还是很友好的，可以连接外网，伙食也很不错，但是！
 只有先黑盒测试过了自己的，拿了flag并提交了之后，才可以找主办方要ssh密码=。=并且AWD只有1道pwn题，3个web题，域渗透部分就更不必多说了，几乎都是web，哎
 AWD规则连接的是docker服务器，所以给的都是端口
@@ -154,7 +156,7 @@ eg: team01-pwn1 40180(pwn) 40122(ssh)
 
 ==比如我拿到的pwn端口是40980，那么别人的就是4xx80，40080端口到41780端口，写打全场flag就这样挨个端口打过去==
 反思开局好久都是蒙蔽状态，不知道ip，不知道端口，但其实这些都在群里发的线下赛说明中包含有，需要注意去看QAQ
-有空了我就找找看看写写</div>
+有空了我就找找看看</div>
         </div>
       </a>
 
@@ -490,25 +492,43 @@ U1(T,C)=11 U2(T，C)=3
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
-        <p class="h4 index-header">手动脱壳</p>
+      <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">汇编、逆向工程基础</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
-注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
-ESP定律
-参考
-nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
-首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od可==
-ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转，继续F8
+          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
+单位
+
+·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
+·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
 
 
+一个16进制占4bit
 
 
-</div>
+寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
+
+
+EAX： 累加器
+EBX： 基址寄存器
+ECX： 计数器
+EDX： 数据寄存器
+ESI： 源变址寄存器
+EDI： 目的变址寄存器
+EBP： 扩展基址指针寄存器
+ESP： 栈指针寄存器
+EIP： 指令指针寄存器
+
+
+==大小都是4个字节==
+
+
+EBP： EBP在栈中运用最广，刚开始没有什么需要特别注意的 ;) 
+
+ESP： ESP指向栈区域的栈顶位置。栈是一个存放即将会被用到的数据的地方，你可以去搜索一下push/pop 指令</div>
         </div>
       </a>
 
