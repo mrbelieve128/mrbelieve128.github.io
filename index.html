@@ -490,33 +490,25 @@ U1(T,C)=11 U2(T，C)=3
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编基础</p>
+      <a href="/2019/12/02/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
+        <p class="h4 index-header">手动脱壳</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">X86汇编基础==Intel和AT&amp;T语法区别：==
-
-Intel操作数在前面，AT&amp;T的在后面
-
-
-在Intel语法中：  在AT&amp;T语法中：  有一个简单的记住它们的方法: 当你面对intel语法的时候，你可以想象把等号(=)放到2个操作数中间，当面对AT&amp;T语法的时候，你可以放一个右箭头(→）到两个操作数之间。
-
-
-AT&amp;T: 寄存器名之前需要写一个百分号(%)并且在数字前面需要加上美元符($)。并用圆括号替代方括号
-AT&amp;T: 以下是一些添加到操作符后，用来表示数据形式的后缀：– q — quad (64 bits)– l — long (32 bits)– w — word (16 bits)– b — byte (8 bits)
+          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
+注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
+ESP定律
+参考
+nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
+首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od可==
+ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转，继续F8
 
 
-重要：MOV指令在64位模式下，对低32位进行写入操作的时候，会清空高32位的内容[Int13]。比如 MOV EAX，011223344h将会把值写到RAX里，并且清空RAX的高32位区域。
-寄存器
 
-EAX： 累加器
-EBX： 基址寄存器
-ECX： 计数器
-EDX： 数据寄存器
-ESI： 源变</div>
+
+</div>
         </div>
       </a>
 
