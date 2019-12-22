@@ -134,6 +134,147 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        <p class="h4 index-header">Pwn常用指令</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Pwn常用ldd filename 读取libc
+ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot; 获得pop_rdi_ret
+慢慢补充，哎</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-23&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/22/GXY_CTF%20my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
+        <p class="h4 index-header">GXY_CTF my_cannary-从零记录如何调试出来</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">查看main
+![image-20191223003852267](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223003852267.png)
+进入test()
+![image-20191223003835308](GXY_CTF my_cannary.assets/image-20191223003835308.png)
+看见了read，等等先
+![image-20191223005942680](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223005942680.png)
+judge无法反编译，查看汇编
+![image-20191223005319299](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223005319299.png)
+看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
+点开read的b</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-22&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/15/ciscn_2019_n_1%20WP/">
+        <p class="h4 index-header">ciscn_2019_n_1 WP</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ciscn_2019_n_1 WPint func()
+{
+  int result; // eax
+  char v1; // [rsp+0h] [rbp-30h]
+  float v2; // [rsp+2Ch] [rbp-4h]
+
+  v2 = 0.0;
+  puts(&quot;Let&#39;s guess the number.&quot;);
+  gets(&amp;v1);
+  if ( v2 == 11.28125 )
+    result = system(&quot;cat /flag&quot;);
+  else
+    result = puts(&quot;Its value should be 11.28125&quot;);
+  return result;
+}
+看见==我还尝试了一下’a’ * offset + ‘11.28215’……
+然后南梦一句：这不是有gets，你直接跳system不就好了。。。。
+哎
+exp
+from pwn import *
+context.log_level = &quot;debug&quot;
+context.arch</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-15&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/15/buu-ciscn_2019-c_1%20WP/">
+        <p class="h4 index-header">buu-ciscn_2019-c_1 WP</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">buu-ciscn_2019-c_1 WP// local variable allocation has failed, the output may be wrong!
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  int v4; // [rsp+Ch] [rbp-4h]
+
+  init(*(_QWORD *)&amp;argc, argv, envp);
+  puts(&quot;EEEEEEE                            hh      iii                &quot;);
+  puts(&quot;EE      mm mm mmmm    aa aa   cccc hh          nn nnn    eee  &quot;);
+  puts(&quot;EEEEE   mmm  mm  mm  aa aaa cc     hhhhhh  iii nnn  nn ee   e &quot;);
+  puts(&quot;EE     </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-15&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/11/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
         <p class="h4 index-header">安洵杯线下AWD总结</p>
         
@@ -395,151 +536,6 @@ if ( a1 != 2 )
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-29&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/25/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        <p class="h4 index-header">git同步到github和gitee</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
-一、准备工作1、建立一个仓库https://gitee.com/
-2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
-二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东西，这就是你的SSH key
-2、添加key到Giteegitee-&gt;设置-&gt;SSH公钥把key粘贴进去，标题默认是本机的名字
-3、git连接到giteehttps连接拷贝下来你仓库的链接，如 https://gitee.com/xxxxx然后在你想同步的文件夹上右键点击GIt Bash Here，输入
-git init
-git remote add origin https://gite</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-25&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/22/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
-        <p class="h4 index-header">Python中下划线的5种含义</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
-
-单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
-
-单末尾下划线：var_            解决命名冲突的问题
-
-双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
-
-单下划线：_                        使用“_”来表示它只是一个临时值
-
-双前导和末尾下划线：
-__var__这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法
-
-class Linkedlist(object):
-    def __init__(self):
-        self.head = Node()
-        self.length = 0
-    def __len__(self):
-        return self.length
-当我在main里
-def main():
-    L = Linkedlist()
-    L.append(3)
-    L</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-22&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/What%20a%20day/">
-        <p class="h4 index-header">What a day</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。
-想学逆向发现了mac上的一些软件之类的，link
-入门link
-pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码
-在线ctf平台![ctf平台](What a day.assets/Jht7r9DY4xadcQZ.png)
-下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯
-GOGOGO！过几天重新开始一大早起床跑步吧!</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        <p class="h4 index-header">转载-编写shellcode测试工具</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
-shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
-该程序的实现很简单：
-1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
-代码如下：
-#include &lt;sys/types.h&gt;
-#include &lt;sys/stat.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;stdio.h&gt;
-#include &</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
         
         
         
