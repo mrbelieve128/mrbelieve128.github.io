@@ -171,13 +171,12 @@ ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot; �
           <div class="index-text mb-1">查看main
 ![image-20191223003852267](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223003852267.png)
 进入test()
-![image-20191223003835308](GXY_CTF my_cannary.assets/image-20191223003835308.png)
+![image-20191223003835308](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223003835308.png)
 看见了read，等等先
 ![image-20191223005942680](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223005942680.png)
 judge无法反编译，查看汇编
 ![image-20191223005319299](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223005319299.png)
-看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
-点开read的b</div>
+看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验</div>
         </div>
       </a>
 
