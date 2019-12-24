@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Pwn常用指令 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>Python中下划线的5种含义 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 十二月 23日 2019, 12:45 下午
+                  星期一, 十二月 2日 2019, 11:10 上午
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    27 字
+                    264 字
                   </span>&nbsp;
                 
 
@@ -161,9 +161,43 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="Pwn常用"><a href="#Pwn常用" class="headerlink" title="Pwn常用"></a>Pwn常用</h1><p><code>ldd filename</code> 读取libc</p>
-<p><code>ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot;</code> 获得pop_rdi_ret</p>
-<h2 id="慢慢补充，哎"><a href="#慢慢补充，哎" class="headerlink" title="慢慢补充，哎"></a>慢慢补充，哎</h2>
+            <p>在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线</p>
+<ul>
+<li><p>单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种</p>
+</li>
+<li><p>单末尾下划线：var_            解决命名冲突的问题</p>
+</li>
+<li><p>双前导下划线：__var          防止变量在子类中被重写，只能在类内访问</p>
+</li>
+<li><p>单下划线：_                        使用“_”来表示它只是一个临时值</p>
+</li>
+<li><p>双前导和末尾下划线：</p>
+<pre><code>__var__</code></pre><p>这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法</p>
+<p></p>
+<pre><code class="python">class Linkedlist(object):
+    def __init__(self):
+        self.head = Node()
+        self.length = 0
+    def __len__(self):
+        return self.length</code></pre>
+<p>当我在main里</p>
+<pre><code class="python">def main():
+    L = Linkedlist()
+    L.append(3)
+    L.append(5)
+    print(&quot;链表长度&quot;,len(L))
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+<p>这样也可以输出len来= =</p>
+</li>
+</ul>
+<p>  学习的网站：</p>
+<ul>
+<li><a href="https://blog.csdn.net/tcx1992/article/details/80105645" target="_blank" rel="noopener">https://blog.csdn.net/tcx1992/article/details/80105645</a></li>
+<li><a href="https://blog.csdn.net/zhangvalue/article/details/93606688" target="_blank" rel="noopener">https://blog.csdn.net/zhangvalue/article/details/93606688</a></li>
+</ul>
+<p>  感觉跟着一步步测试下来更会用，但想完全知道怎么来的估计得去翻文档www</p>
+
             <hr>
           </div>
           <br>
@@ -329,7 +363,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pwn常用指令&nbsp;",
+        "Python中下划线的5种含义&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

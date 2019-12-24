@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Pwn常用指令 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>解密系列 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 十二月 23日 2019, 12:45 下午
+                  星期一, 十二月 2日 2019, 11:10 上午
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    27 字
+                    257 字
                   </span>&nbsp;
                 
 
@@ -161,9 +161,21 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="Pwn常用"><a href="#Pwn常用" class="headerlink" title="Pwn常用"></a>Pwn常用</h1><p><code>ldd filename</code> 读取libc</p>
-<p><code>ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot;</code> 获得pop_rdi_ret</p>
-<h2 id="慢慢补充，哎"><a href="#慢慢补充，哎" class="headerlink" title="慢慢补充，哎"></a>慢慢补充，哎</h2>
+            <hr>
+<p>title:解密系列笔记</p>
+<hr>
+<h1 id="解密系列"><a href="#解密系列" class="headerlink" title="解密系列"></a>解密系列</h1><p>ASCII编码是Unicode字符编码的一部分</p>
+<p>系统dll属于level3，内核运行在level0. </p>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><p>在保护模式下：</p>
+<ul>
+<li>应用程序是不会直接访问物理地址的</li>
+<li>虚拟内存管理器通过虚拟地址的访问请求，控制所有物理地址访问</li>
+<li>每个程序都有独立的4GB寻址空间，不同程序的地址空间是被相互隔离的。</li>
+<li>DLL程序没有自己的“私有”空间，它们称之为动态链接库文件，它们总是被映射到其他应用程序的地址空间中的，作为其他应用程序的一部分运行。</li>
+</ul>
+<p>==简化了内存的管理，并可弥补物理内存的不足，另外可以防止多任务环境下各个应用程序之间的冲突==</p>
+<p>与实地址模式下的“段地址：偏移地址”索引方式类似，虚拟地址也写成“段：偏移量”，但为段选择子。</p>
+
             <hr>
           </div>
           <br>
@@ -329,7 +341,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pwn常用指令&nbsp;",
+        "解密系列&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
