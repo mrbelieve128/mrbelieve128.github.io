@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>归档 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -110,6 +110,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -125,78 +129,184 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 23 篇文章</p>
-  <hr>
-  
+
+  <div class="row mb-4 mx-auto">
     
-      
-      <p class="h5">2019</p>
     
-    <a href="/2019/12/27/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5-holysheep%E7%9A%84Mac%20mini/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">GXY_CTF_my_cannary-从零记录如何调试出来-holysheep的Mac mini</span>
-      <span style="float: right;">12-27</span>
-    </a>
-  
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">汇编、逆向工程基础</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
+单位
+
+·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
+·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
+
+
+一个16进制占4bit
+
+
+寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
+
+
+EAX： 累加器
+EBX： 基址寄存器
+ECX： 计数器
+EDX： 数据寄存器
+ESI： 源变址寄存器
+EDI： 目的变址寄存器
+EBP： 扩展基址指针寄存器
+ESP： 栈指针寄存器
+EIP： 指令指针寄存器
+
+
+==大小都是4个字节==
+
+
+EBP： EBP在栈中运用最广，刚开始没有什么需要特别注意的 ;) 
+
+ESP： ESP指向栈区域的栈顶位置。栈是一个存放即将会被用到的数据的地方，你可以去搜索一下push/pop 指令</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
     
-    <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Pwn常用指令</span>
-      <span style="float: right;">12-23</span>
-    </a>
-  
     
-    <a href="/2019/12/22/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">GXY_CTF_my_cannary-从零记录如何调试出来</span>
-      <span style="float: right;">12-22</span>
-    </a>
-  
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/HCNP-SEC-19.11.23/">
+        <p class="h4 index-header">HCNP-SEC-19.11.23</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">HCNP-SEC-19.11.23
+
+eSight网管 可管其他厂商设备，几乎都可以
+CIS可用于抵御APT攻击。它从海量数据中提取关键信息，智能可视化，还原攻击链，防御攻击
+FireHunter还原流量，在虚拟环境对网络中传输的文件进行检测
+UMA 审计上网行为
+NGFW USG9000 网络运营商，广电（超大型网络）USG6000 中大型企业
+业务随行
+S12700 整个网络核心 S9k S7k
+
+
+网络安全运维安全策略：简单，稳定，安全
+端口要加端口描述
+脚本配置
+
+
+
+
+
+监控（类似只读）
+
+
+
+
+
+
+
+
+
+
+
+
+
+QS 优先级？优先保证业务
+FW作为出口且有多条出口链路，两条链路一接，最起码也要做一个链路聚合（Eth-Trunck）
+在ensp中，fw连接router，在实际中不会占用GE0/0/0（这是个管理口）
+智能选路应用场景网络差，如何优化：增加带宽，增加IP，调整点位
+
+
+全局选路策略：动态选择出接口，充分利用资源
+策略路由：依据制定的策略进行数据转发
+ISP路由：可以实现流量按照运营商转发，指定选路
+健康检查，感知服务器或链路状态变化，保证流量传输
+
+
+园区网的四</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
     
-    <a href="/2019/12/15/ciscn_2019_n_1%20WP/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ciscn_2019_n_1 WP</span>
-      <span style="float: right;">12-15</span>
-    </a>
-  
     
-    <a href="/2019/12/15/buu-ciscn_2019-c_1%20WP/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">buu-ciscn_2019-c_1 WP</span>
-      <span style="float: right;">12-15</span>
-    </a>
-  
-    
-    <a href="/2019/12/10/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">安洵杯线下AWD总结</span>
-      <span style="float: right;">12-10</span>
-    </a>
-  
-    
-    <a href="/2019/12/07/pwn_by_examples/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">pwn_by_examples</span>
-      <span style="float: right;">12-07</span>
-    </a>
-  
-    
-    <a href="/2019/12/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">数据库复习笔记</span>
-      <span style="float: right;">12-04</span>
-    </a>
-  
-    
-    <a href="/2019/12/03/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">AWD常用指令</span>
-      <span style="float: right;">12-03</span>
-    </a>
-  
-    
-    <a href="/2019/12/03/AWD%E5%87%86%E5%A4%87/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">AWD准备</span>
-      <span style="float: right;">12-03</span>
-    </a>
-  
-</div>
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
+        <p class="h4 index-header">Python中下划线的5种含义</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
+
+单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
+
+单末尾下划线：var_            解决命名冲突的问题
+
+双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
+
+单下划线：_                        使用“_”来表示它只是一个临时值
+
+双前导和末尾下划线：
+__var__这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法
+
+class Linkedlist(object):
+    def __init__(self):
+        self.head = Node()
+        self.length = 0
+    def __len__(self):
+        return self.length
+当我在main里
+def main():
+    L = Linkedlist()
+    L.append(3)
+    L</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </span>
   </nav>
   
@@ -205,6 +315,7 @@
       ele.href += '#board';
     }
   </script>
+
 
 
               </div>
@@ -331,7 +442,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Keep On Going&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

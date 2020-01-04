@@ -134,6 +134,99 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
+        <p class="h4 index-header">操作系统复习</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">对不起我看吐了，考炸了第一章操作系统的目标方便性，有效性，可扩充性和开放性
+可扩充性：采用微内核结构 P30
+发展主要动力
+不断提高计算机资源利用率
+方便用户
+器件的更新换代
+体系结构的发展
+新的应用需求
+
+多道程序设计的基本概念利用I/O操作的空闲时间，调度B程序运行，B空闲调度C等    P8
+优缺点
+资源利用率高
+吞吐量大
+平均周转时间长
+没有交互能力
+
+==操作系统定义为:一组能有效组织和管理硬件和软件资源，合理进行调度，方便用户使用程序的集合==
+分时系统（The Sharing System）在一台主机上连接多个终端，允许多个用户同时通过终端以交互方式使用计算机，共享主机资源
+特征
+多路性
+独立性
+及时性
+交互性
+
+基本特性有并发，共享，虚拟，异步四个基本特征
+并行与并发并行：多个程序同时执行
+并发：分时交替执行（为主）
+进程指在系统中可以独立运行并且是资源分配的基本单元
+共享互斥共享方式和同时访问方式
+虚拟（没有那么多但感觉有那么多）
+
+时分复用技术    （空闲时给其他用户服务
+空分复用技术    （储存器空闲时存储和运行程序
+
+异步（同时开始，不同时结束）
+进程以不可</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-01&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/27/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5-holysheep%E7%9A%84Mac%20mini/">
+        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来-holysheep的Mac mini</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">查看main
+![image-20191223003852267](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223003852267.png)
+进入test()
+![image-20191223003835308](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223003835308.png)
+看见了read，等等先
+![image-20191223005942680](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223005942680.png)
+judge无法反编译，查看汇编
+![image-20191223005319299](GXY_CTF my_cannary-从零记录如何调试出来.assets/image-20191223005319299.png)
+看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-27&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
         <p class="h4 index-header">Pwn常用指令</p>
         
@@ -360,6 +453,61 @@ PWNTOOLS部分u64 pwndbg部分</div>
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <p class="h4 index-header">数据库复习笔记</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">第一次实验新建数据库create database stuhyy
+on 
+(
+    name = stu, 
+    filename=&#39;C:\stu_data.mdf&#39;,
+    size = 3mb,
+    maxsize = 500mb,
+    filegrowth = 10%
+
+)
+log on
+(
+    name = stu_log,
+    filename = &#39;D:\stu_log.ldf&#39;,
+    size=3mb,
+    maxsize = unlimited,
+    filegrowth = 1mb
+)
+修改数据库Alter database Stuhyy
+Modify file
+(
+    name = Stuhyy_log,
+    filename = &#39;H:\Stuhyy_log.ldf&#39;,
+    size = 10MB,
+    maxsize = 20MB,
+    fileGrowth = 5%
+)
+添加数据库文件Alter database Stuhyy
+add file
+(
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/03/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
         <p class="h4 index-header">AWD常用指令</p>
         
@@ -396,107 +544,11 @@ netstat -ant|awk  |grep |sed -e  -e |sort|uniq -c|sort -rn
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/03/AWD%E5%87%86%E5%A4%87/">
-        <p class="h4 index-header">AWD准备</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">AWD探测主机Nmap或HTTPScan
-Nmap扫描端口
-端口攻击常见：22，2389，1443，3306
-==准备爆破脚本！！！==
-WEB攻击
-Web 方面的语言多为 PHP，小部分为 Java 和 Python。这里的 Web 环境分两种情况，一种是已有漏洞的框架，一种是出题人写的框架。
-如果是已有漏洞的框架，通常会比较明显。比如说 Struts 2 各种漏洞等等，用工具扫就可以扫出来。这个需要准备得比较充分，在电脑中备好 EXP 库、漏洞库和各种扫描工具库，以便能够快速利用比较明显的漏洞。总之手要快！
-如果是出题人出的框架，常用并且简单有效的做法是把整站源码下载下来，直接用工具审计。以 PHP 举例，一般的流程是先D盾查杀，发现有带有预留后门或者 Webshell 马上报给防守队友进行加固。
-把后门的问题搞定、防止别人快速拿分后，其次才是源码审计，发现问题点后迅速验证，报给防守队友，并且开始写攻击脚本。以 PHP 举例，一般是使用 Seay 等源码审计工具，审核出比较明显的漏洞。
-完成了工具扫描后，开始常规的渗透测试，比如说文件上传、SQL 注入等等，看是否能绕过，找到一个点</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-03&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/hello-world/">
-        <p class="h4 index-header">Hello World!</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">2019/8/3日 15：22，我的网站算是正式开通了。这里可能是我展现最真实的我的地方，也用来记录我的学习过程和学习资料。在此先感谢一下毛同学的大力鼓吹，让我搞了这个，也感谢我的学校给我报销（笑
-最近在学校的大数据班学习了在centOS搭建hadoop平台（使用java进行程序编写），最开始的是计算和管理都在一个模拟机里的伪分布式，一主一仆的也在回家后在自家电脑上完成了搭建。
-后来为了搞github和gitee备份代码，又去研究了git如何使用，以及在vscode里同步代码，现在也是可以啦~点这可以看 相关代码和操作
-为了在学校更好的敲代码（装逼），也是打算买一个豆子峡谷，装上黑苹果和centOS，平时用黑苹果和我的surface，计算时就用centOS。不得不说i58259U这东西好像挺强的，2/3个8700k，对比i7 8559u差距也不大。
-今天也开始了DVWA的学习，学习使用kali，（虽然今早也没搞多少。。好像就搞了个Brup Force，连Brup Suite的爆破也没完全弄懂咋搞。。
-就先这样吧。还有很多很多没搞懂，但最首先的先享受一下我最后的十来天暑假吧!
-更新：11</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/What%20a%20day/">
-        <p class="h4 index-header">What a day</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。
-想学逆向发现了mac上的一些软件之类的，link
-入门link
-pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码
-在线ctf平台![ctf平台](What a day.assets/Jht7r9DY4xadcQZ.png)
-下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯
-GOGOGO！过几天重新开始一大早起床跑步吧!</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
