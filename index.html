@@ -134,6 +134,74 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/11/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">Linux常见问题解决方法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+ps -A | grep apt
+sudo kill -9 processnumber
+
+sudo rm /var/lib/dpkg/lock
+sudo rm /var/lib/dpkg/lock-frontend
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-11&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/11/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
+        <p class="h4 index-header">使用docker为pwn题目搭配环境</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">为pwn题目搭配环境-docker将多个题目搭建一个docker里ubuntu *1 
+docker 安装
+docker-compose 官方文档
+giantbranch/pwn_deploy_chroot
+解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
+docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
+
+将题目放到bin目录中
+然后在config.py，将REPLACE_BINSH设置为False
+运行一次python initialize.py
+然后会出现一个flags.txt（如果想替换flag，就直接修改flag.txt里的flag字符串即可，然后运行一次python initialize.py）
+然后运行 docker-compose up -build -d
+开启题</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-11&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/10/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
         <p class="h4 index-header">PWN 环境搭建清单</p>
         
@@ -295,6 +363,74 @@ def pwn(ip,port,debug):
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/04/TCPIP%E5%A4%8D%E4%B9%A0/">
+        <p class="h4 index-header">TCPIP复习</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">遗忘记录地址A类地址 公有1~126 
+
+
+
+地址类型
+公有
+私有
+
+
+
+A类
+1 ~ 126
+10.0.0.0 ~ 10.255.255.255
+
+
+B类
+128 ~ 191
+172.16.0.0 ~ 172.31.255.255
+
+
+C类
+192.0.0.0 ~ 223.255.255.255
+192.168.0.0 ~ 192.168.255.255
+
+
+直接交付和间接交付直接交付 -&gt; 交给同一个网络地址
+间接交付 -&gt; 经过一个直接交付，给路由器，再给路由器 直到到达同一个网络的路由再给主机
+端到端和点到点端到端 -&gt; 进程到进程
+点到点 -&gt; 设备到设备
+三元组五元组三元组：协议，IP地址，端口
+五元组：三元 + 源IP，源端口
+TCP 可靠性
+流量控制：滑动窗口 } 发送窗口
+拥塞控制： 拥塞窗口 重转定时器
+差错控制
+
+套接字
+流套接字：TCP 适合大量数据 单播
+数据报套接字： UDP
+原始套接字：编写自定底层协议
+
+IP多播==五个前提？==
+多播地址 224.0.0.0 ~ 239.255.255.255
+IP地址的低23位替换mac地址低</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-04&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
         <p class="h4 index-header">操作系统复习</p>
         
@@ -355,8 +491,8 @@ def pwn(ip,port,debug):
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-        <p class="h4 index-header">Pwn常用指令</p>
+      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4-MyTreasure/">
+        <p class="h4 index-header">Pwn常用指令-MyTreasure</p>
         
         
           
@@ -384,164 +520,22 @@ u32(sh.recvuntil(“\xf7”)[-4:]
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/22/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
+      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        <p class="h4 index-header">Pwn常用指令</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">查看main
-
-进入test()
-
-看见了read，等等先
-
-judge无法反编译，查看汇编
-
-看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
-点开read的buf
-
-buf只有30字节
-再看看strings
-
-没有/bin/sh
-所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
-遂写poc
-from pwn import *
-sh = process(&quot;./my_cannary&quot;)
-elf = ELF(&quot;my_cannary&quot;)
-lib = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
-pop_rdi_ret = 0x0400a43
-start_main = elf.symbols[&#39;main&#39;]
-context.log_level = &quot;debug&quot;
-context.arch = &#39;amd</div>
+          <div class="index-text mb-1">Pwn常用ldd filename 读取libc
+ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot; 获得pop_rdi_ret
+慢慢补充，哎</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-22&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/15/ciscn_2019_n_1%20WP/">
-        <p class="h4 index-header">ciscn_2019_n_1 WP</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_n_1 WPint func()
-{
-  int result; // eax
-  char v1; // [rsp+0h] [rbp-30h]
-  float v2; // [rsp+2Ch] [rbp-4h]
-
-  v2 = 0.0;
-  puts(&quot;Let&#39;s guess the number.&quot;);
-  gets(&amp;v1);
-  if ( v2 == 11.28125 )
-    result = system(&quot;cat /flag&quot;);
-  else
-    result = puts(&quot;Its value should be 11.28125&quot;);
-  return result;
-}
-看见==我还尝试了一下’a’ * offset + ‘11.28215’……
-然后南梦一句：这不是有gets，你直接跳system不就好了。。。。
-哎
-exp
-from pwn import *
-context.log_level = &quot;debug&quot;
-context.arch</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-15&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/15/buu-ciscn_2019-c_1%20WP/">
-        <p class="h4 index-header">buu-ciscn_2019-c_1 WP</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">buu-ciscn_2019-c_1 WP// local variable allocation has failed, the output may be wrong!
-int __cdecl main(int argc, const char **argv, const char **envp)
-{
-  int v4; // [rsp+Ch] [rbp-4h]
-
-  init(*(_QWORD *)&amp;argc, argv, envp);
-  puts(&quot;EEEEEEE                            hh      iii                &quot;);
-  puts(&quot;EE      mm mm mmmm    aa aa   cccc hh          nn nnn    eee  &quot;);
-  puts(&quot;EEEEE   mmm  mm  mm  aa aaa cc     hhhhhh  iii nnn  nn ee   e &quot;);
-  puts(&quot;EE     </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-15&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
-        <p class="h4 index-header">安洵杯线下AWD总结</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">安洵杯线下AWD总结
-
-事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
-线下还是很友好的，可以连接外网，伙食也很不错，但是！
-只有先黑盒测试过了自己的，拿了flag并提交了之后，才可以找主办方要ssh密码=。=并且AWD只有1道pwn题，3个web题，域渗透部分就更不必多说了，都是web，哎
-AWD规则连接的是docker服务器，所以给的都是端口
-端口列表：axx80/axx22 
-
-eg: team01-web1 10180(web) 10122(ssh) 
-eg: team18-web2 11880(web) 11822(ssh) 
-eg: team19-web3 30180(web) 30122(ssh) 
-eg: team01-pwn1 40180(pwn) 40122(ssh)
-
-==比如我拿到的pwn端口是40980，那么别人的就是4xx80，40080端口到41780端口，写打全场脚本就这样挨个端口打过去==
-反思开局好久都是蒙蔽状态，不知道ip，不知道端口，但其实这些都在群里发的线下赛说明中包含有，需要注意去看QAQ
-有空了我就找找看看写写自动</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-23&nbsp;&nbsp;
         
         
         

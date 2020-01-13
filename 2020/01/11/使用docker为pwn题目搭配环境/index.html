@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Pwn常用指令 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>使用docker为pwn题目搭配环境 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 十二月 23日 2019, 12:45 下午
+                  星期六, 一月 11日 2020, 8:36 晚上
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    27 字
+                    314 字
                   </span>&nbsp;
                 
 
@@ -161,9 +161,29 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="Pwn常用"><a href="#Pwn常用" class="headerlink" title="Pwn常用"></a>Pwn常用</h1><p><code>ldd filename</code> 读取libc</p>
-<p><code>ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot;</code> 获得pop_rdi_ret</p>
-<h2 id="慢慢补充，哎"><a href="#慢慢补充，哎" class="headerlink" title="慢慢补充，哎"></a>慢慢补充，哎</h2>
+            <h1 id="为pwn题目搭配环境-docker"><a href="#为pwn题目搭配环境-docker" class="headerlink" title="为pwn题目搭配环境-docker"></a>为pwn题目搭配环境-docker</h1><h1 id="将多个题目搭建一个docker里"><a href="#将多个题目搭建一个docker里" class="headerlink" title="将多个题目搭建一个docker里"></a>将多个题目搭建一个docker里</h1><p>ubuntu *1 </p>
+<p>docker <a href="https://www.runoob.com/docker/ubuntu-docker-install.html" target="_blank" rel="noopener">安装</a></p>
+<p>docker-compose <a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener">官方文档</a></p>
+<p><a href="https://github.com/giantbranch/pwn_deploy_chroot" target="_blank" rel="noopener">giantbranch/pwn_deploy_chroot</a></p>
+<p><a href="https://blog.csdn.net/xiojing825/article/details/79494408" target="_blank" rel="noopener">解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?</a></p>
+<p><a href="https://www.awaimai.com/2587.html" target="_blank" rel="noopener">docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?</a></p>
+<blockquote>
+<h3 id><a href="#" class="headerlink" title></a></h3><p>将题目放到bin目录中</p>
+<p>然后在config.py，将REPLACE_BINSH设置为False</p>
+<p>运行一次python initialize.py</p>
+<p>然后会出现一个flags.txt（如果想替换flag，就直接修改flag.txt里的flag字符串即可，然后运行一次python initialize.py）</p>
+<p>然后运行 docker-compose up -build -d</p>
+<p>开启题目即可</p>
+<p>注意：若出现libstdc++.so.6找不到的情况，说明C++环境没有配好，只需要在已经配好C++环境的同版本ubuntu下找到libstdc++.so.6.0.XX（XX为数字）和libgcc_s.so.1放到pwn_deploy_chroot目录下，然后在dockerfile里加入一下代码</p>
+<pre><code>COPY ./libstdc++.so.6.0.21 /usr/lib/libstdc++.so.6
+COPY ./libgcc_s.so.1 /usr/lib/libgcc_s.so.1</code></pre><p>来源:<a href="https://196011564.github.io/2019/07/22/Linux-简单PWN搭建/?tdsourcetag=s_pctim_aiomsg#找到Pwn所在的端口" target="_blank" rel="noopener">咲夜南梦</a></p>
+</blockquote>
+<p>停止容器 docker stop name</p>
+<h2 id="一个题目一个docker"><a href="#一个题目一个docker" class="headerlink" title="一个题目一个docker"></a>一个题目一个docker</h2><p><a href="https://github.com/glzjin/base_pwn_xinetd" target="_blank" rel="noopener">ubuntu16</a></p>
+<p><a href="https://github.com/glzjin/base_pwn_xinetd_kafel_1804" target="_blank" rel="noopener">ubuntu18</a></p>
+<p>一般情况下，使用赵师傅Ubuntu18.04环境的docker镜像</p>
+<p>下载下来之后，删除除了文件夹：src，文件：docker-compose.yml，Dockerfile以外的所有文件，并复制多个以供其它题目使用</p>
+
             <hr>
           </div>
           <br>
@@ -329,7 +349,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pwn常用指令&nbsp;",
+        "使用docker为pwn题目搭配环境&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

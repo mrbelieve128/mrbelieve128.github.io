@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Pwn常用指令 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>Linux常见问题解决方法 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 十二月 23日 2019, 12:45 下午
+                  星期六, 一月 11日 2020, 9:39 晚上
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    27 字
+                    54 字
                   </span>&nbsp;
                 
 
@@ -161,9 +161,13 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="Pwn常用"><a href="#Pwn常用" class="headerlink" title="Pwn常用"></a>Pwn常用</h1><p><code>ldd filename</code> 读取libc</p>
-<p><code>ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot;</code> 获得pop_rdi_ret</p>
-<h2 id="慢慢补充，哎"><a href="#慢慢补充，哎" class="headerlink" title="慢慢补充，哎"></a>慢慢补充，哎</h2>
+            <p>E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)<br>E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?</p>
+<pre><code class="shell">ps -A | grep apt
+sudo kill -9 processnumber
+
+sudo rm /var/lib/dpkg/lock
+sudo rm /var/lib/dpkg/lock-frontend</code></pre>
+
             <hr>
           </div>
           <br>
@@ -329,7 +333,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Pwn常用指令&nbsp;",
+        "Linux常见问题解决方法&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
