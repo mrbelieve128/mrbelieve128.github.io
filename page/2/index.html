@@ -134,6 +134,55 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/22/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
+        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">查看main
+
+进入test()
+
+看见了read，等等先
+
+judge无法反编译，查看汇编
+
+看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
+点开read的buf
+
+buf只有30字节
+再看看strings
+
+没有/bin/sh
+所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
+遂写poc
+from pwn import *
+sh = process(&quot;./my_cannary&quot;)
+elf = ELF(&quot;my_cannary&quot;)
+lib = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+pop_rdi_ret = 0x0400a43
+start_main = elf.symbols[&#39;main&#39;]
+context.log_level = &quot;debug&quot;
+context.arch = &#39;amd</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-22&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/15/ciscn_2019_n_1%20WP/">
         <p class="h4 index-header">ciscn_2019_n_1 WP</p>
         
@@ -458,64 +507,6 @@ pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门�
 在线ctf平台![ctf平台](What a day.assets/Jht7r9DY4xadcQZ.png)
 下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯
 GOGOGO！过几天重新开始一大早起床跑步吧!</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/19920%E7%AC%94%E8%AE%B0/">
-        <p class="h4 index-header">19/9/20笔记</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">逆向笔记PE是windows下的文件，ELF是linux/unix下的文件
-packer壳
-28537194573619560LL LL-&gt;长长整型
-可在汇编语言中寻找到mov rax ，指针 沿着指针 再按R看转换后的内容（由于低尾端，栈地址向低地址扩展，所以要将字符串反过来）
-GDBb 函数名
-
-下断点breakpoint
-b __libc_start_main #在主函数设置断点
-set
-set $eip=地址 #跳转到某函数地址
-set $eip=0x0804849br
-
-run 运行到我们下断点的地方，停止
-
-n
-
-运行一步
-
-x/200wx $寄存器
-
-x:就是用来查看内存中数值的，后面的200代表查看多少个，wx代表是以word字节查看看，$eax代表的eax寄存器中的值
-
-反编译pyc
-uncompyle2 -h
-
-==md5(md5($pass)) ：第一次加密后，结果转换成小写，对结果再加密一次.解密为：解密一次后，再解密一次==
-
-
-Re2-cpp-is-awesome
-
-if ( a1 != 2 )
-  {
-    v3 = *a2;
-    v4 = s</div>
         </div>
       </a>
 

