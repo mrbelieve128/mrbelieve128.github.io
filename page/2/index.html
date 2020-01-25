@@ -134,6 +134,55 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/10/get_started_3dsctf_2016/">
+        <p class="h4 index-header">get_started_3dsctf_2016</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">二进制菜鸡的小窝的WPmprotect函数原型： int mprotect(void *addr, size_t len, int prot);
+addr 内存启始地址
+len 修改内存的长度
+prot 内存的权限
+[
+所以得到exp:
+# _*_ coding:utf-8 _*_
+from pwn import *
+elf = ELF(&#39;./get_started_3dsctf_2016&#39;)
+sh = elf.process()
+#sh = remote(&#39;node3.buuoj.cn&#39;,27037)
+
+pop3_ret = 0x804951D #为了后续再能使用栈ret,我们得构造一下栈的布局,因为mprotect函数使用到了3个参数,我们就找存在3个连续pop的指令
+为啥要找3个pop,也就是在正常情况下,函数传参是使用push，所以要为了堆栈还原,函数调用结束时就使用pop来保证堆栈
+完好.
+mem_addr = 0x80EB000 #可读可写的内存,但不可执行
+mem_size = 0x1000 #通过调试出来的值
+mem_proc = 0x7</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/09/%E6%A0%88%E8%BF%81%E7%A7%BB/">
         <p class="h4 index-header">栈迁移</p>
         
@@ -391,7 +440,7 @@ IP地址的低23位替换mac地址低</div>
           
             <a href="/categories/CTF">CTF</a>&nbsp;
           
-            <a href="/categories/%E5%B8%B8%E7%94%A8">常用</a>&nbsp;
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
           &nbsp;
         
         
@@ -587,43 +636,6 @@ eg: team01-pwn1 40180(pwn) 40122(ssh)
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93">反思总结</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/07/pwn_by_examples/">
-        <p class="h4 index-header">pwn_by_examples</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">pwn_by_examplesIDA部分shift f12 字符串
-n 重命名
-x 查看引用
-bash部分cyclic 200 #生成循环 200个
-cyclic -l xxxxx #计算偏移
-PWNTOOLS部分u64 pwndbg部分</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E6%95%99%E7%A8%8B">教程</a>&nbsp;
           &nbsp;
         
         

