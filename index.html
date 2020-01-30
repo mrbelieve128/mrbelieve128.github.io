@@ -134,6 +134,126 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
+        <p class="h4 index-header">BrainOverFlow_Vol.1_BUU特供</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+BrainOverFlow_Vol.1_BUU特供很有意思（好玩）的游戏，感谢札哥的题
+
+btw，我也没想到我会是第六个解出来的hhhhh，我可以吹一个月（笑
+剧情我就不说了，反正很有意思的
+具体东西都藏在/www/data里边，每一次的地图数据（主要在Map013，15，22）都有，个人等级，姓名，武器售卖价值等都可以改hhhhh
+亏我三小时打通游戏，做了半天pwn以为是盲打，然后发现了文件就在图片旁边orz
+protect
+
+
+这图就是溢出点，buf空间只有0x40，但是却读入0xC8个，题目没有system和/bin/sh字段，就是ret2libc
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;./protect&#39;)
+lib = 0
+sh = 0
+def pwn(ip,port,debug):
+    global lib
+    global sh
+    if de</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-30&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/">
+        <p class="h4 index-header">堆的学习_babyheap_0ctf_2017</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">babyheap_0ctf_2017
+===== Baby Heap in 2017 =====
+1. Allocate
+
+Command: 1
+Size: 300 
+Allocate Index 0
+
+2. Fill
+
+Command: 2   
+Index: 0
+Size: 400
+Content: 
+
+3. Free
+
+Command: 3
+Index: 3
+
+4. Dump
+
+Command: 4
+Index: 0
+
+5. Exit
+
+
+struct heap{
+    int ifExit;
+    int size;
+    char *str;
+}
+
+这里可以看见没有检查v4跟结构体里的size大小，并且是按照v4来输入的，这样就可以覆盖到下一块
+
+都设置为了0，这样就不能Use_after_free
+
+先写好必须的四个功能
+    def Allocate(size):
+        sh.sendlineafter(&quot;Command:&quot;,&quot;1&quot;)
+        sh.sendlineafter(&quot;Size:&quo</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-29&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/24/ciscn_2019_s_9/">
         <p class="h4 index-header">ciscn_2019_s_9</p>
         
@@ -518,92 +638,6 @@ docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+
             <a href="/categories/%E8%BF%90%E7%BB%B4">运维</a>&nbsp;
           &nbsp;
         
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/10/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
-        <p class="h4 index-header">PWN 环境搭建清单</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">PWN 环境搭建清单LINUXubuntu18、16
-pwntools 
-edb 调试栈好
-vim
-libcsearcher
-pwndbg 调试堆好
-WIN/MACIDA 反汇编
-die 查看32/64 和壳等
-一些常用指令
-可供参考exp from 南梦
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">PWN环境搭建</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/10/Proxychains/">
-        <p class="h4 index-header">Proxychains</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">折腾两小时，不如问一下人= =
-Proxychains
-先安装
-然后sudo vi /etc/proxychains.conf
-socks5 win_ip 1080
-win_ip为你的windows主机ip，可在cmd ifconfig查看
-飞机要打开允许局域网连接
-
-然后运行测试
-proxychains4 telnet www.google.com 443
-可以之后就可以直接sudo proxychains4 apt-get update了
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux%E4%BD%BF%E7%94%A8">Linux使用</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">Linux 问题解决</a>&nbsp;
-          
         
       </div>
     </div>

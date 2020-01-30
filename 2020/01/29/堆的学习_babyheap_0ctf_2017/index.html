@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>分类 - 备忘 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>堆的学习_babyheap_0ctf_2017 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -107,6 +107,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期三, 一月 29日 2020, 4:54 下午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    218 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -117,72 +152,135 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="list-group">
-  <p class="h4">共计 7 篇文章</p>
-  <hr>
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">堆的学习_babyheap_0ctf_2017</span>
-      <span style="float: right;">01-29</span>
-    </a>
-  
-    
-    <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ez_pz_hackover_2016-继续深入学习edb</span>
-      <span style="float: right;">01-18</span>
-    </a>
-  
-    
-    <a href="/2020/01/14/SROP-ciscn_2019_s_3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">SROP-ciscn_2019_s_3</span>
-      <span style="float: right;">01-14</span>
-    </a>
-  
-    
-    <a href="/2020/01/13/ROPgadget-not_the_same_3dsctf_2016/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ROPgadget-not_the_same_3dsctf_2016</span>
-      <span style="float: right;">01-13</span>
-    </a>
-  
-    
-      
-      <p class="h5">2019</p>
-    
-    <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Pwn常用指令</span>
-      <span style="float: right;">12-23</span>
-    </a>
-  
-    
-    <a href="/2019/12/07/pwn_by_examples/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">pwn_by_examples</span>
-      <span style="float: right;">12-07</span>
-    </a>
-  
-    
-    <a href="/2019/12/02/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">手动脱壳</span>
-      <span style="float: right;">12-02</span>
-    </a>
-  
-</div>
-              </div>
-            </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="babyheap-0ctf-2017"><a href="#babyheap-0ctf-2017" class="headerlink" title="babyheap_0ctf_2017"></a>babyheap_0ctf_2017</h1><p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129165539077.png" srcset="undefined" alt="image-20200129165539077"></p>
+<pre><code>===== Baby Heap in 2017 =====
+1. Allocate
+
+Command: 1
+Size: 300 
+Allocate Index 0
+
+2. Fill
+
+Command: 2   
+Index: 0
+Size: 400
+Content: 
+
+3. Free
+
+Command: 3
+Index: 3
+
+4. Dump
+
+Command: 4
+Index: 0
+
+5. Exit
+</code></pre><p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172302922.png" srcset="undefined" alt="image-20200129172302922"></p>
+<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172208306.png" srcset="undefined" alt="image-20200129172208306"></p>
+<pre><code class="c">struct heap{
+    int ifExit;
+    int size;
+    char *str;
+}</code></pre>
+<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172221992.png" srcset="undefined" alt="image-20200129172221992"></p>
+<p>这里可以看见没有检查v4跟结构体里的size大小，并且是按照v4来输入的，这样就可以覆盖到下一块</p>
+<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172235026.png" srcset="undefined" alt="image-20200129172235026"></p>
+<p>都设置为了0，这样就不能<a href="https://wiki.x10sec.org/pwn/heap/use_after_free/" target="_blank" rel="noopener">Use_after_free</a></p>
+<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172250382.png" srcset="undefined" alt="image-20200129172250382"></p>
+<p>先写好必须的四个功能</p>
+<pre><code class="python">    def Allocate(size):
+        sh.sendlineafter(&quot;Command:&quot;,&quot;1&quot;)
+        sh.sendlineafter(&quot;Size:&quot;,str(size))
+        sleep(0.1)
+
+    def Fill(Index,payload):
+        sh.sendlineafter(&quot;Command:&quot;,&quot;2&quot;)
+        sh.sendlineafter(&quot;Index:&quot;,str(Index))
+        sh.sendlineafter(&quot;Size:&quot;,str(len(payload)))
+        sh.sendlineafter(&quot;Content:&quot;,str(payload))
+        sleep(0.1)
+
+    def Free(Index):
+        sh.sendlineafter(&quot;Command:&quot;,&quot;3&quot;)
+        sh.sendlineafter(&quot;Index:&quot;,str(Index))
+        sleep(0.1)
+
+    def Dump(Index):
+        sh.sendlineafter(&quot;Command:&quot;,&quot;3&quot;)
+        sh.sendlineafter(&quot;Index:&quot;,str(Index))
+        sleep(0.1)
+</code></pre>
+<p>然后，先</p>
+<pre><code class="python">Allocate(0x60)
+Allocate(0x30)
+gdb.attach(sh)
+heap</code></pre>
+<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129195514811.png" srcset="undefined" alt="image-20200129195514811"></p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/CTF">CTF</a>
+                  &nbsp;
+                
+                  <a class="hover-with-bg" href="/categories/%E5%A4%87%E5%BF%98">备忘</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -262,6 +360,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -302,7 +405,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类 - 备忘&nbsp;",
+        "堆的学习_babyheap_0ctf_2017&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
