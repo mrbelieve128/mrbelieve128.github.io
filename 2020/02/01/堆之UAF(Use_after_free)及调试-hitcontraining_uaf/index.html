@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>栈迁移 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>堆之UAF(Use_after_free)及调试-hitcontraining_uaf ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期四, 一月 9日 2020, 11:22 晚上
+                  星期六, 二月 1日 2020, 3:45 下午
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    155 字
+                    629 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      2 分钟
                   </span>&nbsp;
                 
 
@@ -161,7 +161,62 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div>
+            <h1 id="堆之UAF-Use-after-free-及调试-hitcontraining-uaf"><a href="#堆之UAF-Use-after-free-及调试-hitcontraining-uaf" class="headerlink" title="堆之UAF(Use_after_free)及调试-hitcontraining_uaf"></a>堆之UAF(Use_after_free)及调试-hitcontraining_uaf</h1><blockquote>
+<p><a href="https://wiki.x10sec.org/pwn/heap/use_after_free/" target="_blank" rel="noopener">https://wiki.x10sec.org/pwn/heap/use_after_free/</a></p>
+<p><strong>一个很直接的想法是修改note的put字段为magic函数的地址，从而实现在执行print note 的时候执行magic函数。</strong> 那么该怎么执行呢？</p>
+<p>我们可以简单来看一下每一个note生成的具体流程</p>
+<ol>
+<li><p>程序申请8字节内存用来存放note中的put以及content指针。</p>
+</li>
+<li><p>程序根据输入的size来申请指定大小的内存，然后用来存储content。</p>
+</li>
+</ol>
+<pre><code>      +-----------------+                       
+      |   put           |                       
+      +-----------------+                       
+      |   content       |       size              
+      +-----------------+-------------------&gt;+----------------+
+                                             |     real       |
+                                             |    content     |
+                                             |                |
+                                             +----------------+</code></pre><p>那么，根据我们之前在堆的实现中所学到的，显然note是一个fastbin chunk（大小为16字节）。我们的目的是希望一个note的put字段为magic的函数地址，那么我们必须想办法让某个note的put指针被覆盖为magic地址。由于程序中只有唯一的地方对put进行赋值。所以我们必须利用写real content的时候来进行覆盖。具体采用的思路如下</p>
+<ul>
+<li>申请note0，real content size为16（大小与note大小所在的bin不一样即可）</li>
+<li>申请note1，real content size为16（大小与note大小所在的bin不一样即可）</li>
+<li>释放note0</li>
+<li>释放note1</li>
+<li>此时，大小为16的fast bin chunk中链表为note1-&gt;note0</li>
+<li>申请note2，并且设置real content的大小为8，那么根据堆的分配规则</li>
+<li>note2其实会分配note1对应的内存块。</li>
+<li>real content 对应的chunk其实是note0。</li>
+<li>如果我们这时候向note3的chunk部分写入magic的地址，那么由于我们没有note1为NULL。当我们再次尝试输出note1的时候，程序就会调用magic函数。</li>
+</ul>
+</blockquote>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201220702851.png" srcset="undefined" alt="image-20200201220702851"></p>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221032403.png" srcset="undefined" alt="image-20200201221032403"></p>
+<p>free了但没有设置为0，所以存在uaf</p>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221102009.png" srcset="undefined" alt="image-20200201221102009"></p>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221149782.png" srcset="undefined" alt="image-20200201221149782"></p>
+<p>先申请两个0x10的空间，内容为aaaa</p>
+<pre><code class="python">add(0x10,&quot;aaaa&quot;)
+add(0x10,&quot;aaaa&quot;)</code></pre>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201220613982.png" srcset="undefined" alt="image-20200201220613982"></p>
+<p>最下面的是top chunk，我们申请了的两块0x10空间，还有两块是因为下图，并且，堆块地址向上生长</p>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221459981.png" srcset="undefined" alt="image-20200201221459981"></p>
+<p>所以，最先的<code>0x826300</code>和<code>0x826328</code>应该就是最先分配的notelist[i]，里面存放着指向print_note_content的地址，<code>0x826310</code>和<code>0x826338</code>就是我们自己申请的堆了</p>
+<p>然后在我们delete了这两个堆块之后，（由于重新运行程序所以地址改变</p>
+<pre><code class="python">delete(0)
+delete(1)</code></pre>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201224306213.png" srcset="undefined" alt="image-20200201224306213"></p>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201224344952.png" srcset="undefined" alt="image-20200201224344952"></p>
+<p><code>0x902e010</code>（我们申请的）和<code>0x902e00</code>（存放puts地址的）先进入fastbins单链表</p>
+<p>然后此时我们再<code>add(8,p32(shell))</code></p>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201225157906.png" srcset="undefined" alt="image-20200201225157906"></p>
+<p><img src="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201225221156.png" srcset="undefined" alt="image-20200201225221156"></p>
+<p><code>0x87d0028</code>先出来，储存print地址，然后再<code>0x87d0000</code>,储存magic地址</p>
+<p>最后，我们再print heap0时，就跳转到了magic地址上面去了</p>
+<hr>
+<h2 id="有待深究。。。。"><a href="#有待深究。。。。" class="headerlink" title="有待深究。。。。"></a>有待深究。。。。</h2>
             <hr>
           </div>
           <br>
@@ -174,7 +229,7 @@
                   <a class="hover-with-bg" href="/categories/CTF">CTF</a>
                   &nbsp;
                 
-                  <a class="hover-with-bg" href="/categories/%E5%B8%B8%E7%94%A8">常用</a>
+                  <a class="hover-with-bg" href="/categories/buu">buu</a>
                   &nbsp;
                 
               </span>&nbsp;&nbsp;
@@ -338,7 +393,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "栈迁移&nbsp;",
+        "堆之UAF(Use_after_free)及调试-hitcontraining_uaf&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

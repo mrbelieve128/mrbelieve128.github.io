@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>堆的学习_babyheap_0ctf_2017 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>babyheap_0ctf_2017 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期三, 一月 29日 2020, 4:54 下午
+                  星期五, 一月 31日 2020, 8:49 晚上
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    218 字
+                    224 字
                   </span>&nbsp;
                 
 
@@ -161,7 +161,7 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="babyheap-0ctf-2017"><a href="#babyheap-0ctf-2017" class="headerlink" title="babyheap_0ctf_2017"></a>babyheap_0ctf_2017</h1><p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129165539077.png" srcset="undefined" alt="image-20200129165539077"></p>
+            <h1 id="babyheap-0ctf-2017"><a href="#babyheap-0ctf-2017" class="headerlink" title="babyheap_0ctf_2017"></a>babyheap_0ctf_2017</h1><p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129165539077.png" srcset="undefined" alt="image-20200129165539077"></p>
 <pre><code>===== Baby Heap in 2017 =====
 1. Allocate
 
@@ -187,47 +187,50 @@ Command: 4
 Index: 0
 
 5. Exit
-</code></pre><p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172302922.png" srcset="undefined" alt="image-20200129172302922"></p>
-<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172208306.png" srcset="undefined" alt="image-20200129172208306"></p>
+</code></pre><p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129172302922.png" srcset="undefined" alt="image-20200129172302922"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129172208306.png" srcset="undefined" alt="image-20200129172208306"></p>
 <pre><code class="c">struct heap{
     int ifExit;
     int size;
     char *str;
 }</code></pre>
-<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172221992.png" srcset="undefined" alt="image-20200129172221992"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129172221992.png" srcset="undefined" alt="image-20200129172221992"></p>
 <p>这里可以看见没有检查v4跟结构体里的size大小，并且是按照v4来输入的，这样就可以覆盖到下一块</p>
-<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172235026.png" srcset="undefined" alt="image-20200129172235026"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129172235026.png" srcset="undefined" alt="image-20200129172235026"></p>
 <p>都设置为了0，这样就不能<a href="https://wiki.x10sec.org/pwn/heap/use_after_free/" target="_blank" rel="noopener">Use_after_free</a></p>
-<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129172250382.png" srcset="undefined" alt="image-20200129172250382"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129172250382.png" srcset="undefined" alt="image-20200129172250382"></p>
 <p>先写好必须的四个功能</p>
-<pre><code class="python">    def Allocate(size):
+<pre><code class="python">    def add(size):
         sh.sendlineafter(&quot;Command:&quot;,&quot;1&quot;)
         sh.sendlineafter(&quot;Size:&quot;,str(size))
         sleep(0.1)
 
-    def Fill(Index,payload):
+    def edit(Index,payload):
         sh.sendlineafter(&quot;Command:&quot;,&quot;2&quot;)
         sh.sendlineafter(&quot;Index:&quot;,str(Index))
         sh.sendlineafter(&quot;Size:&quot;,str(len(payload)))
         sh.sendlineafter(&quot;Content:&quot;,str(payload))
         sleep(0.1)
 
-    def Free(Index):
+    def delete(Index):
         sh.sendlineafter(&quot;Command:&quot;,&quot;3&quot;)
         sh.sendlineafter(&quot;Index:&quot;,str(Index))
         sleep(0.1)
 
-    def Dump(Index):
+    def dump(Index):
         sh.sendlineafter(&quot;Command:&quot;,&quot;3&quot;)
         sh.sendlineafter(&quot;Index:&quot;,str(Index))
         sleep(0.1)
 </code></pre>
 <p>然后，先</p>
-<pre><code class="python">Allocate(0x60)
-Allocate(0x30)
+<pre><code class="python">add(0x10)
+add(0x10)
+add(0x10)
+add(0x10)
+add(0x80)
 gdb.attach(sh)
 heap</code></pre>
-<p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%AD%A6%E4%B9%A0_babyheap_0ctf_2017/image-20200129195514811.png" srcset="undefined" alt="image-20200129195514811"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200130203030683.png" srcset="undefined" alt="image-20200130203030683"></p>
 
             <hr>
           </div>
@@ -241,7 +244,7 @@ heap</code></pre>
                   <a class="hover-with-bg" href="/categories/CTF">CTF</a>
                   &nbsp;
                 
-                  <a class="hover-with-bg" href="/categories/%E5%A4%87%E5%BF%98">备忘</a>
+                  <a class="hover-with-bg" href="/categories/buu">buu</a>
                   &nbsp;
                 
               </span>&nbsp;&nbsp;
@@ -405,7 +408,7 @@ heap</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "堆的学习_babyheap_0ctf_2017&nbsp;",
+        "babyheap_0ctf_2017&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
