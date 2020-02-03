@@ -134,6 +134,39 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/03/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/">
+        <p class="h4 index-header">[极客大挑战2019]Not_Bad</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">[极客大挑战2019]Not_Bad
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
         <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
         
@@ -187,7 +220,8 @@ https://wiki.x10sec.org/pwn/heap/use_after_free/
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">babyheap_0ctf_2017
+          <div class="index-text mb-1">babyheap_0ctf_2017参考wp:https://blog.csdn.net/weixin_42151611/article/details/98119213?fps=1&amp;locationNum=2
+
 ===== Baby Heap in 2017 =====
 1. Allocate
 
@@ -226,9 +260,8 @@ struct heap{
 都设置为了0，这样就不能Use_after_free
 
 先写好必须的四个功能
-    def add(size):
-        sh.sendlineafter(&quot;Command:&quot;,&quot;1&quot;)
-        sh.sendlineafter(&quot;Size:&quot;,st</div>
+    def allocate(size):
+        s</div>
         </div>
       </a>
 
@@ -588,53 +621,6 @@ r13的值会给到rdx，让rbx=0，下面call的时候会变为call [r12]，会�
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-14&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/13/ROPgadget-not_the_same_3dsctf_2016/">
-        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
-
-ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
-自动生成
-from struct import pack
-p = &#39;&#39;
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
-p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
-p += &#39;/bin&#39;
-p += pack(&#39;&lt;I&#39;, 0x0805586b) # mov dword ptr [edx], eax ; ret
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb064) # @ .data + 4
-p += p</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

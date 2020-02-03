@@ -189,7 +189,7 @@
 <p>==x/2gx &amp;main_arena==</p>
 <p><strong>32位的程序使用 x/32xw  addr比较直观一点</strong></p>
 <p><strong>64位的程序使用 x/64xw  addr</strong></p>
-<h2 id="top-chunk"><a href="#top-chunk" class="headerlink" title="top chunk"></a>top chunk</h2><p>堆中第一个堆块,程序以后分配到的内存到要放在他的后面，就如下图的0x5578cbd73110（并且，堆向下生长</p>
+<h2 id="top-chunk"><a href="#top-chunk" class="headerlink" title="top chunk"></a>top chunk</h2><p>堆中第一个堆块,程序以后分配到的内存到要放在他的后面，就如下图的0x5578cbd73110（并且，堆向上生长</p>
 <p><img src="/2020/01/29/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/image-20200131214332010.png" srcset="undefined" alt="image-20200131214332010"></p>
 <blockquote>
 <p>FD 指向链表中前一个堆块的指针，该指针指向的是chunk的head</p>

