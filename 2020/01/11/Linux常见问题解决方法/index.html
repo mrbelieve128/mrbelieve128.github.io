@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    54 字
+                    102 字
                   </span>&nbsp;
                 
 
@@ -167,6 +167,13 @@ sudo kill -9 processnumber
 
 sudo rm /var/lib/dpkg/lock
 sudo rm /var/lib/dpkg/lock-frontend</code></pre>
+<p>E: Could not get lock /var/cache/apt/archives/lock - open (11: Resource temporarily unavailable) </p>
+<p>E: Unable to lock directory /var/cache/apt/archives/</p>
+<pre><code class="bash">sudo killall apt-get
+
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock</code></pre>
 
             <hr>
           </div>
