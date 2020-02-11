@@ -134,6 +134,92 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/15/buu-ciscn_2019-c_1%20WP/">
+        <p class="h4 index-header">buu-ciscn_2019-c_1 WP</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">buu-ciscn_2019-c_1 WP// local variable allocation has failed, the output may be wrong!
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  int v4; // [rsp+Ch] [rbp-4h]
+
+  init(*(_QWORD *)&amp;argc, argv, envp);
+  puts(&quot;EEEEEEE                            hh      iii                &quot;);
+  puts(&quot;EE      mm mm mmmm    aa aa   cccc hh          nn nnn    eee  &quot;);
+  puts(&quot;EEEEE   mmm  mm  mm  aa aaa cc     hhhhhh  iii nnn  nn ee   e &quot;);
+  puts(&quot;EE     </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
+        <p class="h4 index-header">安洵杯线下AWD总结</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">安洵杯线下AWD总结
+
+事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
+线下还是很友好的，可以连接外网，伙食也很不错，但是！
+只有先黑盒测试过了自己的，拿了flag并提交了之后，才可以找主办方要ssh密码=。=并且AWD只有1道pwn题，3个web题，域渗透部分就更不必多说了，都是web，哎
+AWD规则连接的是docker服务器，所以给的都是端口
+端口列表：axx80/axx22 
+
+eg: team01-web1 10180(web) 10122(ssh) 
+eg: team18-web2 11880(web) 11822(ssh) 
+eg: team19-web3 30180(web) 30122(ssh) 
+eg: team01-pwn1 40180(pwn) 40122(ssh)
+
+==比如我拿到的pwn端口是40980，那么别人的就是4xx80，40080端口到41780端口，写打全场脚本就这样挨个端口打过去==
+反思开局好久都是蒙蔽状态，不知道ip，不知道端口，但其实这些都在群里发的线下赛说明中包含有，需要注意去看QAQ
+有空了我就找找看看写写自动</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93">反思总结</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/07/pwn_by_examples/">
         <p class="h4 index-header">pwn_by_examples</p>
         
@@ -487,116 +573,6 @@ git remote add origin https://gite</div>
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/%E6%95%99%E7%A8%8B">教程</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        <p class="h4 index-header">博弈论</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
-Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\
-结论1：不要选择严格劣势策略
-结论2：理性的选择，使得总结果变得更坏
-改变收益，就会改变目的。
-结论3：予欲得之，必先知之\
-结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做
-
-2019/8/6
-
-
-Class2博弈的要素：参与人（i,j）、策略（si,Si策略集合，s某一次博弈）、收益（U，Ui(s)）
-s-i:除了i以外其他参与人每人的策略
-
-
-
-1/2
-L
-C
-R
-
-
-
-T
-5,-1
-11,3
-0,0
-
-
-B
-6,4
-0,2
-2,0
-
-
-S1={T,B} S2={L,C,R}
-U1(T,C)=11 U2(T，C)=3
-定义：参与人i的策略s’i严格劣于另一个策略si，在其他人选择s-i时，选择si的收益UI严格优于此</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AF%BE%E5%A4%96%E5%AD%A6%E4%B9%A0">课外学习</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
-        <p class="h4 index-header">手动脱壳</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
-注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
-ESP定律
-参考
-nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
-首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od可==
-ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转，继续F8
-
-
-
-
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
           &nbsp;
         
         

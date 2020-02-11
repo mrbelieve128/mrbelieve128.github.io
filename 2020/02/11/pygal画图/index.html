@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>解密系列笔记 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>pygal画图 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 十二月 2日 2019, 11:10 上午
+                  星期二, 二月 11日 2020, 2:19 下午
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    250 字
+                    199 字
                   </span>&nbsp;
                 
 
@@ -161,34 +161,30 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="解密系列"><a href="#解密系列" class="headerlink" title="解密系列"></a>解密系列</h1><p>ASCII编码是Unicode字符编码的一部分</p>
-<p>系统dll属于level3，内核运行在level0. </p>
-<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><p>在保护模式下：</p>
-<ul>
-<li>应用程序是不会直接访问物理地址的</li>
-<li>虚拟内存管理器通过虚拟地址的访问请求，控制所有物理地址访问</li>
-<li>每个程序都有独立的4GB寻址空间，不同程序的地址空间是被相互隔离的。</li>
-<li>DLL程序没有自己的“私有”空间，它们称之为动态链接库文件，它们总是被映射到其他应用程序的地址空间中的，作为其他应用程序的一部分运行。</li>
-</ul>
-<p>==简化了内存的管理，并可弥补物理内存的不足，另外可以防止多任务环境下各个应用程序之间的冲突==</p>
-<p>与实地址模式下的“段地址：偏移地址”索引方式类似，虚拟地址也写成“段：偏移量”，但为段选择子。</p>
+            <h1 id="pygal画图"><a href="#pygal画图" class="headerlink" title="pygal画图"></a>pygal画图</h1><p>官方文档<a href="http://www.pygal.org/en/stable/documentation/" target="_blank" rel="noopener">http://www.pygal.org/en/stable/documentation/</a></p>
+<h2 id="渲染成图片"><a href="#渲染成图片" class="headerlink" title="渲染成图片"></a>渲染成图片</h2><p><a href="https://www.cnblogs.com/xiang-wu/p/11603426.html" target="_blank" rel="noopener">cairosvg使用过程中需要注意的问题</a></p>
+<h2 id="官方例子"><a href="#官方例子" class="headerlink" title="官方例子"></a>官方例子</h2><pre><code class="python">line_chart = pygal.Bar()
+line_chart.title = &#39;Browser usage evolution (in %)&#39;
+line_chart.x_labels = map(str, range(2002, 2013))
+line_chart.add(&#39;Firefox&#39;, [None, None, 0, 16.6,   25,   31, 36.4, 45.5, 46.3, 42.8, 37.1])
+line_chart.add(&#39;Chrome&#39;,  [None, None, None, None, None, None,    0,  3.9, 10.8, 23.8, 35.3])
+line_chart.add(&#39;IE&#39;,      [85.8, 84.6, 84.7, 74.5,   66, 58.6, 54.7, 44.8, 36.2, 26.6, 20.1])
+line_chart.add(&#39;Others&#39;,  [14.2, 15.4, 15.3,  8.9,    9, 10.4,  8.9,  5.8,  6.7,  6.8,  7.5])
+line_chart.render()</code></pre>
+<pre><code class="python">line_chart = pygal.HorizontalBar()
+line_chart.title = &#39;Browser usage in February 2012 (in %)&#39;
+line_chart.add(&#39;IE&#39;, 19.5)
+line_chart.add(&#39;Firefox&#39;, 36.6)
+line_chart.add(&#39;Chrome&#39;, 36.3)
+line_chart.add(&#39;Safari&#39;, 4.5)
+line_chart.add(&#39;Opera&#39;, 2.3)
+line_chart.render()</code></pre>
 
             <hr>
           </div>
           <br>
           <div>
             <p>
-            
-              <span>
-                <i class="iconfont icon-inbox"></i>
-                
-                  <a class="hover-with-bg" href="/categories/CTF">CTF</a>
-                  &nbsp;
-                
-                  <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a>
-                  &nbsp;
-                
-              </span>&nbsp;&nbsp;
             
             
             </p>
@@ -371,7 +367,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "解密系列笔记&nbsp;",
+        "pygal画图&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
