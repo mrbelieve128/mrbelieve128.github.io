@@ -134,52 +134,6 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/10/Proxychains/">
-        <p class="h4 index-header">Proxychains</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">折腾两小时，不如问一下人= =
-Proxychains
-先安装
-然后sudo vi /etc/proxychains.conf
-socks5 win_ip 1080
-win_ip为你的windows主机ip，可在cmd ifconfig查看
-飞机要打开允许局域网连接
-
-然后运行测试
-proxychains4 telnet www.google.com 443
-可以之后就可以直接sudo proxychains4 apt-get update了
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux%E4%BD%BF%E7%94%A8">Linux使用</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">Linux 问题解决</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/10/get_started_3dsctf_2016/">
         <p class="h4 index-header">get_started_3dsctf_2016</p>
         
@@ -637,6 +591,51 @@ int __cdecl main(int argc, const char **argv, const char **envp)
             <a href="/categories/CTF">CTF</a>&nbsp;
           
             <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/10/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
+        <p class="h4 index-header">安洵杯线下AWD总结</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">安洵杯线下AWD总结
+
+事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
+线下还是很友好的，可以连接外网，伙食也很不错，但是！
+只有先黑盒测试过了自己的，拿了flag并提交了之后，才可以找主办方要ssh密码=。=并且AWD只有1道pwn题，3个web题，域渗透部分就更不必多说了，都是web，哎
+AWD规则连接的是docker服务器，所以给的都是端口
+端口列表：axx80/axx22 
+
+eg: team01-web1 10180(web) 10122(ssh) 
+eg: team18-web2 11880(web) 11822(ssh) 
+eg: team19-web3 30180(web) 30122(ssh) 
+eg: team01-pwn1 40180(pwn) 40122(ssh)
+
+==比如我拿到的pwn端口是40980，那么别人的就是4xx80，40080端口到41780端口，写打全场脚本就这样挨个端口打过去==
+反思开局好久都是蒙蔽状态，不知道ip，不知道端口，但其实这些都在群里发的线下赛说明中包含有，需要注意去看QAQ
+有空了我就找找看看写写自动</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93">反思总结</a>&nbsp;
           &nbsp;
         
         
