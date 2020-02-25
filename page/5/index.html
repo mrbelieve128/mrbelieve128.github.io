@@ -134,23 +134,51 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        <p class="h4 index-header">转载-编写shellcode测试工具</p>
+      <a href="/2019/12/02/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+        <p class="h4 index-header">博弈论</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
-shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
-该程序的实现很简单：
-1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
-代码如下：
-#include &lt;sys/types.h&gt;
-#include &lt;sys/stat.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;stdio.h&gt;
-#include &</div>
+          <div class="index-text mb-1">LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
+Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\
+结论1：不要选择严格劣势策略
+结论2：理性的选择，使得总结果变得更坏
+改变收益，就会改变目的。
+结论3：予欲得之，必先知之\
+结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做
+
+2019/8/6
+
+
+Class2博弈的要素：参与人（i,j）、策略（si,Si策略集合，s某一次博弈）、收益（U，Ui(s)）
+s-i:除了i以外其他参与人每人的策略
+
+
+
+1/2
+L
+C
+R
+
+
+
+T
+5,-1
+11,3
+0,0
+
+
+B
+6,4
+0,2
+2,0
+
+
+S1={T,B} S2={L,C,R}
+U1(T,C)=11 U2(T，C)=3
+定义：参与人i的策略s’i严格劣于另一个策略si，在其他人选择s-i时，选择si的收益UI严格优于此</div>
         </div>
       </a>
 
@@ -158,6 +186,54 @@ shellcode测试工具sctest我们将工具取名为sctest，是shell code test�
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
         
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E8%AF%BE%E5%A4%96%E5%AD%A6%E4%B9%A0">课外学习</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
+        <p class="h4 index-header">手动脱壳</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
+注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
+ESP定律
+参考
+nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
+首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od可==
+ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转，继续F8
+
+
+
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          &nbsp;
         
         
       </div>
@@ -313,6 +389,40 @@ DLL程序没有自己的“私有”空间，它们称之为动态链接库文�
           
             <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a>&nbsp;
           &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
+        <p class="h4 index-header">转载-编写shellcode测试工具</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
+shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
+该程序的实现很简单：
+1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
+代码如下：
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
         
         
       </div>
