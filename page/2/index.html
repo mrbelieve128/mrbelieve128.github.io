@@ -134,6 +134,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/29/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        <p class="h4 index-header">堆的基础知识</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">堆的基础知识get_shell
+修改某个函数的got表 为 system 的地址,然后参数准备为binsh 就可以
+修改free函数为puts函数,然后某个堆里参数准备为某个函数的got表地址 就可以泄露地址了
+one_gadget
+
+来源：https://www.anquanke.com/post/id/163971
+在 64 位程序中：
+malloc(8)申请到的堆块总大小为 16 + 8 + 8 + 1 = 0x21
+1.第一个 16 字节是系统最小分配的内存，也就是说你如果想要申请的内存小于系统最小分配的内存的话，就会按照最小的内存来分配。
+
+在 64 位系统中这个值是 16 个字节，在 32 位系统中是 8 个字节
+例如，如果代码中是 malloc(0) 的话，堆管理器也会分配最小内存空间给你
+
+2.第二个 8 字节是 pre size 字段的大小（32 位的为 4 字节）3.第三个 8 字节为 size 字段的大小（32 位的为 4 字节）4.最后一个 1 字节是 PREV_INUSE 的值，只有 0 或 1两个值
+
+1.pre size 字段。只有在前面一个堆块是空闲的时</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-29&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/28/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
         <p class="h4 index-header">个人原则宪法</p>
         
@@ -556,50 +603,6 @@ sudo rm /var/lib/apt</div>
           
             <a href="/tags/Linux%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">Linux 问题解决</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/11/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
-        <p class="h4 index-header">使用docker为pwn题目搭配环境</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">为pwn题目搭配环境-docker将多个题目搭建一个docker里ubuntu *1 
-docker 安装
-docker-compose 官方文档
-giantbranch/pwn_deploy_chroot
-解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
-docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
-
-将题目放到bin目录中
-然后在config.py，将REPLACE_BINSH设置为False
-运行一次python initialize.py
-然后会出现一个flags.txt（如果想替换flag，就直接修改flag.txt里的flag字符串即可，然后运行一次python initialize.py）
-然后运行 docker-compose up -build -d
-开启题</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E8%BF%90%E7%BB%B4">运维</a>&nbsp;
-          &nbsp;
-        
         
       </div>
     </div>

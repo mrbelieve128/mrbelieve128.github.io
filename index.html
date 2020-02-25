@@ -198,6 +198,56 @@ Hive 数据仓库
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/12/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
+        <p class="h4 index-header">cisco课程代码记录</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">cisco课程代码记录不记肯定会忘记QAQ,只敲简写然后敲tab也是可以的
+enable
+configure terminal
+hostname R1加密enable secret class
+line console 0
+(config-line)password cisco
+(config-line)login
+(config-line)exit
+line vty 0 4 #这部分不记得是干啥的，好像是生成管道？
+(config-line)password cisco
+(config-line)login
+(config-line)exit
+service password-encrytion标语banner motd $ Authorized Access Only! $保存配置copy running-config startup-config端口设置interface f 0/0
+(config-if)description Link to Lan 1
+(config-if)ip address 192.168.10.1 255.255.255.0 
+(config-if)i</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/-%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">-专业学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/-%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">-专业学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/02/05/oneshot_tjctf_2016/">
         <p class="h4 index-header">oneshot_tjctf_2016</p>
         
@@ -568,53 +618,6 @@ def pwn(ip,port,debug):
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-30&nbsp;&nbsp;
         
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/29/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-        <p class="h4 index-header">堆的基础知识</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">堆的基础知识get_shell
-修改某个函数的got表 为 system 的地址,然后参数准备为binsh 就可以
-修改free函数为puts函数,然后某个堆里参数准备为某个函数的got表地址 就可以泄露地址了
-one_gadget
-
-来源：https://www.anquanke.com/post/id/163971
-在 64 位程序中：
-malloc(8)申请到的堆块总大小为 16 + 8 + 8 + 1 = 0x21
-1.第一个 16 字节是系统最小分配的内存，也就是说你如果想要申请的内存小于系统最小分配的内存的话，就会按照最小的内存来分配。
-
-在 64 位系统中这个值是 16 个字节，在 32 位系统中是 8 个字节
-例如，如果代码中是 malloc(0) 的话，堆管理器也会分配最小内存空间给你
-
-2.第二个 8 字节是 pre size 字段的大小（32 位的为 4 字节）3.第三个 8 字节为 size 字段的大小（32 位的为 4 字节）4.最后一个 1 字节是 PREV_INUSE 的值，只有 0 或 1两个值
-
-1.pre size 字段。只有在前面一个堆块是空闲的时</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-29&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
         
         
       </div>

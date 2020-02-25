@@ -134,6 +134,50 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/11/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
+        <p class="h4 index-header">使用docker为pwn题目搭配环境</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">为pwn题目搭配环境-docker将多个题目搭建一个docker里ubuntu *1 
+docker 安装
+docker-compose 官方文档
+giantbranch/pwn_deploy_chroot
+解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
+docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
+
+将题目放到bin目录中
+然后在config.py，将REPLACE_BINSH设置为False
+运行一次python initialize.py
+然后会出现一个flags.txt（如果想替换flag，就直接修改flag.txt里的flag字符串即可，然后运行一次python initialize.py）
+然后运行 docker-compose up -build -d
+开启题</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E8%BF%90%E7%BB%B4">运维</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/10/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
         <p class="h4 index-header">PWN 环境搭建清单</p>
         
@@ -585,59 +629,6 @@ context.arch = &#39;amd</div>
             <a href="/categories/CTF">CTF</a>&nbsp;
           
             <a href="/categories/%E6%AF%94%E8%B5%9B">比赛</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/15/ciscn_2019_n_1%20WP/">
-        <p class="h4 index-header">ciscn_2019_n_1 WP</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_n_1 WPint func()
-{
-  int result; // eax
-  char v1; // [rsp+0h] [rbp-30h]
-  float v2; // [rsp+2Ch] [rbp-4h]
-
-  v2 = 0.0;
-  puts(&quot;Let&#39;s guess the number.&quot;);
-  gets(&amp;v1);
-  if ( v2 == 11.28125 )
-    result = system(&quot;cat /flag&quot;);
-  else
-    result = puts(&quot;Its value should be 11.28125&quot;);
-  return result;
-}
-看见==我还尝试了一下’a’ * offset + ‘11.28215’……
-然后南梦一句：这不是有gets，你直接跳system不就好了。。。。
-哎
-exp
-from pwn import *
-context.log_level = &quot;debug&quot;
-context.arch</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
           &nbsp;
         
         
