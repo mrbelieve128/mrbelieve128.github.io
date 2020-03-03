@@ -134,6 +134,95 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/What%20a%20day/">
+        <p class="h4 index-header">What a day</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。
+想学逆向发现了mac上的一些软件之类的，link
+入门link
+pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码
+在线ctf平台![ctf平台](What a day.assets/Jht7r9DY4xadcQZ.png)
+下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯
+GOGOGO！过几天重新开始一大早起床跑步吧!</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/19920%E7%AC%94%E8%AE%B0/">
+        <p class="h4 index-header">19/9/20笔记</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">逆向笔记PE是windows下的文件，ELF是linux/unix下的文件
+packer壳
+28537194573619560LL LL-&gt;长长整型
+可在汇编语言中寻找到mov rax ，指针 沿着指针 再按R看转换后的内容（由于低尾端，栈地址向低地址扩展，所以要将字符串反过来）
+GDBb 函数名
+
+下断点breakpoint
+b __libc_start_main #在主函数设置断点
+set
+set $eip=地址 #跳转到某函数地址
+set $eip=0x0804849br
+
+run 运行到我们下断点的地方，停止
+
+n
+
+运行一步
+
+x/200wx $寄存器
+
+x:就是用来查看内存中数值的，后面的200代表查看多少个，wx代表是以word字节查看看，$eax代表的eax寄存器中的值
+
+反编译pyc
+uncompyle2 -h
+
+==md5(md5($pass)) ：第一次加密后，结果转换成小写，对结果再加密一次.解密为：解密一次后，再解密一次==
+
+
+Re2-cpp-is-awesome
+
+if ( a1 != 2 )
+  {
+    v3 = *a2;
+    v4 = s</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/02/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
         <p class="h4 index-header">git同步到github和gitee</p>
         
@@ -281,43 +370,23 @@ ESP定律的落脚点，可以看到落脚点下面一行就是一个大跳转�
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编、逆向工程基础</p>
+      <a href="/2019/12/02/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
+        <p class="h4 index-header">转载-编写shellcode测试工具</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
-单位
-
-·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
-·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
-
-
-一个16进制占4bit
-
-
-寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
-
-
-EAX： 累加器
-EBX： 基址寄存器
-ECX： 计数器
-EDX： 数据寄存器
-ESI： 源变址寄存器
-EDI： 目的变址寄存器
-EBP： 扩展基址指针寄存器
-ESP： 栈指针寄存器
-EIP： 指令指针寄存器
-
-
-==大小都是4个字节==
-
-
-EBP： EBP在栈中运用最广，刚开始没有什么需要特别注意的 ;) 
-
-ESP： ESP指向栈区域的栈顶位置。栈是一个存放即将会被用到的数据的地方，你可以去搜索一下push/pop 指令</div>
+          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
+shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
+该程序的实现很简单：
+1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
+代码如下：
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &</div>
         </div>
       </a>
 
@@ -325,13 +394,6 @@ ESP： ESP指向栈区域的栈顶位置。栈是一个存放即将会被用到�
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
         
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a>&nbsp;
-          &nbsp;
         
         
       </div>
@@ -393,23 +455,43 @@ ESI： 源变</div>
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        <p class="h4 index-header">转载-编写shellcode测试工具</p>
+      <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">汇编、逆向工程基础</p>
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
-shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
-该程序的实现很简单：
-1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
-代码如下：
-#include &lt;sys/types.h&gt;
-#include &lt;sys/stat.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;stdio.h&gt;
-#include &</div>
+          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
+单位
+
+·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
+·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
+
+
+一个16进制占4bit
+
+
+寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
+
+
+EAX： 累加器
+EBX： 基址寄存器
+ECX： 计数器
+EDX： 数据寄存器
+ESI： 源变址寄存器
+EDI： 目的变址寄存器
+EBP： 扩展基址指针寄存器
+ESP： 栈指针寄存器
+EIP： 指令指针寄存器
+
+
+==大小都是4个字节==
+
+
+EBP： EBP在栈中运用最广，刚开始没有什么需要特别注意的 ;) 
+
+ESP： ESP指向栈区域的栈顶位置。栈是一个存放即将会被用到的数据的地方，你可以去搜索一下push/pop 指令</div>
         </div>
       </a>
 
@@ -417,6 +499,13 @@ shellcode测试工具sctest我们将工具取名为sctest，是shell code test�
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
         
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a>&nbsp;
+          &nbsp;
         
         
       </div>
@@ -541,66 +630,11 @@ ISP路由：可以实现流量按照运营商转发，指定选路
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
-        <p class="h4 index-header">Python中下划线的5种含义</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
-
-单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
-
-单末尾下划线：var_            解决命名冲突的问题
-
-双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
-
-单下划线：_                        使用“_”来表示它只是一个临时值
-
-双前导和末尾下划线：
-__var__这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法
-
-class Linkedlist(object):
-    def __init__(self):
-        self.head = Node()
-        self.length = 0
-    def __len__(self):
-        return self.length
-当我在main里
-def main():
-    L = Linkedlist()
-    L.append(3)
-    L</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/python">python</a>&nbsp;
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0">学习</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

