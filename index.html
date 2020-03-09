@@ -134,6 +134,51 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/09/docker/">
+        <p class="h4 index-header">docker</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">docker记录
+
+
+
+
+
+
+2375:默认端口
+
+不过root权限免密登录的是容器
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0">技术学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/03/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
         <p class="h4 index-header">商业计划书撰写及案例分析</p>
         
@@ -254,6 +299,59 @@ Telnet为了解</div>
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-27&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+        <p class="h4 index-header">网络编程</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">网络编程3/9
+
+非阻塞模式
+// TcpServer.cpp : 定义控制台应用程序的入口点。
+//
+
+#include &quot;stdafx.h&quot;
+#include &lt;WINSOCK2.H&gt;   
+#include &lt;iostream&gt;
+
+#pragma comment(lib,&quot;WS2_32.lib&quot;)   
+#define BUF_SIZE    64      // 缓冲区大小
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+    WSADATA wsd;                    // WSADATA变量，用于初始化Windows Socket   
+    SOCKET  sServer;                    // 服务器套接字，用于监听客户端请求
+    SOCKET  sClient;                    // 客户端套接字，用于实现与客户端的通信   
+    int     retVal;                   </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -572,109 +670,6 @@ log.success(&quot;canary------&gt;&quot; + hex(canary))
           
             <a href="/tags/-ROPgadget%20-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%8F%B7">-ROPgadget -系统调用号</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/03/ORW-%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/">
-        <p class="h4 index-header">ORW-[极客大挑战2019]Not_Bad</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ORW-[极客大挑战2019]Not_Bad
-RWX
-
-Linux的文件和目录的权限，有RWX三种。
-r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。
-w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。
-x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限
-
-
-
-什么是seccomp
-用seccomp-tools检测一下seccomp-tools dump  ./bad
-
-可运行open,read,write，也就是ORW
-关键点
-
-void *mmap(void *start,size_t length,int prot,int flags,int fd,off_t offsize);
-
-mmap()函数的主要用途有三个：1、将一个普通文件映射到内存中，通常在需要对文件进行频繁读写时使用，这样用内存读写取代I/O读写，以获得较高的性能；2、将特殊文件进行匿名内存映射，可以为关联进程提供共享内存空间；3、为无关联的进程提供共</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/-Shellcode%20-ORW">-Shellcode -ORW</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
-        <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">堆之UAF(Use_after_free)及调试-hitcontraining_uaf
-https://wiki.x10sec.org/pwn/heap/use_after_free/
-一个很直接的想法是修改note的put字段为magic函数的地址，从而实现在执行print note 的时候执行magic函数。 那么该怎么执行呢？
-我们可以简单来看一下每一个note生成的具体流程
-
-程序申请8字节内存用来存放note中的put以及content指针。
-
-程序根据输入的size来申请指定大小的内存，然后用来存储content。
-
-
-      +-----------------+                       
-      |   put           |                       
-      +-----------------+                       
-      |   content       |       size              
-      +-----------------+--------</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
         
       </div>
     </div>
