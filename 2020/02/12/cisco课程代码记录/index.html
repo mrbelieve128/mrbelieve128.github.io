@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    1.2k 字
+                    1.6k 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      6 分钟
+                      8 分钟
                   </span>&nbsp;
                 
 
@@ -173,7 +173,8 @@ line vty 0 4 #加密密码设置
 (config-line)password class
 (config-line)login
 (config-line)exit
-service password-encrytion</code></pre><h2 id="标语"><a href="#标语" class="headerlink" title="标语"></a>标语</h2><pre><code>banner motd $ Authorized Access Only! $</code></pre><h2 id="保存配置"><a href="#保存配置" class="headerlink" title="保存配置"></a>保存配置</h2><pre><code>copy running-config startup-config</code></pre><h2 id="端口设置"><a href="#端口设置" class="headerlink" title="端口设置"></a>端口设置</h2><pre><code>interface f 0/0
+service password-encrytion</code></pre><h2 id="标语"><a href="#标语" class="headerlink" title="标语"></a>标语</h2><pre><code>banner motd $ ($是截止符号)
+banner motd $ Authorized Access Only! $</code></pre><h2 id="保存配置"><a href="#保存配置" class="headerlink" title="保存配置"></a>保存配置</h2><pre><code>copy running-config startup-config</code></pre><h2 id="端口设置"><a href="#端口设置" class="headerlink" title="端口设置"></a>端口设置</h2><pre><code>interface f 0/0
 (config-if)description Link to Lan 1
 (config-if)ip address 192.168.10.1 255.255.255.0 
 (config-if)ipv6 address 2001:db8:acad:1::1/64 #IPV6
@@ -337,11 +338,47 @@ ipv6 route ::/0 2001:DB8:A:2::1 5</code></pre><h2 id="2-3-2-3"><a href="#2-3-2-3
 no ip route 172.31.1.128 255.255.255.192 172.31.1.194
 ip route 172.31.1.0 255.255.255.128 172.31.1.194
 no ip route 172.31.1.0 255.255.255.128 172.31.1.198</code></pre><p>R3</p>
-<pre><code>ip route 172.31.1.0 255.255.255.128 172.31.1.197</code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
+<pre><code>ip route 172.31.1.0 255.255.255.128 172.31.1.197</code></pre><h2 id="lab-3-amp-3-10"><a href="#lab-3-amp-3-10" class="headerlink" title="lab 3&amp;3/10"></a>lab 3&amp;3/10</h2><blockquote>
+<p><strong>The Enable Password</strong></p>
+<p>The <em>enable password</em> controls access to privilege mode. This is a VERY important password because in privilege mode you can make configuration changes.</p>
+<p>Krang(config)#enable password frodo</p>
+<p>You can securely encrypt the <em>enable password</em>, by using the enable secret command.</p>
+<p>Krang(config)#enable secret hobbits</p>
+<p>If you have both passwords, the enable secret is the password used.</p>
+</blockquote>
+<p>enable secret password 储存加密的密码，会覆盖enable password frodo</p>
+<hr>
+<p>在端口上启用cdp run，本机路由器show cdp nei 看不见</p>
+<p>而在别的路由上可以看见</p>
+<p><img src="/2020/02/12/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200310104354035.png" srcset="undefined" alt="image-20200310104354035"></p>
+<p>如右边路由f0/0 只在端口上cdp run。左边端口和路由都cdp run了。左边show cdp nei能看见右边的端口，右边show cdp nei 看不见任何记录</p>
+<h2 id="Lab4"><a href="#Lab4" class="headerlink" title="Lab4"></a>Lab4</h2><pre><code>(config-if)description FastEthernet interface on Router 1
+# Description: FastEthernet interface on Router 1</code></pre><h2 id="Lab5"><a href="#Lab5" class="headerlink" title="Lab5"></a>Lab5</h2><pre><code># show arp
+clear arp</code></pre><h2 id="Lab-6"><a href="#Lab-6" class="headerlink" title="Lab 6"></a>Lab 6</h2><pre><code>(config)#ip host California 195.42.36.10
+show hosts</code></pre><h2 id="Lab-7"><a href="#Lab-7" class="headerlink" title="Lab 7"></a>Lab 7</h2><ul>
+<li>Add RIP routing protocol to the router. What command does this?</li>
+</ul>
+<pre><code>Router2(config)#router rip
+
+Router2(config-router)#</code></pre><ul>
+<li>Add the network(s) that Router 2 is directly connected to. What statements will do this?</li>
+</ul>
+<p><code>Router2(config-router)#network 10.0.0.0</code></p>
+<blockquote>
+<p>查看更新信息使用 debug ip rip 命令时，要用 terminal monitor 命令来接收debug 命令产生的输出。debug ip rip 会把更新信息发送给控制台会话。</p>
+<p>Router#debug ip rip</p>
+<p>RIP protocol debugging is on</p>
+<p>Router#terminal monitor</p>
+<p>接下来就是输出的更新信息，但是它会不断的出来，所以要停止它就得输入 un all 或 undebug all 或 no debug ip rip 即可停止信息的输出</p>
+<p>Router#un all</p>
+<p><a href="http://blog.sina.com.cn/s/blog_62fd2bcb0102voc0.html" target="_blank" rel="noopener">原文</a></p>
+</blockquote>
+<h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
 <p><img src="/2020/02/12/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303201755734.png" srcset="undefined" alt="image-20200303201755734"></p>
 <p><img src="/2020/02/12/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303202527458.png" srcset="undefined" alt="image-20200303202527458"></p>
+<p>DNS 53端口 即是UDP也是TCP</p>
 
             <hr>
           </div>

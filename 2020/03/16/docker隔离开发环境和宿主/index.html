@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>归档 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>docker隔离开发环境和宿主 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -107,6 +107,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期一, 三月 16日 2020, 12:56 凌晨
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    187 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -117,83 +152,62 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 55 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/02/27/%E3%80%8A%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%A6%82%E8%AE%BA%E3%80%8B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">《信息安全概论》学习记录</span>
-      <span style="float: right;">02-27</span>
-    </a>
-  
-    
-    <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">网络编程</span>
-      <span style="float: right;">02-24</span>
-    </a>
-  
-    
-    <a href="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">大数据课程知识记录</span>
-      <span style="float: right;">02-17</span>
-    </a>
-  
-    
-    <a href="/2020/02/12/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">cisco课程代码记录</span>
-      <span style="float: right;">02-12</span>
-    </a>
-  
-    
-    <a href="/2020/02/05/oneshot_tjctf_2016/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">oneshot_tjctf_2016</span>
-      <span style="float: right;">02-05</span>
-    </a>
-  
-    
-    <a href="/2020/02/04/leak_canary-others_babystack/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">leak_canary-others_babystack</span>
-      <span style="float: right;">02-04</span>
-    </a>
-  
-    
-    <a href="/2020/02/03/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ROPgadget&amp;系统调用-cmcc_simplerop</span>
-      <span style="float: right;">02-03</span>
-    </a>
-  
-    
-    <a href="/2020/02/03/ORW-%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">ORW-[极客大挑战2019]Not_Bad</span>
-      <span style="float: right;">02-03</span>
-    </a>
-  
-    
-    <a href="/2020/02/01/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</span>
-      <span style="float: right;">02-01</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="docker隔离开发环境和宿主"><a href="#docker隔离开发环境和宿主" class="headerlink" title="docker隔离开发环境和宿主"></a>docker隔离开发环境和宿主</h1><p>如何把开发环境移到docker里？</p>
+<p>目前设想了有：通过scp传数据，来让宿主机知道docker里安装了啥包。然后对应自动生成dockerfile。通过vscode remote。</p>
+<p>基础镜像，是一开始自己也不知道需要什么包的,所以直接装在镜像里,然后通过python来检测docker里安装了啥东西，再传出来到宿主机补充到dockerfile/自动安装包脚本里。至于开发的文件，git和云同步都挺好。真正做到开发完就丢环境                                 </p>
+<p>补充调查：</p>
+<ul>
+<li><p>docker镜像可以拷贝到u盘上。<a href="https://blog.csdn.net/nimei31/article/details/80716573" target="_blank" rel="noopener">link</a></p>
+</li>
+<li><p>vscode remote 远程开发 <a href="https://www.cnblogs.com/tinywan/p/11107397.html" target="_blank" rel="noopener">link</a> 主机安装ssh-server，本地安装ssh-client，vscode安装remote development</p>
+</li>
+</ul>
 
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -273,6 +287,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -313,7 +332,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "docker隔离开发环境和宿主&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

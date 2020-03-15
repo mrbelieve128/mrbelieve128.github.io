@@ -134,6 +134,114 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/16/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
+        <p class="h4 index-header">docker隔离开发环境和宿主</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">docker隔离开发环境和宿主如何把开发环境移到docker里？
+目前设想了有：通过scp传数据，来让宿主机知道docker里安装了啥包。然后对应自动生成dockerfile。通过vscode remote。
+基础镜像，是一开始自己也不知道需要什么包的,所以直接装在镜像里,然后通过python来检测docker里安装了啥东西，再传出来到宿主机补充到dockerfile/自动安装包脚本里。至于开发的文件，git和云同步都挺好。真正做到开发完就丢环境                                 
+补充调查：
+
+docker镜像可以拷贝到u盘上。link
+
+vscode remote 远程开发 link 主机安装ssh-server，本地安装ssh-client，vscode安装remote development
+
+
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/13/django%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">
+        <p class="h4 index-header">django后端开发</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"></div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-13&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/11/Vue%E4%B8%AD%E6%91%B8%E6%89%93%E6%BB%9A%E7%88%AC/">
+        <p class="h4 index-header">Vue中摸打滚爬</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Vue中摸打滚爬本文多截自网道和w3school
+css语法基础语法选择器 + 一条或多条声明
+每条声明由一个属性和一个值组成。
+p { color: #ff0000; }
+p { color: rgb(255,0,0); }
+p { color: rgb(100%,0%,0%); }
+p {font-family: &quot;sans serif&quot;;}
+body {
+  color: #000;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, Palatino, serif;
+  }
+
+CSS 对大小写不敏感。不过存在一个例外：如果涉及到与 HTML 文档一起工作的话，class 和 id 名称对大小写是敏感的。
+
+高级语法h1,h2,h3,h4,h5,h6 {
+  color: green;
+  }
+继承body 下的 li，那 li 默认用的是 body 的样式
+派生选择器li strong {
+    font-style: italic;
+    font-weight:</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-11&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/09/docker/">
         <p class="h4 index-header">docker</p>
         
@@ -243,56 +351,20 @@
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">《信息安全概论》学习记录摸底测试错误记录计算机网络中可以共享的资源包括（ ）。
+          <div class="index-text mb-1">《信息安全概论》学习记录第一章 网络安全基础概念ISO给出的信息安全定义是：为数据处理系统建立和采取的技术及管理保护，保护计算机硬件、软件、数据不因偶然及恶意的原因而遭到破坏、更改和泄露
+提供保密性，完整性，可用性，可控性和可审查性
 
-硬件、软件、数据、通信信道
+可审查：参与者本身和信息真实统一，不经修改
 
-网络接口卡的基本功能包括：数据转换、通信服务和（ ）。
+ISO的网络安全定义：是对网络的设计、实施和运营等过程中的信息及其相关系统的安全保护。
+网络安全是指利用网络技术、管理和控制等措施，对网络信息和系统的安全保护。
+网络空间安全，是指保护网络空间中的信息在产生、传输、存储、处理等环节中所面临的威胁和防御措施，以及网络系统本身的威胁和防护机制。
 
-数据缓存
+关键和核心：确保网络系统中的信息安全，凡设计网络信息的可靠性、保密性、完整性、有效性、可控性和可审查性的理论、技术与管理都属于网络安全的研究范畴
 
-无连接的服务是哪一层的服务（ ）。
 
-高层
 
-基于TCP/IP协议集的Internet体系结构保证了系统的( )。
-
- 开放性
-
-光纤分布数据接口FDDI采用（ ）拓扑结构。
-
-   环型
-
-在下面给出的协议中，（ ）是TCP/IP的应用层协议。
-
-  DNS和SMTP
-
-以下IP地址中，不能分配给主机的是（ ）。
-
-   231.255.0.11
-因为D类组播地址
-
-为了监听以太网中所有的数据帧，我们可以将网卡设置为一种特殊的工作方式，这种方式称为（ ）。
-
-  混杂模式*
-
-ICMP协议的端口号是（ ）。
-
-没有端口
-
-以下哪个应用层协议不是使用TCP协议传输（ ）。
-
-   DNS
-
-UDP数据报的首部字段固定为8个字节，由四个部分构成，每部分2个字节，以下哪个不是UDP首部构成字段（ ）。
-
-   源IP地址
-
-当没有选项字段时，TCP的首部长度规定为（ ）字节。
-
-   20
-
-Telnet为了解</div>
+DMZ区是英文“demilitarized zone”的缩写，中文名称为“隔离区”，也称“非军事化区”。它是为了解决安装防火墙后外部网络的访问用户不能访问内部网络服务器的问题，而设立的一个非安全系统与安全系统之间的缓冲区。该缓冲区位于企业内部网络和外部网络之间的小网络区域</div>
         </div>
       </a>
 
@@ -364,42 +436,6 @@ int _tmain(int argc, _TCHAR* argv[])
           
             <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/22/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-        <p class="h4 index-header">django学习记录</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-django学习记录职业分类技术后端开发java python php .net c# c++ C vb Delpho perl Ruby Hadoop Node.js 数据挖掘 自然语言处理 搜索算法 精准推荐 全栈 Go ASP Shell 其他
-移动开发HTML5 Android IOS WP 
-前端开发web前端 Flash html5 javascript U3D COCOS2D-X 
-测试测试工程师 自动化测试 功能测试 性能测试 测试开发 游戏测试 白盒测试 灰盒测试 手机测试 硬件测试 测试经理
-运维运维工程师 运维开发 网络工程师 系统工程师 it支持 idc CDN f5 系统管理员
-DBAmysql sqlserver oracle db2 mongoDB ETL
-Hive 数据仓库
-高端职业技术经理 技术总监 架构师 cto 运维总监 技术合伙人 项目总监 测试总监 安全专家
-项目管理项目经理 项目助理
-硬件开发硬件 嵌入式 自动化 单片机 电路设计 驱动开发 系统集成 fpga开发 dsp开发 arm开发 pcb工艺 模具设计 热传导 材料工程师 精益工程</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-22&nbsp;&nbsp;
-        
-        
         
       </div>
     </div>
@@ -491,10 +527,10 @@ line vty 0 4 #加密密码设置
 (config-line)password class
 (config-line)login
 (config-line)exit
-service password-encrytion标语banner motd $ Authorized Access Only! $保存配置copy running-config startup-config端口设置interface f 0/0
+service password-encrytion标语banner motd $ ($是截止符号)
+banner motd $ Authorized Access Only! $保存配置copy running-config startup-config端口设置interface f 0/0
 (config-if)description Link to Lan 1
-(config-if)ip address 192.168.10.1 255.255.255.0 
-(config-if)ipv6 add</div>
+(config-if)ip address 192.168.10.1 255.255.255</div>
         </div>
       </a>
 
@@ -564,112 +600,6 @@ def pwn(ip,port,debug):
             <a href="/categories/buu">buu</a>&nbsp;
           &nbsp;
         
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/04/leak_canary-others_babystack/">
-        <p class="h4 index-header">leak_canary-others_babystack</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">leak_canary-others_babystack
-Full RELRO GOT表只读
-
-s申请的是0x80，但读入0x100。并且canary在stack -0x8的地方
-先泄露canary，puts函数在输出时，只有遇到\x00才会结束，用\n覆盖canary的第一字节\x00，从而获得canary
-payload = cyclic(0x90-0x8)
-
-sh.recvuntil(&quot;iaab\n&quot;)
-canary =  u64(sh.recv(7).rjust(8,&quot;\x00&quot;))
-log.success(&quot;canary------&gt;&quot; + hex(canary))
-然后构造payload
-    def printf():
-        sh.sendlineafter(&quot;&gt;&gt;&quot;,&quot;2&quot;)
-    def quit():
-        sh.sendlineafter(&quot;&gt;&gt;&quot;,&quot;3&quot;)
-    pay</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/02/03/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
-        <p class="h4 index-header">ROPgadget&amp;系统调用-cmcc_simplerop</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget&amp;系统调用-cmcc_simplerop
-
-第一反应就是用ROPgadget自动生成ropchains
-但在这里不行，算出来的偏移是0x20，那么只有68字节给ropchains了
-
-而自动生成的都太长了= =，只能手动调整ropchains长度
-
-参考http://m4x.fun/post/hitcon-training-writeup/
-
-    from struct import pack 
-
-    pop_edx_ecx_ebx = 0x0806e850
-    payload = cyclic(0x14 + 12) 
-
-    p = lambda x : pack(&#39;I&#39;, x)
-    IMAGE_BASE_0 = 0x08048000 # ./simplerop
-    rebase_0 = lambda x : p(x + IMAGE_BASE_0)
-
-    rop = &#39;&#39;
-    rop += rebase_0(0x00072e06) # 0x080bae06: pop eax; ret; 
-    </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/-ROPgadget%20-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%8F%B7">-ROPgadget -系统调用号</a>&nbsp;
-          
         
       </div>
     </div>

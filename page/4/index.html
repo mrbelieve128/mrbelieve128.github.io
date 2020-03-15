@@ -134,6 +134,94 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/09/%E6%A0%88%E8%BF%81%E7%A7%BB/">
+        <p class="h4 index-header">栈迁移</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">The article has been encrypted, please enter your password to view....</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%B8%B8%E7%94%A8">常用</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/07/%5BOGeek2019%5Dbabyrop/">
+        <p class="h4 index-header">[OGeek2019]babyrop</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">[OGeek2019]babyrop
+程序
+
+为了绕过strncmp，我们在v6这里可以放一个\x00 因为strlen会在识别到\x00之后停止，这样strncmp就会默认返回0
+
+这里的v5返回值又跟下面的a1是一致的
+
+
+这里也没有啥可以调用的
+那就是rop，leak libc了
+EXPleak libc版#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;[OGeek2019]babyrop&#39;)
+lib = ELF(&quot;./libc-2.23.so&quot;)
+sh = 0
+def pwn(ip,port,debug):
+    global lib
+    global sh
+    if debug == 1:
+        sh = process(&#39;./[OGeek2019]babyrop&#39;)
+   </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/04/TCPIP%E5%A4%8D%E4%B9%A0/">
         <p class="h4 index-header">TCPIP复习</p>
         
@@ -553,118 +641,6 @@ sh.</div>
             <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
           
             <a href="/categories/%E6%95%99%E7%A8%8B">教程</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <p class="h4 index-header">数据库复习笔记</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">第一次实验新建数据库create database stuhyy
-on 
-(
-    name = stu, 
-    filename=&#39;C:\stu_data.mdf&#39;,
-    size = 3mb,
-    maxsize = 500mb,
-    filegrowth = 10%
-
-)
-log on
-(
-    name = stu_log,
-    filename = &#39;D:\stu_log.ldf&#39;,
-    size=3mb,
-    maxsize = unlimited,
-    filegrowth = 1mb
-)
-修改数据库Alter database Stuhyy
-Modify file
-(
-    name = Stuhyy_log,
-    filename = &#39;H:\Stuhyy_log.ldf&#39;,
-    size = 10MB,
-    maxsize = 20MB,
-    fileGrowth = 5%
-)
-添加数据库文件Alter database Stuhyy
-add file
-(
-    </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/03/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-        <p class="h4 index-header">AWD常用指令</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">AWD常用指令备份web目录
-tar -zcvf web.tar.gz /var/www/html/查看已建立网络连接和对应进程
-netstat -antulp | grep EST用户管理
-w    查看当前用户
-pkill -kill -t &lt;Username&gt;查看指定端口被哪个进程占用
-lsof -i:端口号 或者 netstat -tunlp|grep 端口号#备份mysql数据库
-mysqldump -u 用户名 -p 密码 数据库名 &gt; back.sql　　　　
-mysqldump --all-databases &gt; bak.sql　　　　　　
-#还原mysql数据库
-mysql -u 用户名 -p 密码 数据库名 &lt; bak.sql　　
-find / *.php -perm  　　 　　
-awk -F:  /etc/passwd　　　　
-crontab -l　　　#检测所有的tcp连接数量及状态
-netstat -ant|awk  |grep |sed -e  -e |sort|uniq -c|sort -rn
-#查看页面访问排名前十的IP
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/AWD">AWD</a>&nbsp;
           &nbsp;
         
         

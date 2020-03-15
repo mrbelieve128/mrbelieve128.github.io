@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Mr.BelieVe">
+  <meta name="keywords" content="">
+  <title>Vue中摸打滚爬 ~ Mr.BelieVe&#39;s Treasure</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mr.BelieVe&#39;s Treasure</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期三, 三月 11日 2020, 11:04 上午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    4.8k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      19 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="Vue中摸打滚爬"><a href="#Vue中摸打滚爬" class="headerlink" title="Vue中摸打滚爬"></a>Vue中摸打滚爬</h1><p><strong>本文多截自<a href="https://wangdoc.com/javascript/types/general.html" target="_blank" rel="noopener">网道</a>和<a href="https://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">w3school</a></strong></p>
+<h2 id="css语法"><a href="#css语法" class="headerlink" title="css语法"></a>css语法</h2><h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>选择器 + 一条或多条声明</p>
+<p>每条声明由一个属性和一个值组成。</p>
+<pre><code class="css">p { color: #ff0000; }
+p { color: rgb(255,0,0); }
+p { color: rgb(100%,0%,0%); }
+p {font-family: &quot;sans serif&quot;;}
+body {
+  color: #000;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, Palatino, serif;
+  }</code></pre>
+<blockquote>
+<p>CSS 对大小写不敏感。不过存在一个例外：如果涉及到与 HTML 文档一起工作的话，class 和 id 名称对大小写是敏感的。</p>
+</blockquote>
+<h3 id="高级语法"><a href="#高级语法" class="headerlink" title="高级语法"></a>高级语法</h3><pre><code class="css">h1,h2,h3,h4,h5,h6 {
+  color: green;
+  }</code></pre>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>body 下的 li，那 li 默认用的是 body 的样式</p>
+<h3 id="派生选择器"><a href="#派生选择器" class="headerlink" title="派生选择器"></a>派生选择器</h3><pre><code class="css">li strong {
+    font-style: italic;
+    font-weight: normal;
+  }</code></pre>
+<p>请注意标记为 <strong> 的蓝色代码的上下文关系：</strong></p>
+<pre><code class="css">&lt;p&gt;&lt;strong&gt;我是粗体字，不是斜体字，因为我不在列表当中，所以这个规则对我不起作用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;我是斜体字。这是因为 strong 元素位于 li 元素内。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;我是正常的字体。&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+<h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><p><strong>id 选择器以 “#” 来定义。</strong></p>
+<p>下面的两个 id 选择器，第一个可以定义元素的颜色为红色，第二个定义元素的颜色为绿色：</p>
+<pre><code class="css">#red {color:red;}
+#green {color:green;}</code></pre>
+<p>下面的 HTML 代码中，id 属性为 red 的 p 元素显示为红色，而 id 属性为 green 的 p 元素显示为绿色。</p>
+<pre><code class="css">&lt;p id=&quot;red&quot;&gt;这个段落是红色。&lt;/p&gt;
+&lt;p id=&quot;green&quot;&gt;这个段落是绿色。&lt;/p&gt;</code></pre>
+<p><strong>注意：</strong>id 属性只能在每个 HTML 文档中出现一次。</p>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p><strong>在 CSS 中，类选择器以一个点号显示：</strong></p>
+<pre><code class="css">.center {text-align: center}</code></pre>
+<p>在上面的例子中，所有拥有 center 类的 HTML 元素均为居中。</p>
+<p>在下面的 HTML 代码中，h1 和 p 元素都有 center 类。这意味着两者都将遵守 “.center” 选择器中的规则。</p>
+<pre><code class="css">&lt;h1 class=&quot;center&quot;&gt;
+This heading will be center-aligned
+&lt;/h1&gt;
+
+&lt;p class=&quot;center&quot;&gt;
+This paragraph will also be center-aligned.
+&lt;/p&gt;</code></pre>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><pre><code class="css">[title]
+{
+color:red;
+}
+[title=W3School]
+{
+border:5px solid blue;
+}</code></pre>
+<h3 id="属性和值选择器-多个值"><a href="#属性和值选择器-多个值" class="headerlink" title="属性和值选择器 - 多个值"></a>属性和值选择器 - 多个值</h3><p>下面的例子为包含指定值的 title 属性的所有元素设置样式。适用于由空格分隔的属性值：</p>
+<pre><code class="css">[title~=hello] { color:red; }</code></pre>
+<p>下面的例子为带有包含指定值的 lang 属性的所有元素设置样式。适用于由连字符分隔的属性值：</p>
+<pre><code class="css">[lang|=en] { color:red; }</code></pre>
+<h3 id="CSS-选择器参考手册"><a href="#CSS-选择器参考手册" class="headerlink" title="CSS 选择器参考手册"></a>CSS 选择器参考手册</h3><table>
+<thead>
+<tr>
+<th align="left">选择器</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.w3school.com.cn/cssref/selector_attribute.asp" target="_blank" rel="noopener">[<em>attribute</em>]</a></td>
+<td align="left">用于选取带有指定属性的元素。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.w3school.com.cn/cssref/selector_attribute_value.asp" target="_blank" rel="noopener">[<em>attribute</em>=<em>value</em>]</a></td>
+<td align="left">用于选取带有指定属性和值的元素。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.w3school.com.cn/cssref/selector_attribute_value_contain.asp" target="_blank" rel="noopener">[<em>attribute</em>~=<em>value</em>]</a></td>
+<td align="left">用于选取属性值中包含指定词汇的元素。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.w3school.com.cn/cssref/selector_attribute_value_start.asp" target="_blank" rel="noopener">[<em>attribute</em>|=<em>value</em>]</a></td>
+<td align="left">用于选取带有以指定值开头的属性值的元素，该值必须是整个单词。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.w3school.com.cn/cssref/selector_attr_begin.asp" target="_blank" rel="noopener">[<em>attribute</em>^=<em>value</em>]</a></td>
+<td align="left">匹配属性值以指定值开头的每个元素。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.w3school.com.cn/cssref/selector_attr_end.asp" target="_blank" rel="noopener">[<em>attribute</em>$=<em>value</em>]</a></td>
+<td align="left">匹配属性值以指定值结尾的每个元素。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.w3school.com.cn/cssref/selector_attr_contain.asp" target="_blank" rel="noopener">[<em>attribute*</em>=<em>value</em>]</a></td>
+<td align="left">匹配属性值中包含指定值的每个元素。</td>
+</tr>
+</tbody></table>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><h4 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h4><p>当样式需要应用于很多页面时，外部样式表将是理想的选择。在使用外部样式表的情况下，你可以通过改变一个文件来改变整个站点的外观。每个页面使用 <link> 标签链接到样式表。<link> 标签在（文档的）头部：</p>
+<pre><code class="css">&lt;head&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot; /&gt;
+&lt;/head&gt;</code></pre>
+<p>浏览器会从文件 mystyle.css 中读到样式声明，并根据它来格式文档。</p>
+<h4 id="内部样式表"><a href="#内部样式表" class="headerlink" title="内部样式表"></a>内部样式表</h4><p>当单个文档需要特殊的样式时，就应该使用内部样式表。你可以使用 <style> 标签在文档头部定义内部样式表，就像这样:</p>
+<pre><code class="css">&lt;head&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+  hr {color: sienna;}
+  p {margin-left: 20px;}
+  body {background-image: url(&quot;images/back40.gif&quot;);}
+&lt;/style&gt;
+&lt;/head&gt;</code></pre>
+<h4 id="内联样式"><a href="#内联样式" class="headerlink" title="内联样式"></a>内联样式</h4><p>由于要将表现和内容混杂在一起，内联样式会损失掉样式表的许多优势。请慎用这种方法，例如当样式仅需要在一个元素上应用一次时。</p>
+<p>要使用内联样式，你需要在相关的标签内使用样式（style）属性。Style 属性可以包含任何 CSS 属性。本例展示如何改变段落的颜色和左外边距：</p>
+<pre><code class="css">&lt;p style=&quot;color: sienna; margin-left: 20px&quot;&gt;
+This is a paragraph
+&lt;/p&gt;</code></pre>
+<h4 id="多重样式"><a href="#多重样式" class="headerlink" title="多重样式"></a>多重样式</h4><p>如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来。</p>
+<p>例如，外部样式表拥有针对 h3 选择器的三个属性：</p>
+<pre><code class="css">h3 {
+  color: red;
+  text-align: left;
+  font-size: 8pt;
+  }</code></pre>
+<p>而内部样式表拥有针对 h3 选择器的两个属性：</p>
+<pre><code class="css">h3 {
+  text-align: right; 
+  font-size: 20pt;
+  }</code></pre>
+<p>假如拥有内部样式表的这个页面同时与外部样式表链接，那么 h3 得到的样式是：</p>
+<pre><code class="css">color: red; 
+text-align: right; 
+font-size: 20pt;</code></pre>
+<p>即颜色属性将被继承于外部样式表，而文字排列（text-alignment）和字体尺寸（font-size）会被内部样式表中的规则取代。</p>
+<h2 id="js基本语法"><a href="#js基本语法" class="headerlink" title="js基本语法"></a>js基本语法</h2><pre><code class="js">function myFunction() {
+    document.getElementById(&quot;demo&quot;).innerHTML = &quot;段落被更改。&quot;;
+}</code></pre>
+<p>脚本可被放置与 HTML 页面的 <body> 或 <head> 部分中，或兼而有之。</p>
+<p><strong>提示：</strong>把脚本置于 <body> 元素的底部，可改善显示速度，因为脚本编译会拖慢显示。</p>
+<p><strong>外部脚本</strong>：<code>&lt;script src=&quot;myScript.js&quot;&gt;&lt;/script&gt;</code></p>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><p>语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。</p>
+<pre><code class="javascript">var a = 1 + 3 ; var b = &#39;abc&#39;;</code></pre>
+<p>分号前面可以没有任何内容，JavaScript 引擎将其视为空语句。</p>
+<pre><code class="javascript">;;;</code></pre>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><pre><code class="javascript">var a = 1;
+// 基本等同
+a = 1;</code></pre>
+<p>不写<code>var</code>的做法，不利于表达意图，而且容易不知不觉地创建全局变量，所以建议总是使用<code>var</code>命令声明变量。</p>
+<h4 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h4><p>先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是<strong>所有的变量的声明语句，都会被提升到代码的头部</strong>，这就叫做变量提升（hoisting）。</p>
+<pre><code class="javascript">console.log(a);
+var a = 1;</code></pre>
+<p>上面代码首先使用<code>console.log</code>方法，在控制台（console）显示变量<code>a</code>的值。这时变量<code>a</code>还没有声明和赋值，所以这是一种错误的做法，但是实际上不会报错。因为存在变量提升，真正运行的是下面的代码。</p>
+<pre><code class="javascript">var a;
+console.log(a);
+a = 1;</code></pre>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>标识符命名规则如下。</p>
+<ul>
+<li>第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（<code>$</code>）和下划线（<code>_</code>）。</li>
+<li>第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字<code>0-9</code>。</li>
+</ul>
+<p>中文是合法的标识符，可以用作变量名。</p>
+<pre><code>var 临时变量 = 1;</code></pre><blockquote>
+<p>JavaScript 有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。</p>
+</blockquote>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p> JavaScript 引擎忽略的部分就叫做注释，它的作用是对代码进行解释。JavaScript 提供两种注释的写法：一种是单行注释，用<code>//</code>起头；另一种是多行注释，放在<code>/*</code>和<code>*/</code>之间。</p>
+<pre><code class="javascript">// 这是单行注释
+
+/*
+ 这是
+ 多行
+ 注释
+*/</code></pre>
+<p>此外，由于历史上 JavaScript 可以兼容 HTML 代码的注释，所以<code>和</code>–&gt;`也被视为合法的单行注释。</p>
+<pre><code class="javascript">x = 1; &lt;!-- x = 2;
+--&gt; x = 3;</code></pre>
+<p>上面代码中，只有<code>x = 1</code>会执行，其他的部分都被注释掉了。</p>
+<p>需要注意的是，<code>--&gt;</code>只有在行首，才会被当成单行注释，否则会当作正常的运算。</p>
+<blockquote>
+<pre><code class="javascript">function countdown(n) {
+  while (n --&gt; 0) console.log(n);
+}
+countdown(3)
+// 2
+// 1
+// 0</code></pre>
+<p>上面代码中，<code>n --&gt; 0</code>实际上会当作<code>n-- &gt; 0</code>，因此输出2、1、0。</p>
+</blockquote>
+<h3 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h3><p>JavaScript 使用大括号，将多个相关的语句组合在一起，称为“区块”（block）。</p>
+<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><pre><code class="javascript">if (m === 3) {
+  m += 1;
+}
+
+if (m === 3) {
+  // 满足条件时，执行的语句
+} else {
+  // 不满足条件时，执行的语句
+}
+
+if (m === 0) {
+  // ...
+} else if (m === 1) {
+  // ...
+} else if (m === 2) {
+  // ...
+} else {
+  // ...
+}</code></pre>
+<p>优先采用“严格相等运算符”（<code>===</code>），而不是“相等运算符”（<code>==</code>），==why?==</p>
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><pre><code class="javascript">switch (x) {
+  case 1:
+    console.log(&#39;x 等于1&#39;);
+    break;
+  case 2:
+    console.log(&#39;x 等于2&#39;);
+    break;
+  default:
+    console.log(&#39;x 等于其他值&#39;);
+}</code></pre>
+<blockquote>
+<p>需要注意的是，<code>switch</code>语句后面的表达式，与<code>case</code>语句后面的表示式比较运行结果时，采用的是严格相等运算符（<code>===</code>），而不是相等运算符（<code>==</code>），这意味着比较时不会发生类型转换。</p>
+<pre><code class="javascript">var x = 1;
+
+switch (x) {
+ case true:
+   console.log(&#39;x 发生类型转换&#39;);
+   break;
+ default:
+   console.log(&#39;x 没有发生类型转换&#39;);
+}
+// x 没有发生类型转换</code></pre>
+<p>上面代码中，由于变量<code>x</code>没有发生类型转换，所以不会执行<code>case true</code>的情况。这表明，<code>switch</code>语句内部采用的是“严格相等运算符”</p>
+</blockquote>
+<h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h4><pre><code>(条件) ? 表达式1 : 表达式2</code></pre><p>上面代码中，如果“条件”为<code>true</code>，则返回“表达式1”的值，否则返回“表达式2”的值。</p>
+<pre><code class="javascript">var even = (n % 2 === 0) ? true : false;</code></pre>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><pre><code class="javascript">typeof 123 // &quot;number&quot;
+typeof &#39;123&#39; // &quot;string&quot;
+typeof false // &quot;boolean&quot;</code></pre>
+<p>实际编程中，这个特点通常用在判断语句。</p>
+<pre><code class="javascript">// 错误的写法
+if (v) {
+  // ...
+}
+// ReferenceError: v is not defined
+
+// 正确的写法
+if (typeof v === &quot;undefined&quot;) {
+  // ...
+}</code></pre>
+<p>对象返回<code>object</code>。</p>
+<pre><code class="javascript">typeof window // &quot;object&quot;
+typeof {} // &quot;object&quot;
+typeof [] // &quot;object&quot;</code></pre>
+<p>上面代码中，空数组（<code>[]</code>）的类型也是<code>object</code>，这表示在 JavaScript 内部，数组本质上只是一种特殊的对象。这里顺便提一下，<code>instanceof</code>运算符可以区分数组和对象。</p>
+<pre><code class="javascript">var o = {};
+var a = [];
+
+o instanceof Array // false
+a instanceof Array // true</code></pre>
+<p><code>null</code>返回<code>object</code>。</p>
+<pre><code class="javascript">typeof null // &quot;object&quot;</code></pre>
+<p><code>null</code>的类型是<code>object</code>，这是由于历史原因造成的。1995年的 JavaScript 语言第一版，只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑<code>null</code>，只把它当作<code>object</code>的一种特殊值。后来<code>null</code>独立出来，作为一种单独的数据类型，为了兼容以前的代码，<code>typeof null</code>返回<code>object</code>就没法改变了。</p>
+<h3 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h3><pre><code class="javascript">var a = undefined;
+// 或者
+var a = null;</code></pre>
+<p>上面代码中，变量<code>a</code>分别被赋值为<code>undefined</code>和<code>null</code>，这两种写法的效果几乎等价。</p>
+<p>在<code>if</code>语句中，它们都会被自动转为<code>false</code>，相等运算符（<code>==</code>）甚至直接报告两者相等。</p>
+<pre><code class="javascript">if (!undefined) {
+  console.log(&#39;undefined is false&#39;);
+}
+// undefined is false
+
+if (!null) {
+  console.log(&#39;null is false&#39;);
+}
+// null is false
+
+undefined == null
+// true</code></pre>
+<p>但是</p>
+<pre><code class="javascript">Number(null) // 0
+5 + null // 5
+Number(undefined) // NaN
+5 + undefined // NaN</code></pre>
+<h4 id="用法和含义"><a href="#用法和含义" class="headerlink" title="用法和含义"></a>用法和含义</h4><p><code>null</code>表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这时就可以传入<code>null</code>，表示该参数为空。比如，某个函数接受引擎抛出的错误作为参数，如果运行过程中未出错，那么这个参数就会传入<code>null</code>，表示未发生错误。</p>
+<p><code>undefined</code>表示“未定义”，下面是返回<code>undefined</code>的典型场景。</p>
+<pre><code class="javascript">// 变量声明了，但没有赋值
+var i;
+i // undefined
+
+// 调用函数时，应该提供的参数没有提供，该参数等于 undefined
+function f(x) {
+  return x;
+}
+f() // undefined
+
+// 对象没有赋值的属性
+var  o = new Object();
+o.p // undefined
+
+// 函数没有返回值时，默认返回 undefined
+function f() {}
+f() // undefined</code></pre>
+<h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><p>转换规则是除了下面六个值被转为<code>false</code>，其他值都视为<code>true</code>。</p>
+<ul>
+<li><code>undefined</code></li>
+<li><code>null</code></li>
+<li><code>false</code></li>
+<li><code>0</code></li>
+<li><code>NaN</code></li>
+<li><code>&quot;&quot;</code>或<code>&#39;&#39;</code>（空字符串）</li>
+</ul>
+<h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>JavaScript 语言的底层根本没有整数，所有数字都是小数（64位浮点数）。容易造成混淆的是，某些运算只有整数才能完成，此时 JavaScript 会自动把64位浮点数，转成32位整数</p>
+<pre><code class="javascript">0.1 + 0.2 === 0.3
+// false
+
+0.3 / 0.1
+// 2.9999999999999996
+
+(0.3 - 0.2) === (0.2 - 0.1)
+// false</code></pre>
+<h4 id="特殊数值"><a href="#特殊数值" class="headerlink" title="特殊数值"></a>特殊数值</h4><pre><code class="javascript">-0 === +0 // true
+0 === -0 // true
+0 === +0 // true</code></pre>
+<p>唯一有区别的场合是，<code>+0</code>或<code>-0</code>当作分母，返回的值是不相等的。</p>
+<pre><code class="javascript">(1 / +0) === (1 / -0) // false</code></pre>
+<p><code>NaN</code>是 JavaScript 的特殊值，表示“非数字”（Not a Number）</p>
+<pre><code class="javascript">NaN === NaN // false</code></pre>
+<h4 id="数值相关函数"><a href="#数值相关函数" class="headerlink" title="数值相关函数"></a>数值相关函数</h4><p><strong>基本用法</strong></p>
+<p><code>parseInt</code>方法用于将字符串转为整数。</p>
+<pre><code class="javascript">parseInt(&#39;123&#39;) // 123
+
+//如果parseInt的参数不是字符串，则会先转为字符串再转换。
+parseInt(1.23) // 1
+// 等同于
+parseInt(&#39;1.23&#39;) // 1</code></pre>
+<p>字符串转为整数的时候，是一个个字符依次转换，如果遇到不能转为数字的字符，就不再进行下去，返回已经转好的部分。</p>
+<p><code>parseFloat</code>方法用于将一个字符串转为浮点数。</p>
+<p><code>parseFloat</code>会将空字符串转为<code>NaN</code>。</p>
+<p><code>isNaN</code>方法可以用来判断一个值是否为<code>NaN</code>。</p>
+<pre><code class="javascript">isNaN({}) // true
+// 等同于
+isNaN(Number({})) // true
+
+isNaN([&#39;xzy&#39;]) // true
+// 等同于
+isNaN(Number([&#39;xzy&#39;])) // true
+
+
+isNaN([]) // false
+isNaN([123]) // false
+isNaN([&#39;123&#39;]) // false</code></pre>
+<p>判断<code>NaN</code>更可靠的方法是，利用<code>NaN</code>为唯一不等于自身的值的这个特点，进行判断。</p>
+<pre><code class="javascript">function myIsNaN(value) {
+  return value !== value;
+}</code></pre>
+<p><code>isFinite</code>方法返回一个布尔值，表示某个值是否为正常的数值。</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>由于 HTML 语言的属性值使用双引号，所以很多项目约定 JavaScript 语言的字符串只使用单引号</p>
+<p>字符串与数组的相似性仅此而已。实际上，无法改变字符串之中的单个字符。</p>
+<pre><code class="javascript">var s = &#39;hello&#39;;
+
+delete s[0];
+s // &quot;hello&quot;
+
+s[1] = &#39;a&#39;;
+s // &quot;hello&quot;
+
+s[5] = &#39;!&#39;;
+s // &quot;hello&quot;</code></pre>
+<p><code>length</code>属性返回字符串的长度，该属性也是无法改变的。</p>
+<pre><code class="javascript">var s = &#39;hello&#39;;
+s.length // 5
+
+s.length = 3;
+s.length // 5</code></pre>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>什么是对象？简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p>
+<pre><code class="javascript">var obj = {
+  foo: &#39;Hello&#39;,
+  bar: &#39;World&#39;
+};</code></pre>
+<p>上面代码中，大括号就定义了一个对象，它被赋值给变量<code>obj</code>，所以变量<code>obj</code>就指向一个对象。该对象内部包含两个键值对（又称为两个“成员”），第一个键值对是<code>foo: &#39;Hello&#39;</code>，其中<code>foo</code>是“键名”（成员的名称），字符串<code>Hello</code>是“键值”（成员的值）。键名与键值之间用冒号分隔。第二个键值对是<code>bar: &#39;World&#39;</code>，<code>bar</code>是键名，<code>World</code>是键值。两个键值对之间用逗号分隔。</p>
+<h4 id="键名"><a href="#键名" class="headerlink" title="键名"></a>键名</h4><p>对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以。上面的代码也可以写成下面这样。</p>
+<pre><code class="javascript">var obj = {
+  &#39;foo&#39;: &#39;Hello&#39;,
+  &#39;bar&#39;: &#39;World&#39;
+};</code></pre>
+<p>如果键名是数值，会被自动转为字符串。</p>
+<p>对象的每一个键名又称为“属性”（property），它的“键值”可以是任何数据类型。如果一个属性的值为函数，通常把这个属性称为“方法”，它可以像函数那样调用。</p>
+<pre><code class="javascript">var obj = {
+  p: function (x) {
+    return 2 * x;
+  }
+};
+
+obj.p(1) // 2</code></pre>
+<p>对象的属性之间用逗号分隔，最后一个属性后面可以加逗号（trailing comma），也可以不加。</p>
+<h4 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h4><p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说<strong>指向同一个内存地址</strong>。修改其中一个变量，会影响到其他所有变量。</p>
+<pre><code class="javascript">var o1 = {};
+var o2 = o1;
+
+o1.a = 1;
+o2.a // 1
+
+o2.b = 2;
+o1.b // 2
+var o1 = {
+    a : 1,
+    b : 2
+}</code></pre>
+<p><strong>这种引用只局限于对象，如果两个变量指向同一个原始类型的值。那么，变量这时都是值的拷贝。</strong></p>
+<pre><code class="javascript">var x = 1;
+var y = x;
+
+x = 2;
+y // 1</code></pre>
+<h4 id="表达式还是语句？"><a href="#表达式还是语句？" class="headerlink" title="表达式还是语句？"></a>表达式还是语句？</h4><p>对象采用大括号表示，这导致了一个问题：如果行首是一个大括号，它到底是表达式还是语句？</p>
+<pre><code class="javascript">{ foo: 123 }</code></pre>
+<p>为了避免歧义，JavaScript 引擎的做法是，如果遇到这种情况，无法确定是对象还是代码块，一律解释为代码块。</p>
+<pre><code class="javascript">{ console.log(123) } // 123</code></pre>
+<p>如果要解释为对象，最好在大括号前加上圆括号。因为圆括号的里面，只能是表达式，所以确保大括号只能解释为对象。</p>
+<pre><code class="javascript">({ foo: 123 }) // 正确
+({ console.log(123) }) // 报错</code></pre>
+<p>这种差异在<code>eval</code>语句（作用是对字符串求值）中反映得最明显。</p>
+<pre><code class="javascript">eval(&#39;{foo: 123}&#39;) // 123
+eval(&#39;({foo: 123})&#39;) // {foo: 123}</code></pre>
+<p>上面代码中，如果没有圆括号，<code>eval</code>将其理解为一个代码块；加上圆括号以后，就理解成一个对象。</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>读取对象的属性，有两种方法，一种是使用点运算符，还有一种是使用方括号运算符。</p>
+<pre><code class="javascript">var obj = {
+  p: &#39;Hello World&#39;
+};
+
+obj.p // &quot;Hello World&quot;
+obj[&#39;p&#39;] // &quot;Hello World&quot;</code></pre>
+<p>请注意，如果使用方括号运算符，键名必须放在引号里面，否则会被当作变量处理。</p>
+<pre><code class="javascript">var foo = &#39;bar&#39;;
+
+var obj = {
+  foo: 1,
+  bar: 2
+};
+
+obj.foo  // 1
+obj[foo]  // 2</code></pre>
+<p>数字键可以不加引号，因为会自动转成字符串。</p>
+<pre><code class="javascript">var obj = {
+  0.7: &#39;Hello World&#39;
+};
+
+obj[&#39;0.7&#39;] // &quot;Hello World&quot;
+obj[0.7] // &quot;Hello World&quot;</code></pre>
+<p>数值键名不能使用点运算符（因为会被当成小数点），只能使用方括号运算符。</p>
+<p><strong>点运算符和方括号运算符，不仅可以用来读取值，还可以用来赋值。</strong></p>
+<h4 id="属性的函数"><a href="#属性的函数" class="headerlink" title="属性的函数"></a>属性的函数</h4><p>查看一个对象本身的所有属性，可以使用<code>Object.keys</code>方法。</p>
+<p><code>delete</code>命令用于删除对象的属性，删除成功后返回<code>true</code>。</p>
+<p>注意，删除一个不存在的属性，<code>delete</code>不报错，而且返回<code>true</code>。</p>
+<p>只有一种情况，<code>delete</code>命令会返回<code>false</code>，那就是该属性存在，且不得删除。</p>
+<pre><code class="javascript">var obj = Object.defineProperty({}, &#39;p&#39;, {
+  value: 123,
+  configurable: false
+});
+
+obj.p // 123
+delete obj.p // false</code></pre>
+<p>上面代码之中，对象<code>obj</code>的<code>p</code>属性是不能删除的，所以<code>delete</code>命令返回<code>false</code></p>
+<p>判断属性是否存在: in运算符</p>
+<p><code>for...in</code>循环用来遍历一个对象的全部属性。</p>
+<pre><code class="javascript">var obj = {a: 1, b: 2, c: 3};
+
+for (var i in obj) {
+  console.log(&#39;键名：&#39;, i);
+  console.log(&#39;键值：&#39;, obj[i]);
+}</code></pre>
+<p><code>with</code>语句的格式如下：</p>
+<pre><code>with (对象) {
+  语句;
+}</code></pre><p>它的作用是操作同一个对象的多个属性时，提供一些书写的方便。</p>
+<pre><code class="javascript">// 例一
+var obj = {
+  p1: 1,
+  p2: 2,
+};
+with (obj) {
+  p1 = 4;
+  p2 = 5;
+}
+// 等同于
+obj.p1 = 4;
+obj.p2 = 5;</code></pre>
+<p>如果<code>with</code>区块内部有变量的赋值操作，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量。</p>
+<h3 id="const-var-let的区别"><a href="#const-var-let的区别" class="headerlink" title="const,var,let的区别"></a>const,var,let的区别</h3><ul>
+<li><p>const定义的不可修改，必须初始化</p>
+</li>
+<li><p>var定义的可修改，不初始化会输出undefined，不会报错</p>
+</li>
+<li><p>let是块级作用域，函数内定义后，外部无影响</p>
+</li>
+</ul>
+</style></p>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+  <!-- 备案信息 -->
+  <a href="http://beian.miit.gov.cn/" target="_blank"
+     rel="nofollow noopener">浙ICP备19033044号</a>
+  
+
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Vue中摸打滚爬&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
