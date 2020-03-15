@@ -134,6 +134,40 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/02/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
+        <p class="h4 index-header">转载-编写shellcode测试工具</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
+shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&gt;
+该程序的实现很简单：
+1） 读shellcode 二进制读到内存2）将装载shellcode内存的属性变成可执行3）跳到该shellcode执行
+代码如下：
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;stdio.h&gt;
+#include &</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
         <p class="h4 index-header">汇编基础</p>
         
@@ -161,67 +195,6 @@ EBX： 基址寄存器
 ECX： 计数器
 EDX： 数据寄存器
 ESI： 源变</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-02&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/02/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编、逆向工程基础</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
-单位
-
-·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
-·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
-
-
-一个16进制占4bit
-
-
-寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
-
-
-EAX： 累加器
-EBX： 基址寄存器
-ECX： 计数器
-EDX： 数据寄存器
-ESI： 源变址寄存器
-EDI： 目的变址寄存器
-EBP： 扩展基址指针寄存器
-ESP： 栈指针寄存器
-EIP： 指令指针寄存器
-
-
-==大小都是4个字节==
-
-
-EBP： EBP在栈中运用最广，刚开始没有什么需要特别注意的 ;) 
-
-ESP： ESP指向栈区域的栈顶位置。栈是一个存放即将会被用到的数据的地方，你可以去搜索一下push/pop 指令</div>
         </div>
       </a>
 
