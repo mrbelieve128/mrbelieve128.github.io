@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>django后端开发 ~ Mr.BelieVe&#39;s Treasure</title>
+  <title>前端学习记录 ~ Mr.BelieVe&#39;s Treasure</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -111,7 +111,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期五, 三月 13日 2020, 5:30 下午
+                  星期日, 三月 22日 2020, 2:31 下午
                 </p>
               
 
@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    0 字
+                    166 字
                   </span>&nbsp;
                 
 
@@ -161,7 +161,20 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            
+            <h1 id="前端学习记录"><a href="#前端学习记录" class="headerlink" title="前端学习记录"></a>前端学习记录</h1><h2 id="动态添加div"><a href="#动态添加div" class="headerlink" title="动态添加div"></a>动态添加div</h2><pre><code class="js">function get_orders(){
+    var title1=$(&quot;&lt;div class=&#39;title&#39;&gt;&lt;div class=&#39;title1&#39;&gt;小型车停车单&lt;/div&gt;&lt;/div&gt;&quot;)
+    var info=$(&quot;&lt;div class=&#39;info&#39;&gt;&lt;/div&gt;&quot;)
+    var orders=$(&quot;&lt;p&gt;&lt;/p&gt;&quot;).text(&quot;订单号：&quot;);
+    var time=$(&quot;&lt;p&gt;&lt;/p&gt;&quot;).text(&quot;下单时间：&quot;);
+    var size=$(&quot;&lt;p&gt;&lt;/p&gt;&quot;).text(&quot;车型：&quot;);
+    var price=$(&quot;&lt;p&gt;&lt;/p&gt;&quot;).text(&quot;金额：&quot;);
+    var status=$(&quot;&lt;p&gt;&lt;/p&gt;&quot;).text(&quot;支付状态：&quot;);
+    $(&quot;body&quot;).append(title1)
+    $(&quot;.title1&quot;).append(info)
+    $(&quot;.info&quot;).append(orders,time,size,price,status)
+};</code></pre>
+<p>$(“”)里面，# 是 id，. 是 class，p h1 是元素</p>
+
             <hr>
           </div>
           <br>
@@ -322,7 +335,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "django后端开发&nbsp;",
+        "前端学习记录&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

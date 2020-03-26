@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    21 字
+                    115 字
                   </span>&nbsp;
                 
 
@@ -161,7 +161,7 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="docker记录"><a href="#docker记录" class="headerlink" title="docker记录"></a>docker记录</h1><p><img src="/2020/03/09/docker/image-20200309201430966.png" srcset="undefined" alt="image-20200309201430966"></p>
+            <h1 id="docker记录"><a href="#docker记录" class="headerlink" title="docker记录"></a>docker记录</h1><h2 id="群里介绍截图"><a href="#群里介绍截图" class="headerlink" title="群里介绍截图"></a>群里介绍截图</h2><p><img src="/2020/03/09/docker/image-20200309201430966.png" srcset="undefined" alt="image-20200309201430966"></p>
 <p><img src="/2020/03/09/docker/image-20200309201729975.png" srcset="undefined" alt="image-20200309201729975"></p>
 <p><img src="/2020/03/09/docker/image-20200309202211814.png" srcset="undefined" alt="image-20200309202211814"></p>
 <p><img src="/2020/03/09/docker/image-20200309202523127.png" srcset="undefined" alt="image-20200309202523127"></p>
@@ -171,6 +171,14 @@
 <p>2375:默认端口</p>
 <p><img src="/2020/03/09/docker/image-20200309203741638.png" srcset="undefined" alt="image-20200309203741638"></p>
 <p>不过root权限免密登录的是容器</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>进入<code>docker exec -it ID /bin/bash</code></p>
+<p>查看一下本地的镜像，运行<code>docker images</code></p>
+<p>docker中删除images的命令是<code>docker rmi</code>(此时要求那个没有container在运行才会正确删除)</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
+<p>我的做法是卸载重装= =</p>
+<p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#uninstall-docker-ce" target="_blank" rel="noopener">安装</a></p>
+<p><a href="https://blog.csdn.net/wireless911/article/details/88989620" target="_blank" rel="noopener">Unable to find image ‘hello-world:latest’ locally）</a></p>
+<p><img src="/2020/03/09/docker/image-20200316015938550.png" srcset="undefined" alt="image-20200316015938550"></p>
 
             <hr>
           </div>

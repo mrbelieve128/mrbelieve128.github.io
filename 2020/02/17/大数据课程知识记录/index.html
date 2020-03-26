@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    134 字
+                    420 字
                   </span>&nbsp;
                 
 
@@ -189,6 +189,50 @@
 <p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200306143245704.png" srcset="undefined" alt="image-20200306143245704"></p>
 <p>SecondNamenode 性能要跟Namenode类似  </p>
 <p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200306143642693.png" srcset="undefined" alt="image-20200306143642693"></p>
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320134216633.png" srcset="undefined" alt="image-20200320134216633"></p>
+<p>hdfs只允许追加，不允许修改</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320134506043.png" srcset="undefined" alt="image-20200320134506043"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320134739666.png" srcset="undefined" alt="image-20200320134739666"></p>
+<p>支持面向大规模数据存储</p>
+<p>块设计的打大：降低分布式节点的寻址开销，但太大也会牺牲并行度，发挥不了并行处理的效果</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320135526487.png" srcset="undefined" alt="image-20200320135526487"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320140028539.png" srcset="undefined" alt="image-20200320140028539"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320140101542.png" srcset="undefined" alt="image-20200320140101542"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320140317813.png" srcset="undefined" alt="image-20200320140317813"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320140342199.png" srcset="undefined" alt="image-20200320140342199"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320140438492.png" srcset="undefined" alt="image-20200320140438492"></p>
+<p>位置数据存储在内存当中</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320141204909.png" srcset="undefined" alt="image-20200320141204909"></p>
+<p>把FsImage加载到内存，然后合并edgitlog，合并后完成新数据保存</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320141609332.png" srcset="undefined" alt="image-20200320141609332"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320141642938.png" srcset="undefined" alt="image-20200320141642938"></p>
+<p>然后namenode就会写入到edits.new里，直到SecondaryNamenode处理完后，edits.new变成Editlog</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320141813099.png" srcset="undefined" alt="image-20200320141813099"></p>
+<h3 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320142140926.png" srcset="undefined" alt="image-20200320142140926"></p>
+<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320142313449.png" srcset="undefined" alt="image-20200320142313449"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320142418109.png" srcset="undefined" alt="image-20200320142418109"></p>
+<p>HDFS1.0 ：SecondaryNameNode是冷备份</p>
+<p>HDFS2.0 ：SecondaryNameNode是热备份</p>
+<h3 id="储存原理"><a href="#储存原理" class="headerlink" title="储存原理"></a>储存原理</h3><p>默认冗余因子是3</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320142816366.png" srcset="undefined" alt="image-20200320142816366"></p>
+<p>块如何储存：</p>
+<ul>
+<li><p>从内部提交：第一块放在提交数据的数据节点，其余根据算法：cpu占用不高，磁盘不满的来存。</p>
+</li>
+<li><p>从外部提交：先根据算法：cpu占用不高，磁盘不满的来存。</p>
+<p>  然后第二块放在不同机架上面，第三块放在第一节点相同机架上</p>
+</li>
+</ul>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320143816895.png" srcset="undefined" alt="image-20200320143816895"></p>
+<h3 id="名称节点出错"><a href="#名称节点出错" class="headerlink" title="名称节点出错"></a>名称节点出错</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320143917386.png" srcset="undefined" alt="image-20200320143917386"></p>
+<h3 id="数据节点出错"><a href="#数据节点出错" class="headerlink" title="数据节点出错"></a>数据节点出错</h3><p>时不时通信确认存活</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144000109.png" srcset="undefined" alt="image-20200320144000109"></p>
+<h3 id="数据出错"><a href="#数据出错" class="headerlink" title="数据出错"></a>数据出错</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144051069.png" srcset="undefined" alt="image-20200320144051069"></p>
+<h2 id="读数据"><a href="#读数据" class="headerlink" title="读数据"></a>读数据</h2><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144353347.png" srcset="undefined" alt="image-20200320144353347"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144444558.png" srcset="undefined" alt="image-20200320144444558"></p>
+<h3 id="写数据"><a href="#写数据" class="headerlink" title="写数据"></a>写数据</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320145033346.png" srcset="undefined" alt="image-20200320145033346"></p>
+<h2 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h2><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320145645527.png" srcset="undefined" alt="image-20200320145645527"></p>
+<p>hadoop fs -cp 本地文件 hdfs路径</p>
 
             <hr>
           </div>
