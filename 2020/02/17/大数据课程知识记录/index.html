@@ -120,7 +120,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    420 字
+                    906 字
                   </span>&nbsp;
                 
 
@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      3 分钟
                   </span>&nbsp;
                 
 
@@ -228,12 +228,59 @@
 <h3 id="数据节点出错"><a href="#数据节点出错" class="headerlink" title="数据节点出错"></a>数据节点出错</h3><p>时不时通信确认存活</p>
 <p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144000109.png" srcset="undefined" alt="image-20200320144000109"></p>
 <h3 id="数据出错"><a href="#数据出错" class="headerlink" title="数据出错"></a>数据出错</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144051069.png" srcset="undefined" alt="image-20200320144051069"></p>
-<h2 id="读数据"><a href="#读数据" class="headerlink" title="读数据"></a>读数据</h2><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144353347.png" srcset="undefined" alt="image-20200320144353347"></p>
+<h3 id="读数据"><a href="#读数据" class="headerlink" title="读数据"></a>读数据</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144353347.png" srcset="undefined" alt="image-20200320144353347"></p>
 <p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320144444558.png" srcset="undefined" alt="image-20200320144444558"></p>
 <h3 id="写数据"><a href="#写数据" class="headerlink" title="写数据"></a>写数据</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320145033346.png" srcset="undefined" alt="image-20200320145033346"></p>
-<h2 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h2><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320145645527.png" srcset="undefined" alt="image-20200320145645527"></p>
+<h3 id="编程实现"><a href="#编程实现" class="headerlink" title="编程实现"></a>编程实现</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200320145645527.png" srcset="undefined" alt="image-20200320145645527"></p>
 <p>hadoop fs -cp 本地文件 hdfs路径</p>
-
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><p>计算向数据靠拢</p>
+<p>MapReduce 把数据集切分成独立的小分片，再给每个小分片单独地启动一个map任务，多个map任务并行在多个机器处理</p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><table>
+<thead>
+<tr>
+<th>Master服务器</th>
+<th>Slave服务器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作业跟踪器JobTracker</td>
+<td>负责具体任务执行的组件TaskTracker</td>
+</tr>
+<tr>
+<td>整个作业的调度和处理以及失败和恢复</td>
+<td>负责接受JobTracker发的作业处理命令，完成具体任务</td>
+</tr>
+</tbody></table>
+<h3 id="体系结构-1"><a href="#体系结构-1" class="headerlink" title="体系结构"></a>体系结构</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327144126925.png" srcset="undefined" alt="image-20200327144126925"></p>
+<p>Client客户端：通过客户端可以提交便携的应用程序提交到JobTracker，也可以通过API查看提交作业的运行状况</p>
+<p>JobTracker：监测资源和作业的调度，监控底层其他TaskTracker以及当前job的状态。检测到失败就转移到其他节点，继续执行跟踪任务进度和资源使用</p>
+<p>TaskScheduler:任务调度器，可以采用自己编写的策略。执行具体的相关任务，把资源使用情况，任务运行进度通过心跳hearbeat发送给JobTracker</p>
+<p>slot</p>
+<ul>
+<li>map slot</li>
+<li>reduce slot</li>
+</ul>
+<p>一台机子可以同时运行map和reduce任务</p>
+<h3 id="MR各个执行阶段"><a href="#MR各个执行阶段" class="headerlink" title="MR各个执行阶段"></a>MR各个执行阶段</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327142340550.png" srcset="undefined" alt="image-20200327142340550"></p>
+<p>RR读取分片</p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327142710732.png" srcset="undefined" alt="image-20200327142710732"></p>
+<p>分片和块的关系。一般一个分片就是一个块</p>
+<p>最优的Reduce任务个数取决于集群中可用的reduce任务slot的数目</p>
+<p>通常设置比reduce任务slot数目稍少一点的reduce任务个数（预留资源处理可能的错误）</p>
+<h3 id="Shuffle过程"><a href="#Shuffle过程" class="headerlink" title="Shuffle过程"></a>Shuffle过程</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327144915398.png" srcset="undefined" alt="image-20200327144915398"></p>
+<p>缓存写满后会发送溢写。分区排序合并之后再，写入磁盘文件。结束后磁盘文件再合并。</p>
+<h4 id="map段"><a href="#map段" class="headerlink" title="map段"></a>map段</h4><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327145418486.png" srcset="undefined" alt="image-20200327145418486"></p>
+<p>溢写比：0.8 写入80%就开始写入磁盘</p>
+<p><strong>合并</strong>：</p>
+<p>(a,1)</p>
+<p>(a,1)</p>
+<p>输出：(a,2)</p>
+<p><strong>归并</strong>：把多次溢写文件归并成一个大的文件，文件都是分区和排序的，再放回本地磁盘</p>
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327151532086.png" srcset="undefined" alt="image-20200327151532086"></p>
+<p>JobTracker通知reduce任务取走数据</p>
+<h3 id="程序执行过程"><a href="#程序执行过程" class="headerlink" title="程序执行过程"></a>程序执行过程</h3><p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327152418105.png" srcset="undefined" alt="image-20200327152418105"></p>
+<p><img src="/2020/02/17/%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%AF%BE%E7%A8%8B%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/image-20200327153554444.png" srcset="undefined" alt="image-20200327153554444"></p>
+<h3 id="MR具体应用"><a href="#MR具体应用" class="headerlink" title="MR具体应用"></a>MR具体应用</h3>
             <hr>
           </div>
           <br>
