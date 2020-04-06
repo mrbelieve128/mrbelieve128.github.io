@@ -82,6 +82,12 @@
             <a class="nav-link" href="/about/">About</a>
           </li>
         
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/Links/">Links</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -129,172 +135,6 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/09/%E6%A0%88%E8%BF%81%E7%A7%BB/">
-        <p class="h4 index-header">栈迁移</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">The article has been encrypted, please enter your password to view....</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-09&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/%E5%B8%B8%E7%94%A8">常用</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/07/%5BOGeek2019%5Dbabyrop/">
-        <p class="h4 index-header">[OGeek2019]babyrop</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">[OGeek2019]babyrop
-程序
-
-为了绕过strncmp，我们在v6这里可以放一个\x00 因为strlen会在识别到\x00之后停止，这样strncmp就会默认返回0
-
-这里的v5返回值又跟下面的a1是一致的
-
-
-这里也没有啥可以调用的
-那就是rop，leak libc了
-EXPleak libc版#!/usr/bin/python2.7
-# -*- coding: utf-8 -*-
-from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;amd64&#39;
-elf = ELF(&#39;[OGeek2019]babyrop&#39;)
-lib = ELF(&quot;./libc-2.23.so&quot;)
-sh = 0
-def pwn(ip,port,debug):
-    global lib
-    global sh
-    if debug == 1:
-        sh = process(&#39;./[OGeek2019]babyrop&#39;)
-   </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF">CTF</a>&nbsp;
-          
-            <a href="/categories/buu">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/04/TCPIP%E5%A4%8D%E4%B9%A0/">
-        <p class="h4 index-header">TCPIP复习</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">遗忘记录地址A类地址 公有1~126 
-
-
-
-地址类型
-公有
-私有
-
-
-
-A类
-1 ~ 126
-10.0.0.0 ~ 10.255.255.255
-
-
-B类
-128 ~ 191
-172.16.0.0 ~ 172.31.255.255
-
-
-C类
-192.0.0.0 ~ 223.255.255.255
-192.168.0.0 ~ 192.168.255.255
-
-
-直接交付和间接交付直接交付 -&gt; 交给同一个网络地址
-间接交付 -&gt; 经过一个直接交付，给路由器，再给路由器 直到到达同一个网络的路由再给主机
-端到端和点到点端到端 -&gt; 进程到进程
-点到点 -&gt; 设备到设备
-三元组五元组三元组：协议，IP地址，端口
-五元组：三元 + 源IP，源端口
-TCP 可靠性
-流量控制：滑动窗口 } 发送窗口
-拥塞控制： 拥塞窗口 重转定时器
-差错控制
-
-套接字
-流套接字：TCP 适合大量数据 单播
-数据报套接字： UDP
-原始套接字：编写自定底层协议
-
-IP多播==五个前提？==
-多播地址 224.0.0.0 ~ 239.255.255.255
-IP地址的低23位替换mac地址低</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-04&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
 
   <div class="row mb-4 mx-auto">
     
@@ -641,6 +481,159 @@ sh.</div>
             <a href="/categories/%E5%A4%87%E5%BF%98">备忘</a>&nbsp;
           
             <a href="/categories/%E6%95%99%E7%A8%8B">教程</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <p class="h4 index-header">数据库复习笔记</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">第一次实验新建数据库create database stuhyy
+on 
+(
+    name = stu, 
+    filename=&#39;C:\stu_data.mdf&#39;,
+    size = 3mb,
+    maxsize = 500mb,
+    filegrowth = 10%
+
+)
+log on
+(
+    name = stu_log,
+    filename = &#39;D:\stu_log.ldf&#39;,
+    size=3mb,
+    maxsize = unlimited,
+    filegrowth = 1mb
+)
+修改数据库Alter database Stuhyy
+Modify file
+(
+    name = Stuhyy_log,
+    filename = &#39;H:\Stuhyy_log.ldf&#39;,
+    size = 10MB,
+    maxsize = 20MB,
+    fileGrowth = 5%
+)
+添加数据库文件Alter database Stuhyy
+add file
+(
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0">专业学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/03/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        <p class="h4 index-header">AWD常用指令</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">AWD常用指令备份web目录
+tar -zcvf web.tar.gz /var/www/html/查看已建立网络连接和对应进程
+netstat -antulp | grep EST用户管理
+w    查看当前用户
+pkill -kill -t &lt;Username&gt;查看指定端口被哪个进程占用
+lsof -i:端口号 或者 netstat -tunlp|grep 端口号#备份mysql数据库
+mysqldump -u 用户名 -p 密码 数据库名 &gt; back.sql　　　　
+mysqldump --all-databases &gt; bak.sql　　　　　　
+#还原mysql数据库
+mysql -u 用户名 -p 密码 数据库名 &lt; bak.sql　　
+find / *.php -perm  　　 　　
+awk -F:  /etc/passwd　　　　
+crontab -l　　　#检测所有的tcp连接数量及状态
+netstat -ant|awk  |grep |sed -e  -e |sort|uniq -c|sort -rn
+#查看页面访问排名前十的IP
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/AWD">AWD</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/03/AWD%E5%87%86%E5%A4%87/">
+        <p class="h4 index-header">AWD准备</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">AWD探测主机Nmap或HTTPScan
+Nmap扫描端口
+端口攻击常见：22，2389，1443，3306
+==准备爆破脚本！！！==
+WEB攻击
+Web 方面的语言多为 PHP，小部分为 Java 和 Python。这里的 Web 环境分两种情况，一种是已有漏洞的框架，一种是出题人写的框架。
+如果是已有漏洞的框架，通常会比较明显。比如说 Struts 2 各种漏洞等等，用工具扫就可以扫出来。这个需要准备得比较充分，在电脑中备好 EXP 库、漏洞库和各种扫描工具库，以便能够快速利用比较明显的漏洞。总之手要快！
+如果是出题人出的框架，常用并且简单有效的做法是把整站源码下载下来，直接用工具审计。以 PHP 举例，一般的流程是先D盾查杀，发现有带有预留后门或者 Webshell 马上报给防守队友进行加固。
+把后门的问题搞定、防止别人快速拿分后，其次才是源码审计，发现问题点后迅速验证，报给防守队友，并且开始写攻击脚本。以 PHP 举例，一般是使用 Seay 等源码审计工具，审核出比较明显的漏洞。
+完成了工具扫描后，开始常规的渗透测试，比如说文件上传、SQL 注入等等，看是否能绕过，找到一个点</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF">CTF</a>&nbsp;
+          
+            <a href="/categories/AWD">AWD</a>&nbsp;
           &nbsp;
         
         

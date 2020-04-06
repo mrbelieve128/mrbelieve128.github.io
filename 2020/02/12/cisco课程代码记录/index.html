@@ -82,6 +82,12 @@
             <a class="nav-link" href="/about/">About</a>
           </li>
         
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/Links/">Links</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -120,7 +126,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    2.2k 字
+                    2.6k 字
                   </span>&nbsp;
                 
 
@@ -128,7 +134,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      11 分钟
+                      13 分钟
                   </span>&nbsp;
                 
 
@@ -453,6 +459,25 @@ switchport mode trunk
 
 interface fastethernet 0/11
 switchport mode dynamic desirable</code></pre><h2 id="3-26"><a href="#3-26" class="headerlink" title="3/26"></a>3/26</h2><p><img src="/2020/02/12/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200326091535593.png" srcset="undefined" alt="image-20200326091535593"></p>
+<h2 id="3-31"><a href="#3-31" class="headerlink" title="3/31"></a>3/31</h2><h3 id="RIPv2自动汇总"><a href="#RIPv2自动汇总" class="headerlink" title="RIPv2自动汇总"></a>RIPv2自动汇总</h3><p>使用 <strong>no auto-summary</strong> 路由器配置模式命令，修改默认 RIPv2 自动汇总行为。当使用 RIPv1 时，此命令无效。当已禁用自动汇总时，RIPv2 不会再将网络汇总到其在边界路由器上的有类地址。</p>
+<h3 id="配置被动接口"><a href="#配置被动接口" class="headerlink" title="配置被动接口"></a>配置被动接口</h3><p>默认情况下，将 RIP 更新从所有启用 RIP 的接口发出。使用 <strong>passive-interface</strong> 路由器配置命令阻止通过路由器接口传输路由更新，但是仍然允许将该网络通告至其他路由器。该命令会停止指定接口的路由更新。但是，从其他接口发出的路由更新中仍通告指定接口所属的网络。可以使用 <strong>passive-interface default</strong> 命令将所有接口设为被动。不能设为被动的接口可以使用 <strong>no passive-interface</strong> 命令重新启用。</p>
+<blockquote>
+<p>router rip</p>
+<p>passive-interface g0/0</p>
+<p>end</p>
+</blockquote>
+<blockquote>
+<p>传播默认路由</p>
+<p>边缘路由器必须配置：</p>
+<ul>
+<li><p>使用 <strong>ip route 0.0.0.0 0.0.0.0</strong> 命令的默认静态路由。</p>
+</li>
+<li><p><strong>default-information originate</strong> 路由器配置命令。这会指导 R1 通过在 RIP 更新中传播静态默认路由来产生默认信息。</p>
+</li>
+</ul>
+<p>在一个单出口网络内启用RIP协议，在网络出口处的路由器需要向RIP域内传播一条默认路由，这样，域内的路由器就可以通过默认路由访问外部网络。下面我们就用试验来模拟这个环境。到目前为止；通过RIP传递默认路由共有5种方法。<br>1 default-information<br>2 手工写一条默认路由（到NULL0） 然后重分布到RIP中<br>3 手工写一条默认路由（到NULL0）在进程中宣告<br>4 ip default-network<br>5在接口汇总0.0.0.0/0到NULL0的路由</p>
+</blockquote>
+<p><img src="/2020/02/12/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200331115232904.png" srcset="undefined" alt="image-20200331115232904"></p>
 <h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
