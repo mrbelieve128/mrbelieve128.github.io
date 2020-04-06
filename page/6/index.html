@@ -157,51 +157,29 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/16/docker/">
-        <p class="h4 index-header">docker</p>
+      <a href="/2019/11/19/What%20a%20day/">
+        <p class="h4 index-header">What a day</p>
       </a>
 
-      <a href="/2020/03/16/docker/">
+      <a href="/2019/11/19/What%20a%20day/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">docker记录群里介绍截图
-
-
-
-
-
-
-2375:默认端口
-
-不过root权限免密登录的是容器
-使用进入docker exec -it ID /bin/bash
-查看一下本地的镜像，运行docker images
-docker中删除images的命令是docker rmi(此时要求那个没有container在运行才会正确删除)
-问题Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-我的做法是卸载重装= =
-安装
-Unable to find ima</div>
+          <div class="index-text mb-1">明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。
+想学逆向发现了mac上的一些软件之类的，link
+入门link
+pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码
+在线ctf平台![ctf平台](Wha</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
-          
         
       </div>
     </div>
@@ -211,50 +189,57 @@ Unable to find ima</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
-        <p class="h4 index-header">网络编程</p>
+      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
+        <p class="h4 index-header">转载-编写shellcode测试工具</p>
       </a>
 
-      <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">网络编程3/9
-
-非阻塞模式
-// TcpServer.cpp : 定义控制台应用程序的入口点。
-//
-
-#include &quot;stdafx.h&quot;
-#include &lt;WINSOCK2.H&gt;   
-#include &lt;iostream&gt;
-
-#pragma comment(lib,&quot;WS2_32.lib&quot;)   
-#define BUF_SIZE    64      // 缓冲区大小
-
-int _tmain(int argc, _TCHAR* argv[])
-{
-    WSADATA wsd;                   </div>
+          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
+shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-24&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-inbox"></i>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/11/19/hello-world/">
+        <p class="h4 index-header">Hello World!</p>
+      </a>
+
+      <a href="/2019/11/19/hello-world/">
+        
+        
           
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          &nbsp;
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">2019/8/3日 15：22，我的网站算是正式开通了。这里可能是我展现最真实的我的地方，也用来记录我的学习过程和学习资料。在此先感谢一下毛同学的大力鼓吹，让我搞了这个，也感谢我的学校给我报销（笑
+最近在学校的大数据班学习了在centOS搭建hadoop平台（使用java进行程序编写），最开始的是计算和管理都在一个模拟机里的伪分布式，一主一仆的也在回家后在自家电脑上完成了搭建。
+后来为了搞github和gitee备份代码，又去研究了git如何使用，以及在vscode里同步代码，现在也是可以啦~点这可以看 相关代码和操作
+为了在学校更好的敲代码（装逼），也是打算买一个豆子峡谷，装上黑苹果和cen</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          
         
       </div>
     </div>

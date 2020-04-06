@@ -157,11 +157,370 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+      <a href="/2020/02/08/%E8%A7%A3%E5%AF%86%E7%B3%BB%E5%88%97/">
+        <p class="h4 index-header">解密系列笔记</p>
+      </a>
+
+      <a href="/2020/02/08/%E8%A7%A3%E5%AF%86%E7%B3%BB%E5%88%97/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">解密系列ASCII编码是Unicode字符编码的一部分
+系统dll属于level3，内核运行在level0. 
+虚拟内存在保护模式下：
+
+应用程序是不会直接访问物理地址的
+虚拟内存管理器通过虚拟地址的访问请求，控制所有物理地址访问
+每个程序都有独立的4GB寻址空间，不同程序的地址空间是被相互隔离的。
+DLL程序没有自己的“私有”空间，它们称之为动态链接库文件，它们总是被映射到其他应用程序的地址空间中的，作为其他应用程序的一部分运行。
+
+==简化了内存的管理，并可弥补物理内存的不足，另外可以防止多任务环境下各个应用程序之间的冲突==
+与实地址模式下的“段地址：偏移地址”索引方式类似，虚拟地址也写</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/08/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
+        <p class="h4 index-header">个人原则宪法</p>
+      </a>
+
+      <a href="/2020/02/08/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">个人原则宪法史蒂芬.柯维提出，以原则为导向是以终为始最有效的方法。
+
+李源在解读查理.芒格时说，芒格的思维方式解决了他一直以来困惑的“愚人船”命题——一群人在船舱里掌舵，但他们看不清前方；另一群人在岸上，他们能看见一切，想要为船指引方向，但是无论他们如何叫喊，船里的人都听不见。生活就像一艘愚人船，掌舵人代表过去的我们，岸上的人代表现在的我们。现在我们了解过去，却无法为过去的我们指引方向。芒格不仅是成功的投资大师，更是生活的智者，他总结了一系列“为”与“不为”的清单，作为自己的投资原则。
+作者：土月君链接：https://www.jianshu.com/p/7cd520b68d5e来源：简书
+
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">-个人原则宪法</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/08/ORW-%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/">
+        <p class="h4 index-header">ORW-[极客大挑战2019]Not_Bad</p>
+      </a>
+
+      <a href="/2020/02/08/ORW-%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019%5DNot_Bad/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ORW-[极客大挑战2019]Not_Bad
+RWX
+
+Linux的文件和目录的权限，有RWX三种。
+r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。
+w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。
+x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限
+
+
+
+什么是seccomp
+用seccomp-tools检测一下seccomp-tools dump  ./bad
+
+可运行open,read,write，也就是ORW
+关键点
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Shellcode-ORW/">-Shellcode -ORW</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/05/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        <p class="h4 index-header">Pwn常用指令</p>
+      </a>
+
+      <a href="/2020/02/05/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Pwn常用ldd filename 读取libc
+ROPgadget --binary filename --only &quot;pop|ret&quot;
+__libc_start_main = u64(sh.recvuntil(&quot;\x7f&quot;)[-6:].ljust(8,&#39;\x00&#39;))
+__libc_start_main = u32(sh.recvuntil(&quot;\xf7&quot;)[-4:])
+__libc_start_main = u32(sh.recv(4))
+canary =  u64(sh.recv(7).rjust(8,&quot</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/05/oneshot_tjctf_2016/">
+        <p class="h4 index-header">oneshot_tjctf_2016</p>
+      </a>
+
+      <a href="/2020/02/05/oneshot_tjctf_2016/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">oneshot_tjctf_2016
+
+*v4，要用str(elf.got[&#39;__libc_start_main&#39;])
+接受要用int(sh.recvuntil(&quot;\n&quot;,True),16)
+exp
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;./oneshot_tjctf_2016&#39;)
+lib = 0
+sh = 0
+def pwn(ip,port,</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/04/leak_canary-others_babystack/">
+        <p class="h4 index-header">leak_canary-others_babystack</p>
+      </a>
+
+      <a href="/2020/02/04/leak_canary-others_babystack/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">leak_canary-others_babystack
+Full RELRO GOT表只读
+
+s申请的是0x80，但读入0x100。并且canary在stack -0x8的地方
+先泄露canary，puts函数在输出时，只有遇到\x00才会结束，用\n覆盖canary的第一字节\x00，从而获得canary
+payload = cyclic(0x90-0x8)
+
+sh.recvuntil(&quot;iaab\n&quot;)
+canary =  u64(sh.recv(7).rjust(8,&quot;\x00&quot;))
+log.success(&quot;canary------&</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/03/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+        <p class="h4 index-header">Linux常见问题解决方法</p>
+      </a>
+
+      <a href="/2020/02/03/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+ps -A | grep apt
+sudo kill -9 processnumber
+
+sudo rm /var/lib/dpkg/lock
+sudo rm /var/lib/dpkg/lock-fr</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/03/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
+        <p class="h4 index-header">PWN 环境搭建清单</p>
+      </a>
+
+      <a href="/2020/02/03/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">PWN 环境搭建清单LINUXubuntu18、16
+pwntools 
+edb 调试栈好
+vim
+libcsearcher
+pwndbg 调试堆好
+seccomp-tools 查看seccomp
+proxychains4 apt get的快
+WIN/MACIDA 反汇编
+die 查看32/64 和壳等
+一些常用指令
+可供参考exp from 南梦
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/PWN%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">PWN环境搭建</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
         <p class="h4 index-header">堆的基础知识</p>
       </a>
 
-      <a href="/2020/04/07/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+      <a href="/2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
         
         
           
@@ -183,7 +542,7 @@ malloc(8)申请到的堆块总大小为 16 + 8 + 8 + 1 = 0x21
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -202,33 +561,47 @@ malloc(8)申请到的堆块总大小为 16 + 8 + 8 + 1 = 0x21
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
-        <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
+      <a href="/2020/02/02/babyheap_0ctf_2017/">
+        <p class="h4 index-header">babyheap_0ctf_2017</p>
       </a>
 
-      <a href="/2020/04/07/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
+      <a href="/2020/02/02/babyheap_0ctf_2017/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">堆之UAF(Use_after_free)及调试-hitcontraining_uaf
-https://wiki.x10sec.org/pwn/heap/use_after_free/
-一个很直接的想法是修改note的put字段为magic函数的地址，从而实现在执行print note 的时候执行magic函数。 那么该怎么执行呢？
-我们可以简单来看一下每一个note生成的具体流程
+          <div class="index-text mb-1">babyheap_0ctf_2017参考wp:https://blog.csdn.net/weixin_42151611/article/details/98119213?fps=1&amp;locationNum=2
 
-程序申请8字节内存用来存放note中的put以及content指针。
+===== Baby Heap in 2017 =====
+1. Allocate
 
-程序根据输入的size来申请指定大小的内存，然后用来存储content。
+Command: 1
+Size: 300 
+Allocate Index 0
 
+2. Fill
 
-      +-----------------+      </div>
+Command: 2   
+Index: 0
+Size: 400
+Content: 
+
+3. Free
+
+Command: 3
+Index: 3
+
+4. Dump
+
+Command: 4
+Ind</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-02&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -236,380 +609,6 @@ https://wiki.x10sec.org/pwn/heap/use_after_free/
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
             <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
-        <p class="h4 index-header">商业计划书撰写及案例分析</p>
-      </a>
-
-      <a href="/2020/04/07/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">商业计划书撰写及案例分析
-
-
-
-1，2页，最多3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-分析竞争对手 深入详细 长远目标，现行战略，产品趋势
-
-分析优劣，内外部威胁，外部机会与内部因素相匹配
-评审要点
-
- 
-
-
-痛点-&gt;解决方案-&gt;证明正确-&gt;商业模式-&gt;市场分析、竞争对手-&gt;商业模式-&gt;取得的成效-&gt;团队，财务，未来
-词汇不要过于专业，也不要太low
-盲审：不涉及产品，拿出数据化的东西
-路演：项目背景，痛点
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        <p class="h4 index-header">博弈论</p>
-      </a>
-
-      <a href="/2020/04/07/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
-Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\
-结论1：不要选择严格劣势策略
-结论2：理性的选择，使得总结果变得更坏
-改变收益，就会改变目的。
-结论3：予欲得之，必先知之\
-结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做
-
-2019/8/6
-
-
-Class2博弈的要素：参与人</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AF%BE%E5%A4%96%E5%AD%A6%E4%B9%A0/">课外学习</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
-        <p class="h4 index-header">使用docker为pwn题目搭配环境</p>
-      </a>
-
-      <a href="/2020/04/07/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">为pwn题目搭配环境-docker将多个题目搭建一个docker里ubuntu *1 
-docker 安装
-docker-compose 官方文档
-giantbranch/pwn_deploy_chroot
-解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
-docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
-        <p class="h4 index-header">个人原则宪法</p>
-      </a>
-
-      <a href="/2020/04/07/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">个人原则宪法史蒂芬.柯维提出，以原则为导向是以终为始最有效的方法。
-
-李源在解读查理.芒格时说，芒格的思维方式解决了他一直以来困惑的“愚人船”命题——一群人在船舱里掌舵，但他们看不清前方；另一群人在岸上，他们能看见一切，想要为船指引方向，但是无论他们如何叫喊，船里的人都听不见。生活就像一艘愚人船，掌舵人代表过去的我们，岸上的人代表现在的我们。现在我们了解过去，却无法为过去的我们指引方向。芒格不仅是成功的投资大师，更是生活的智者，他总结了一系列“为”与“不为”的清单，作为自己的投资原则。
-作者：土月君链接：https://www.jianshu.com/p/7cd520b68d5e来源：简书
-
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">-个人原则宪法</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%5BOGeek2019%5Dbabyrop/">
-        <p class="h4 index-header">[OGeek2019]babyrop</p>
-      </a>
-
-      <a href="/2020/04/07/%5BOGeek2019%5Dbabyrop/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">[OGeek2019]babyrop
-程序
-
-为了绕过strncmp，我们在v6这里可以放一个\x00 因为strlen会在识别到\x00之后停止，这样strncmp就会默认返回0
-
-这里的v5返回值又跟下面的a1是一致的
-
-
-这里也没有啥可以调用的
-那就是rop，leak libc了
-EXPleak libc版#!/usr/bin/python2.7
-# -*- coding: utf-8 -*-
-from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;amd64&#39;
-elf = ELF(&#3</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/What%20a%20day/">
-        <p class="h4 index-header">What a day</p>
-      </a>
-
-      <a href="/2020/04/07/What%20a%20day/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。
-想学逆向发现了mac上的一些软件之类的，link
-入门link
-pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码
-在线ctf平台![ctf平台](Wha</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/TCPIP%E5%A4%8D%E4%B9%A0/">
-        <p class="h4 index-header">TCPIP复习</p>
-      </a>
-
-      <a href="/2020/04/07/TCPIP%E5%A4%8D%E4%B9%A0/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">遗忘记录地址A类地址 公有1~126 
-
-
-
-地址类型
-公有
-私有
-
-
-
-A类
-1 ~ 126
-10.0.0.0 ~ 10.255.255.255
-
-
-B类
-128 ~ 191
-172.16.0.0 ~ 172.31.255.255
-
-
-C类
-192.0.0.0 ~ 223.255.255.255
-192.168.0.0 ~ 192.168.255.255
-
-
-直接交付和间接交付直接交付 -&gt; 交给同一个网络地址
-间接交付 -&gt; 经过一个直接交付，给路由器，再给路由器 直到到达同一个网络的路由再给主机
-端到端和点到点端到端 -&gt; 进程到进程
-点到点 -&gt; 设备到设备
-三</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/SROP-ciscn_2019_s_3/">
-        <p class="h4 index-header">SROP-ciscn_2019_s_3</p>
-      </a>
-
-      <a href="/2020/04/07/SROP-ciscn_2019_s_3/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">SROP-ciscn_2019_s_3/es_7Sigreturn Oriented Programming (SROP) Attack攻击原理
-比较详细的WP
-https://www.jianshu.com/p/ca4a5dacd1a2
-
-两个系统调用，一个是sys_read，一个是sys_write，往栈上写数据（0x400），从栈上读数据（0x30），存在栈溢出。还有一个gadget函数。
-
-有两个值得注意的地方。mov rax,0fh 以及mov rax 59。这两个gadget控制了rax的值，看看这两个是什么系统调用。15 sys_rt_sigreturn59 sys_execve</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
         

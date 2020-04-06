@@ -157,71 +157,82 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E8%A7%A3%E5%AF%86%E7%B3%BB%E5%88%97/">
-        <p class="h4 index-header">解密系列笔记</p>
+      <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+        <p class="h4 index-header">django学习记录</p>
       </a>
 
-      <a href="/2020/04/07/%E8%A7%A3%E5%AF%86%E7%B3%BB%E5%88%97/">
+      <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">解密系列ASCII编码是Unicode字符编码的一部分
-系统dll属于level3，内核运行在level0. 
-虚拟内存在保护模式下：
+          <div class="index-text mb-1">django学习记录将现有数据库导入到models.py中python manage.py inspectdb &gt; app/models.py
+js实现定时刷新页面Ajax轮询,Ajax长轮询和websocket(详细使用)
+django shell 调试python manage.py shell
+python小问题orders_num = ordersdate = orders_car_size = orders_price = []
 
-应用程序是不会直接访问物理地址的
-虚拟内存管理器通过虚拟地址的访问请求，控制所有物理地址访问
-每个程序都有独立的4GB寻址空间，不同程序的地址空间是被相互隔离的。
-DLL程序没有自己的“私有”空间，它们称之为动态链接库文件，它们总是被映射到其他应用程序的地址空间中的，作为其他应用程序的一部分运行。
-
-==简化了内存的管理，并可弥补物理内存的不足，另外可以防止多任务环境下各个应用程序之间的冲突==
-与实地址模式下的“段地址：偏移地址”索引方式类似，虚拟地址也写</div>
+会指向同一个内存地址QAQ
+叫引用赋值
+问题解决访问不到写好的pathurlpatterns = [   path(&#39;addUsers/&#</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-03&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
+        <p class="h4 index-header">cisco课程代码记录</p>
+      </a>
+
+      <a href="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">cisco课程代码记录不记肯定会忘记QAQ,只敲简写然后敲tab也是可以的
+enable
+configure terminal
+hostname R1加密enable secret class
+line console 0 #线路密码
+(config-line)password cisco
+(config-line)login
+(config-line)exit
+line vty 0 4 #加密密码设置
+(config-line)password class
+(config-line)login
+(config-line)exit
+service password-encrytion标语ban</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-31&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           &nbsp;
         
         
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        <p class="h4 index-header">转载-编写shellcode测试工具</p>
-      </a>
-
-      <a href="/2020/04/07/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        
-        
+          <i class="iconfont icon-tag"></i>
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
-shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+          
         
       </div>
     </div>
@@ -231,140 +242,33 @@ shellcode测试工具sctest我们将工具取名为sctest，是shell code test�
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编基础</p>
+      <a href="/2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
+        <p class="h4 index-header">常用好用的快捷键（Win）</p>
       </a>
 
-      <a href="/2020/04/07/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
+      <a href="/2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">X86汇编基础==Intel和AT&amp;T语法区别：==
-
-Intel操作数在前面，AT&amp;T的在后面
-
-
-在Intel语法中：  在AT&amp;T语法中：  有一个简单的记住它们的方法: 当你面对intel语法的时候，你可以想象把等号(=)放到2个操作数中间，当面对AT&amp;T语法的时候，你可以放一个右箭头(→）到两个操作数之间。
-
-
-AT&amp;T: 寄存器名之前需要写一个百分号(%)并且在数字前面需要加上美元符($)。并用圆括号替代方括号
-AT&amp;T: 以下是一些添加到操作符后，用来表示数据形式的后缀：– q — quad (64 bits)– l — long </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编、逆向工程基础</p>
-      </a>
-
-      <a href="/2020/04/07/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
-单位
-
-·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
-·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
-
-
-一个16进制占4bit
-
-
-寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
-
-
-EAX： 累加器
-EBX： 基</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E6%A0%88%E8%BF%81%E7%A7%BB/">
-        <p class="h4 index-header">栈迁移</p>
-      </a>
-
-      <a href="/2020/04/07/%E6%A0%88%E8%BF%81%E7%A7%BB/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">栈迁移劫持一次流程，覆盖一次ebp
-栈迁移后跳到read
-正常Rop到libc，再rop，再到libc
-rop到libc，由于跳到read上，后面可以继续任意地址跳转
-pop_ret
-leave_ret  
-payload += elf.plt[‘puts’]
-payload += p32(pop_ebp_ret)
-payload += p32(elf.got[“__libc_start”])
-payload += addr
-payload += p32(leave_ret)
-
-
-
-
-没调用函数，函数的got值指向用户代码段，若被执行过会指向libc该函数的
+          <div class="index-text mb-1">常用好用的快捷键（Win）写下来新发现的/有需求之后找到的快捷键，希望对各位有帮助
+全局（存疑）软件窗口切换自由控制方向alt + 方向
+依次切换alt + tab
+选择已输入的shift + ←/→方向键
+游览器恢复关闭的页面(隐私模式下无用)ctrl + shift + t
+页面切换顺序切换ctrl + tab
+倒叙ctrl + shift + tab
+关闭当前页面ctrl + w
+Vs code随时可能更新qwq
 </div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
         
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%B8%B8%E7%94%A8/">常用</a>&nbsp;
-          &nbsp;
         
         
       </div>
@@ -375,41 +279,187 @@ payload += p32(leave_ret)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <p class="h4 index-header">数据库复习笔记</p>
+      <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
+        <p class="h4 index-header">docker隔离开发环境和宿主</p>
       </a>
 
-      <a href="/2020/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+      <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">第一次实验新建数据库create database stuhyy
-on 
-(
-    name = stu, 
-    filename=&#39;C:\stu_data.mdf&#39;,
-    size = 3mb,
-    maxsize = 500mb,
-    filegrowth = 10%
+          <div class="index-text mb-1">docker隔离开发环境和宿主如何把开发环境移到docker里？
+目前设想了有：通过scp传数据，来让宿主机知道docker里安装了啥包。然后对应自动生成dockerfile。通过vscode remote。
+基础镜像，是一开始自己也不知道需要什么包的,所以直接装在镜像里,然后通过python来检测docker里安装了啥东西，再传出来到宿主机补充到dockerfile/自动安装包脚本里。至于开发的文件，git和云同步都挺好。真正做到开发完就丢环境                                 
+补充调查：
 
-)
-log on
-(
-    name = stu_log,
-    filename = &#39;D:\stu_log.ldf&#39;,
-    size=3mb,
-    maxsize = unlimited,
-    filegrowth = 1mb
-)
-修改数据库Alter </div>
+docker镜像可以拷贝到u盘上。link
+
+vscode remo</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/16/docker/">
+        <p class="h4 index-header">docker</p>
+      </a>
+
+      <a href="/2020/03/16/docker/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">docker记录群里介绍截图
+
+
+
+
+
+
+2375:默认端口
+
+不过root权限免密登录的是容器
+使用进入docker exec -it ID /bin/bash
+查看一下本地的镜像，运行docker images
+docker中删除images的命令是docker rmi(此时要求那个没有container在运行才会正确删除)
+问题Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+我的做法是卸载重装= =
+安装
+Unable to find ima</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/06/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
+        <p class="h4 index-header">商业计划书撰写及案例分析</p>
+      </a>
+
+      <a href="/2020/03/06/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">商业计划书撰写及案例分析
+
+
+
+1，2页，最多3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+分析竞争对手 深入详细 长远目标，现行战略，产品趋势
+
+分析优劣，内外部威胁，外部机会与内部因素相匹配
+评审要点
+
+ 
+
+
+痛点-&gt;解决方案-&gt;证明正确-&gt;商业模式-&gt;市场分析、竞争对手-&gt;商业模式-&gt;取得的成效-&gt;团队，财务，未来
+词汇不要过于专业，也不要太low
+盲审：不涉及产品，拿出数据化的东西
+路演：项目背景，痛点
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+        <p class="h4 index-header">网络编程</p>
+      </a>
+
+      <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">网络编程3/9
+
+非阻塞模式
+// TcpServer.cpp : 定义控制台应用程序的入口点。
+//
+
+#include &quot;stdafx.h&quot;
+#include &lt;WINSOCK2.H&gt;   
+#include &lt;iostream&gt;
+
+#pragma comment(lib,&quot;WS2_32.lib&quot;)   
+#define BUF_SIZE    64      // 缓冲区大小
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+    WSADATA wsd;                   </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -431,41 +481,52 @@ log on
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
-        <p class="h4 index-header">操作系统复习</p>
+      <a href="/2020/02/08/TCPIP%E5%A4%8D%E4%B9%A0/">
+        <p class="h4 index-header">TCPIP复习</p>
       </a>
 
-      <a href="/2020/04/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
+      <a href="/2020/02/08/TCPIP%E5%A4%8D%E4%B9%A0/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">对不起我看吐了，考炸了第一章操作系统的目标方便性，有效性，可扩充性和开放性
-可扩充性：采用微内核结构 P30
-发展主要动力
-不断提高计算机资源利用率
-方便用户
-器件的更新换代
-体系结构的发展
-新的应用需求
+          <div class="index-text mb-1">遗忘记录地址A类地址 公有1~126 
 
-多道程序设计的基本概念利用I/O操作的空闲时间，调度B程序运行，B空闲调度C等    P8
-优缺点
-资源利用率高
-吞吐量大
-平均周转时间长
-没有交互能力
 
-==操作系统定义为:一组能有效组织和管理硬件和软件资源，合理进行调度，方便用户使用程序的集合==
-分时系统（The Sharing System）在一台主机上连接多个终端，允许多个用户同时通过终端以交互方式使用计算机，共享主机资源
-特征</div>
+
+地址类型
+公有
+私有
+
+
+
+A类
+1 ~ 126
+10.0.0.0 ~ 10.255.255.255
+
+
+B类
+128 ~ 191
+172.16.0.0 ~ 172.31.255.255
+
+
+C类
+192.0.0.0 ~ 223.255.255.255
+192.168.0.0 ~ 192.168.255.255
+
+
+直接交付和间接交付直接交付 -&gt; 交给同一个网络地址
+间接交付 -&gt; 经过一个直接交付，给路由器，再给路由器 直到到达同一个网络的路由再给主机
+端到端和点到点端到端 -&gt; 进程到进程
+点到点 -&gt; 设备到设备
+三</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -487,51 +548,11 @@ log on
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
-        <p class="h4 index-header">手动脱壳</p>
-      </a>
-
-      <a href="/2020/04/07/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
-注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
-ESP定律
-参考
-nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
-首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
+      <a href="/2020/02/08/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
         <p class="h4 index-header">强网杯2019_拟态-STKOF</p>
       </a>
 
-      <a href="/2020/04/07/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
+      <a href="/2020/02/08/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
         
         
           
@@ -549,7 +570,7 @@ nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -568,40 +589,53 @@ nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
-        <p class="h4 index-header">安洵杯线下AWD总结</p>
+      <a href="/2020/02/08/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
+        <p class="h4 index-header">ROPgadget&amp;系统调用-cmcc_simplerop</p>
       </a>
 
-      <a href="/2020/04/07/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
+      <a href="/2020/02/08/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">安洵杯线下AWD总结
+          <div class="index-text mb-1">ROPgadget&amp;系统调用-cmcc_simplerop
 
-事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
-线下还是很友好的，可以连接外网，伙食也很不错，但是！
-只有先黑盒测试过了自己的，拿了flag并提交了之后，才可以找主办方要ssh密码=。=并且AWD只有1道pwn题，3个web题，域渗透部分就更不必多说了，都是web，哎
-AWD规则连接的是docker服务器，所以给的都是端口
-端口列表：axx80/axx22 
+第一反应就是用ROPgadget自动生成ropchains
+但在这里不行，算出来的偏移是0x20，那么只有68字节给ropchains了
 
-eg: team01-web1 10180(web) 10122(ssh) 
-eg: team18-web2 11880(web) 11822(ssh) 
-eg: team19-web3</div>
+而自动生成的都太长了= =，只能手动调整ropchains长度
+
+参考http://m4x.fun/post/hitcon-training-writeup/
+
+    from struct import pack 
+
+    pop_edx_ecx_ebx = 0x0806e850
+    payload = cyclic(0x14 + 12) 
+
+    p = lambda x </div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93/">反思总结</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/ROPgadget-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%8F%B7/">-ROPgadget -系统调用号</a>&nbsp;
+          
         
       </div>
     </div>

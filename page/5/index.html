@@ -157,11 +157,168 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/ciscn_2019_n_1%20WP/">
+      <a href="/2020/01/13/HCNP-SEC-19.11.23/">
+        <p class="h4 index-header">HCNP-SEC-19.11.23</p>
+      </a>
+
+      <a href="/2020/01/13/HCNP-SEC-19.11.23/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">HCNP-SEC-19.11.23
+
+eSight网管 可管其他厂商设备，几乎都可以
+CIS可用于抵御APT攻击。它从海量数据中提取关键信息，智能可视化，还原攻击链，防御攻击
+FireHunter还原流量，在虚拟环境对网络中传输的文件进行检测
+UMA 审计上网行为
+NGFW USG9000 网络运营商，广电（超大型网络）USG6000 中大型企业
+业务随行
+S12700 整个网络核心 S9k S7k
+
+
+网络安全运维安全策略：简单，稳定，安全
+端口要加端口描述
+脚本配置
+
+
+
+
+
+监控（类似只读）
+
+
+
+
+
+
+
+
+
+
+
+
+
+QS 优先级？优先保证业务
+FW作为出口且有多条出口链路，两条链路一接</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">网络专业知识</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
+        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
+      </a>
+
+      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">查看main
+
+进入test()
+
+看见了read，等等先
+
+judge无法反编译，查看汇编
+
+看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
+点开read的buf
+
+buf只有30字节
+再看看strings
+
+没有/bin/sh
+所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
+遂写poc
+from pwn import *
+sh = process(&quot;./my_cannary&quot;)
+elf = ELF(&quot</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
+        <p class="h4 index-header">git同步到github和gitee</p>
+      </a>
+
+      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
+一、准备工作1、建立一个仓库https://gitee.com/
+2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
+二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东西，</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/ciscn_2019_n_1%20WP/">
         <p class="h4 index-header">ciscn_2019_n_1 WP</p>
       </a>
 
-      <a href="/2020/04/07/ciscn_2019_n_1%20WP/">
+      <a href="/2020/01/13/ciscn_2019_n_1%20WP/">
         
         
           
@@ -185,7 +342,7 @@
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -204,37 +361,35 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
-        <p class="h4 index-header">ciscn_2019_ne_5-骚骚的小东西</p>
+      <a href="/2020/01/13/get_started_3dsctf_2016/">
+        <p class="h4 index-header">get_started_3dsctf_2016</p>
       </a>
 
-      <a href="/2020/04/07/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
+      <a href="/2020/01/13/get_started_3dsctf_2016/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_ne_5-骚骚的小东西
-
-输入之后，在调用getflag这里会造成溢出
-
-函数里调用有system，但没有/bin/sh
-骚东西：
-0x80482E6 + 0x4就是 sh
-我们可以system(“sh”)也可以
-exp:
+          <div class="index-text mb-1">二进制菜鸡的小窝的WPmprotect函数原型： int mprotect(void *addr, size_t len, int prot);
+addr 内存启始地址
+len 修改内存的长度
+prot 内存的权限
+[
+所以得到exp:
+# _*_ coding:utf-8 _*_
 from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;i386&#39;
-#sh = process(&#39;ciscn_2019_ne_5&#39;)
-sh = remote(&quot;node3.buuoj.cn&quot;,27887)
-elf = </div>
+elf = ELF(&#39;./get_started_3dsctf_2016&#39;)
+sh = elf.process()
+#sh = remote(&#39;node3.buuoj.cn&#39;,27037)
+
+pop3_ret = 0x804951D #为了后续再能</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -253,11 +408,11 @@ elf = </div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/buu-ciscn_2019-c_1%20WP/">
+      <a href="/2020/01/13/buu-ciscn_2019-c_1%20WP/">
         <p class="h4 index-header">buu-ciscn_2019-c_1 WP</p>
       </a>
 
-      <a href="/2020/04/07/buu-ciscn_2019-c_1%20WP/">
+      <a href="/2020/01/13/buu-ciscn_2019-c_1%20WP/">
         
         
           
@@ -275,7 +430,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -294,94 +449,37 @@ int __cdecl main(int argc, const char **argv, const char **envp)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
-        <p class="h4 index-header">BrainOverFlow_Vol.1_BUU特供</p>
+      <a href="/2020/01/13/AWD%E5%87%86%E5%A4%87/">
+        <p class="h4 index-header">AWD准备</p>
       </a>
 
-      <a href="/2020/04/07/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
+      <a href="/2020/01/13/AWD%E5%87%86%E5%A4%87/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">
-
-BrainOverFlow_Vol.1_BUU特供很有意思（好玩）的游戏，感谢札哥的题
-
-btw，我也没想到我会是第六个解出来的hhhhh，我可以吹一个月（笑
-剧情我就不说了，反正很有意思的
-具体东西都藏在/www/data里边，每一次的地图数据（主要在Map013，15，22）都有，个人等级，姓名，武器售卖价值等都可以改hhhhh
-亏我三小时打通游戏，做了半天pwn以为是盲打，然后发现了文件就在图片旁边orz
-protect
-
-
-这图就是溢出点，buf空间只有0x40，但是却读入0xC8个，题目没有system和/bin/sh字段，就是ret2libc
-# -*- coding: utf</div>
+          <div class="index-text mb-1">AWD探测主机Nmap或HTTPScan
+Nmap扫描端口
+端口攻击常见：22，2389，1443，3306
+==准备爆破脚本！！！==
+WEB攻击
+Web 方面的语言多为 PHP，小部分为 Java 和 Python。这里的 Web 环境分两种情况，一种是已有漏洞的框架，一种是出题人写的框架。
+如果是已有漏洞的框架，通常会比较明显。比如说 Struts 2 各种漏洞等等，用工具扫就可以扫出来。这个需要准备得比较充分，在电脑中备好 EXP 库、漏洞库和各种扫描工具库，以便能够快速利用比较明显的漏洞。总之手要快！
+如果是出题人出的框架，常用并且简单有效的做法是把整站源码下载下来，直接用工具审计。</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/babyheap_0ctf_2017/">
-        <p class="h4 index-header">babyheap_0ctf_2017</p>
-      </a>
-
-      <a href="/2020/04/07/babyheap_0ctf_2017/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">babyheap_0ctf_2017参考wp:https://blog.csdn.net/weixin_42151611/article/details/98119213?fps=1&amp;locationNum=2
-
-===== Baby Heap in 2017 =====
-1. Allocate
-
-Command: 1
-Size: 300 
-Allocate Index 0
-
-2. Fill
-
-Command: 2   
-Index: 0
-Size: 400
-Content: 
-
-3. Free
-
-Command: 3
-Index: 3
-
-4. Dump
-
-Command: 4
-Ind</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/AWD/">AWD</a>&nbsp;
           &nbsp;
         
         
@@ -393,11 +491,11 @@ Ind</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+      <a href="/2020/01/13/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
         <p class="h4 index-header">AWD常用指令</p>
       </a>
 
-      <a href="/2020/04/07/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+      <a href="/2020/01/13/AWD%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
         
         
           
@@ -417,7 +515,7 @@ mysqldump --all-databases &gt; bak.sql　　　　　　
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -436,37 +534,45 @@ mysqldump --all-databases &gt; bak.sql　　　　　　
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/AWD%E5%87%86%E5%A4%87/">
-        <p class="h4 index-header">AWD准备</p>
+      <a href="/2020/01/13/%5BOGeek2019%5Dbabyrop/">
+        <p class="h4 index-header">[OGeek2019]babyrop</p>
       </a>
 
-      <a href="/2020/04/07/AWD%E5%87%86%E5%A4%87/">
+      <a href="/2020/01/13/%5BOGeek2019%5Dbabyrop/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">AWD探测主机Nmap或HTTPScan
-Nmap扫描端口
-端口攻击常见：22，2389，1443，3306
-==准备爆破脚本！！！==
-WEB攻击
-Web 方面的语言多为 PHP，小部分为 Java 和 Python。这里的 Web 环境分两种情况，一种是已有漏洞的框架，一种是出题人写的框架。
-如果是已有漏洞的框架，通常会比较明显。比如说 Struts 2 各种漏洞等等，用工具扫就可以扫出来。这个需要准备得比较充分，在电脑中备好 EXP 库、漏洞库和各种扫描工具库，以便能够快速利用比较明显的漏洞。总之手要快！
-如果是出题人出的框架，常用并且简单有效的做法是把整站源码下载下来，直接用工具审计。</div>
+          <div class="index-text mb-1">[OGeek2019]babyrop
+程序
+
+为了绕过strncmp，我们在v6这里可以放一个\x00 因为strlen会在识别到\x00之后停止，这样strncmp就会默认返回0
+
+这里的v5返回值又跟下面的a1是一致的
+
+
+这里也没有啥可以调用的
+那就是rop，leak libc了
+EXPleak libc版#!/usr/bin/python2.7
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#3</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="/categories/CTF/AWD/">AWD</a>&nbsp;
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
         
@@ -478,11 +584,11 @@ Web 方面的语言多为 PHP，小部分为 Java 和 Python。这里的 Web 环
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/19920%E7%AC%94%E8%AE%B0/">
+      <a href="/2019/11/29/19920%E7%AC%94%E8%AE%B0/">
         <p class="h4 index-header">19/9/20笔记</p>
       </a>
 
-      <a href="/2020/04/07/19920%E7%AC%94%E8%AE%B0/">
+      <a href="/2019/11/29/19920%E7%AC%94%E8%AE%B0/">
         
         
           
@@ -514,79 +620,7 @@ x:就是用来查看内存中</div>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
-        <p class="h4 index-header">常用好用的快捷键（Win）</p>
-      </a>
-
-      <a href="/2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">常用好用的快捷键（Win）写下来新发现的/有需求之后找到的快捷键，希望对各位有帮助
-全局（存疑）软件窗口切换自由控制方向alt + 方向
-依次切换alt + tab
-选择已输入的shift + ←/→方向键
-游览器恢复关闭的页面(隐私模式下无用)ctrl + shift + t
-页面切换顺序切换ctrl + tab
-倒叙ctrl + shift + tab
-关闭当前页面ctrl + w
-Vs code随时可能更新qwq
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
-        <p class="h4 index-header">docker隔离开发环境和宿主</p>
-      </a>
-
-      <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">docker隔离开发环境和宿主如何把开发环境移到docker里？
-目前设想了有：通过scp传数据，来让宿主机知道docker里安装了啥包。然后对应自动生成dockerfile。通过vscode remote。
-基础镜像，是一开始自己也不知道需要什么包的,所以直接装在镜像里,然后通过python来检测docker里安装了啥东西，再传出来到宿主机补充到dockerfile/自动安装包脚本里。至于开发的文件，git和云同步都挺好。真正做到开发完就丢环境                                 
-补充调查：
-
-docker镜像可以拷贝到u盘上。link
-
-vscode remo</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-29&nbsp;&nbsp;
         
         
         

