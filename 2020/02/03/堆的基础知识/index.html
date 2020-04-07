@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="../../../../img/avatar.png">
-  <link rel="icon" type="image/png" href="../../../../img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,21 +19,21 @@
   <meta name="keywords" content="">
   <title>堆的基础知识 - Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="../../../../https:/cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="../../../../https:/cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="../../../../https:/cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="../../../../https:/cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
 
-<link rel="stylesheet" href="../../../../at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
-
-
-
-  <link  rel="stylesheet" href="../../../../lib/prettify/tomorrow-night-eighties.min.css" />
-
-<link  rel="stylesheet" href="../../../../css/main.css" />
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-  <link defer rel="stylesheet" href="../../../../https:/cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 <!-- 自定义样式保持在最底部 -->
@@ -47,7 +47,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="../../../../index.html">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,7 +64,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../../../index.html">首页</a>
+            <a class="nav-link" href="/">首页</a>
           </li>
         
           
@@ -72,7 +72,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../../../archives/">归档</a>
+            <a class="nav-link" href="/archives/">归档</a>
           </li>
         
           
@@ -80,7 +80,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../../../categories/">分类</a>
+            <a class="nav-link" href="/categories/">分类</a>
           </li>
         
           
@@ -88,7 +88,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../../../tags/">标签</a>
+            <a class="nav-link" href="/tags/">标签</a>
           </li>
         
           
@@ -96,7 +96,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../../../about/">关于</a>
+            <a class="nav-link" href="/about/">关于</a>
           </li>
         
           
@@ -104,7 +104,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../../../links/">友链</a>
+            <a class="nav-link" href="/links/">友链</a>
           </li>
         
         
@@ -119,7 +119,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('../../../../img/default.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -206,7 +206,7 @@
 <p><strong>32位的程序使用 x/32xw  addr比较直观一点</strong></p>
 <p><strong>64位的程序使用 x/64xw  addr</strong></p>
 <h2 id="top-chunk"><a href="#top-chunk" class="headerlink" title="top chunk"></a>top chunk</h2><p>堆中第一个堆块,程序以后分配到的内存到要放在他的后面，就如下图的0x5578cbd73110（并且，堆向上生长</p>
-<img src="2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/image-20200131214332010.png" srcset="/img/loading.gif" class="" title="image-20200131214332010">
+<img src="/2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/image-20200131214332010.png" srcset="/img/loading.gif" class="" title="image-20200131214332010">
 
 <blockquote>
 <p>FD 指向链表中前一个堆块的指针，该指针指向的是chunk的head</p>
@@ -226,7 +226,7 @@
 <p><strong>fast bin 的特性</strong></p>
 <p><strong>1.使用单链表来维护释放的堆块</strong><br>也就是和上图一样，从main_arena 到 free 第一个块的地方是采用单链表形式进行存储的，若还有 free 掉的堆块，则这个堆块的 fk 指针域就会指针前一个堆块。</p>
 <p>如下图所示，此时就是一个单链表结构</p>
-<img src="2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/image-20200131214423497.png" srcset="/img/loading.gif" class="" title="image-20200131214423497">
+<img src="/2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/image-20200131214423497.png" srcset="/img/loading.gif" class="" title="image-20200131214423497">
 
 <p><strong>2.采用后进先出的方式维护链表（类似于栈的结构）</strong><br>当程序需要重新 malloc 内存并且需要从fastbin 中挑选堆块时，<strong>会选择后面新加入的堆块拿来先进行内存分配</strong></p>
 <p>如上图，如果程序重新请求和上面的堆块大小一样时候（malloc），堆管理器就会直接使用 fast bin 里的堆块。</p>
@@ -242,7 +242,7 @@
 <li><p>unsorted 的字面意思就是”不可回收”的意思，可以看作将不可回收的垃圾（不满足能够进行内存分配的堆块）都放到这个”垃圾桶”中。</p>
 </li>
 </ul>
-<img src="2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/image-20200131215053221.png" srcset="/img/loading.gif" class="" title="image-20200131215053221">
+<img src="/2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/image-20200131215053221.png" srcset="/img/loading.gif" class="" title="image-20200131215053221">
             </div>
             <hr>
             <div>
@@ -251,10 +251,10 @@
                   <span>
                 <i class="iconfont icon-inbox"></i>
                     
-                      <a class="hover-with-bg" href="../../../../categories/CTF/">CTF</a>
+                      <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
                       &nbsp;
                     
-                      <a class="hover-with-bg" href="../../../../categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
+                      <a class="hover-with-bg" href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
                       &nbsp;
                     
                   </span>&nbsp;&nbsp;
@@ -269,7 +269,7 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="../PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
+                      <a href="/2020/02/03/PWN%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%B8%85%E5%8D%95/">
                         <i class="fa fa-chevron-left"></i>
                         <span class="hidden-mobile">PWN 环境搭建清单</span>
                         <span class="visible-mobile">上一篇</span>
@@ -279,7 +279,7 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="../../02/babyheap_0ctf_2017/">
+                      <a href="/2020/02/02/babyheap_0ctf_2017/">
                         <span class="hidden-mobile">babyheap_0ctf_2017</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
@@ -414,19 +414,19 @@
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="../../../../https:/cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="../../../../https:/cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="../../../../https:/cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="../../../../https:/cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="../../../../js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script  src="../../../../js/lazyload.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
   
-  <script  src="../../../../https:/cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
       var navHeight = $('#navbar').height();
@@ -480,16 +480,16 @@
 
 
 
-  <script defer src="../../../../https:/cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="../../../../js/clipboard-use.js" ></script>
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer src="../../../../https:/cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
 
 
 
-  <script defer src="../../../../https:/busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -498,7 +498,7 @@
 
 
 
-  <script  src="../../../../https:/cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -508,7 +508,7 @@
 
 
 
-  <script  src="../../../../https:/cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -528,7 +528,7 @@
 
 
 
-  <script  src="../../../../https:/cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -545,9 +545,9 @@
 
 
 
-  <script  src="../../../../js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "../../../../local-search.xml";
+    var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
       getSearchFile(path);
@@ -557,7 +557,7 @@
 
 
 
-  <script defer src="../../../../https:/cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {

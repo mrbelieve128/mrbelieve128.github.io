@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>What a day - Mr.BelieVe&#39;s Treasure</title>
+  <title>hexo升级跳坑 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -132,7 +132,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期二, 十一月 19日 2019, 9:28 上午
+                  星期二, 四月 7日 2020, 7:58 早上
                 </p>
               
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    192 字
+                    1k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      5 分钟
                   </span>
                 
 
@@ -177,13 +177,181 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <p>明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。</p>
-<h2 id="想学逆向"><a href="#想学逆向" class="headerlink" title="想学逆向"></a>想学逆向</h2><p>发现了mac上的一些软件之类的，<a href="https://www.jianshu.com/p/c04ac36c6641?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">link</a></p>
-<p>入门<a href="https://blog.csdn.net/qq_21508727/article/details/80559270" target="_blank" rel="noopener">link</a></p>
-<p>pwn学习流程<br>– [ ] 小甲鱼视频<br>– [ ] liveoverflow那一套视频入门<br>– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的<br>– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码</p>
-<h2 id="在线ctf平台"><a href="#在线ctf平台" class="headerlink" title="在线ctf平台"></a>在线ctf平台</h2><p><a href="https://i.loli.net/2019/08/06/Jht7r9DY4xadcQZ.png" target="_blank" rel="noopener">![ctf平台](What a day/Jht7r9DY4xadcQZ.png)</a></p>
-<p>下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯</p>
-<h1 id="GOGOGO！"><a href="#GOGOGO！" class="headerlink" title="GOGOGO！"></a>GOGOGO！</h1><h1 id="过几天重新开始一大早起床跑步吧"><a href="#过几天重新开始一大早起床跑步吧" class="headerlink" title="过几天重新开始一大早起床跑步吧!"></a>过几天重新开始一大早起床跑步吧!</h1>
+              <h1 id="hexo升级跳坑"><a href="#hexo升级跳坑" class="headerlink" title="hexo升级跳坑"></a>hexo升级跳坑</h1><p>应该是从4.0升级到4.2，_config.yml的更改就不说了，主要讲讲昨天晚上都干了啥（吐血捂肝</p>
+<p>4.2多了个友链（万恶起源）上来之后，最开始的变化就是，所有文章的日期都变成了<strong>创建时间</strong>，即便<strong>修改时间</strong>比创建时间还早0.0</p>
+
+
+<p>于是，写了脚本给每个文章加上date，确定最早的发布/创建时间，并且，没有这个<a href="https://hexo.io/zh-cn/docs/front-matter" target="_blank" rel="noopener">Front-matter</a>是会报</p>
+<p>莫名其妙的YAMLException的。</p>
+<pre><code class="python">import os
+import sys
+import time
+import datetime
+fpath = os.getcwd()
+path=os.path.abspath(os.path.dirname(__file__))
+
+def shift_time(filename):
+    time_stamp_create = os.path.getctime(filename)
+    time_stamp_modify = os.path.getmtime(filename)
+    if time_stamp_create &gt; time_stamp_modify:
+        time_stamp = time_stamp_modify
+    else :
+        time_stamp = time_stamp_create
+    dateArray = datetime.datetime.fromtimestamp(time_stamp)  
+    return dateArray.strftime(&quot;%Y/%m/%d %H:%M:%S&quot;) 
+
+def writeback(filename,text):
+    s = &#39;&#39;.join(text)
+    with open(filename , &quot;w&quot; , encoding=&#39;utf-8&#39;,) as f:
+        f.write(s)
+
+#将文件创建时间或修改时间，最早的一个，写入date中，作为文章时间
+for parent, dirnames, filenames in os.walk(fpath):
+    for filename in filenames:         
+        temp=os.path.splitext(filename)
+        file,type=temp
+        if type == &quot;.md&quot;:
+            headline = False
+            head_exist = False
+            date_exist = False
+            line_num = False
+            create_date = shift_time(filename) 
+            for line in open(filename,encoding=&#39;utf-8&#39;):
+                line_num += 1
+                if line == &quot;---\n&quot;:
+                    headline += 1
+                    continue
+                if &quot;date:&quot; in line:
+                    date_exist = True
+                    break
+                if headline == 2:
+                    head_exist = True
+                    break
+                if line_num == 10:
+                    break
+            if date_exist:
+                continue
+            elif head_exist:
+                text = []
+                for line in open(filename,encoding=&#39;utf-8&#39;): 
+                    text.append(line)
+                text.insert(1 , &quot;date: &quot; + create_date + &#39;\n&#39;)
+                writeback(filename,text)
+                continue
+            else:
+                text = []
+                for line in open(filename,encoding=&#39;utf-8&#39;): 
+                    text.append(line)
+                text.insert(0 , &quot;---\ndate: &quot; + create_date + &#39;\n---\n&#39;)
+                writeback(filename,text)</code></pre>
+<p>这部分修改好了之后呢，跑起来测试之后发现图片加载不了了，原来的hexo-assets-image的图片src地址有误，没法用了，换了<a href="https://github.com/cocowool/hexo-image-link" target="_blank" rel="noopener">hexo-image-link</a>之后，可以是可以了，但是我原先的结构不能用了QAQ</p>
+<blockquote>
+<p>原先是图片都放在 markdown.assets/xxx.png 这样的，现在根据 官方和 image-link 的呢，只能改成  markdown/xxx.png 这样了 于是又写了这部分代码QAQ</p>
+</blockquote>
+<pre><code class="python">#先找到.assets文件夹，然后再去找md文件替换到assets
+for folder in os.listdir():
+    if folder == &quot;.vscode&quot;:
+        continue
+    if os.path.isdir(folder)==True:
+        temp=os.path.splitext(folder)
+        file,type=temp
+        if type == &quot;.assets&quot;:
+            for parent, dirnames, filenames in os.walk(fpath):
+                for filename in filenames:  
+                    if filename == file + &#39;.md&#39;:
+                        text = []
+                        for line in open(filename,encoding=&#39;utf-8&#39;): 
+                            text.append(line.replace(&quot;.assets&quot;,&quot;&quot;))
+                        writeback(file + &#39;.md&#39;,text)
+        new_name=folder.replace(&#39;.assets&#39;,&#39;&#39;)
+        os.rename(os.path.join(path,folder),os.path.join(path,new_name))</code></pre>
+<p>这样，我本地看也没有任何问题，发布出去也不会有问题，耶✌</p>
+<p>懒才是最强生产力（确信</p>
+<p>所以现在就是双击Winclick.bat 跑run.py。写完就丢嘿嘿</p>
+<pre><code class="python">#run.py
+import os
+import sys
+import time
+import datetime
+fpath = os.getcwd()
+path=os.path.abspath(os.path.dirname(__file__))
+
+
+def shift_time(filename):
+    time_stamp_create = os.path.getctime(filename)
+    time_stamp_modify = os.path.getmtime(filename)
+    if time_stamp_create &gt; time_stamp_modify:
+        time_stamp = time_stamp_modify
+    else :
+        time_stamp = time_stamp_create
+    dateArray = datetime.datetime.fromtimestamp(time_stamp)  
+    return dateArray.strftime(&quot;%Y/%m/%d %H:%M:%S&quot;) 
+
+def writeback(filename,text):
+    s = &#39;&#39;.join(text)
+    with open(filename , &quot;w&quot; , encoding=&#39;utf-8&#39;,) as f:
+        f.write(s)
+
+#将文件创建时间或修改时间，最早的一个，写入date中，作为文章时间
+for parent, dirnames, filenames in os.walk(fpath):
+    for filename in filenames:         
+        temp=os.path.splitext(filename)
+        file,type=temp
+        if type == &quot;.md&quot;:
+            headline = False
+            head_exist = False
+            date_exist = False
+            line_num = False
+            create_date = shift_time(filename) 
+            for line in open(filename,encoding=&#39;utf-8&#39;):
+                line_num += 1
+                if line == &quot;---\n&quot;:
+                    headline += 1
+                    continue
+                if &quot;date:&quot; in line:
+                    date_exist = True
+                    break
+                if headline == 2:
+                    head_exist = True
+                    break
+                if line_num == 10:
+                    break
+            if date_exist:
+                continue
+            elif head_exist:
+                text = []
+                for line in open(filename,encoding=&#39;utf-8&#39;): 
+                    text.append(line)
+                text.insert(1 , &quot;date: &quot; + create_date + &#39;\n&#39;)
+                writeback(filename,text)
+                continue
+            else:
+                text = []
+                for line in open(filename,encoding=&#39;utf-8&#39;): 
+                    text.append(line)
+                text.insert(0 , &quot;---\ndate: &quot; + create_date + &#39;\n---\n&#39;)
+                writeback(filename,text)
+
+for folder in os.listdir():
+    if folder == &quot;.vscode&quot;:
+        continue
+    if os.path.isdir(folder)==True:
+        temp=os.path.splitext(folder)
+        file,type=temp
+        if type == &quot;.assets&quot;:
+            for parent, dirnames, filenames in os.walk(fpath):
+                for filename in filenames:  
+                    if filename == file + &#39;.md&#39;:
+                        text = []
+                        for line in open(filename,encoding=&#39;utf-8&#39;): 
+                            text.append(line.replace(&quot;.assets&quot;,&quot;&quot;))
+                        writeback(file + &#39;.md&#39;,text)
+        new_name=folder.replace(&#39;.assets&#39;,&#39;&#39;)
+        os.rename(os.path.join(path,folder),os.path.join(path,new_name))
+        #i+=1
+
+os.system((&#39;cd {} &amp;&amp; hexo clean &amp;&amp; hexo gen &amp;&amp; hexo deploy&#39;).format(path))#cd {} &amp;&amp; hexo clean &amp;&amp; hexo gen &amp;&amp; hexo deploy</code></pre>
+
             </div>
             <hr>
             <div>
@@ -199,18 +367,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/11/29/19920%E7%AC%94%E8%AE%B0/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">19/9/20笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-                        <span class="hidden-mobile">转载-编写shellcode测试工具</span>
+                      <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <span class="hidden-mobile">记一次转移环境上服务器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -443,7 +605,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "What a day&nbsp;",
+        "hexo升级跳坑&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

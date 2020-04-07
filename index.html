@@ -24,7 +24,7 @@
 <link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
 
-<link rel="stylesheet" href="/at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
 
@@ -47,7 +47,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="index.html">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,7 +64,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="index.html">首页</a>
+            <a class="nav-link" href="/">首页</a>
           </li>
         
           
@@ -157,11 +157,91 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+      <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
+        <p class="h4 index-header">hexo升级跳坑</p>
+      </a>
+
+      <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">hexo升级跳坑应该是从4.0升级到4.2，_config.yml的更改就不说了，主要讲讲昨天晚上都干了啥（吐血捂肝
+4.2多了个友链（万恶起源）上来之后，最开始的变化就是，所有文章的日期都变成了创建时间，即便修改时间比创建时间还早0.0
+
+
+于是，写了脚本给每个文章加上date，确定最早的发布/创建时间，并且，没有这个Front-matter是会报
+莫名其妙的YAMLException的。
+import os
+import sys
+import time
+import datetime
+fpath = os.getcwd()
+path=os.path.abspath(os.path.dirn</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+        <p class="h4 index-header">记一次转移环境上服务器</p>
+      </a>
+
+      <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">记一次转移后端环境上服务器本想着本地docker调好直接传上去的，然鹅一开vscode remote就崩
+并且，vscode remote也仅指本地的docker里，不是云服务器的环境，QAQ
+上传xftp 学生免费版，可了
+安装好数据库后，记得设置密码，参考
+修改utf8为utf8mb4
+vim /etc/mysql/my.cnf
+[mysqld]
+character-set-server=utf8mb4
+
+[mysql]
+default-character-set=utf8mb4
+
+[client]
+default-character-set=utf8mb4                </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
         <p class="h4 index-header">django学习记录</p>
       </a>
 
-      <a href="2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+      <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
         
         
           
@@ -193,11 +273,11 @@ python小问题orders_num = ordersdate = orders_car_size = orders_price = []
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
+      <a href="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
         <p class="h4 index-header">cisco课程代码记录</p>
       </a>
 
-      <a href="2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
+      <a href="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
         
         
           
@@ -226,13 +306,13 @@ service password-encrytion标语ban</div>
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           
         
       </div>
@@ -243,11 +323,11 @@ service password-encrytion标语ban</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
+      <a href="/2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
         <p class="h4 index-header">常用好用的快捷键（Win）</p>
       </a>
 
-      <a href="2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
+      <a href="/2020/03/25/%E5%B8%B8%E7%94%A8%E5%A5%BD%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88Win%EF%BC%89/">
         
         
           
@@ -280,11 +360,11 @@ Vs code随时可能更新qwq
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
+      <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
         <p class="h4 index-header">docker隔离开发环境和宿主</p>
       </a>
 
-      <a href="2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
+      <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
         
         
           
@@ -315,11 +395,11 @@ vscode remo</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/03/16/docker/">
+      <a href="/2020/03/16/docker/">
         <p class="h4 index-header">docker</p>
       </a>
 
-      <a href="2020/03/16/docker/">
+      <a href="/2020/03/16/docker/">
         
         
           
@@ -360,13 +440,13 @@ Unable to </div>
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>&nbsp;
           
         
       </div>
@@ -377,11 +457,11 @@ Unable to </div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/03/06/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
+      <a href="/2020/03/06/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
         <p class="h4 index-header">商业计划书撰写及案例分析</p>
       </a>
 
-      <a href="2020/03/06/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
+      <a href="/2020/03/06/%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E6%92%B0%E5%86%99%E5%8F%8A%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
         
         
           
@@ -462,11 +542,11 @@ Unable to </div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+      <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
         <p class="h4 index-header">网络编程</p>
       </a>
 
-      <a href="2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+      <a href="/2020/02/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
         
         
           
@@ -504,13 +584,13 @@ int _tmain(int argc, _TCHAR* argv[])
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           
         
       </div>
@@ -521,11 +601,11 @@ int _tmain(int argc, _TCHAR* argv[])
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/02/08/TCPIP%E5%A4%8D%E4%B9%A0/">
+      <a href="/2020/02/08/TCPIP%E5%A4%8D%E4%B9%A0/">
         <p class="h4 index-header">TCPIP复习</p>
       </a>
 
-      <a href="2020/02/08/TCPIP%E5%A4%8D%E4%B9%A0/">
+      <a href="/2020/02/08/TCPIP%E5%A4%8D%E4%B9%A0/">
         
         
           
@@ -571,113 +651,13 @@ C类
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/02/08/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
-        <p class="h4 index-header">强网杯2019_拟态-STKOF</p>
-      </a>
-
-      <a href="2020/02/08/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">强网杯2019_拟态-STKOF这题给了两文件，分别是32和64位的，32位的由于是静态链接，直接自动生成就能打通。
-打到buu服务器上时，exp是随机打到两个程序中的一个的，就我测试来看64位的出现多点
-搜了一搜，当时比赛好像是要一个exp打通两个程序才行
-备份学习链接：
-强网杯 签到re 签到pwn 题解
-拟态防御型Pwn题做题思路总结
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="categories/CTF/buu/">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="2020/02/08/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
-        <p class="h4 index-header">ROPgadget&amp;系统调用-cmcc_simplerop</p>
-      </a>
-
-      <a href="2020/02/08/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget&amp;系统调用-cmcc_simplerop
-
-
-
-第一反应就是用ROPgadget自动生成ropchains
-但在这里不行，算出来的偏移是0x20，那么只有68字节给ropchains了
-
-
-而自动生成的都太长了= =，只能手动调整ropchains长度
-
-参考http://m4x.fun/post/hitcon-training-writeup/
-
-    from struct import pack 
-
-    pop_edx_ecx_ebx = 0x0806e850
-    payload = cyclic(0x14 + 12) 
-
-    p = lambda</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="tags/ROPgadget-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%8F%B7/">-ROPgadget -系统调用号</a>&nbsp;
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           
         
       </div>
@@ -688,7 +668,7 @@ C类
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/6/">6</a><a class="extend next" rel="next" href="page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

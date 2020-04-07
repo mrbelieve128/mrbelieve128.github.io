@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="../../img/avatar.png">
-  <link rel="icon" type="image/png" href="../../img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" type="image/png" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,21 +19,21 @@
   <meta name="keywords" content="">
   <title>Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="../../https:/cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="../../https:/cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="../../https:/cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="../../https:/cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
 
-<link rel="stylesheet" href="../../at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
-
-
-
-  <link  rel="stylesheet" href="../../lib/prettify/tomorrow-night-eighties.min.css" />
-
-<link  rel="stylesheet" href="../../css/main.css" />
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-  <link defer rel="stylesheet" href="../../https:/cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 <!-- 自定义样式保持在最底部 -->
@@ -47,7 +47,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="../../index.html">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -64,7 +64,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">首页</a>
+            <a class="nav-link" href="/">首页</a>
           </li>
         
           
@@ -72,7 +72,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../archives/">归档</a>
+            <a class="nav-link" href="/archives/">归档</a>
           </li>
         
           
@@ -80,7 +80,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../categories/">分类</a>
+            <a class="nav-link" href="/categories/">分类</a>
           </li>
         
           
@@ -88,7 +88,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../tags/">标签</a>
+            <a class="nav-link" href="/tags/">标签</a>
           </li>
         
           
@@ -96,7 +96,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../about/">关于</a>
+            <a class="nav-link" href="/about/">关于</a>
           </li>
         
           
@@ -104,7 +104,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="../../links/">友链</a>
+            <a class="nav-link" href="/links/">友链</a>
           </li>
         
         
@@ -119,7 +119,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('../../img/default.png') no-repeat center center;
+         style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -157,11 +157,116 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
+      <a href="/2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        <p class="h4 index-header">堆的基础知识</p>
+      </a>
+
+      <a href="/2020/02/03/%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">堆的基础知识get_shell
+修改某个函数的got表 为 system 的地址,然后参数准备为binsh 就可以
+修改free函数为puts函数,然后某个堆里参数准备为某个函数的got表地址 就可以泄露地址了
+one_gadget
+
+来源：https://www.anquanke.com/post/id/163971
+在 64 位程序中：
+malloc(8)申请到的堆块总大小为 16 + 8 + 8 + 1 = 0x21
+1.第一个 16 字节是系统最小分配的内存，也就是说你如果想要申请的内存小于系统最小分配的内存的话，就会按照最小的内存来分配。
+
+在 64 位系统中这个值是 16 个字节，</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/02/babyheap_0ctf_2017/">
+        <p class="h4 index-header">babyheap_0ctf_2017</p>
+      </a>
+
+      <a href="/2020/02/02/babyheap_0ctf_2017/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">babyheap_0ctf_2017参考wp:https://blog.csdn.net/weixin_42151611/article/details/98119213?fps=1&amp;locationNum=2
+
+
+===== Baby Heap in 2017 =====
+1. Allocate
+
+Command: 1
+Size: 300 
+Allocate Index 0
+
+2. Fill
+
+Command: 2   
+Index: 0
+Size: 400
+Content: 
+
+3. Free
+
+Command: 3
+Index: 3
+
+4. Dump
+
+Command: 4
+In</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
         <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
       </a>
 
-      <a href="../../2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
+      <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
         
         
           
@@ -188,9 +293,9 @@ https://wiki.x10sec.org/pwn/heap/use_after_free/
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="../../categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
         
@@ -202,11 +307,11 @@ https://wiki.x10sec.org/pwn/heap/use_after_free/
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
+      <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
         <p class="h4 index-header">BrainOverFlow_Vol.1_BUU特供</p>
       </a>
 
-      <a href="../../2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
+      <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
         
         
           
@@ -244,11 +349,11 @@ protect
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/28/pwn_by_examples/">
+      <a href="/2020/01/28/pwn_by_examples/">
         <p class="h4 index-header">pwn_by_examples</p>
       </a>
 
-      <a href="../../2020/01/28/pwn_by_examples/">
+      <a href="/2020/01/28/pwn_by_examples/">
         
         
           
@@ -279,11 +384,11 @@ payload +</div>
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="../../categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           
-            <a href="../../categories/CTF/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+            <a href="/categories/CTF/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
           &nbsp;
         
         
@@ -295,11 +400,11 @@ payload +</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/28/Hgame/">
+      <a href="/2020/01/28/Hgame/">
         <p class="h4 index-header">Hgame</p>
       </a>
 
-      <a href="../../2020/01/28/Hgame/">
+      <a href="/2020/01/28/Hgame/">
         
         
           
@@ -333,9 +438,9 @@ sh.recvuntil(&quot;shot!\n&q</div>
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="../../categories/CTF/Hgame/">Hgame</a>&nbsp;
+            <a href="/categories/CTF/Hgame/">Hgame</a>&nbsp;
           &nbsp;
         
         
@@ -347,11 +452,11 @@ sh.recvuntil(&quot;shot!\n&q</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/25/ciscn_2019_s_9/">
+      <a href="/2020/01/25/ciscn_2019_s_9/">
         <p class="h4 index-header">ciscn_2019_s_9</p>
       </a>
 
-      <a href="../../2020/01/25/ciscn_2019_s_9/">
+      <a href="/2020/01/25/ciscn_2019_s_9/">
         
         
           
@@ -391,9 +496,9 @@ int   </div>
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="../../categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
         
@@ -405,11 +510,11 @@ int   </div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/23/SROP-ciscn_2019_s_3/">
+      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
         <p class="h4 index-header">SROP-ciscn_2019_s_3</p>
       </a>
 
-      <a href="../../2020/01/23/SROP-ciscn_2019_s_3/">
+      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
         
         
           
@@ -433,11 +538,11 @@ https://www.jianshu.com/p/ca4a5dacd1a2
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="../../categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           
-            <a href="../../categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
         
@@ -449,11 +554,11 @@ https://www.jianshu.com/p/ca4a5dacd1a2
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
+      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
         <p class="h4 index-header">ciscn_2019_ne_5-骚骚的小东西</p>
       </a>
 
-      <a href="../../2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
+      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
         
         
           
@@ -487,9 +592,9 @@ elf</div>
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="../../categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
         
@@ -501,11 +606,11 @@ elf</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
+      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
         <p class="h4 index-header">ez_pz_hackover_2016-继续深入学习edb</p>
       </a>
 
-      <a href="../../2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
+      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
         
         
           
@@ -544,110 +649,11 @@ pause时，打开edb并attach ez_pz_hackover_2016
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
+            <a href="/categories/CTF/">CTF</a>&nbsp;
           
-            <a href="../../categories/CTF/buu/">buu</a>&nbsp;
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           
-            <a href="../../categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/15/%E6%A0%88%E8%BF%81%E7%A7%BB/">
-        <p class="h4 index-header">栈迁移</p>
-      </a>
-
-      <a href="../../2020/01/15/%E6%A0%88%E8%BF%81%E7%A7%BB/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">栈迁移劫持一次流程，覆盖一次ebp
-栈迁移后跳到read
-正常Rop到libc，再rop，再到libc
-rop到libc，由于跳到read上，后面可以继续任意地址跳转
-pop_ret
-leave_ret  
-payload += elf.plt[‘puts’]
-payload += p32(pop_ebp_ret)
-payload += p32(elf.got[“__libc_start”])
-payload += addr
-payload += p32(leave_ret)
-
-
-
-
-没调用函数，函数的got值指向用户代码段，若被执行过会指向libc该函数的
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="../../categories/CTF/%E5%B8%B8%E7%94%A8/">常用</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="../../2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">
-        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
-      </a>
-
-      <a href="../../2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
-
-
-
-ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
-自动生成
-from struct import pack
-p = &#39;&#39;
-p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
-p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
-p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
-p +=</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-14&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="../../categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="../../categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="../../categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
         
@@ -659,7 +665,7 @@ p +=</div>
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="../2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span><a class="page-number" href="../4/">4</a><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><a class="extend next" rel="next" href="../4/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
@@ -746,29 +752,29 @@ p +=</div>
 </footer>
 
 <!-- SCRIPTS -->
-<script  src="../../https:/cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="../../https:/cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="../../https:/cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="../../https:/cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="../../js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script  src="../../js/lazyload.js" ></script>
-
-
-
-
-
-  <script defer src="../../https:/cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="../../js/clipboard-use.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
-  <script defer src="../../https:/cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer src="../../https:/busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
@@ -777,7 +783,7 @@ p +=</div>
 
 
 
-  <script  src="../../https:/cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -787,7 +793,7 @@ p +=</div>
 
 
 
-  <script  src="../../https:/cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -807,7 +813,7 @@ p +=</div>
 
 
 
-  <script  src="../../https:/cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
@@ -824,9 +830,9 @@ p +=</div>
 
 
 
-  <script  src="../../js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "../../local-search.xml";
+    var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
       getSearchFile(path);
@@ -836,7 +842,7 @@ p +=</div>
 
 
 
-  <script defer src="../../https:/cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {

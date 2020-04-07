@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>What a day - Mr.BelieVe&#39;s Treasure</title>
+  <title>记一次转移环境上服务器 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -132,7 +132,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期二, 十一月 19日 2019, 9:28 上午
+                  星期二, 四月 7日 2020, 12:11 凌晨
                 </p>
               
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    192 字
+                    523 字
                   </span>
                 
 
@@ -177,13 +177,44 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <p>明明说要调整作息的，结果头疼晚上睡了会，现在一点都不困了。。。。</p>
-<h2 id="想学逆向"><a href="#想学逆向" class="headerlink" title="想学逆向"></a>想学逆向</h2><p>发现了mac上的一些软件之类的，<a href="https://www.jianshu.com/p/c04ac36c6641?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">link</a></p>
-<p>入门<a href="https://blog.csdn.net/qq_21508727/article/details/80559270" target="_blank" rel="noopener">link</a></p>
-<p>pwn学习流程<br>– [ ] 小甲鱼视频<br>– [ ] liveoverflow那一套视频入门<br>– [ ] Ctfwiki，每种类型例题跟着做一遍，realworld就漏洞战争，google project zero博客之类的<br>– [ ] 栈简单汇编就行，堆要去看linux源码,Malloc和free部分,常见的dlmalloc和ptmalloc,还有fastbins，glibc2.26之后是trachebins，所以还要看不同版本的源码</p>
-<h2 id="在线ctf平台"><a href="#在线ctf平台" class="headerlink" title="在线ctf平台"></a>在线ctf平台</h2><p><a href="https://i.loli.net/2019/08/06/Jht7r9DY4xadcQZ.png" target="_blank" rel="noopener">![ctf平台](What a day/Jht7r9DY4xadcQZ.png)</a></p>
-<p>下那么多游戏就为了一起玩嘛。。。这样吧，等战雷会员过期了就删了吧。嗯</p>
-<h1 id="GOGOGO！"><a href="#GOGOGO！" class="headerlink" title="GOGOGO！"></a>GOGOGO！</h1><h1 id="过几天重新开始一大早起床跑步吧"><a href="#过几天重新开始一大早起床跑步吧" class="headerlink" title="过几天重新开始一大早起床跑步吧!"></a>过几天重新开始一大早起床跑步吧!</h1>
+              <h1 id="记一次转移后端环境上服务器"><a href="#记一次转移后端环境上服务器" class="headerlink" title="记一次转移后端环境上服务器"></a>记一次转移后端环境上服务器</h1><p>本想着本地docker调好直接传上去的，然鹅一开vscode remote就崩</p>
+<p>并且，vscode remote也仅指本地的docker里，不是云服务器的环境，QAQ</p>
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>xftp 学生免费版，可了</p>
+<p>安装好数据库后，记得设置密码，<a href="https://www.mysqlzh.com/doc/19/63.html" target="_blank" rel="noopener">参考</a></p>
+<p>修改utf8为utf8mb4</p>
+<p><code>vim /etc/mysql/my.cnf</code></p>
+<pre><code>[mysqld]
+character-set-server=utf8mb4
+
+[mysql]
+default-character-set=utf8mb4
+
+[client]
+default-character-set=utf8mb4                  </code></pre><p>数据导出，mysql 在powershell 使用mysqldump，使用的是utb-16编码，cmd里导出的就是utf8</p>
+<blockquote>
+<p>ERROR 1273 (HY000) at line 22: Unknown collation: ‘utf8mb4_0900_ai_ci’</p>
+<p>文件中的所有的<code>utf8mb4_0900_ai_ci</code>替换为<code>utf8_general_ci</code></p>
+<p>因为我这里都是使用utf8mb4的，如果是使用utf8的，把<code>utf8mb4</code>替换为<code>utf8</code></p>
+</blockquote>
+<p>然后<code>mysql -u root -p parking &lt; parking.sql</code></p>
+<p>表写入数据库中。</p>
+<blockquote>
+<p>此处出现了写入表后，退出再进入无记录的情况，原因不明。但是在我把mysql5.7更换到跟开发环境相同的mysql8.0后（之前以为是8.0QAQ）再次写入就可以了</p>
+</blockquote>
+<h2 id="配置与部署"><a href="#配置与部署" class="headerlink" title="配置与部署"></a>配置与部署</h2><p>由于还没有摸透nginx和uwgsi，故先用了runserver的简陋（菜）形式测试了先，阿里云打开端口。==中间无数次临时debug，让我感觉到如果是本地改完远程直接同步会有多么的便利==</p>
+<p>待补，nginx和uwgsi</p>
+<h2 id="感慨"><a href="#感慨" class="headerlink" title="感慨"></a>感慨</h2><p>当然，以上并不是真正部署一个项目运行</p>
+<p>可能在docker中开发测试好直接丢服务器上是最佳选择（当然跟我本地没测试通全部也有很大关系，主要还是测试不够）</p>
+<p>然后在服务器升级环境的过程中，也一度只能干巴巴等着，好在阿里云的下载速度还是很快的。</p>
+<p>结束之后，尝试了tmux，默认时候不能鼠标切换切分出来的窗口0.0（可能主要因为没设置好）</p>
+<p>随后发现terminus自带了切分屏幕（哎，暴殄天物）</p>
+<img src="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20200407022222234.png" srcset="/img/loading.gif" class="" title="image-20200407022222234">
+
+<p><strong>再次说明，项目不是真正部署了的QAQ，仅一点记录</strong></p>
+<p>可参考的link：</p>
+<p><a href="https://blog.csdn.net/qq_41448891/article/details/90696004" target="_blank" rel="noopener">https://blog.csdn.net/qq_41448891/article/details/90696004</a></p>
+<p><a href="https://www.cnblogs.com/chenice/p/6921727.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenice/p/6921727.html</a></p>
+
             </div>
             <hr>
             <div>
@@ -199,9 +230,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/11/29/19920%E7%AC%94%E8%AE%B0/">
+                      <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
                         <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">19/9/20笔记</span>
+                        <span class="hidden-mobile">hexo升级跳坑</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -209,8 +240,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-                        <span class="hidden-mobile">转载-编写shellcode测试工具</span>
+                      <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                        <span class="hidden-mobile">django学习记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -443,7 +474,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "What a day&nbsp;",
+        "记一次转移环境上服务器&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
