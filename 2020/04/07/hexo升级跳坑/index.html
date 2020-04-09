@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1k 字
+                    1.1k 字
                   </span>
                 
 
@@ -189,7 +189,7 @@ import time
 import datetime
 fpath = os.getcwd()
 path=os.path.abspath(os.path.dirname(__file__))
-
+#时间戳变成
 def shift_time(filename):
     time_stamp_create = os.path.getctime(filename)
     time_stamp_modify = os.path.getmtime(filename)
@@ -248,7 +248,7 @@ for parent, dirnames, filenames in os.walk(fpath):
 <blockquote>
 <p>原先是图片都放在 markdown.assets/xxx.png 这样的，现在根据 官方和 image-link 的呢，只能改成  markdown/xxx.png 这样了 于是又写了这部分代码QAQ</p>
 </blockquote>
-<pre><code class="python">#先找到.assets文件夹，然后再去找md文件替换到assets
+<pre><code class="python">#先找到.assets文件夹，然后再去找md文件替换掉文件里的xxx.assets/image的.assets
 for folder in os.listdir():
     if folder == &quot;.vscode&quot;:
         continue
@@ -265,6 +265,7 @@ for folder in os.listdir():
                         writeback(file + &#39;.md&#39;,text)
         new_name=folder.replace(&#39;.assets&#39;,&#39;&#39;)
         os.rename(os.path.join(path,folder),os.path.join(path,new_name))</code></pre>
+<p>再加上调下typora的<strong>插入图片时</strong>改为复制到指定路径即可。</p>
 <p>这样，我本地看也没有任何问题，发布出去也不会有问题，耶✌</p>
 <p>懒才是最强生产力（确信</p>
 <p>所以现在就是双击Winclick.bat 跑run.py。写完就丢嘿嘿</p>
@@ -348,9 +349,8 @@ for folder in os.listdir():
                         writeback(file + &#39;.md&#39;,text)
         new_name=folder.replace(&#39;.assets&#39;,&#39;&#39;)
         os.rename(os.path.join(path,folder),os.path.join(path,new_name))
-        #i+=1
 
-os.system((&#39;cd {} &amp;&amp; hexo clean &amp;&amp; hexo gen &amp;&amp; hexo deploy&#39;).format(path))#cd {} &amp;&amp; hexo clean &amp;&amp; hexo gen &amp;&amp; hexo deploy</code></pre>
+os.system((&#39;cd {} &amp;&amp; hexo clean &amp;&amp; hexo gen &amp;&amp; hexo deploy&#39;).format(path))</code></pre>
 
             </div>
             <hr>
@@ -404,7 +404,7 @@ os.system((&#39;cd {} &amp;&amp; hexo clean &amp;&amp; hexo gen &amp;&amp; hexo 
         language: 'zh-CN',
         perPage: 15,
         pagerDirection: 'last',
-        createIssueManually: 'true',
+        createIssueManually: 'false',
         distractionFreeMode: 'false'
       });
 

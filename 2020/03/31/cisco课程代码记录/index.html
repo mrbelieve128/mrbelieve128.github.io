@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    2.6k 字
+                    2.8k 字
                   </span>
                 
 
@@ -495,7 +495,7 @@ switchport mode dynamic desirable</code></pre><h2 id="3-26"><a href="#3-26" clas
 <p>传播默认路由</p>
 <p>边缘路由器必须配置：</p>
 <ul>
-<li><p>使用 <strong>ip route 0.0.0.0 0.0.0.0</strong> 命令的默认静态路由。</p>
+<li><p>使用 <strong>ip route 0.0.0.0 0.0.0.0</strong> next_ip 命令的默认静态路由。</p>
 </li>
 <li><p><strong>default-information originate</strong> 路由器配置命令。这会指导 R1 通过在 RIP 更新中传播静态默认路由来产生默认信息。</p>
 </li>
@@ -504,9 +504,33 @@ switchport mode dynamic desirable</code></pre><h2 id="3-26"><a href="#3-26" clas
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200331115232904.png" srcset="/img/loading.gif" class="" title="image-20200331115232904">
 
+<h2 id="3-2-1-8"><a href="#3-2-1-8" class="headerlink" title="3.2.1.8"></a>3.2.1.8</h2><p>RIP配置的时候宣告自己所在的网段即可</p>
+<pre><code>R1
+ip route 0.0.0.0 0.0.0.0 s0/0/1
+router rip
+version 2
+network 192.168.1.0
+network 192.168.2.0
+no auto-summary
+passive-interface s0/0/1
+default-information originate
 
+R2
+router rip
+version 2
+network 192.168.2.0
+network 192.168.3.0
+network 192.168.4.0
+no auto-summary
+passive-interface g0/0
 
-<h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
+R3
+router rip
+version 2
+network 192.168.4.0
+network 192.168.5.0
+no auto-summary
+passive-interface g0/0</code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303201755734.png" srcset="/img/loading.gif" class="" title="image-20200303201755734">
@@ -519,7 +543,7 @@ switchport mode dynamic desirable</code></pre><h2 id="3-26"><a href="#3-26" clas
 <blockquote>
 <p>What happens to a static route entry in a routing table when the outgoing interface is not available?<br><strong>The route is removed from the table.</strong></p>
 </blockquote>
-
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200409112857408.png" srcset="/img/loading.gif" class="" title="image-20200409112857408">
             </div>
             <hr>
             <div>
@@ -593,7 +617,7 @@ switchport mode dynamic desirable</code></pre><h2 id="3-26"><a href="#3-26" clas
         language: 'zh-CN',
         perPage: 15,
         pagerDirection: 'last',
-        createIssueManually: 'true',
+        createIssueManually: 'false',
         distractionFreeMode: 'false'
       });
 
