@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    2.8k 字
+                    3.7k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      13 分钟
+                      18 分钟
                   </span>
                 
 
@@ -180,7 +180,8 @@
               <h1 id="cisco课程代码记录"><a href="#cisco课程代码记录" class="headerlink" title="cisco课程代码记录"></a>cisco课程代码记录</h1><p><strong>不记肯定会忘记QAQ,只敲简写然后敲tab也是可以的</strong></p>
 <pre><code>enable
 configure terminal
-hostname R1</code></pre><h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><pre><code>enable secret class
+hostname R1</code></pre><h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><pre><code>enable password xxx # 设置用户执行密码
+enable secret class # 设置特权执行密码
 line console 0 #线路密码
 (config-line)password cisco
 (config-line)login
@@ -189,7 +190,7 @@ line vty 0 4 #加密密码设置
 (config-line)password class
 (config-line)login
 (config-line)exit
-service password-encrytion</code></pre><h2 id="标语"><a href="#标语" class="headerlink" title="标语"></a>标语</h2><pre><code>banner motd $ ($是截止符号)
+service password-encrytion #加密纯文本密码</code></pre><h2 id="标语"><a href="#标语" class="headerlink" title="标语"></a>标语</h2><pre><code>banner motd $ ($是截止符号)
 banner motd $ Authorized Access Only! $</code></pre><h2 id="保存配置"><a href="#保存配置" class="headerlink" title="保存配置"></a>保存配置</h2><pre><code>copy running-config startup-config</code></pre><h2 id="端口设置"><a href="#端口设置" class="headerlink" title="端口设置"></a>端口设置</h2><pre><code>interface f 0/0
 (config-if)description Link to Lan 1
 (config-if)ip address 192.168.10.1 255.255.255.0 
@@ -222,7 +223,7 @@ network 网段</code></pre><h2 id="access-list"><a href="#access-list" class="he
 (config)#interface f0/0
 (config-if)#ip access-group 1 in</code></pre><pre><code>(config)#access-list 1 permit any</code></pre><p>permit anything from the subnet 24.17.2.0. Access-list 102 permit IP 24.17.2.0 0.0.0.15 any log</p>
 <pre><code>Router1(config)#access-list 102 permit ip 24.17.2.0 0.0.0.15 any log</code></pre><p>allow telnet from 24.17.2.16</p>
-<pre><code>(config)#access-list 101 permit tcp 24.17.2.16 0.0.0.15 any eq telnet</code></pre><h2 id="1-1-3-5"><a href="#1-1-3-5" class="headerlink" title="1.1.3.5"></a>1.1.3.5</h2><p>R1</p>
+<pre><code>(config)#access-list 101 permit tcp 24.17.2.16 0.0.0.15 any eq telnet</code></pre><h2 id="1-1-3-5-Configuring-IPv4-and-IPv6-Interfaces"><a href="#1-1-3-5-Configuring-IPv4-and-IPv6-Interfaces" class="headerlink" title="1.1.3.5  Configuring IPv4 and IPv6 Interfaces"></a>1.1.3.5  Configuring IPv4 and IPv6 Interfaces</h2><p>R1</p>
 <pre><code>cisco
 enable
 class
@@ -254,7 +255,7 @@ ping 172.16.20.129
 ping 64.100.1.10
 ping 2001:DB8:C0DE:12::1
 ping 2001:DB8:C0DE:13::1
-ping 2001:DB8:100:1::A</code></pre><h2 id="1-1-4-5"><a href="#1-1-4-5" class="headerlink" title="1.1.4.5"></a>1.1.4.5</h2><p>RTA</p>
+ping 2001:DB8:100:1::A</code></pre><h2 id="1-1-4-5-Configuring-and-Verifying-a-Small-Network"><a href="#1-1-4-5-Configuring-and-Verifying-a-Small-Network" class="headerlink" title="1.1.4.5 Configuring and Verifying a Small Network"></a>1.1.4.5 Configuring and Verifying a Small Network</h2><p>RTA</p>
 <pre><code>enable secret class
 line console 0
 password cisco
@@ -290,7 +291,7 @@ no shutdown
 ex
 ip default-gateway 10.10.20.1</code></pre><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200225132814418.png" srcset="/img/loading.gif" class="" title="image-20200225132814418">
 
-<h2 id="1-3-2-5"><a href="#1-3-2-5" class="headerlink" title="1.3.2.5"></a>1.3.2.5</h2><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200227092952674.png" srcset="/img/loading.gif" class="" title="image-20200227092952674">
+<h2 id="1-3-2-5-Investigating-Directly-Connected-Routes"><a href="#1-3-2-5-Investigating-Directly-Connected-Routes" class="headerlink" title="1.3.2.5 Investigating Directly Connected Routes"></a>1.3.2.5 Investigating Directly Connected Routes</h2><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200227092952674.png" srcset="/img/loading.gif" class="" title="image-20200227092952674">
 
 <p>PC1可ping通PC2和PC3</p>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200227093406101.png" srcset="/img/loading.gif" class="" title="image-20200227093406101">
@@ -299,7 +300,7 @@ ip default-gateway 10.10.20.1</code></pre><img src="/2020/03/31/cisco%E8%AF%BE%E
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200227093322437.png" srcset="/img/loading.gif" class="" title="image-20200227093322437">
 
 <p>show ip route static 查看静态路由转发</p>
-<p>v4可通，v6不同</p>
+<p>v4可通，v6不通</p>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200227100354728.png" srcset="/img/loading.gif" class="" title="image-20200227100354728">
 
 <p>手动控制出口端口后又可通，并且查看路由表之后，发现没有FE的，都是2001的，说明是路由设置的问题</p>
@@ -353,16 +354,16 @@ cdp run</code></pre><blockquote>
 <p>ipv6 route ::/0 ipv6_add  5</p>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303110803109.png" srcset="/img/loading.gif" class="" title="image-20200303110803109">
 
-<h2 id="2-2-4-4"><a href="#2-2-4-4" class="headerlink" title="2.2.4.4"></a>2.2.4.4</h2><p>R1</p>
+<h2 id="2-2-4-4-Configuring-IPv6-Static-and-Default-Routes"><a href="#2-2-4-4-Configuring-IPv6-Static-and-Default-Routes" class="headerlink" title="2.2.4.4 Configuring IPv6 Static and Default Routes"></a>2.2.4.4 Configuring IPv6 Static and Default Routes</h2><p>R1</p>
 <pre><code>ipv6 unicast-routing
-ipv6 route 2001:DB8:1:2::/64 2001:DB8:1:A001::2
+ipv6 route 2001:DB8:1:2::/64 2001:DB8:1:A001::2 # 递归静态路由
 ipv6 route 2001:DB8:1:3::/64 2001:DB8:1:A001::2
 ipv6 route 2001:DB8:1:A002::/64 2001:DB8:1:A001::2</code></pre><p>R2</p>
 <pre><code>ipv6 unicast-routing
 ipv6 route 2001:DB8:1:1::/64 2001:DB8:1:A001::1
 ipv6 route 2001:DB8:1:3::/64 2001:DB8:1:A002::2</code></pre><p>R3</p>
 <pre><code>ipv6 unicast-routing
-IPV6 ROUTE ::/0 2001:DB8:1:A002::1</code></pre><h2 id="2-2-5-5"><a href="#2-2-5-5" class="headerlink" title="2.2.5.5"></a>2.2.5.5</h2><p>Edge</p>
+IPV6 ROUTE ::/0 2001:DB8:1:A002::1 # 默认路由</code></pre><h2 id="2-2-5-5-Configuring-Floating-Static-Routes"><a href="#2-2-5-5-Configuring-Floating-Static-Routes" class="headerlink" title="2.2.5.5 Configuring Floating Static Routes"></a>2.2.5.5 Configuring Floating Static Routes</h2><p>Edge</p>
 <pre><code>ip route 0.0.0.0 0.0.0.0 s0/0/0
 ip route 0.0.0.0 0.0.0.0 s0/0/1 5
 ipv6 route ::/0 s0/0/0
@@ -504,7 +505,7 @@ switchport mode dynamic desirable</code></pre><h2 id="3-26"><a href="#3-26" clas
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200331115232904.png" srcset="/img/loading.gif" class="" title="image-20200331115232904">
 
-<h2 id="3-2-1-8"><a href="#3-2-1-8" class="headerlink" title="3.2.1.8"></a>3.2.1.8</h2><p>RIP配置的时候宣告自己所在的网段即可</p>
+<h2 id="3-2-1-8-Troubleshooting-Static-Routes"><a href="#3-2-1-8-Troubleshooting-Static-Routes" class="headerlink" title="3.2.1.8 Troubleshooting Static Routes"></a>3.2.1.8 Troubleshooting Static Routes</h2><p>RIP配置的时候宣告自己所在的网段即可</p>
 <pre><code>R1
 ip route 0.0.0.0 0.0.0.0 s0/0/1
 router rip
@@ -513,7 +514,7 @@ network 192.168.1.0
 network 192.168.2.0
 no auto-summary
 passive-interface s0/0/1
-default-information originate
+default-information originate # 通告配置的默认路由
 
 R2
 router rip
@@ -530,7 +531,168 @@ version 2
 network 192.168.4.0
 network 192.168.5.0
 no auto-summary
-passive-interface g0/0</code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
+passive-interface g0/0</code></pre><h2 id="4-14-amp-5-2-1-4-Configuring-SSH"><a href="#4-14-amp-5-2-1-4-Configuring-SSH" class="headerlink" title="4/14&amp;5.2.1.4  Configuring SSH !!!!"></a>4/14&amp;5.2.1.4  Configuring SSH !!!!</h2><p>==生成树协议学习一下==</p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200414105142666.png" srcset="/img/loading.gif" class="" title="image-20200414105142666">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200414105353212.png" srcset="/img/loading.gif" class="" title="image-20200414105353212">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200414105430248.png" srcset="/img/loading.gif" class="" title="image-20200414105430248">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415115335471.png" srcset="/img/loading.gif" class="" title="image-20200415115335471">
+
+<pre><code>copy running-config start
+service password-encryption
+
+ip domain-name netacad.pka
+crypto key generate rsa
+1024
+username administrator secret cisco
+line vty 0 15
+transport input ssh
+login local 
+no password #删除密码
+exit
+ip ssh version 2
+exit</code></pre><h2 id="5-2-2-7-Configuring-Switch-Port-Security"><a href="#5-2-2-7-Configuring-Switch-Port-Security" class="headerlink" title="5.2.2.7  Configuring Switch Port Security !!!!"></a>5.2.2.7  Configuring Switch Port Security !!!!</h2><pre><code>int f0/0
+switchport mode access # 设为接入
+switchport port-security # 启用动态端口安全
+switchport port-security maximum 10 # 设置端口允许安全地址的最大数量
+switchport port-security mac-address sticky #启用粘性获取，保护端口安全，以便动态获取设备的 MAC 地址并将其添加到运行配置
+switchport port-security violation restrict #保护接口，使其在出现违规时发出通知，但不禁用端口
+interface range fastEthernet0/3 - 24 # 从3到24端口全部关闭</code></pre><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415123202415.png" srcset="/img/loading.gif" class="" title="image-20200415123202415">
+
+<h2 id="5-3-1-2-Skills-Integration-Challenge"><a href="#5-3-1-2-Skills-Integration-Challenge" class="headerlink" title="5.3.1.2 Skills Integration Challenge"></a>5.3.1.2 Skills Integration Challenge</h2><pre><code>host S1
+line console 0
+password cisco
+login 
+exit
+enable secrect class
+service password-encryption
+
+int vlan1
+ip add 10.10.10.2 255.255.255.0
+no shut
+
+ip domain-name cisco.com
+crypto key generate rsa
+1024
+username admin secret ccna
+line vty 0 15
+transport input ssh
+login local 
+exit
+ip ssh version 2
+exit
+
+int f0/1
+switchport mode access 
+switchport port-security 
+switchport port-security maximum 2
+switchport port-security mac-address sticky #启用粘性获取，保护端口安全，以便动态获取设备的 MAC 地址并将其添加到运行配置
+switchport port-security violation shutdown #保护接口，使其在出现违规时发出通知，禁用端口
+int f0/2
+switchport mode access 
+switchport port-security 
+switchport port-security maximum 2
+switchport port-security mac-address sticky 
+switchport port-security violation shutdown 
+interface range fastEthernet0/3 - 24 # 从3到24端口全部关闭
+shutdown
+interface range g0/1 - 2 # 
+shutdown</code></pre><h2 id="a5-1-2-12-Determining-the-DR-and-BDR"><a href="#a5-1-2-12-Determining-the-DR-and-BDR" class="headerlink" title="a5.1.2.12 Determining the DR and BDR"></a>a5.1.2.12 Determining the DR and BDR</h2><pre><code>show ip ospf interface
+
+#RA:
+int g0/0
+ip ospf priority 200
+
+#RB:
+int g0/0
+ip ospf priority 100
+
+#RC:
+int g0/0
+ip ospf priority 1</code></pre><h2 id="a5-1-3-5-Propagating-a-Default-Route-in-OSPFv2"><a href="#a5-1-3-5-Propagating-a-Default-Route-in-OSPFv2" class="headerlink" title="a5.1.3.5 Propagating a Default Route in OSPFv2"></a>a5.1.3.5 Propagating a Default Route in OSPFv2</h2><pre><code>#R2
+ip route 0.0.0.0 0.0.0.0 s0/1/0
+router ospf 1
+
+#R1
+router ospf 1
+
+#R3
+router ospf 1</code></pre><h2 id="a5-1-5-7-Configuring-OSPF-Advanced-Features"><a href="#a5-1-5-7-Configuring-OSPF-Advanced-Features" class="headerlink" title="a5.1.5.7 Configuring OSPF Advanced Features"></a>a5.1.5.7 Configuring OSPF Advanced Features</h2><pre><code>#R1
+int s0/0/0
+ip ospf hello-interval 15 #调整计时器
+ip ospf dead-interval 60
+
+bandwidth 64 #调整贷款
+
+router ospf 1
+area 0 authentication message-digest #OSPF身份验证
+interface serial 0/0/0
+ip ospf message-digest-key 1 md5 R1-R2
+
+interface serial 0/0/1
+ip ospf message-digest-key 1 md5 R1-R3
+
+#R2
+int s0/0/0
+ip ospf hello-interval 15
+ip ospf dead-interval 60
+
+router ospf 1
+area 0 authentication message-digest
+interface serial 0/0/0
+ip ospf message-digest-key 1 md5 R1-R2
+
+interface serial 0/0/1
+ip ospf message-digest-key 1 md5 R2-R3
+
+#R3
+router ospf 1
+area 0 authentication message-digest
+
+interface serial 0/0/0
+ip ospf message-digest-key 1 md5 R1-R3
+
+interface serial 0/0/1
+ip ospf message-digest-key 1 md5 R2-R3</code></pre><h2 id="a5-2-1-4-Configuring-Static-NAT-no-yet"><a href="#a5-2-1-4-Configuring-Static-NAT-no-yet" class="headerlink" title="a5.2.1.4 Configuring Static NAT no yet"></a>a5.2.1.4 Configuring Static NAT no yet</h2><h2 id="a5-2-2-3-OSPFv2排错"><a href="#a5-2-2-3-OSPFv2排错" class="headerlink" title="a5.2.2.3 OSPFv2排错"></a>a5.2.2.3 OSPFv2排错</h2><h2 id="a6-2-3-6-Configuring-Multiarea-OSPFv2"><a href="#a6-2-3-6-Configuring-Multiarea-OSPFv2" class="headerlink" title="a6.2.3.6 Configuring Multiarea OSPFv2"></a>a6.2.3.6 Configuring Multiarea OSPFv2</h2><pre><code>#R1
+router ospf 1
+router-id 1.1.1.1
+network 10.1.1.0 0.0.0.255 area 1
+network 10.1.2.0 0.0.0.255 area 1
+network 192.168.10.0 0.0.0.3 area 0
+
+#R2
+router ospf 1
+network 10.2.1.0 0.0.0.255 area 0
+network 192.168.10.0 0.0.0.3 area 0
+network 192.168.10.4 0.0.0.3 area 0
+
+#R2
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 2
+network 192.168.2.0 0.0.0.255 area 2
+network 192.168.10.4 0.0.0.3 area 0</code></pre><h2 id="a7-2-2-4-Configuring-Basic-EIGRP-with-IPv4"><a href="#a7-2-2-4-Configuring-Basic-EIGRP-with-IPv4" class="headerlink" title="a7.2.2.4 Configuring Basic EIGRP with IPv4"></a>a7.2.2.4 Configuring Basic EIGRP with IPv4</h2><pre><code>#R1：
+router eigrp 1
+network 172.16.1.0 0.0.0.255
+network 172.16.3.0 0.0.0.3
+network 192.168.10.4 0.0.0.3
+passive-interface g0/0
+
+#R2：
+router eigrp 1
+network 172.16.2.0 0.0.0.255
+network 172.16.3.0 0.0.0.3
+network 192.168.10.8 0.0.0.3
+passive-interface g0/0
+
+#R3:
+router eigrp 1
+network 192.168.1.0 0.0.0.255
+network 192.168.10.4 0.0.0.3
+network 192.168.10.8 0.0.0.3
+passive-interface g0/0
+</code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303201755734.png" srcset="/img/loading.gif" class="" title="image-20200303201755734">
@@ -544,6 +706,33 @@ passive-interface g0/0</code></pre><h2 id="考题记录"><a href="#考题记录"
 <p>What happens to a static route entry in a routing table when the outgoing interface is not available?<br><strong>The route is removed from the table.</strong></p>
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200409112857408.png" srcset="/img/loading.gif" class="" title="image-20200409112857408">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415131256177.png" srcset="/img/loading.gif" class="" title="image-20200415131256177">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415131821432.png" srcset="/img/loading.gif" class="" title="image-20200415131821432">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415131935464.png" srcset="/img/loading.gif" class="" title="image-20200415131935464">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415132300377.png" srcset="/img/loading.gif" class="" title="image-20200415132300377">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415132637432.png" srcset="/img/loading.gif" class="" title="image-20200415132637432">
+
+<p>匹配最长</p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415132753057.png" srcset="/img/loading.gif" class="" title="image-20200415132753057">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415132849136.png" srcset="/img/loading.gif" class="" title="image-20200415132849136">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415132945261.png" srcset="/img/loading.gif" class="" title="image-20200415132945261">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415133009739.png" srcset="/img/loading.gif" class="" title="image-20200415133009739">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415133124039.png" srcset="/img/loading.gif" class="" title="image-20200415133124039">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415133146490.png" srcset="/img/loading.gif" class="" title="image-20200415133146490">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415133211622.png" srcset="/img/loading.gif" class="" title="image-20200415133211622">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415133305998.png" srcset="/img/loading.gif" class="" title="image-20200415133305998">
             </div>
             <hr>
             <div>

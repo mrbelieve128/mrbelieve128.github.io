@@ -181,7 +181,7 @@
 <h2 id="js实现定时刷新页面"><a href="#js实现定时刷新页面" class="headerlink" title="js实现定时刷新页面"></a>js实现定时刷新页面</h2><p><a href="https://blog.csdn.net/baidu_38990811/article/details/79172163" target="_blank" rel="noopener">Ajax轮询,Ajax长轮询和websocket(详细使用)</a></p>
 <h2 id="django-shell-调试"><a href="#django-shell-调试" class="headerlink" title="django shell 调试"></a>django shell 调试</h2><p><code>python manage.py shell</code></p>
 <h3 id="python小问题"><a href="#python小问题" class="headerlink" title="python小问题"></a>python小问题</h3><pre><code class="python">orders_num = ordersdate = orders_car_size = orders_price = []</code></pre>
-<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200322135749091.png" srcset="/img/loading.gif" class="" title="image-20200322135749091">
+
 
 <p>会指向同一个内存地址QAQ</p>
 <p>叫引用赋值</p>
@@ -197,7 +197,7 @@
 <p>可能原本就引入了（XD</p>
 <p><strong>异步加载数据</strong></p>
 <p>从mysql读取数据，然后放置到echarts中，效果如图</p>
-<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200222230043961.png" srcset="/img/loading.gif" class="" title="image-20200222230043961">
+
 
 <p>echarts js</p>
 <pre><code class="js">&lt;div id=&quot;main&quot; style=&quot;width: 790px;height:600px;&quot;&gt;&lt;/div&gt;
@@ -231,7 +231,7 @@
 <h3 id="使用bootstrap折叠面板之后在里面放置js不渲染"><a href="#使用bootstrap折叠面板之后在里面放置js不渲染" class="headerlink" title="使用bootstrap折叠面板之后在里面放置js不渲染"></a>使用bootstrap折叠面板之后在里面放置js不渲染</h3><p>还没会，无解qaq</p>
 <h3 id="python模糊查询-问题"><a href="#python模糊查询-问题" class="headerlink" title="python模糊查询%问题"></a>python模糊查询%问题</h3><pre><code class="python">sql = &#39;&#39;&#39; SELECT job_Name,description FROM history
                 WHERE job_Name like &quot;%%{}%%&quot; and job_Name like &quot;%%{}%%&quot;&#39;&#39;&#39;.format(&#39;java&#39;,&#39;后端&#39;)</code></pre>
-<h1 id="django后端开发"><a href="#django后端开发" class="headerlink" title="django后端开发"></a>django后端开发</h1><img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200315130344606.png" srcset="/img/loading.gif" class="" title="image-20200315130344606">
+<h1 id="django后端开发"><a href="#django后端开发" class="headerlink" title="django后端开发"></a>django后端开发</h1>
 
 <h2 id="接收header或body"><a href="#接收header或body" class="headerlink" title="接收header或body"></a>接收header或body</h2><pre><code class="python"> 获取正则匹配到的数据,num1未位置参数,num2为命名参数,
 def index(request,num2=None, num1=None):
@@ -318,10 +318,10 @@ error: function(data){
     token = request.POST.get(&#39;token&#39;,0)
     result = jwt.decode(token, &#39;secret&#39;, algorithm=&#39;HS256&#39;)</code></pre>
 <h3 id="回传数据"><a href="#回传数据" class="headerlink" title="回传数据"></a>回传数据</h3><p>一开始是</p>
-<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200322164623665.png" srcset="/img/loading.gif" class="" title="image-20200322164623665">
+
 
 <p>大佬推荐改成如下图，面向对象</p>
-<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%7B603E00A4-D802-FAFC-F8C6-D56187F2F88A%7D.jpg" srcset="/img/loading.gif" class="" title="img">
+
 
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="前端post数据到后端，后端接收到请求但无数据传递"><a href="#前端post数据到后端，后端接收到请求但无数据传递" class="headerlink" title="前端post数据到后端，后端接收到请求但无数据传递"></a>前端post数据到后端，后端接收到请求但无数据传递</h3><p>可能因为跨域</p>
 <p>跨越定义 :由于浏览器同源策略，凡是发送请求的url的协议(http和https)、域名（<a href="http://www.example.com,about.example.com）、端口(8010和8020)三者之间任意一个与当前页面地址不同则视为跨域。" target="_blank" rel="noopener">www.example.com,about.example.com）、端口(8010和8020)三者之间任意一个与当前页面地址不同则视为跨域。</a></p>
