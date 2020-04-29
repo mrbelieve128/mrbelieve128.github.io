@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    3.7k 字
+                    3.8k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      18 分钟
+                      19 分钟
                   </span>
                 
 
@@ -345,7 +345,9 @@ cdp run</code></pre><blockquote>
 <p>ipv6 route 2001:DB8:ACAD:3::/64 2001:DB8:ACAD:4::2</p>
 <h3 id="完全指定静态路由"><a href="#完全指定静态路由" class="headerlink" title="完全指定静态路由"></a>完全指定静态路由</h3><p>ip route 网段 掩码 端口</p>
 <p>R1(config)# ip route 192.168.2.0 255.255.255.0 GigabitEthernet 0/1</p>
-<p>ipv6 route 2001:DB8:ACAD:3::/64 s0/0/0</p>
+<p><strong>如果 IPv6 静态路由使用 IPv6 本地链路地址作为下一跳地址，则必须使用完全指定静态路由（包含送出接口）</strong></p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200421091844171.png" srcset="/img/loading.gif" class="" title="image-20200421091844171">
+
 <h3 id="默认静态路由"><a href="#默认静态路由" class="headerlink" title="默认静态路由"></a>默认静态路由</h3><p>ip route 0.0.0.0 0.0.0.0 172.168.2.2</p>
 <p>ipv6 route ::/0 2001:DB8:ACAD:4::2</p>
 <h3 id="浮动静态路由"><a href="#浮动静态路由" class="headerlink" title="!!! 浮动静态路由"></a>!!! 浮动静态路由</h3><p>ip route 0.0.0.0 0.0.0.0 172.16.2.2 # 默认静态路由</p>
@@ -624,7 +626,7 @@ int s0/0/0
 ip ospf hello-interval 15 #调整计时器
 ip ospf dead-interval 60
 
-bandwidth 64 #调整贷款
+bandwidth 64 #调整带宽
 
 router ospf 1
 area 0 authentication message-digest #OSPF身份验证
@@ -678,6 +680,7 @@ network 172.16.1.0 0.0.0.255
 network 172.16.3.0 0.0.0.3
 network 192.168.10.4 0.0.0.3
 passive-interface g0/0
+no-autosummary
 
 #R2：
 router eigrp 1
@@ -685,6 +688,7 @@ network 172.16.2.0 0.0.0.255
 network 172.16.3.0 0.0.0.3
 network 192.168.10.8 0.0.0.3
 passive-interface g0/0
+no-autosummary
 
 #R3:
 router eigrp 1
@@ -692,7 +696,22 @@ network 192.168.1.0 0.0.0.255
 network 192.168.10.4 0.0.0.3
 network 192.168.10.8 0.0.0.3
 passive-interface g0/0
-</code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
+no-autosummary
+</code></pre><h2 id="4-23"><a href="#4-23" class="headerlink" title="4/23"></a>4/23</h2><pre><code>switchport port-security mac-address {mac_address} # 静态配置</code></pre>{% asset_img image-20200423093049790.png image-20200423093049790 %}
+
+
+
+<h2 id="4-28"><a href="#4-28" class="headerlink" title="4/28"></a>4/28</h2>{% asset_img image-20200428100318146.png image-20200428100318146 %}
+
+{% asset_img image-20200428100416162.png image-20200428100416162 %}
+
+<pre><code>show vtp status</code></pre><pre><code>switchport mode dynamic</code></pre><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200428101820419.png" srcset="/img/loading.gif" class="" title="image-20200428101820419">
+
+<p>isl：思科专有</p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200428103111230.png" srcset="/img/loading.gif" class="" title="image-20200428103111230">
+
+<p>encapsulation dotlQ {num}</p>
+<h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303201755734.png" srcset="/img/loading.gif" class="" title="image-20200303201755734">
