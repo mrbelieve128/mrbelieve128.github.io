@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    5.8k 字
+                    7.1k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      29 分钟
+                      34 分钟
                   </span>
                 
 
@@ -705,16 +705,49 @@ no-autosummary
 
 {% asset_img image-20200428100416162.png image-20200428100416162 %}
 
-<pre><code>show vtp status</code></pre><pre><code>switchport mode dynamic</code></pre><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200428101820419.png" srcset="/img/loading.gif" class="" title="image-20200428101820419">
+<pre><code>show vtp status</code></pre><pre><code>switchport mode dynamic</code></pre>{% asset_img image-20200428101820419.png image-20200428101820419 %}
 
 <p>isl：思科专有</p>
-<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200428103111230.png" srcset="/img/loading.gif" class="" title="image-20200428103111230">
+{% asset_img image-20200428103111230.png image-20200428103111230 %}
 
 <p>encapsulation dotlQ {num}</p>
-<h2 id="4-30"><a href="#4-30" class="headerlink" title="4/30"></a>4/30</h2><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200430091659535.png" srcset="/img/loading.gif" class="" title="image-20200430091659535">
+<h2 id="4-30"><a href="#4-30" class="headerlink" title="4/30"></a>4/30</h2>{% asset_img image-20200430091659535.png image-20200430091659535 %}
 
 <h3 id="存储转发"><a href="#存储转发" class="headerlink" title="存储转发"></a>存储转发</h3><p>完全存下来、校验之后再转发</p>
 <h3 id="直通"><a href="#直通" class="headerlink" title="直通"></a>直通</h3><p>知道目的mac就开始转发</p>
+<h2 id="5-12"><a href="#5-12" class="headerlink" title="5/12"></a>5/12</h2><h3 id="查看当前ios文件设置"><a href="#查看当前ios文件设置" class="headerlink" title="查看当前ios文件设置"></a>查看当前ios文件设置</h3><pre><code>show boot</code></pre><p><strong>dir</strong> 命令可用于查看指定目录中的文件列表</p>
+<pre><code>dir flash</code></pre><h3 id="配置双工和速率"><a href="#配置双工和速率" class="headerlink" title="配置双工和速率"></a>配置双工和速率</h3><pre><code>intferface f0/1
+duplex full    //自动协商双工
+speed 100
+end</code></pre><h3 id="Auto-MDIX"><a href="#Auto-MDIX" class="headerlink" title="Auto-MDIX"></a>Auto-MDIX</h3><blockquote>
+<p>交换机到交换机或交换机到路由器的连接要求使用不同的以太网电缆。在接口上使用自动介质相关接口交叉 (auto-MDIX) 功能可以解决这一问题。当启用 auto-MDIX 时，接口会自动检测所需电缆连接类型（直通或交叉）并配置相应连接。如果连接到无自动 MDIX 功能的交换机，必须使用直通电缆连接到设备（如，服务器、工作站或路由器）。必须使用交叉线缆连接到其他交换机或中继器。</p>
+</blockquote>
+<pre><code>int f0/1
+duplex auto
+speed auto    //自动协商速度
+mdix auto //启动mdix
+end</code></pre><h3 id="Vlan的优势"><a href="#Vlan的优势" class="headerlink" title="Vlan的优势"></a>Vlan的优势</h3><blockquote>
+<p>VLAN 主要有以下优点：</p>
+<ul>
+<li><strong>安全</strong> － 含有敏感数据的用户组可与网络的其余部分隔离，从而降低泄露机密信息的可能性。如图所示，教师计算机位于 VLAN 10 上，与学生和访客数据流量完全独立。</li>
+</ul>
+<ul>
+<li><strong>成本降低</strong> － 成本高昂的网络升级需求减少，现有带宽和上行链路的利用率更高，因此可节约成本。</li>
+</ul>
+<ul>
+<li><strong>性能提高</strong> － 将第 2 层平面网络划分为多个逻辑工作组（广播域）可以减少网络上不必要的流量并提高性能。</li>
+</ul>
+<ul>
+<li><strong>减小广播域大小</strong> - 将网络划分为多个 VLAN 可减少广播域中的设备数量。如图所示，该网络中有六台计算机，但有三个广播域：Faculty、Student 和 Guest。</li>
+</ul>
+<ul>
+<li><strong>提高 IT 员工效率</strong> － VLAN 为管理网络带来了方便，因为有相似网络需求的用户将共享同一个 VLAN。当您为特定 VLAN 设置新的交换机时，之前为该 VLAN 配置的所有策略和程序均会在分配新端口后应用到端口上。另外，通过为 VLAN 设置一个适当的名称，IT 员工很容易就知道该 VLAN 的功能。在图中，为了便于识别，我们将 VLAN 10 命名为“Faculty”，将 VLAN 20 命名为“Student”，将 VLAN 30 命名为“Guest”。</li>
+</ul>
+<ul>
+<li><strong>简化项目管理和应用管理</strong> - VLAN 将用户和网络设备聚合到一起，以支持商业需求或地域上的需求。通过划分职能，可以让管理项目或使用专业应用更加轻松；此类应用程序的一个例子是教师的电子学习开发平台。</li>
+</ul>
+</blockquote>
+<p>有vlan，广播帧只从已配置，属于同一vlan的端口转发出去。</p>
 <h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
@@ -960,6 +993,45 @@ no-autosummary
 <h3 id="What-is-the-destination-address-in-the-header-of-a-broadcast-frame"><a href="#What-is-the-destination-address-in-the-header-of-a-broadcast-frame" class="headerlink" title="What is the destination address in the header of a broadcast frame?"></a>What is the destination address in the header of a broadcast frame?</h3><p>FF-FF-FF-FF-FF-FF</p>
 <blockquote>
 <p>A converged network provides a single infrastructure that combines voice, video, and data. Analog phones, user data, and point-to-point video traffic are all contained within the single network infrastructure of a converged network.</p>
+</blockquote>
+<p>打开交换机时，启动顺序中的第一个操作是什么？</p>
+<p>A. 加载默认 Cisco IOS 软件</p>
+<p>B. 加载启动加载器软件</p>
+<p>C. 低级 CPU 初始化</p>
+<p>D. 加载加电自检程序</p>
+<blockquote>
+<p><strong>答案</strong></p>
+<p>D. 交换机启动后的第一个操作是 POST（加电自检）。POST 对 CPU、内存和闪存进行测试，以准备加载启动加载器。</p>
+</blockquote>
+<p>网络管理员配置了 VLAN 99 作为管理 VLAN，并为其配置 IP 地址和子网掩码。管理员发出 show interface vlan 99 命令并注意到线路协议处于关闭状态。以下哪项操作可以将线路协议的状态更改为开启？</p>
+<p>A. 将主机连接到与 VLAN 99 相关联的接口</p>
+<p>B. 配置默认网关</p>
+<p>C. 从 VLAN 99 中删除所有接入端口</p>
+<p>D. 在 vty 线路上配置传输输入法</p>
+<blockquote>
+<p><strong>答案</strong></p>
+<p>A. 一旦 SVI 配置了 IP 地址和子网掩码，即可用于远程管理。当 SVI VLAN 有一个活动端口与之关联时，SVI 接口处于活动状态。</p>
+</blockquote>
+<p>攻击者已经绕过物理安全并且可以将笔记本电脑连接到交换机上的以太网接口。如果所有交换机端口都配置了端口安全，并且违规模式设置为出厂默认设置，则针对攻击者采取哪项操作？</p>
+<p>A. 具有未知源地址的数据包被丢弃，并且没有已发生安全违规的通知。。</p>
+<p>B. 具有未知源地址的数据包被丢弃，并且有已发生安全违规的通知。</p>
+<p>C. 具有未知源地址的数据包被丢弃，并且接口进入错误禁用状态并关闭端口 LED。</p>
+<p>D. 具有未知源地址的数据包被转发，并且会向 syslog 服务器发送通知。</p>
+<blockquote>
+<p><strong>答案</strong></p>
+<p>C. 默认违规模式已关闭。在此模式下，端口安全违规将造成接口立即变为错误禁用 (error-disabled) 状态，并关闭端口 LED。该模式还会发送 SNMP 陷阱、将 syslog 消息记入日志，以及逐渐增加违规计数器的计数。</p>
+</blockquote>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/download.png" srcset="/img/loading.gif" class="" title="i291241n1v4.png">
+
+<p>似乎是交换机的默认配置。</p>
+<p>使用交换机时，造成不完全以太网帧的潜在原因是什么？</p>
+<p>A. 双工配置错误</p>
+<p>B. 线缆过长</p>
+<p>C. 延迟冲突</p>
+<p>D. NIC 故障</p>
+<blockquote>
+<p><strong>答案</strong></p>
+<p>D. 不完全帧即小于 64 字节的帧，所允许的最小值是以太帧。该类型帧通常是由于 NIC 故障或过度冲突。两端配置错误可能导致连接问题。线缆过长可能产生 CRC 错误和/或延迟冲突。</p>
 </blockquote>
 
             </div>
