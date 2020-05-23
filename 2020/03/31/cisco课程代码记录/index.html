@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    7.1k 字
+                    8.2k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      34 分钟
+                      39 分钟
                   </span>
                 
 
@@ -415,7 +415,7 @@ Router2(config-router)#</code></pre><ul>
 <p>路由器连接到server，并且server开启tftp时候</p>
 <pre><code>Tampa# copy running-config tftp
 Address or name of remote host []?192.168.1.2
-储存的文件名：Tampa_config</code></pre><h2 id="lab13"><a href="#lab13" class="headerlink" title="lab13"></a>lab13</h2><p>*<em>交换机之间的线用copper cross-over *</em></p>
+储存的文件名：Tampa_config</code></pre><h2 id="Lab10待补-不熟！！！"><a href="#Lab10待补-不熟！！！" class="headerlink" title="Lab10待补-不熟！！！"></a>Lab10待补-不熟！！！</h2><h2 id="lab13"><a href="#lab13" class="headerlink" title="lab13"></a>lab13</h2><p>*<em>交换机之间的线用copper cross-over *</em></p>
 <pre><code>sw1:
 int f0/3
 switchport mode access
@@ -555,13 +555,16 @@ login local
 no password #删除密码
 exit
 ip ssh version 2
-exit</code></pre><h2 id="5-2-2-7-Configuring-Switch-Port-Security"><a href="#5-2-2-7-Configuring-Switch-Port-Security" class="headerlink" title="5.2.2.7  Configuring Switch Port Security !!!!"></a>5.2.2.7  Configuring Switch Port Security !!!!</h2><pre><code>int f0/0
+exit</code></pre><h2 id="5-2-2-7-Configuring-Switch-Port-Security"><a href="#5-2-2-7-Configuring-Switch-Port-Security" class="headerlink" title="5.2.2.7  Configuring Switch Port Security !!!!"></a>5.2.2.7  Configuring Switch Port Security !!!!</h2><p>端口安全违规的默认模式为关闭端口</p>
+<pre><code>int f0/0
 switchport mode access # 设为接入
 switchport port-security # 启用动态端口安全
 switchport port-security maximum 10 # 设置端口允许安全地址的最大数量
 switchport port-security mac-address sticky #启用粘性获取，保护端口安全，以便动态获取设备的 MAC 地址并将其添加到运行配置
 switchport port-security violation restrict #保护接口，使其在出现违规时发出通知，但不禁用端口
-interface range fastEthernet0/3 - 24 # 从3到24端口全部关闭</code></pre><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415123202415.png" srcset="/img/loading.gif" class="" title="image-20200415123202415">
+interface range fastEthernet0/3 - 24 # 从3到24端口全部关闭
+</code></pre><p>安全违规模式-Protect\Restrict\Shutdown</p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200415123202415.png" srcset="/img/loading.gif" class="" title="image-20200415123202415">
 
 <h2 id="5-3-1-2-Skills-Integration-Challenge"><a href="#5-3-1-2-Skills-Integration-Challenge" class="headerlink" title="5.3.1.2 Skills Integration Challenge"></a>5.3.1.2 Skills Integration Challenge</h2><pre><code>host S1
 line console 0
@@ -726,7 +729,7 @@ end</code></pre><h3 id="Auto-MDIX"><a href="#Auto-MDIX" class="headerlink" title
 duplex auto
 speed auto    //自动协商速度
 mdix auto //启动mdix
-end</code></pre><h3 id="Vlan的优势"><a href="#Vlan的优势" class="headerlink" title="Vlan的优势"></a>Vlan的优势</h3><blockquote>
+end</code></pre><h3 id="6-1-1-2-Vlan的优势"><a href="#6-1-1-2-Vlan的优势" class="headerlink" title="6.1.1.2 Vlan的优势"></a>6.1.1.2 Vlan的优势</h3><blockquote>
 <p>VLAN 主要有以下优点：</p>
 <ul>
 <li><strong>安全</strong> － 含有敏感数据的用户组可与网络的其余部分隔离，从而降低泄露机密信息的可能性。如图所示，教师计算机位于 VLAN 10 上，与学生和访客数据流量完全独立。</li>
@@ -748,7 +751,90 @@ end</code></pre><h3 id="Vlan的优势"><a href="#Vlan的优势" class="headerlin
 </ul>
 </blockquote>
 <p>有vlan，广播帧只从已配置，属于同一vlan的端口转发出去。</p>
-<h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
+<h2 id="5-19"><a href="#5-19" class="headerlink" title="5/19"></a>5/19</h2><h3 id="vlan的类型"><a href="#vlan的类型" class="headerlink" title="vlan的类型"></a>vlan的类型</h3><p>在图中，运行默认配置的交换机上发出 <strong>show vlan brief</strong> 命令。默认情况下，所有端口都分配给 VLAN 1。</p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200519105755366.png" srcset="/img/loading.gif" class="" title="image-20200519105755366">
+
+<p>所有端口当前已分配给默认 VLAN 1。没有明确指定本征 VLAN，其他 VLAN 都不处于活动状态；因此网络的本征 VLAN 与管理 VLAN 相同。这将导致安全风险</p>
+<h3 id="6-1-2-1-Vlan中继"><a href="#6-1-2-1-Vlan中继" class="headerlink" title="6.1.2.1 Vlan中继"></a>6.1.2.1 Vlan中继</h3><p>VLAN TRUNK 允许在交换机之间传播所有 VLAN 流量，这样位于同一 VLAN 但连接到不同交换机的设备便可以通信，不需要路由器的干预。VLAN TRUNK 不属于具体的 VLAN，而是作为多个 VLAN 中交换机与路由器之间的管道。</p>
+<h3 id="6-1-2-3-标记以太网帧以便识别VLAN"><a href="#6-1-2-3-标记以太网帧以便识别VLAN" class="headerlink" title="6.1.2.3 标记以太网帧以便识别VLAN"></a>6.1.2.3 标记以太网帧以便识别VLAN</h3><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200519110222765.png" srcset="/img/loading.gif" class="" title="image-20200519110222765">
+
+<h3 id="6-2-1-2-创建vlan"><a href="#6-2-1-2-创建vlan" class="headerlink" title="6.2.1.2 创建vlan"></a>6.2.1.2 创建vlan</h3><pre><code>configure terminal
+vlan vlan-id
+name vlan-name
+end
+
+show vlan brief
+show vlan</code></pre><h2 id="5-21"><a href="#5-21" class="headerlink" title="5/21"></a>5/21</h2><h3 id="6-2-1-3-端口分配到vlan"><a href="#6-2-1-3-端口分配到vlan" class="headerlink" title="6.2.1.3 端口分配到vlan"></a>6.2.1.3 端口分配到vlan</h3><pre><code>configure terminal
+interface interface_id
+switchport mode access
+switchport access vlan vlan_id
+end</code></pre><p><strong>注</strong>：使用 <strong>interface range</strong> 命令可同时配置多个接口。</p>
+<h3 id="6-2-1-4-删除vlan分配"><a href="#6-2-1-4-删除vlan分配" class="headerlink" title="6.2.1.4 删除vlan分配"></a>6.2.1.4 删除vlan分配</h3><pre><code>configure terminal
+interface f0/18
+no switchport access vlan
+end</code></pre><h3 id="6-2-1-5-删除"><a href="#6-2-1-5-删除" class="headerlink" title="6.2.1.5 删除"></a>6.2.1.5 删除</h3><p>no vlan vlan_id 删除vlan</p>
+<h3 id="6-2-1-7"><a href="#6-2-1-7" class="headerlink" title="6.2.1.7"></a>6.2.1.7</h3><pre><code>S1(config)#vlan 10
+S1(config-vlan)#name Faculty/Staff
+S1(config-vlan)#exit
+S1(config)#vlan 20
+S1(config-vlan)#name Students
+S1(config-vlan)#ex
+S1(config)#vlan 30
+S1(config-vlan)#name Guest(Default)
+S1(config-vlan)#ex
+S1(config)#vlan 99
+S1(config-vlan)#name Management&amp;Native
+S1(config-vlan)#ex
+int g0/1 
+switchport mode trunk
+int g0/2
+switchport mode trunk
+
+
+S2(config)#vlan 10 
+S2(config-vlan)#name Faculty/Staff
+S2(config-vlan)#vlan 20
+S2(config-vlan)#name Students
+S2(config-vlan)#vlan 30
+S2(config-vlan)#name Guest(Default)
+S2(config-vlan)#vlan 99
+S2(config-vlan)#name Management&amp;Native
+S2(config-vlan)#int f0/11
+S2(config-if)#switchport mode access 
+S2(config-if)#switchport access vlan 10
+S2(config-if)#int f0/18
+S2(config-if)#switchport mode access 
+S2(config-if)#switchport access vlan 20
+S2(config-if)#int f0/6
+S2(config-if)#switchport mode access 
+S2(config-if)#switchport access vlan 30
+S2(config)#int g0/1
+S2(config-if)#sw mod tr
+S2(config-if)#sw mod trunk 
+
+S3(config)#vlan 10
+S3(config-vlan)#name Faculty/Staff
+S3(config-vlan)#
+S3(config-vlan)#vlan 20
+S3(config-vlan)#name Students
+S3(config-vlan)#vlan 30
+S3(config-vlan)#name Guest(Default)
+S3(config-vlan)#vlan 99
+S3(config-vlan)#name Management&amp;Native
+S3(config-vlan)#ex
+S3(config)#int f0/11
+S3(config-if)#sw mod ac
+S3(config-if)#sw mod access 
+S3(config-if)#sw acc vlan 10
+S3(config-if)#int f0/18
+S3(config-if)#sw mod access 
+S3(config-if)#sw acc vlan 20
+S3(config-if)#int f0/6
+S3(config-if)#sw mod access 
+S3(config-if)#sw acc vlan 30
+
+S3(config-if)#int g0/2
+S3(config-if)#sw mode tr</code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303201755734.png" srcset="/img/loading.gif" class="" title="image-20200303201755734">
@@ -1033,6 +1119,37 @@ end</code></pre><h3 id="Vlan的优势"><a href="#Vlan的优势" class="headerlin
 <p><strong>答案</strong></p>
 <p>D. 不完全帧即小于 64 字节的帧，所允许的最小值是以太帧。该类型帧通常是由于 NIC 故障或过度冲突。两端配置错误可能导致连接问题。线缆过长可能产生 CRC 错误和/或延迟冲突。</p>
 </blockquote>
+<p><strong>端口速度 LED</strong> - 表示选择了端口速度模式。 选择后，端口 LED 将显示不同含义的颜色。 如果 LED 不亮，则端口运行速度为 10 Mb/s。 如果 LED 为绿色，则端口运行速度为 100 Mb/s。 如果 LED 为绿色闪烁，则端口运行速度为 1000 Mb/s。</p>
+<p>下列哪项操作可以将错误禁用交换机端口返回至运行状态？</p>
+<p>A. 在接口上删除并重新配置端口安全</p>
+<p>B. 在接口上发出 switchport mode access 命令</p>
+<p>C. 清除交换机上的 MAC 地址表</p>
+<p>D. 发出 shutdown 和 no shutdown 接口命令</p>
+<p><strong>答案</strong></p>
+<p>Option 4. 当配置了端口安全的交换机端口出现违规时会将违规操作关闭，端口将置为 err-disabled 状态。可以通过关闭接口然后发出 no shutdown 命令重新启用接口。</p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200519101713958.png" srcset="/img/loading.gif" class="" title="image-20200519101713958">
+
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200519102510122.png" srcset="/img/loading.gif" class="" title="image-20200519102510122">
+
+
+
+<p>交换机引导加载程序的功能是什么？</p>
+<p>A. 加快引导过程</p>
+<p>B. 提供交换机启动时的脆弱状态安全</p>
+<p>C. 控制启动过程中交换机的可用 RAM 量</p>
+<p>D. 提供无法找到交换机操作系统时的操作环境</p>
+<blockquote>
+<p><strong>答案</strong></p>
+<p>Option 4 在交换机找不到有效操作系统时，显示交换机启动加载程序环境。启动加载程序环境提供一些基本命令来允许网络管理员重新加载操作系统或者提供操作系统的备选位置。</p>
+</blockquote>
+<p>哪一命令用于设置定义交换机上 IOS 映像查找位置的 BOOT 环境变量？</p>
+<ul>
+<li><strong>boot system</strong></li>
+</ul>
+<p>哪个接口是包含用于管理 24 个端口以太网交换机的 IP 地址的默认位置？</p>
+<ul>
+<li>VLAN 1</li>
+</ul>
 
             </div>
             <hr>

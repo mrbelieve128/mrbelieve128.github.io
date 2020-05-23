@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Archives - Mr.BelieVe&#39;s Treasure</title>
+  <title>数据库使用&amp;学习记录 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -43,7 +43,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -129,6 +129,33 @@
             </span>
 
             
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期二, 五月 19日 2020, 4:40 下午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    86 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      1 分钟
+                  </span>
+                
+
+                
+              </p>
+            
           </div>
 
           
@@ -139,55 +166,122 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 57 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/11/29/19920%E7%AC%94%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">19/9/20笔记</span>
-      <span style="float: right;">11-29</span>
-    </a>
-  
-    
-    <a href="/2019/11/19/What%20a%20day/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">What a day</span>
-      <span style="float: right;">11-19</span>
-    </a>
-  
-    
-    <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">转载-编写shellcode测试工具</span>
-      <span style="float: right;">11-19</span>
-    </a>
-  
-    
-    <a href="/2019/11/19/hello-world/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hello World!</span>
-      <span style="float: right;">11-19</span>
-    </a>
-  
-</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="数据库使用-amp-学习记录"><a href="#数据库使用-amp-学习记录" class="headerlink" title="数据库使用&amp;学习记录"></a>数据库使用&amp;学习记录</h1><h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>GRANT CREATE TABLE TO  { PUBLIC | GROUP group | username }</p>
+<p>GRANT ALTER TABLE</p>
+<p><a href="https://blog.csdn.net/haydenwang8287/article/details/2105999" target="_blank" rel="noopener">Grant的用法</a></p>
+<h2 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h2><p>一个窗口</p>
+<pre><code>mysqld --shared-memory --skip-grant-tables</code></pre><p>另一个窗口</p>
+<pre><code>mysql -u root -p
+//press enter
+FLUSH PRIVILEGES
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;你要设置的密码&#39;
+FLUSH PRIVILEGES</code></pre><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><pre><code class="mysql">#DELETE FROM SeatInformation  
 
 
+/*DELETE FROM SeatInformation */
+-- DELETE FROM SeatInformation</code></pre>
 
-              </div>
             </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/23/Natas/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">Natas</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
+                        <span class="hidden-mobile">hexo升级跳坑</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var oldLoad = window.onload;
+    window.onload = function () {
+      var gitalk = new Gitalk({
+        clientID: 'c16704b33f7cc977ea90',
+        clientSecret: '9f8ad5600be82be115466ef0daf0f8a24a7b2da1',
+        repo: 'mrbelieve128.github.io',
+        owner: 'mrbelieve128',
+        admin: 'mrbelieve128',
+        id: md5(location.pathname),
+        language: 'zh-CN',
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: 'false',
+        distractionFreeMode: 'false'
+      });
+
+      gitalk.render('gitalk-container')
+      oldLoad && oldLoad();
+    }
+  </script>
+
+
+                </div>
+              
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -269,6 +363,59 @@
 
 
 
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
@@ -304,7 +451,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Archive&nbsp;",
+        "数据库使用&学习记录&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
