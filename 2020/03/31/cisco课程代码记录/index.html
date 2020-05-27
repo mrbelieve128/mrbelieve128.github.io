@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    9.4k 字
+                    12.4k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      46 分钟
+                      61 分钟
                   </span>
                 
 
@@ -1054,7 +1054,248 @@ ip route 0.0.0.0 0.0.0.0 Serial0/0/1
 !
 ip access-list standard BranchServer
 deny 172.16.64.0 0.0.63.255
-permit any</code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
+permit any</code></pre><h2 id="5-27"><a href="#5-27" class="headerlink" title="5/27"></a>5/27</h2><h3 id="7-1-1-3-ACL"><a href="#7-1-1-3-ACL" class="headerlink" title="7.1.1.3 ACL"></a>7.1.1.3 ACL</h3><ul>
+<li><strong>入站 ACL</strong> - 传入数据包经过处理之后才会被路由到出站接口。因为如果数据包被丢弃，就<strong>节省了执行路由查找</strong>的开销，所以入站 ACL 非常高效。如果 ACL 允许该数据包，则会处理该数据包以进行路由。当与入站接口连接的网络是需要检测的数据包的唯一来源时，最适合使用入站 ACL 来过滤数据包。(一进多出)</li>
+<li><strong>出站 ACL</strong> - 传入数据包路由到出站接口后，由出站 ACL 进行处理。<strong>在来自多个入站接口的数据包通过同一出站接口之前，对数据包应用相同过滤器时，最适合使用出站 ACL。</strong>（多进一出）</li>
+</ul>
+<h3 id="7-1-2-5"><a href="#7-1-2-5" class="headerlink" title="7.1.2.5"></a>7.1.2.5</h3><pre><code>access-list 1 permit any
+!OR
+access-list 1 permit 0.0.0.0 255.255.255.255
+
+access-list 1 permit 192.168.10.10 0.0.0.0
+!OR
+access-list 1 permit host 192.168.10.10</code></pre><p><strong>应用 ACL 的规则</strong></p>
+<p>一些使用 ACL 的指导原则：</p>
+<ul>
+<li><p>在位于内部网络和外部网络（例如互联网）交界处的防火墙路由器上使用 ACL。</p>
+</li>
+<li><p>在位于网络两个部分交界处的路由器上使用 ACL，以控制进出内部网络特定部分的流量。</p>
+</li>
+<li><p>在边界路由器（即位于网络边界的路由器）上配置 ACL。这样可以在内外部网络之间，或网络中受控度较低的区域与敏感区域之间起到基本的缓冲作用。</p>
+</li>
+<li><p>为边界路由器接口上配置的每种网络协议配置 ACL。</p>
+</li>
+</ul>
+<p>为每种协议 (per protocol)、每个方向 (per direction)、每个接口 (per interface) 配置一个 ACL：</p>
+<ul>
+<li><p><strong>每种协议一个 ACL</strong> - 要控制接口上的流量，必须为接口上启用的每种协议定义相应的 ACL。</p>
+</li>
+<li><p><strong>每个方向一个 ACL</strong> - 一个 ACL 只能控制接口上一个方向的流量。要控制入站流量和出站流量，必须分别定义两个 ACL。</p>
+</li>
+<li><p><strong>每个接口一个 ACL</strong> - 一个 ACL 只能控制一个接口（例如 GigabitEthernet 0/0）上的流量。</p>
+</li>
+</ul>
+<h3 id="7-1-4-1-拓展acl和标准的使用情况"><a href="#7-1-4-1-拓展acl和标准的使用情况" class="headerlink" title="7.1.4.1 拓展acl和标准的使用情况??"></a>7.1.4.1 拓展acl和标准的使用情况??</h3><p><strong>扩展 ACL</strong> - 将扩展 ACL 放置在尽可能靠近需要过滤的流量源的位置上。这样，不需要的流量会在靠近源网络的位置遭到拒绝，而无需通过网络基础设施。</p>
+<p><strong>标准 ACL</strong> - 由于标准 ACL 不会指定目标地址，所以其位置应该尽可能靠近目标。在<strong>流量源附近设置标准 ACL</strong> 可以有效阻止流量通过应用了 ACL 的接口到达任何其他网络。</p>
+<p>标准 ACL 命令的完整语法如下：</p>
+<p>Router(config)# <strong>access-list</strong> <em>access-list-number</em> { <strong>deny</strong> | <strong>permit</strong> | <strong>remark</strong> } <em>source</em> [ <em>source-wildcard</em> ] [ <strong>log</strong> ]</p>
+<p>[ <em>source-wildcard</em> ] （可选）要应用到源得32位通配符掩码。在要忽略得位上置1。</p>
+<h3 id="7-2-1-2"><a href="#7-2-1-2" class="headerlink" title="7.2.1.2"></a>7.2.1.2</h3><p>配置标准 IPv4 ACL 之后，可以在接口配置模式下使用 <strong>ip access-group</strong> 命令将其关联到接口：</p>
+<p>Router(config-if)# <strong>ip access-group</strong> { <em>access-list-number</em> | <em>access-list-name</em> } { <strong>in</strong> | <strong>out</strong> }</p>
+<p>in/out 入站 出站过滤器</p>
+<h3 id="7-2-1-3"><a href="#7-2-1-3" class="headerlink" title="7.2.1.3"></a>7.2.1.3</h3><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200527092034631.png" srcset="/img/loading.gif" class="" title="image-20200527092034631">
+
+<p>拒绝位于 192.168.10.10 的主机 PC1。但允许 192.168.10.0/24 网络中的其他各台主机。</p>
+<h3 id="7-2-2-3"><a href="#7-2-2-3" class="headerlink" title="7.2.2.3"></a>7.2.2.3</h3><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200527101158208.png" srcset="/img/loading.gif" class="" title="image-20200527101158208">
+
+<p>show ip interface 端口</p>
+<h3 id="7-2-3-1"><a href="#7-2-3-1" class="headerlink" title="7.2.3.1"></a>7.2.3.1</h3><p>线路配置模式中配置的 <strong>access-class</strong> 命令可限制特定 VTY（接入思科设备）与访问列表中地址之间的传入和传出连接。</p>
+<p><strong>access-class</strong> 命令的语法是：</p>
+<p>Router(config-line)# <strong>access-class</strong> <em>access-list-number</em> { <strong>in</strong> [ <strong>vrf-also</strong> ] | <strong>out</strong> }</p>
+<p>参数 <strong>in</strong> 限制访问列表中的地址和思科设备之间的传入连接，而参数 <strong>out</strong> 则限制特定思科设备与访问列表中地址之间的传出连接。</p>
+<img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200527102513372.png" srcset="/img/loading.gif" class="" title="image-20200527102513372">
+
+<h3 id="7-3-1-2"><a href="#7-3-1-2" class="headerlink" title="7.3.1.2"></a>7.3.1.2</h3><p>思科 IOS 将应用内部逻辑。如前所述，ACE 是按照顺序处理的；因此，ACE 的输入顺序非常重要。</p>
+<h3 id="8-1-2-1-dhcp"><a href="#8-1-2-1-dhcp" class="headerlink" title="8.1.2.1 dhcp"></a>8.1.2.1 dhcp</h3><p>要排除特定地址，请使用 <strong>ip dhcp excluded-address</strong> 命令。</p>
+<p><strong>ip dhcp pool</strong> <em>池名称</em> 命令创建具有特定名称的地址池，并使路由器进入 DHCPv4 配置模式</p>
+<p>必须配置地址池和默认网关路由器。使用 <strong>network</strong> 语句定义可用地址范围。</p>
+<p>使用 <strong>default-router</strong> 命令定义默认网关路由器。通常，网关是最接近客户端设备的路由器的 LAN 接口。虽然只需要一个网关，但是如果有多个网关，您最多可以列出八个地址。</p>
+<p>其他 DHCPv4 池命令为可选命令。例如，使用 <strong>dns-server</strong> 命令配置 DHCPv4 客户端可用的 DNS 服务器 IPv4 地址。<strong>domain-name</strong> <em>domain</em> 命令用于定义域名。使用 <strong>lease</strong> 命令可以更改 DHCPv4 租期。默认租用值为一天。<strong>netbios-name-server</strong> 命令用于定义 NetBIOS WINS 服务器。</p>
+<p>要禁用此服务，请使用 <strong>no service dhcp</strong> 全局配置模式命令。使用 <strong>service dhcp</strong> 全局配置模式命令可重新启用 DHCPv4 服务器进程。如果没有配置参数，启用服务将不会有效果。</p>
+<h3 id="8-1-2-3-dhcp中继"><a href="#8-1-2-3-dhcp中继" class="headerlink" title="8.1.2.3 dhcp中继"></a>8.1.2.3 dhcp中继</h3><p>如果将 R1 配置为 DHCPv4 中继代理，它会将请求转发至位于子网 192.168.11.0 的 DHCPv4 服务器。</p>
+<pre><code>R3(config)# interface g0/0
+R3(config-if)# ip helper-address 192.168.11.6</code></pre><h2 id="7-2-1-6"><a href="#7-2-1-6" class="headerlink" title="7.2.1.6"></a>7.2.1.6</h2><pre><code>R2(config)#access-list 1 deny 192.168.11.0 0.0.0.255
+R2(config)#access-list 1 permit any
+
+R3(config)#access-list 1 deny 192.168.10.0 0.0.0.255
+R3(config)#access-list 1 permit any
+R3(config-if)#int g0/0
+R3(config-if)#ip access-group 1 out</code></pre><h2 id="7-2-1-7"><a href="#7-2-1-7" class="headerlink" title="7.2.1.7"></a>7.2.1.7</h2><pre><code>
+R1(config)#ip access-list standard File_Server_Restrictions
+R1(config-std-nacl)#permit host 192.168.20.4
+R1(config-std-nacl)#deny any
+R1(config-if)#int f0/1
+R1(config-if)#ip access-group File_Server_Restrictions out</code></pre><h2 id="7-2-3-3"><a href="#7-2-3-3" class="headerlink" title="7.2.3.3"></a>7.2.3.3</h2><pre><code>Router(config)#access-list 99 permit host 10.0.0.1
+Router(config)#line vty 0 15
+Router(config-line)#access-class 99 i</code></pre><h2 id="8-1-3-3"><a href="#8-1-3-3" class="headerlink" title="8.1.3.3"></a>8.1.3.3</h2><pre><code>R2(config)#ip dhcp excluded-address 192.168.10.1 192.168.10.10
+R2(config)#ip dhcp excluded-address 19IP2.168.30.1 192.168.30.10
+
+R2(config)#ip dhcp pool R1-LAN
+R2(dhcp-config)#network 192.168.10.0 255.255.255.0
+R2(dhcp-config)#default-router 10.1.1.2
+R2(dhcp-config)#no default-router 10.1.1.2
+R2(dhcp-config)#default-router 192.168.10.1
+R2(dhcp-config)#dns-server 192.168.20.254
+
+R2(config)#ip dhcp pool R3-LAN
+R2(dhcp-config)#netw
+R2(dhcp-config)#network 192.168.30.0 255.255.255.0
+R2(dhcp-config)#dns
+R2(dhcp-config)#dns-server 192.168.20.254
+R2(dhcp-config)#def
+R2(dhcp-config)#default-router 192.168.30.1
+
+
+
+R1(config)#int g0/0
+R1(config-if)#ip dh
+R1(config-if)#ip he
+R1(config-if)#ip help
+R1(config-if)#ip helper-address 10.1.1.2
+
+R3(config)#int g0/0
+R3(config-if)#ip help
+R3(config-if)#ip helper-address 10.2.2.2
+
+//Step 1: Configure the Gigabit Ethernet 0/1 interface on R2 to receive IP addressing from DHCP and activate the interface.
+R2(config)# interface g0/1
+R2(config-if)# ip address dhcp
+R2(config-if)# no shutdown</code></pre><h2 id="8-3-1-2"><a href="#8-3-1-2" class="headerlink" title="8.3.1.2"></a>8.3.1.2</h2><pre><code>S2(config)#vlan 10
+S2(config-vlan)#name Sales
+S2(config-vlan)#vlan 20
+S2(config-vlan)#name Production
+S2(config-vlan)#vlan 30
+S2(config-vlan)#name Marketing
+S2(config-vlan)#vlan 40
+S2(config-vlan)#name HR
+S2(config-vlan)#ex
+S2(config)#int rang
+S2(config)#int range f0/5-9
+S2(config-if-range)#sw m ac
+S2(config-if-range)#sw ac vlan 10
+S2(config-if-range)#int range f0/10-14
+S2(config-if-range)#sw m ac
+S2(config-if-range)#sw ac vlan 20
+S2(config-if-range)#int range f0/15-19
+S2(config-if-range)#sw m ac
+S2(config-if-range)#sw ac vlan 30
+S2(config-if-range)#int range f0/20-24
+S2(config-if-range)#sw m ac
+S2(config-if-range)#sw ac vlan 40
+
+S2(config)#int f0/1
+S2(config-if)#sw m trunk 
+S2(config-if)#int f0/2
+S2(config-if)#sw m trunk 
+S2(config-if)#int f0/3
+S2(config-if)#sw m trunk
+S2(config-if)#int f0/4
+S2(config-if)#sw m trunk
+
+R1(config)#int g0/0.10
+R1(config-subif)#encapsulation dot1Q 10
+R1(config-subif)#ip add 172.31.10.1 255.255.255.224
+R1(config-subif)#int g0/0.20
+R1(config-subif)#encapsulation dot1Q 20
+R1(config-subif)#ip add 172.31.20.1 255.255.255.240
+R1(config-subif)#int g0/0.30
+R1(config-subif)#encapsulation dot1Q 30
+R1(config-subif)#ip add 172.31.30.1 255.255.255.128
+R1(config-subif)#int g0/0.40
+R1(config-subif)#encapsulation dot1Q 40
+R1(config-subif)#ip add 172.31.40.1 255.255.255.192
+
+R1(config)#ip dhcp pool VLAN_10
+R1(dhcp-config)#dns-server 209.165.201.14
+R1(dhcp-config)#default-router 172.31.10.1 
+R1(dhcp-config)#network 172.31.10.0 255.255.255.224
+R1(config)#ip dhcp pool VLAN_20
+R1(dhcp-config)#dns-server 209.165.201.14
+R1(dhcp-config)#network 172.31.20.0 255.255.255.240
+R1(dhcp-config)#default-router 172.31.20.1
+R1(config)#ip dhcp pool VLAN_30
+R1(dhcp-config)#network 172.31.30.1 255.255.255.128
+R1(dhcp-config)#dns-server 209.165.201.14
+R1(dhcp-config)#default-router 172.31.30.1
+
+
+R1(config)#ip dhcp excluded-address 172.31.10.1 172.31.10.10
+R1(config)#ip dhcp excluded-address 172.31.20.1 172.31.20.10
+R1(config)#ip dhcp excluded-address 172.31.30.1 172.31.30.10
+R1(config)#ip dhcp excluded-address 172.31.40.1 172.31.40.10</code></pre><h2 id="第九章"><a href="#第九章" class="headerlink" title="第九章"></a>第九章</h2><h3 id="9-1-2-1-静态nat"><a href="#9-1-2-1-静态nat" class="headerlink" title="9.1.2.1 静态nat"></a>9.1.2.1 静态nat</h3><p>NAT 转换有三种类型：</p>
+<ul>
+<li><p><strong>静态地址转换（静态 NAT）</strong>- 本地地址和全局地址之间的一对一地址映射。</p>
+</li>
+<li><p><strong>动态地址转换（动态 NAT）</strong>- 本地地址和全局地址之间的多对多地址映射。转换在可用的基础上进行：例如，如果有 100 个内部本地地址和 10 个内部全局地址，则任何时候都只能转换 100 个内部本地地址中的 10 个地址。动态 NAT 的这种限制使得它在用于生产网络时没有端口地址转换那么实用。</p>
+</li>
+<li><p><strong>端口地址转换 (PAT)</strong> - 本地地址和全局地址之间的多对一地址映射。此方法也称为过载（NAT 过载）。例如，如果有 100 个内部本地地址以及 10 个内部全局地址，PAT 使用端口作为附加参数来提供乘数效应，从而支持重复使用 10 个内部全局地址中的任何一个地址，重复次数高达 65,536 次（这取决于通信流是基于 UDP、TCP 还是 ICMP）。</p>
+<p>  <strong>show ip nat translations</strong>。</p>
+</li>
+</ul>
+<h3 id="9-2-1-4"><a href="#9-2-1-4" class="headerlink" title="9.2.1.4"></a>9.2.1.4</h3><p>Ip nat inside static <em>Inside_local_IP_address</em> <em>Inside_global_IP_address</em></p>
+<p>Ip nat inside static <em>Outside_global_IP_address</em> <em>Outside_local_IP_address</em></p>
+<pre><code>R1(config)#ip nat inside source static 172.16.16.1 64.100.50.1
+R1(config)#ip nat outside source static 64.100.50.1 209.165.128.130
+(config)#int g0/0
+R1(config-if)#ip nat inside 
+R1(config-if)#int s0/0/0
+R1(config-if)#ip nat outside </code></pre><h3 id="9-2-2-2-配置动态nat"><a href="#9-2-2-2-配置动态nat" class="headerlink" title="9.2.2.2 配置动态nat"></a>9.2.2.2 配置动态nat</h3><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200527220001298.png" srcset="/img/loading.gif" class="" title="image-20200527220001298">
+
+<h3 id="9-2-2-5"><a href="#9-2-2-5" class="headerlink" title="9.2.2.5"></a>9.2.2.5</h3><pre><code>R2(config)#access-list 1 permit 172.16.0.0 0.0.255.255
+R2(config)#ip nat pool DYNAMIC 209.165.76.196 209.165.76.199 netmask 255.255.255.
+// Associate ACL1 with the NAT pool.
+R2(config)#ip nat inside source list 1 pool DYNAMIC
+R2(config)# interface s0/0/0
+R2(config-if)# ip nat outside
+R2(config-if)# interface s0/0/1
+R2(config-if)# ip nat inside</code></pre><h3 id="9-2-3-1-配置PAT：地址池"><a href="#9-2-3-1-配置PAT：地址池" class="headerlink" title="9.2.3.1 配置PAT：地址池"></a>9.2.3.1 配置PAT：地址池</h3><img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200527231311081.png" srcset="/img/loading.gif" class="" title="image-20200527231311081">
+
+<p><strong>overload</strong> 关键字会启用 PAT。</p>
+<h3 id="9-2-3-6"><a href="#9-2-3-6" class="headerlink" title="9.2.3.6"></a>9.2.3.6</h3><pre><code>R2(config)# ip access-list standard R2NAT
+R2(config-std-nacl)# permit 192.168.10.0 0.0.0.255
+R2(config-std-nacl)# permit 192.168.20.0 0.0.0.255
+R2(config-std-nacl)# permit 192.168.30.0 0.0.0.255
+
+//使用名为 R2POOL 的 NAT 池配置 R2，该 NAT 池使用 209.165.202.128/30 地址空间中的第一个地址。
+R2(config)# ip nat pool R2POOL 209.165.202.129 209.165.202.129 netmask 255.255.255.
+//将命名 ACL 与 NAT 池相关联，并启用 PAT。
+R2(config)# ip nat inside source list R2NAT pool R2POOL overload
+
+//使用相应的内部和外部 NAT 命令配置 R2 接口。
+R2(config)# inte fa0/0
+R2(config-if)# ip nat inside
+R2(config-if)# inte s0/0/0
+R2(config-if)# ip nat inside
+R2(config-if)# inte s0/0/1
+R2(config-if)# ip nat inside
+R2(config-if)# inte s0/1/0
+R2(config-if)# ip nat outside
+
+//请参考拓扑结构。 创建静态 NAT 转换，以将 local.pka 内部地址映射至其外部地址
+R2(config)# ip nat inside source static 192.168.20.254 209.165.202.130</code></pre><h3 id="9-3-1-4"><a href="#9-3-1-4" class="headerlink" title="9.3.1.4"></a>9.3.1.4</h3><pre><code>//Correct the Interfaces.
+//Assign the ip nat inside and ip nat outside commands to the correct ports.
+
+R2(config)# interface Serial0/0/0
+R2(config-if)# ip nat outside
+R2(config-if)# interface Serial0/0/1
+R2(config-if)# ip nat inside
+
+//Correct the Access-list.
+//Delete access-list 101 and replace it with a similar list that is also one statement in length. The only difference should be the wildcard.
+
+R2(config)# no access-list 101
+R2(config)# access-list 101 permit ip 10.4.10.0 0.0.1.255 any</code></pre><h3 id="9-4-1-2"><a href="#9-4-1-2" class="headerlink" title="9.4.1.2"></a>9.4.1.2</h3><pre><code>Switch(config)#host HQ-SW
+HQ-SW(config)#ip domain-name cisco.com
+HQ-SW(config)#crypto key generate rsa
+How many bits in the modulus [512]: 1024
+HQ-SW(config)#username HQadmin password ciscoclass
+HQ-SW(config)#ip ssh version 2
+HQ-SW(config)#ip ssh authentication-retries 2
+HQ-SW(config)#ip ssh time-out 
+HQ-SW(config)#line vty 0 15
+HQ-SW(config-line)#login local
+HQ-SW(config-line)#transport input ssh
+HQ-SW(config)#service password-encryption </code></pre><h2 id="考题记录"><a href="#考题记录" class="headerlink" title="考题记录"></a>考题记录</h2><blockquote>
 <p>ospf管理距离为110</p>
 </blockquote>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200303201755734.png" srcset="/img/loading.gif" class="" title="image-20200303201755734">
