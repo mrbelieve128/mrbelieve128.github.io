@@ -1102,7 +1102,7 @@ access-list 1 permit host 192.168.10.10</code></pre><p><strong>应用 ACL 的规
 <h3 id="7-2-3-1"><a href="#7-2-3-1" class="headerlink" title="7.2.3.1"></a>7.2.3.1</h3><p>线路配置模式中配置的 <strong>access-class</strong> 命令可限制特定 VTY（接入思科设备）与访问列表中地址之间的传入和传出连接。</p>
 <p><strong>access-class</strong> 命令的语法是：</p>
 <p>Router(config-line)# <strong>access-class</strong> <em>access-list-number</em> { <strong>in</strong> [ <strong>vrf-also</strong> ] | <strong>out</strong> }</p>
-<p>参数 <strong>in</strong> 限制访问列表中的地址和思科设备之间的传入连接，而参数 <strong>out</strong> 则限制特定思科设备与访问列表中地址之间的传出连接。</p>
+<p>==参数 <strong>in</strong> 限制访问列表中的地址和思科设备之间的传入连接，而参数 <strong>out</strong> 则限制特定思科设备与访问列表中地址之间的传出连接。==</p>
 <img src="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/image-20200527102513372.png" srcset="/img/loading.gif" class="" title="image-20200527102513372">
 
 <h3 id="7-3-1-2"><a href="#7-3-1-2" class="headerlink" title="7.3.1.2"></a>7.3.1.2</h3><p>思科 IOS 将应用内部逻辑。如前所述，ACE 是按照顺序处理的；因此，ACE 的输入顺序非常重要。</p>

@@ -157,6 +157,53 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/04/leak_canary-others_babystack/">
+        <p class="h4 index-header">leak_canary-others_babystack</p>
+      </a>
+
+      <a href="/2020/02/04/leak_canary-others_babystack/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">leak_canary-others_babystack
+
+Full RELRO GOT表只读
+
+
+s申请的是0x80，但读入0x100。并且canary在stack -0x8的地方
+先泄露canary，puts函数在输出时，只有遇到\x00才会结束，用\n覆盖canary的第一字节\x00，从而获得canary
+payload = cyclic(0x90-0x8)
+
+
+sh.recvuntil(&quot;iaab\n&quot;)
+canary =  u64(sh.recv(7).rjust(8,&quot;\x00&quot;))
+log.success(&quot;canary----</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/02/03/Linux%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
         <p class="h4 index-header">Linux常见问题解决方法</p>
       </a>
@@ -587,50 +634,6 @@ int   </div>
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
             <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
-        <p class="h4 index-header">SROP-ciscn_2019_s_3</p>
-      </a>
-
-      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">SROP-ciscn_2019_s_3/es_7Sigreturn Oriented Programming (SROP) Attack攻击原理
-比较详细的WP
-https://www.jianshu.com/p/ca4a5dacd1a2
-
-两个系统调用，一个是sys_read，一个是sys_write，往栈上写数据（0x400），从栈上读数据（0x30），存在栈溢出。还有一个gadget函数。
-
-
-有两个值得注意的地方。mov rax,0fh 以及mov rax 59。这两个gadget控制了rax的值，看看这两个是什么系统调用。15 sys_rt_sigreturn59 sys_execv</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           &nbsp;
         
         

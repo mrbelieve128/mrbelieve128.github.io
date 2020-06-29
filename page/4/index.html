@@ -157,6 +157,50 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
+        <p class="h4 index-header">SROP-ciscn_2019_s_3</p>
+      </a>
+
+      <a href="/2020/01/23/SROP-ciscn_2019_s_3/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SROP-ciscn_2019_s_3/es_7Sigreturn Oriented Programming (SROP) Attack攻击原理
+比较详细的WP
+https://www.jianshu.com/p/ca4a5dacd1a2
+
+两个系统调用，一个是sys_read，一个是sys_write，往栈上写数据（0x400），从栈上读数据（0x30），存在栈溢出。还有一个gadget函数。
+
+
+有两个值得注意的地方。mov rax,0fh 以及mov rax 59。这两个gadget控制了rax的值，看看这两个是什么系统调用。15 sys_rt_sigreturn59 sys_execv</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
         <p class="h4 index-header">ciscn_2019_ne_5-骚骚的小东西</p>
       </a>
@@ -586,62 +630,6 @@ EBX： 基</div>
             <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
           &nbsp;
         
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
-        <p class="h4 index-header">操作系统复习</p>
-      </a>
-
-      <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">对不起我看吐了，考炸了第一章操作系统的目标方便性，有效性，可扩充性和开放性
-可扩充性：采用微内核结构 P30
-发展主要动力
-不断提高计算机资源利用率
-方便用户
-器件的更新换代
-体系结构的发展
-新的应用需求
-
-多道程序设计的基本概念利用I/O操作的空闲时间，调度B程序运行，B空闲调度C等    P8
-优缺点
-资源利用率高
-吞吐量大
-平均周转时间长
-没有交互能力
-
-==操作系统定义为:一组能有效组织和管理硬件和软件资源，合理进行调度，方便用户使用程序的集合==
-分时系统（The Sharing System）在一台主机上连接多个终端，允许多个用户同时通过终端以交互方式使用计算机，共享主机资源
-特征</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          
         
       </div>
     </div>

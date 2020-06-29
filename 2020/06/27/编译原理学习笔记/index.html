@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>Natas - Mr.BelieVe&#39;s Treasure</title>
+  <title>编译原理学习笔记 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -132,7 +132,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期六, 五月 23日 2020, 10:59 上午
+                  星期六, 六月 27日 2020, 5:08 下午
                 </p>
               
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    670 字
+                    1k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      2 分钟
+                      4 分钟
                   </span>
                 
 
@@ -177,97 +177,118 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="natas"><a href="#natas" class="headerlink" title="natas"></a>natas</h1><h2 id="natas0"><a href="#natas0" class="headerlink" title="natas0"></a>natas0</h2><img src="/2020/05/23/Natas/image-20200523105927810.png" srcset="/img/loading.gif" class="" title="image-20200523105927810">
+              <h1 id="编译原理学习笔记"><a href="#编译原理学习笔记" class="headerlink" title="编译原理学习笔记"></a>编译原理学习笔记</h1><p><a href="https://www.bilibili.com/video/BV1cE411f78c?p=1" target="_blank" rel="noopener">视频</a></p>
+<h2 id="编译器结构"><a href="#编译器结构" class="headerlink" title="编译器结构"></a>编译器结构</h2><h3 id="词法分析-Lexical-analysis-or-scanning"><a href="#词法分析-Lexical-analysis-or-scanning" class="headerlink" title="词法分析 Lexical analysis or scanning"></a>词法分析 Lexical analysis or scanning</h3><p>词法分析把程序字段变成关键字words or 词法单元tokens</p>
+<p>如</p>
+<pre><code>if x == y then z = 1; else z = 2;</code></pre><p>分号，标点，分隔符都是词法单元</p>
+<h3 id="语法分析syntax-analysis-parsing"><a href="#语法分析syntax-analysis-parsing" class="headerlink" title="语法分析syntax analysis parsing"></a>语法分析syntax analysis parsing</h3><p>if then else包含三部分</p>
+<p>predicate条件判断，then语句和else语句</p>
+{% asset_img image-20200626235143347.png image-20200626235143347 %}
 
-<h2 id="natas1"><a href="#natas1" class="headerlink" title="natas1"></a>natas1</h2><p>禁用了右键，但还是可以F12或者</p>
-<img src="/2020/05/23/Natas/image-20200523110204498.png" srcset="/img/loading.gif" class="" title="image-20200523110204498">
+<h3 id="语义分析"><a href="#语义分析" class="headerlink" title="语义分析"></a>语义分析</h3><p>尝试去找出矛盾的地方 </p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>修改代码使之使用更少的资源</p>
+<h3 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h3><p>高级语言转变成汇编</p>
+<h2 id="Cool语言"><a href="#Cool语言" class="headerlink" title="Cool语言"></a>Cool语言</h2><pre><code class="cool">class Main {
+    i : IO &lt;- new IO;
+    main() : Int { { i.out_string(&quot;Hello wordld!\n&quot;); 1;} };
+};</code></pre>
+<p>Int 是return type。</p>
+<pre><code>class Main {
+    i : IO &lt;- new IO;
+    main() : IO { { i.out_string(&quot;Hello wordld!\n&quot;); } };
+};//一旦打印完string就退出</code></pre><pre><code>class Main {
+    i : IO &lt;- new IO;
+    main() : Object { { i.out_string(&quot;Hello wordld!\n&quot;); } };
+};//Object 返回类型
 
-<h2 id="natas2"><a href="#natas2" class="headerlink" title="natas2"></a>natas2</h2><p>打开过<code>files/pixel.png</code>，但没想到这是目录权限问题。。。。顺便搜了一下爆破文件目录的工具，kali自带的dirbuster <a href="https://www.cnblogs.com/xz25/p/12829315.html" target="_blank" rel="noopener">link</a></p>
-<img src="/2020/05/23/Natas/image-20200523132558927.png" srcset="/img/loading.gif" class="" title="image-20200523132558927">
+class Main {
+    main() : Object { { (new IO).out_string(&quot;Hello wordld!\n&quot;); } };
+};</code></pre><p>下面是继承的写法</p>
+<pre><code>class Main inherits IO{
+    main() : Object { { self.out_string(&quot;Hello wordld!\n&quot;); } };
+};
 
-<h2 id="natas3"><a href="#natas3" class="headerlink" title="natas3"></a>natas3</h2><img src="/2020/05/23/Natas/image-20200523133355938.png" srcset="/img/loading.gif" class="" title="image-20200523133355938">
-
-<p>谷歌找不到–九-曲-十-八-弯—&gt;robots.txt</p>
-<p>awsl</p>
-<h2 id="natas4"><a href="#natas4" class="headerlink" title="natas4"></a>natas4</h2><img src="/2020/05/23/Natas/image-20200523135615494.png" srcset="/img/loading.gif" class="" title="image-20200523135615494">
-
-<p>点击refresh之后Referer会显示，改成对应的natas5即可</p>
-<h2 id="natas5"><a href="#natas5" class="headerlink" title="natas5"></a>natas5</h2><p>Login, 那就看cookie</p>
-<img src="/2020/05/23/Natas/image-20200523140637488.png" srcset="/img/loading.gif" class="" title="image-20200523140637488">
-
-<p>改成1就行</p>
-<h2 id="natas6"><a href="#natas6" class="headerlink" title="natas6"></a>natas6</h2><img src="/2020/05/23/Natas/image-20200523142611838.png" srcset="/img/loading.gif" class="" title="image-20200523142611838">
-
-<p>打开再按f12就可以看见了</p>
-<h2 id="natas7"><a href="#natas7" class="headerlink" title="natas7"></a>natas7</h2><img src="/2020/05/23/Natas/image-20200523142927279.png" srcset="/img/loading.gif" class="" title="image-20200523142927279">
-
-<p>看到hint之后，就尝试在url中尝试page=ls</p>
-<img src="/2020/05/23/Natas/image-20200523143009363.png" srcset="/img/loading.gif" class="" title="image-20200523143009363">
-
-<p>等号后输入hint的就行</p>
-<h2 id="natas8"><a href="#natas8" class="headerlink" title="natas8"></a>natas8</h2><img src="/2020/05/23/Natas/image-20200523165112708.png" srcset="/img/loading.gif" class="" title="image-20200523165112708">
-
-<p>给的很清楚，输入的数值，先base64_encode，再strrev，再bin2hex，如果和encodedSecret一样就get了</p>
-<pre><code class="php">&lt;?
-$encodedSecret = &quot;3d3d516343746d4d6d6c315669563362&quot;;
-$result = base64_decode(strrev(hex2bin($encodedSecret)));
-echo $result;
-?&gt;</code></pre>
-<blockquote>
-<p>mac 自带了php环境hhh真好</p>
-</blockquote>
-<h2 id="natas9"><a href="#natas9" class="headerlink" title="natas9"></a>natas9</h2><p>命令注入</p>
-<blockquote>
-<p>passthru ( string <code>$command</code> [, int <code>&amp;$return_var</code> ] ) : void</p>
-<p>同 <a href="https://www.php.net/manual/zh/function.exec.php" target="_blank" rel="noopener">exec()</a> 函数类似， <strong>passthru()</strong> 函数 也是用来执行外部命令（<code>command</code>）的。 当所执行的 Unix 命令输出二进制数据， 并且需要直接传送到浏览器的时候， 需要用此函数来替代 <a href="https://www.php.net/manual/zh/function.exec.php" target="_blank" rel="noopener">exec()</a> 或 <a href="https://www.php.net/manual/zh/function.system.php" target="_blank" rel="noopener">system()</a> 函数。 常用来执行诸如 pbmplus 之类的可以直接输出图像流的命令。 通过设置 Content-type 为 <em>image/gif</em>， 然后调用 pbmplus 程序输出 gif 文件， 就可以从 PHP 脚本中直接输出图像到浏览器。</p>
-<h3 id="参数-¶"><a href="#参数-¶" class="headerlink" title="参数 ¶"></a>参数<a href="https://www.php.net/manual/zh/function.passthru.php#refsect1-function.passthru-parameters" target="_blank" rel="noopener"> ¶</a></h3><ul>
-<li><p><code>command</code></p>
-<p>  要执行的命令。</p>
-</li>
-<li><p><code>return_var</code></p>
-<p>  如果提供 <code>return_var</code> 参数， Unix 命令的返回状态会被记录到此参数。</p>
-</li>
-</ul>
-</blockquote>
-<p>密码均存储在/etc/natas_webpass目录下（百度来的</p>
-<p> <code>passthru(&quot;grep -i $key dictionary.txt&quot;);</code></p>
-<p>并且在shell中，#可以注释掉后面的</p>
-<p>所以当</p>
-<pre><code>$key = | cat /etc/natas_webpass/natas10 #
-$key = &amp; cat /etc/natas_webpass/natas10 #
-$key = | cat /etc/natas_webpass/natas10
-$key = &amp; cat /etc/natas_webpass/natas10</code></pre><p>时，对应的shell命令为</p>
-<pre><code>grep -i | cat /etc/natas_webpass/natas10 dictionary.txt
-grep -i &amp; cat /etc/natas_webpass/natas10</code></pre><p>这样都行</p>
-<h2 id="natas10"><a href="#natas10" class="headerlink" title="natas10"></a>natas10</h2><pre><code class="php">if($key != &quot;&quot;) {
-    if(preg_match(&#39;/[;|&amp;]/&#39;,$key)) {
-        print &quot;Input contains an illegal character!&quot;;
-    } else {
-        passthru(&quot;grep -i $key dictionary.txt&quot;);
-    }
-</code></pre>
-<blockquote>
+class Main inherits IO{
+    main() : Object { { out_string(&quot;Hello wordld!\n&quot;); } };
+};</code></pre><h2 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h2><p>目标是将输入流划分为词素。</p>
+<p>从左到右的扫描字符串，有时必须对输入字符串向前看，才能弄清楚当前字符串和子字符串在语言中的角色</p>
+<p>变量名称：字母开头</p>
+<p> 字符串-&gt; 语法分析器 -&gt;<code>变成token&lt;class, string&gt;</code> parser解析器</p>
+<p>foo = 42 -&gt;                  &lt;Id, “foo”&gt; &lt;operator, “=”&gt; &lt;Int, “42”&gt;</p>
+<p>有以下几类：</p>
 <ul>
-<li>Search in case-insensitive mode:<br>  grep -i search_string path/to/file</li>
+<li>空格whitespace</li>
+<li>keyword</li>
+<li>identifiers</li>
+<li>numbers</li>
 </ul>
-</blockquote>
-<p>grep还可以用正则，所以这里</p>
-<pre><code>$key = [a-zA-Z] /etc/natas_webpass/natas11 #
-grep -i [a-zA-Z] /etc/natas_webpass/natas11 # dictionary.txt</code></pre><h2 id="natas12"><a href="#natas12" class="headerlink" title="natas12"></a>natas12</h2><p>把文件名随机了，把后缀改成jpg了</p>
-<p>内容没有检测，尝试upload的时候用bp把文件后缀改成php就可以打开，那</p>
-<pre><code class="php">&lt;?
-    passthru(&#39;cat /etc/natas_webpass/natas13&#39;);
-?&gt;</code></pre>
-<h2 id="natas13"><a href="#natas13" class="headerlink" title="natas13"></a>natas13</h2><p>通过 <code>php</code>的函数 <code>exif_imagetype()</code> 来判断文件夹类型，</p>
-<p>可以查看php的文档，这个函数通过检查文件的签名（第一个字节），从而检测文件类型。</p>
-<p>可以用<a href="https://blog.csdn.net/piaolankeke/article/details/5872876" target="_blank" rel="noopener">GIF98a</a>来骗过</p>
-<pre><code class="php">GIF98a
-&lt;?
-    passthru(&#39;cat /etc/natas_webpass/natas14&#39;);
-?&gt;</code></pre>
-<h2 id="natas14"><a href="#natas14" class="headerlink" title="natas14"></a>natas14</h2><pre><code class="php">$query = &quot;SELECT * from users where username=\&quot;&quot;.$_REQUEST[&quot;username&quot;].&quot;\&quot; and password=\&quot;&quot;.$_REQUEST[&quot;password&quot;].&quot;\&quot;&quot;; </code></pre>
-<p>万能sql密码<code>&quot; OR 1=1 #</code></p>
-<pre><code class="mysql">SELECT * from users where username=&quot;&quot; OR 1=1 # and password= &quot;&quot;</code></pre>
+<p>这些子字符串称为词素（构成词的要素），&lt;token class， lexemes词素&gt;，这就是一个token</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><h4 id="基础表达式"><a href="#基础表达式" class="headerlink" title="基础表达式"></a>基础表达式</h4><h5 id="单字符"><a href="#单字符" class="headerlink" title="单字符"></a>单字符</h5><p>‘c’ = {‘c’}</p>
+<h5 id="Epsilon"><a href="#Epsilon" class="headerlink" title="Epsilon"></a>Epsilon</h5><p>Epsilon = {“”} = 单个字符的空字符串 != 空字符串</p>
+<h4 id="复合表达式"><a href="#复合表达式" class="headerlink" title="复合表达式"></a>复合表达式</h4><h5 id="Union"><a href="#Union" class="headerlink" title="Union"></a>Union</h5><p>A + B = {a|a属于A} U {b|b属于B}</p>
+<p>A并B</p>
+<h5 id="Concatencation-级联"><a href="#Concatencation-级联" class="headerlink" title="Concatencation 级联"></a>Concatencation 级联</h5><p>如[a,b]与[c,d]级联得到[ac,ad,bc,bd]</p>
+<p>AB = {ab | a属于A ^ b 属于B }</p>
+<h5 id="Iterator-串联"><a href="#Iterator-串联" class="headerlink" title="Iterator 串联"></a>Iterator 串联</h5><p>A* = 0到无穷个A串联 </p>
+<h3 id="匹配变量名"><a href="#匹配变量名" class="headerlink" title="匹配变量名"></a>匹配变量名</h3><p>A+ = AA* = 至少一个A</p>
+<p>digit = ‘0’ + ‘1’ + ‘2’ + ‘3’ + ‘4’ + ‘5’ + ‘6’ + ‘7’ + ‘8’ + ‘9’</p>
+<p>letter = [a-zA-Z] 匹配所有字母</p>
+<p>letter(letter+digit)* 字母+0或多个字母和数字的组合</p>
+<p>空格 ‘ ‘ + ‘\n’ + ‘\t’</p>
+<p>opt_function = (‘.’digits)?</p>
+<p>Opt_exponent = (‘E’(‘+’ + ‘-‘)?digits)?</p>
+<p>###词法规范</p>
+<p>当输入值有两种不同的前缀，且这两种都是有效的词法单元时，就应该选择最长的那个，最长匹配原则Maximal Munch</p>
+<p>当匹配到两个规则的时候，如keiword，identifiers，会优先匹配第一个choose the one listed first。</p>
+<p>捕获有可能错误字符串的正则表达式并赋予其最低优先级</p>
+<h2 id="有限自动机Finite-Automata"><a href="#有限自动机Finite-Automata" class="headerlink" title="有限自动机Finite Automata"></a>有限自动机Finite Automata</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li>一组能读取的输入字符串</li>
+<li>一个有限状态的集合</li>
+<li>一个特殊的集合被设定为开始状态</li>
+<li>一组用于接受状态的集合（读取完可接受状态输入后自动结束，否则拒绝输入</li>
+<li>有一些用于状态转换的集合</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628214134850.png" srcset="/img/loading.gif" class="" title="image-20200628214134850">
+
+<h3 id="Exampls"><a href="#Exampls" class="headerlink" title="Exampls"></a>Exampls</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628160825195.png" srcset="/img/loading.gif" class="" title="image-20200628160825195">
+
+<h3 id="确定性自动机和非确定性自动机的区别"><a href="#确定性自动机和非确定性自动机的区别" class="headerlink" title="确定性自动机和非确定性自动机的区别"></a>确定性自动机和非确定性自动机的区别</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628161433100.png" srcset="/img/loading.gif" class="" title="image-20200628161433100">
+
+<p>DFA只有一条道可以通过</p>
+<p>NFA基于输入执行，可能处于许多不同的状态，只要有任何一条路径可以接受，就会处于接受状态 ，这个字符串就属于这个NFA可以接受的语言</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628161945645.png" srcset="/img/loading.gif" class="" title="image-20200628161945645">
+
+<p>NFA要远比DFA来的小，可以成倍缩小，DFA执行速度更快</p>
+<h2 id="将正则表达式转换为NFA-非确定性有限自动机"><a href="#将正则表达式转换为NFA-非确定性有限自动机" class="headerlink" title="将正则表达式转换为NFA 非确定性有限自动机"></a>将正则表达式转换为NFA 非确定性有限自动机</h2><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628213856496.png" srcset="/img/loading.gif" class="" title="image-20200628213856496">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628213913515.png" srcset="/img/loading.gif" class="" title="image-20200628213913515">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628213950201.png" srcset="/img/loading.gif" class="" title="image-20200628213950201">
+
+<h2 id="NFA-to-DFA"><a href="#NFA-to-DFA" class="headerlink" title="NFA to DFA"></a>NFA to DFA</h2><p>Epsilon-closure：是状态选择，可以是一组状态，但只针对单个状态进行处理，只关注那些仅通过空跳就可以到达的状态。</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628215245905.png" srcset="/img/loading.gif" class="" title="image-20200628215245905">
+
+
+
+<p>N种状态，可用状态数量子集|S| &lt;= N，公用2^N -1种非空子集</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628220546136.png" srcset="/img/loading.gif" class="" title="image-20200628220546136">
+
+<p> 所维护的每一个属性都指代一条计算执行路径，DFA的状态记录了NFA基于相同输入可能进入的可能状态集</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628221202160.png" srcset="/img/loading.gif" class="" title="image-20200628221202160">
+
+<p>原视频讲解链接：<a href="https://www.bilibili.com/video/BV1cE411f78c?p=16" target="_blank" rel="noopener">link</a> 11:15秒</p>
+<h2 id="实现有限自动机"><a href="#实现有限自动机" class="headerlink" title="实现有限自动机"></a>实现有限自动机</h2><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628221706335.png" srcset="/img/loading.gif" class="" title="image-20200628221706335">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628222154758.png" srcset="/img/loading.gif" class="" title="image-20200628222154758">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200629082652419.png" srcset="/img/loading.gif" class="" title="image-20200629082652419"> 
+
+<h3 id="实现NFA"><a href="#实现NFA" class="headerlink" title="实现NFA"></a>实现NFA</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200629083217424.png" srcset="/img/loading.gif" class="" title="image-20200629083217424">
+
+<p>节省了大量表空间，但是</p>
+<p>执行速度比确定性自动机慢很多 </p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>DFA执行速度更快，结构上较为松散</p>
+<p>NFA速度较慢，结构紧凑</p>
 
             </div>
             <hr>
@@ -284,18 +305,12 @@ grep -i [a-zA-Z] /etc/natas_webpass/natas11 # dictionary.txt</code></pre><h2 id=
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">编译原理学习笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8&amp;%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-                        <span class="hidden-mobile">数据库使用&学习记录</span>
+                      <a href="/2020/05/23/Natas/">
+                        <span class="hidden-mobile">Natas</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -528,7 +543,7 @@ grep -i [a-zA-Z] /etc/natas_webpass/natas11 # dictionary.txt</code></pre><h2 id=
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Natas&nbsp;",
+        "编译原理学习笔记&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
