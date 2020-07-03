@@ -241,7 +241,7 @@ class Main inherits IO{
 <p>当输入值有两种不同的前缀，且这两种都是有效的词法单元时，就应该选择最长的那个，最长匹配原则Maximal Munch</p>
 <p>当匹配到两个规则的时候，如keiword，identifiers，会优先匹配第一个choose the one listed first。</p>
 <p>捕获有可能错误字符串的正则表达式并赋予其最低优先级</p>
-<h2 id="有限自动机Finite-Automata"><a href="#有限自动机Finite-Automata" class="headerlink" title="有限自动机Finite Automata"></a>有限自动机Finite Automata</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<h3 id="有限自动机Finite-Automata"><a href="#有限自动机Finite-Automata" class="headerlink" title="有限自动机Finite Automata"></a>有限自动机Finite Automata</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
 <li>一组能读取的输入字符串</li>
 <li>一个有限状态的集合</li>
 <li>一个特殊的集合被设定为开始状态</li>
@@ -250,22 +250,22 @@ class Main inherits IO{
 </ul>
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628214134850.png" srcset="/img/loading.gif" class="" title="image-20200628214134850">
 
-<h3 id="Exampls"><a href="#Exampls" class="headerlink" title="Exampls"></a>Exampls</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628160825195.png" srcset="/img/loading.gif" class="" title="image-20200628160825195">
+<h4 id="Exampls"><a href="#Exampls" class="headerlink" title="Exampls"></a>Exampls</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628160825195.png" srcset="/img/loading.gif" class="" title="image-20200628160825195">
 
-<h3 id="确定性自动机和非确定性自动机的区别"><a href="#确定性自动机和非确定性自动机的区别" class="headerlink" title="确定性自动机和非确定性自动机的区别"></a>确定性自动机和非确定性自动机的区别</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628161433100.png" srcset="/img/loading.gif" class="" title="image-20200628161433100">
+<h4 id="确定性自动机和非确定性自动机的区别"><a href="#确定性自动机和非确定性自动机的区别" class="headerlink" title="确定性自动机和非确定性自动机的区别"></a>确定性自动机和非确定性自动机的区别</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628161433100.png" srcset="/img/loading.gif" class="" title="image-20200628161433100">
 
 <p>DFA只有一条道可以通过</p>
 <p>NFA基于输入执行，可能处于许多不同的状态，只要有任何一条路径可以接受，就会处于接受状态 ，这个字符串就属于这个NFA可以接受的语言</p>
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628161945645.png" srcset="/img/loading.gif" class="" title="image-20200628161945645">
 
 <p>NFA要远比DFA来的小，可以成倍缩小，DFA执行速度更快</p>
-<h2 id="将正则表达式转换为NFA-非确定性有限自动机"><a href="#将正则表达式转换为NFA-非确定性有限自动机" class="headerlink" title="将正则表达式转换为NFA 非确定性有限自动机"></a>将正则表达式转换为NFA 非确定性有限自动机</h2><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628213856496.png" srcset="/img/loading.gif" class="" title="image-20200628213856496">
+<h3 id="将正则表达式转换为NFA-非确定性有限自动机"><a href="#将正则表达式转换为NFA-非确定性有限自动机" class="headerlink" title="将正则表达式转换为NFA 非确定性有限自动机"></a>将正则表达式转换为NFA 非确定性有限自动机</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628213856496.png" srcset="/img/loading.gif" class="" title="image-20200628213856496">
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628213913515.png" srcset="/img/loading.gif" class="" title="image-20200628213913515">
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628213950201.png" srcset="/img/loading.gif" class="" title="image-20200628213950201">
 
-<h2 id="NFA-to-DFA"><a href="#NFA-to-DFA" class="headerlink" title="NFA to DFA"></a>NFA to DFA</h2><p>Epsilon-closure：是状态选择，可以是一组状态，但只针对单个状态进行处理，只关注那些仅通过空跳就可以到达的状态。</p>
+<h3 id="NFA-to-DFA"><a href="#NFA-to-DFA" class="headerlink" title="NFA to DFA"></a>NFA to DFA</h3><p>Epsilon-closure：是状态选择，可以是一组状态，但只针对单个状态进行处理，只关注那些仅通过空跳就可以到达的状态。</p>
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628215245905.png" srcset="/img/loading.gif" class="" title="image-20200628215245905">
 
 
@@ -277,18 +277,19 @@ class Main inherits IO{
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628221202160.png" srcset="/img/loading.gif" class="" title="image-20200628221202160">
 
 <p>原视频讲解链接：<a href="https://www.bilibili.com/video/BV1cE411f78c?p=16" target="_blank" rel="noopener">link</a> 11:15秒</p>
-<h2 id="实现有限自动机"><a href="#实现有限自动机" class="headerlink" title="实现有限自动机"></a>实现有限自动机</h2><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628221706335.png" srcset="/img/loading.gif" class="" title="image-20200628221706335">
+<h3 id="实现有限自动机"><a href="#实现有限自动机" class="headerlink" title="实现有限自动机"></a>实现有限自动机</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628221706335.png" srcset="/img/loading.gif" class="" title="image-20200628221706335">
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200628222154758.png" srcset="/img/loading.gif" class="" title="image-20200628222154758">
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200629082652419.png" srcset="/img/loading.gif" class="" title="image-20200629082652419"> 
 
-<h3 id="实现NFA"><a href="#实现NFA" class="headerlink" title="实现NFA"></a>实现NFA</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200629083217424.png" srcset="/img/loading.gif" class="" title="image-20200629083217424">
+<h4 id="实现NFA"><a href="#实现NFA" class="headerlink" title="实现NFA"></a>实现NFA</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200629083217424.png" srcset="/img/loading.gif" class="" title="image-20200629083217424">
 
 <p>节省了大量表空间，但是</p>
 <p>执行速度比确定性自动机慢很多 </p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>DFA执行速度更快，结构上较为松散</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>DFA执行速度更快，结构上较为松散</p>
 <p>NFA速度较慢，结构紧凑</p>
+<h3 id="PA2"><a href="#PA2" class="headerlink" title="PA2"></a>PA2</h3><p><a href="https://github.com/mrbelieve128/Stanford-Compilers-PA/tree/master/PA2" target="_blank" rel="noopener">https://github.com/mrbelieve128/Stanford-Compilers-PA/tree/master/PA2</a></p>
 
             </div>
             <hr>
