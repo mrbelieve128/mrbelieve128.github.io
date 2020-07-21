@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1k 字
+                    1.9k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      4 分钟
+                      8 分钟
                   </span>
                 
 
@@ -290,6 +290,153 @@ class Main inherits IO{
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>DFA执行速度更快，结构上较为松散</p>
 <p>NFA速度较慢，结构紧凑</p>
 <h3 id="PA2"><a href="#PA2" class="headerlink" title="PA2"></a>PA2</h3><p><a href="https://github.com/mrbelieve128/Stanford-Compilers-PA/tree/master/PA2" target="_blank" rel="noopener">https://github.com/mrbelieve128/Stanford-Compilers-PA/tree/master/PA2</a></p>
+<h2 id="解析器-Parsing"><a href="#解析器-Parsing" class="headerlink" title="解析器 Parsing"></a>解析器 Parsing</h2><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200707171225807.png" srcset="/img/loading.gif" class="" title="image-20200707171225807">
+
+<h3 id="上下文无关文法-context-free-grammar"><a href="#上下文无关文法-context-free-grammar" class="headerlink" title="上下文无关文法 context-free grammar"></a>上下文无关文法 context-free grammar</h3><ul>
+<li>不是所有token都是程序</li>
+<li>解析器parse需要分辨有效和无效的字符串</li>
+</ul>
+<p>所以需要</p>
+<ul>
+<li>需要中算法来分辨有效token</li>
+<li>算法来分辨有效token和无效token</li>
+</ul>
+<p>上下文无关的文法自然而然地用于描述这种递归结构</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708102409480.png" srcset="/img/loading.gif" class="" title="image-20200708102409480">
+
+<p>上下文无关的文法包含</p>
+<ul>
+<li>A set of terminals <strong>T</strong></li>
+<li>A set of non-terminal <strong>N</strong></li>
+<li>A start symbol <strong>S</strong> <strong>(S 是 N之一)</strong></li>
+<li>A set of productions (是指一个符号跟着一个箭头，紧接着一串符号)</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708103010382.png" srcset="/img/loading.gif" class="" title="image-20200708103010382">
+
+<p><a href="https://www.bilibili.com/video/BV1cE411f78c?p=19" target="_blank" rel="noopener">定义7:43左右</a></p>
+<h3 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h3><h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><p>Grammer</p>
+<p>E -&gt; E+E | E*E | (E) | id</p>
+<p>String</p>
+<p>id * id + id</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708111200187.png" srcset="/img/loading.gif" class="" title="image-20200708111200187">
+
+<p>A parse tree has</p>
+<ul>
+<li>Terminals at the leaves</li>
+<li>Non-terminals at the interior nodes (内部节点)</li>
+</ul>
+<p>叶子结点的中序遍历结果是原始输入</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708111904374.png" srcset="/img/loading.gif" class="" title="image-20200708111904374">
+
+<p>解析树也展示了操作间的关联性，但输入字符串并没有展示</p>
+<p>如上图，<strong>“*”</strong>要比<strong>“+”</strong>号更优先，因为*号是+号的子树</p>
+<p>上图这个例子是最左推导(在每个步骤先替换最左边的非终结字符）也有个等价概念最右推导</p>
+<p>最左和最右推导生成的解析树都是一样的 </p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708113045442.png" srcset="/img/loading.gif" class="" title="image-20200708113045442">
+
+<h3 id="Ambiguity-歧义性"><a href="#Ambiguity-歧义性" class="headerlink" title="Ambiguity 歧义性"></a>Ambiguity 歧义性</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708144341299.png" srcset="/img/loading.gif" class="">
+
+<ul>
+<li>如果对于某个字符串有多个解析树，那么这个语法就是模棱两可的。或者说，对于某个字符串有多个最右推导或者最左推导，那么这个字符串就会有两个截然不同的解析树，语法也会变得有歧义</li>
+<li>Ambiguity is <strong>BAD</strong></li>
+</ul>
+<p>消除歧义性得最直接办法是重写语法，生成相同语法但生成单一解析树 </p>
+<p>E -&gt; E’ + E | E’</p>
+<p>E’ -&gt; id * E’ | id | (E) * E’ | (E)</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708151619295.png" srcset="/img/loading.gif" class="" title="image-20200708151619295">
+
+<h4 id="if-then-else结构"><a href="#if-then-else结构" class="headerlink" title="if-then-else结构"></a>if-then-else结构</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708152324929.png" srcset="/img/loading.gif" class="" title="image-20200708152324929">
+
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><ul>
+<li><p>Impossible to convert automatically an ambiguous grammar to an unambiguous one</p>
+</li>
+<li><p>User with care, ambiguity can simplify the grammar </p>
+<blockquote>
+<p>sometimes allows more natural definitions</p>
+<p>We need disambiguation mechanisms</p>
+</blockquote>
+</li>
+<li><p>Instead of rewriting the grammar</p>
+<blockquote>
+<p>Use the more natural (ambiguous) grammar</p>
+<p>Along with disambiguating declarations</p>
+</blockquote>
+</li>
+<li><p>Most tools allow precedence and associativity declarations(优先性和关联性声明) to disambiguate grammars</p>
+</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708153308814.png" srcset="/img/loading.gif" class="" title="image-20200708153308814">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708153242579.png" srcset="/img/loading.gif" class="" title="image-20200708153242579">
+
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708211223360.png" srcset="/img/loading.gif" class="" title="image-20200708211223360">
+
+<h4 id="紧急模式"><a href="#紧急模式" class="headerlink" title="紧急模式"></a>紧急模式</h4><p>最简单，最广泛使用的</p>
+<p>检测到错误，解析器会开始抛弃 token直到找到作用明确的token</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708211933630.png" srcset="/img/loading.gif" class="" title="image-20200708211933630">
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="错误产生式"><a href="#错误产生式" class="headerlink" title="错误产生式"></a>错误产生式</h4><p> 将常犯的已知错误指定为语法中的替代产生式</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708214135600.png" srcset="/img/loading.gif" class="" title="image-20200708214135600">
+
+
+
+<h4 id="自动局部或全局校正"><a href="#自动局部或全局校正" class="headerlink" title="自动局部或全局校正"></a>自动局部或全局校正</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708214329681.png" srcset="/img/loading.gif" class="" title="image-20200708214329681">
+
+<h3 id="抽象语法树-Abstract-Syntax-Trees"><a href="#抽象语法树-Abstract-Syntax-Trees" class="headerlink" title="抽象语法树 Abstract Syntax Trees"></a>抽象语法树 Abstract Syntax Trees</h3><ul>
+<li>Like parse trees but ignore some details</li>
+<li>Abbreviated as AST （简称AST）</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708215810670.png" srcset="/img/loading.gif" class="" title="image-20200708215810670">
+
+<p>下图表示了上图相同的内容</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200708215745811.png" srcset="/img/loading.gif" class="" title="image-20200708215745811">
+
+<h3 id="递归下降解析"><a href="#递归下降解析" class="headerlink" title="递归下降解析"></a>递归下降解析</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709092646974.png" srcset="/img/loading.gif" class="" title="image-20200709092646974">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709093014117.png" srcset="/img/loading.gif" class="" title="image-20200709093014117">
+
+<p>将E变成与(int)相同的格式使之可以匹配，则算解析成功，所以E-&gt;T-&gt;(E)-&gt;(int)</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709093210746.png" srcset="/img/loading.gif" class="" title="image-20200709093210746">
+
+<h3 id="递归下降算法"><a href="#递归下降算法" class="headerlink" title="递归下降算法"></a>递归下降算法</h3><ul>
+<li>Let TOKEN be the type of tokens<ul>
+<li>Special tokens INT, OPEN, CLOSE, PLUS, TIMES</li>
+</ul>
+</li>
+<li>Let the global <strong>next</strong> point to the next input token</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709093644246.png" srcset="/img/loading.gif" class="" title="image-20200709093644246">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709100234043.png" srcset="/img/loading.gif" class="" title="image-20200709100234043">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709100315068.png" srcset="/img/loading.gif" class="" title="image-20200709100315068">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709100353599.png" srcset="/img/loading.gif" class="" title="image-20200709100353599">
+
+<h3 id="递归下降的局限性"><a href="#递归下降的局限性" class="headerlink" title="递归下降的局限性"></a>递归下降的局限性</h3><p><a href="https://www.bilibili.com/video/BV1cE411f78c?p=26" target="_blank" rel="noopener">link</a></p>
+<ul>
+<li>if a production for non-terminal X suceeds<ul>
+<li>canno backtrack to try a different production for X later</li>
+</ul>
+</li>
+<li>General recurisive-descent algorithms support such “full” backtracking<ul>
+<li>Can implement any grammar</li>
+</ul>
+</li>
+</ul>
+<h3 id="递归下降解析的主要难点-左递归-left-recursion"><a href="#递归下降解析的主要难点-左递归-left-recursion" class="headerlink" title="递归下降解析的主要难点-左递归 left recursion"></a>递归下降解析的主要难点-左递归 left recursion</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709223432931.png" srcset="/img/loading.gif" class="" title="image-20200709223432931">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709223907932.png" srcset="/img/loading.gif" class="" title="image-20200709223907932">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709224244931.png" srcset="/img/loading.gif" class="" title="image-20200709224244931">
+
+<h3 id="PA3"><a href="#PA3" class="headerlink" title="PA3"></a>PA3</h3><p>要先<code>make lexer</code>再<code>perl pa2-grading.pl</code>这样flex把输入流分解为若干个片段(记号),然后bison则分析这些记号并基于逻辑进行组合。</p>
+<blockquote>
+<p>Here is a typical example:</p>
+<pre><code>exp:
+…
+| exp &#39;+&#39; exp     { $$ = $1 + $3; }</code></pre><p>This rule constructs an <code>exp</code> from two smaller <code>exp</code> groupings connected by a plus-sign token. In the action, <code>$1</code> and <code>$3</code> (<code>$left</code> and <code>$right</code>) refer to the semantic values of the two component <code>exp</code> groupings, which are the first and third symbols on the right hand side of the rule. The sum is stored into <code>$$</code> (<code>$result</code>) so that it becomes the semantic value of the addition-expression just recognized by the rule. If there were a useful semantic value associated with the ‘+’ token, it could be referred to as <code>$2</code>.</p>
+</blockquote>
 
             </div>
             <hr>
