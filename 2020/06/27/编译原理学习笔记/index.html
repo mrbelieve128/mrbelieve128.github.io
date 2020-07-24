@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1.9k 字
+                    3.5k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      8 分钟
+                      13 分钟
                   </span>
                 
 
@@ -178,10 +178,12 @@
             
             <div class="markdown-body">
               <h1 id="编译原理学习笔记"><a href="#编译原理学习笔记" class="headerlink" title="编译原理学习笔记"></a>编译原理学习笔记</h1><p><a href="https://www.bilibili.com/video/BV1cE411f78c?p=1" target="_blank" rel="noopener">视频</a></p>
-<h2 id="编译器结构"><a href="#编译器结构" class="headerlink" title="编译器结构"></a>编译器结构</h2><h3 id="词法分析-Lexical-analysis-or-scanning"><a href="#词法分析-Lexical-analysis-or-scanning" class="headerlink" title="词法分析 Lexical analysis or scanning"></a>词法分析 Lexical analysis or scanning</h3><p>词法分析把程序字段变成关键字words or 词法单元tokens</p>
+<h2 id="编译器结构"><a href="#编译器结构" class="headerlink" title="编译器结构"></a>编译器结构</h2><h3 id="词法分析-Lexical-analysis-or-scanning"><a href="#词法分析-Lexical-analysis-or-scanning" class="headerlink" title="词法分析 Lexical analysis or scanning"></a>词法分析 Lexical analysis or scanning</h3><p><strong>检测输入字符串中不属于我们语言的那部分符号</strong></p>
+<p>词法分析把程序字段变成关键字words or 词法单元tokens</p>
 <p>如</p>
 <pre><code>if x == y then z = 1; else z = 2;</code></pre><p>分号，标点，分隔符都是词法单元</p>
-<h3 id="语法分析syntax-analysis-parsing"><a href="#语法分析syntax-analysis-parsing" class="headerlink" title="语法分析syntax analysis parsing"></a>语法分析syntax analysis parsing</h3><p>if then else包含三部分</p>
+<h3 id="语法分析syntax-analysis-parsing"><a href="#语法分析syntax-analysis-parsing" class="headerlink" title="语法分析syntax analysis parsing"></a>语法分析syntax analysis parsing</h3><p>试着去判断是否格式正确或者是否是有效程序（语句中是否存在格式错误或没用解析树）</p>
+<p>if then else包含三部分</p>
 <p>predicate条件判断，then语句和else语句</p>
 {% asset_img image-20200626235143347.png image-20200626235143347 %}
 
@@ -430,14 +432,258 @@ class Main inherits IO{
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200709224244931.png" srcset="/img/loading.gif" class="" title="image-20200709224244931">
 
-<h3 id="PA3"><a href="#PA3" class="headerlink" title="PA3"></a>PA3</h3><p>要先<code>make lexer</code>再<code>perl pa2-grading.pl</code>这样flex把输入流分解为若干个片段(记号),然后bison则分析这些记号并基于逻辑进行组合。</p>
+<h3 id="PA3"><a href="#PA3" class="headerlink" title="PA3"></a>PA3</h3><p><a href="https://github.com/mrbelieve128/Stanford-Compilers-PA/tree/master/PA3" target="_blank" rel="noopener">https://github.com/mrbelieve128/Stanford-Compilers-PA/tree/master/PA3</a></p>
+<h3 id="预测解析-Predictive-Parsers"><a href="#预测解析-Predictive-Parsers" class="headerlink" title="预测解析 Predictive Parsers"></a>预测解析 Predictive Parsers</h3><p>预测解析和递归下降很像，依然是自上而下，但能从不出错的预测该使用哪一个产生式，并得出正确的解析。</p>
 <blockquote>
-<p>Here is a typical example:</p>
-<pre><code>exp:
-…
-| exp &#39;+&#39; exp     { $$ = $1 + $3; }</code></pre><p>This rule constructs an <code>exp</code> from two smaller <code>exp</code> groupings connected by a plus-sign token. In the action, <code>$1</code> and <code>$3</code> (<code>$left</code> and <code>$right</code>) refer to the semantic values of the two component <code>exp</code> groupings, which are the first and third symbols on the right hand side of the rule. The sum is stored into <code>$$</code> (<code>$result</code>) so that it becomes the semantic value of the addition-expression just recognized by the rule. If there were a useful semantic value associated with the ‘+’ token, it could be referred to as <code>$2</code>.</p>
+<ul>
+<li>根据输入字符串中出现的内容，来尝试得出该使用哪个产生式。只适合语法形式很固定的情况</li>
+<li>不需要回滚操作。解析器可以完全肯定要使用的产生式</li>
+</ul>
+<p>接受 LL(K) 语法 (left-to-right 从左到右 left-most derivate 始终基于解析树上最左非终结符 k tokens lookahead)</p>
 </blockquote>
+<p>如</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200721124025300.png" srcset="/img/loading.gif" class="" title="image-20200721124025300">
 
+<p>实际上是使用表格记录数据</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200721124104017.png" srcset="/img/loading.gif" class="" title="image-20200721124104017">
+
+<p>使用栈记录边界</p>
+<ul>
+<li>把最左终结符或非终结符始终放在栈顶</li>
+</ul>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200721201621877.png" srcset="/img/loading.gif" class="" title="image-20200721201621877">
+
+<ul>
+<li>使用S和$初始化栈。</li>
+<li>$标记栈底，可以看作输入结束的标记。</li>
+<li>如果栈顶是最左非终结符，根据解析表来查找非终结符为X和下一个输入字符所对应的产生式右手边内容，然后弹出栈顶的X。如果不符合就会报错，因为没有回滚操作，没有办法解析字符串。</li>
+<li>如果栈顶是终结符的话，试着匹配输入，匹配成功就移动到下一个输入元素，然后弹出栈顶元素。如果不符合就会报错，因为没有回滚操作，没有办法解析字符串。</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200721201531558.png" srcset="/img/loading.gif" class="" title="image-20200721201531558">
+
+<h3 id="First集-First-Sets"><a href="#First集-First-Sets" class="headerlink" title="First集 First Sets"></a>First集 First Sets</h3><h4 id="构建LL-1-解析表"><a href="#构建LL-1-解析表" class="headerlink" title="构建LL(1) 解析表"></a>构建LL(1) 解析表</h4><p>non-terminal <strong>A</strong>, input singal t</p>
+<p>什么时候T[A,t] = α（意思是解析表上[A, T]这一单元格里的内容是α</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722154608118.png" srcset="/img/loading.gif" class="" title="image-20200722154608118">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722160201765.png" srcset="/img/loading.gif" class="" title="image-20200722160201765">
+
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>左边是terminal的first集，只包含自身，右边是non-terminal的</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722160742081.png" srcset="/img/loading.gif" class="" title="image-20200722160742081">
+
+<h3 id="Follow集-Follow-Sets"><a href="#Follow集-Follow-Sets" class="headerlink" title="Follow集 Follow Sets"></a>Follow集 Follow Sets</h3><p>Follow集中的元素是那些被用到的元素而不是生成的符号。ε不会加进Follow集中</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722162012683.png" srcset="/img/loading.gif" class="" title="image-20200722162012683">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722162135668.png" srcset="/img/loading.gif" class="" title="image-20200722162135668">
+
+<h4 id="一些规则"><a href="#一些规则" class="headerlink" title="一些规则"></a>一些规则</h4><p> 出现在产生式右侧末尾的，如E -&gt; TX Follow(E) 是Follow(X)的子集</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722164420950.png" srcset="/img/loading.gif" class="" title="image-20200722164420950">
+
+<p>而在E -&gt; TX 中，X可以消除，所以Follow(E) 同样是Follow(T)中的元素</p>
+<p>‘ ( ‘的Follow集就是First(E)中所有元素，而First(E) = First(T)</p>
+<p>Follow(‘+’) = First(E)</p>
+<p>Follow(int)因为可以Y可以变成ε，所以Follow(T)中的元素也会是Follow(int)中的元素</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722165632093.png" srcset="/img/loading.gif" class="" title="image-20200722165632093">
+
+<h3 id="LL-1-解析表"><a href="#LL-1-解析表" class="headerlink" title="LL(1)解析表"></a>LL(1)解析表</h3><p>目标是为上下文无关语法G构建出一个解析表T</p>
+<h4 id="语法-规则"><a href="#语法-规则" class="headerlink" title="语法/规则"></a>语法/规则</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722223652295.png" srcset="/img/loading.gif" class="" title="image-20200722223652295">
+
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722224646095.png" srcset="/img/loading.gif" class="" title="image-20200722224646095">
+
+<p>根据字母（非终结符）和符号（终结符）来预测和匹配完整的对应关系</p>
+<p>构建完解析表的时候，如果表格内的某些单元格中有多种操作的话，每种情况下的操作就不是唯一的，这就不是LL(1)语法。</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200722225221200.png" srcset="/img/loading.gif" class="" title="image-20200722225221200">
+
+<h3 id="自下而上的解析-Bottom-Up-Parsing"><a href="#自下而上的解析-Bottom-Up-Parsing" class="headerlink" title="自下而上的解析 Bottom-Up Parsing"></a>自下而上的解析 Bottom-Up Parsing</h3><p>Bottom-Up 解析比top-down 递归下降解析 更通用，且同样高效</p>
+<p>Bottom-Up是大部分解析生成工具所使用的一种首选方法</p>
+<ul>
+<li>不需要提取左因子语法</li>
+<li>回归到“正常”语法，但仍然需要对<strong>+号</strong>和<strong>*号</strong>的优先权进行编码</li>
+<li>不会处理语义混淆的语法</li>
+</ul>
+<p>Bottom-Up解析 会进行归约，既通过反转产生式，逆向替换，将字符串规约为起始符号</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723094219185.png" srcset="/img/loading.gif" class="" title="image-20200723094219185">
+
+<p>从下往上看，是最右推导</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723094508872.png" srcset="/img/loading.gif" class="" title="image-20200723094508872">
+
+<p>解析树，也是从下往上生成的</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723094848086.png" srcset="/img/loading.gif" class="" title="image-20200723094848086">
+
+<h3 id="移位规约解析-Shift-Reduce-Parsing"><a href="#移位规约解析-Shift-Reduce-Parsing" class="headerlink" title="移位规约解析 Shift Reduce Parsing"></a>移位规约解析 Shift Reduce Parsing</h3> <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723095155240.png" srcset="/img/loading.gif" class="" title="image-20200723095155240">
+
+
+
+<p>在执行规约操作前，始终得需要得到足够多的输入（移位足够多次）</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723095718573.png" srcset="/img/loading.gif" class="" title="image-20200723095718573">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723095745689.png" srcset="/img/loading.gif" class="" title="image-20200723095745689">
+
+<ul>
+<li>竖线左边的字符串能够由一个栈实现，栈顶就是那个竖线的位置</li>
+<li>Shift移位操作会push一个terminal进入栈</li>
+<li>规约操作，将一些符号弹出栈，这些是产生式右手边的内容。接着会把一个非终结符压入栈中，这歌非终结符是产生式左手边的内容</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723100832481.png" srcset="/img/loading.gif" class="" title="image-20200723100832481">
+
+<h3 id="句柄-Handles"><a href="#句柄-Handles" class="headerlink" title="句柄 Handles"></a>句柄 Handles</h3><p>句柄就是一个规约点，可以允许解析器通过进一步的规约操作回到开始符号位置。（句柄就是包含了一个可规约的操作路径）</p>
+<p>在shift-reduce解析中，句柄只会出现在栈顶</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723102541174.png" srcset="/img/loading.gif" class="" title="image-20200723102541174">
+
+<h3 id="句柄识别"><a href="#句柄识别" class="headerlink" title="句柄识别"></a>句柄识别</h3><p>L代表从左到右扫描，R代表最右推导，K代表了需要向前看k个数量的token</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723103946950.png" srcset="/img/loading.gif" class="" title="image-20200723103946950">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723104156569.png" srcset="/img/loading.gif" class="" title="image-20200723104156569">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723104447205.png" srcset="/img/loading.gif" class="" title="image-20200723104447205">
+
+<p>对于任何语法来说，可行前缀集就是一个正则语言</p>
+<p>item是指一个产生式右手边某处存在的一个’ . ‘，如 T -&gt; (E) 的item包含 T -&gt; .(E)  T -&gt; (.E) T -&gt; (E.) T -&gt; (E).</p>
+<p>而 X -&gt; ε 的item是 X -&gt; .</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723105616024.png" srcset="/img/loading.gif" class="" title="image-20200723105616024">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723105856274.png" srcset="/img/loading.gif" class="" title="image-20200723105856274">
+
+<p>‘ . ‘左侧的内容是见过的，即栈内元素。右侧元素则是在进行规约操作前想要读取的内容。</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723111109950.png" srcset="/img/loading.gif" class="" title="image-20200723111109950">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723112430462.png" srcset="/img/loading.gif" class="" title="image-20200723112430462">
+
+<p>从底向上开始处理</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723112639904.png" srcset="/img/loading.gif" class="" title="image-20200723112639904">
+
+<h3 id="识别可行前缀-Recognizing-Viable-Prefixes"><a href="#识别可行前缀-Recognizing-Viable-Prefixes" class="headerlink" title="识别可行前缀 Recognizing Viable Prefixes"></a>识别可行前缀 Recognizing Viable Prefixes</h3><p>目标是去写一个非确定性有限自动机来识别解析器中有效的栈</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723152951096.png" srcset="/img/loading.gif" class="" title="image-20200723152951096">
+
+<p>感觉是推算所有的可能性</p>
+<h3 id="有效item-Valid-items"><a href="#有效item-Valid-items" class="headerlink" title="有效item Valid items"></a>有效item Valid items</h3><p>The states of the DFA are “canonical collections of items” or “canonical collections of LR(0) items”</p>
+<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723155218728.png" srcset="/img/loading.gif" class="" title="image-20200723155218728">
+
+<h4 id="简化地说"><a href="#简化地说" class="headerlink" title="简化地说"></a>简化地说</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723155456565.png" srcset="/img/loading.gif" class="" title="image-20200723155456565">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723155514814.png" srcset="/img/loading.gif" class="" title="image-20200723155514814">
+
+<h2 id="语义分析-Semantic-Analysis"><a href="#语义分析-Semantic-Analysis" class="headerlink" title="语义分析 Semantic Analysis"></a>语义分析 Semantic Analysis</h2><h3 id="语义分析简介"><a href="#语义分析简介" class="headerlink" title="语义分析简介"></a>语义分析简介</h3><h4 id="为什么需要单独一个语义分析阶段？"><a href="#为什么需要单独一个语义分析阶段？" class="headerlink" title="为什么需要单独一个语义分析阶段？"></a>为什么需要单独一个语义分析阶段？</h4><ul>
+<li>编程语言会有一些特征，人可能会犯一些解析无法捕获的错误</li>
+<li>一些语言结构并非上下文无关</li>
+</ul>
+<h4 id="语义分析实际上做什么"><a href="#语义分析实际上做什么" class="headerlink" title="语义分析实际上做什么"></a>语义分析实际上做什么</h4><p>如coolc的检查列表</p>
+<ol>
+<li>所有标识符被声明，作用域是否规范</li>
+<li>类型检查（主要功能）</li>
+<li>继承关系是否有意义</li>
+<li>类仅定义一次</li>
+<li>类中方法也只被定义一次</li>
+<li>不滥用保留的关键字标识符</li>
+<li>……</li>
+</ol>
+<h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><p>目标: 将用法和声明相匹配</p>
+<p>静态分析在大多数语言中都相当重要</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723162419518.png" srcset="/img/loading.gif" class="" title="image-20200723162419518">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723165607420.png" srcset="/img/loading.gif" class="" title="image-20200723165607420">
+
+<p>在下面例子中，对于X可能会有歧义，则使用最近嵌套规则 most closely nested rule</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723170146809.png" srcset="/img/loading.gif" class="" title="image-20200723170146809">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723170623797.png" srcset="/img/loading.gif" class="" title="image-20200723170623797">
+
+<h3 id="Symbol-Tables"><a href="#Symbol-Tables" class="headerlink" title="Symbol Tables"></a>Symbol Tables</h3><p>在许多编译器中的一种重要的数据结构</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200723171535802.png" srcset="/img/loading.gif" class="" title="image-20200723171535802">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724094925936.png" srcset="/img/loading.gif" class="" title="image-20200724094925936">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724095151576.png" srcset="/img/loading.gif" class="" title="image-20200724095151576">
+
+<p>会先找最近的Y（也就是最新定义的） </p>
+<p>而在下述错误示范中，为了解决这个问题</p>
+<pre><code>f(x:INT, x:INT)
+{}</code></pre><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724095821453.png" srcset="/img/loading.gif" class="" title="image-20200724095821453">
+
+<p>check_scope直到x处在栈顶才返回true</p>
+<p>因为cool中可以，class名先用再定义，所以不可能通过symbol table或在一次检查中检查完class名</p>
+<p>解决办法</p>
+<ul>
+<li>第一次检查：记录所有的class名</li>
+<li>第二次检查：检测</li>
+</ul>
+<p>语义分析通常要求多次检查，而且经常大于两次检查。</p>
+<h3 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724102140619.png" srcset="/img/loading.gif" class="" title="image-20200724102140619">
+
+<p>一种语言的type system定义了哪些类型能使用哪些操作符，目标是操作符只被正确的类型使用</p>
+<p>目前，有三种类型语言：</p>
+<ul>
+<li>静态类型：编译的时候就检测类型</li>
+<li>动态类型：直到执行代码才检测类型</li>
+<li>untyped：没有类型检测（机器代码 ）</li>
+</ul>
+<h4 id="静态类型喝动态类型的看法"><a href="#静态类型喝动态类型的看法" class="headerlink" title="静态类型喝动态类型的看法"></a>静态类型喝动态类型的看法</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724103636901.png" srcset="/img/loading.gif" class="" title="image-20200724103636901">
+
+<h3 id="Type-Checking"><a href="#Type-Checking" class="headerlink" title="Type Checking"></a>Type Checking<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724105958685.png" srcset="/img/loading.gif" class="" title="image-20200724105958685"></h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724110021635.png" srcset="/img/loading.gif" class="" title="image-20200724110021635">
+
+
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724110937602.png" srcset="/img/loading.gif" class="" title="image-20200724110937602">
+
+<h3 id="Type-Environments"><a href="#Type-Environments" class="headerlink" title="Type Environments"></a>Type Environments</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724111334320.png" srcset="/img/loading.gif" class="" title="image-20200724111334320">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724111354123.png" srcset="/img/loading.gif" class="" title="image-20200724111354123">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724111528046.png" srcset="/img/loading.gif" class="" title="image-20200724111528046">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724111731184.png" srcset="/img/loading.gif" class="" title="image-20200724111731184">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724112015350.png" srcset="/img/loading.gif" class="" title="image-20200724112015350">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724112448369.png" srcset="/img/loading.gif" class="" title="image-20200724112448369">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724112420945.png" srcset="/img/loading.gif" class="" title="image-20200724112420945">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724112952700.png" srcset="/img/loading.gif" class="" title="image-20200724112952700">
+
+
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724113344525.png" srcset="/img/loading.gif" class="" title="image-20200724113344525">
+
+<h3 id="Subtyping"><a href="#Subtyping" class="headerlink" title="Subtyping"></a>Subtyping</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724141347149.png" srcset="/img/loading.gif" class="" title="image-20200724141347149">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724141650601.png" srcset="/img/loading.gif" class="" title="image-20200724141650601">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724142110637.png" srcset="/img/loading.gif" class="" title="image-20200724142110637">
+
+<h4 id="LUB-or-least-upper-bound"><a href="#LUB-or-least-upper-bound" class="headerlink" title="LUB or least upper bound"></a>LUB or least upper bound</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724142626399.png" srcset="/img/loading.gif" class="" title="image-20200724142626399">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724143528841.png" srcset="/img/loading.gif" class="" title="image-20200724143528841">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724143822176.png" srcset="/img/loading.gif" class="" title="image-20200724143822176">
+
+<p>因为不知道会匹配上哪个类型，所以要lub(T1,…..Tn)</p>
+<h3 id="Typing-Methods"><a href="#Typing-Methods" class="headerlink" title="Typing Methods"></a>Typing Methods</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724144324764.png" srcset="/img/loading.gif" class="" title="image-20200724144324764">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724144914464.png" srcset="/img/loading.gif" class="" title="image-20200724144914464">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724145112483.png" srcset="/img/loading.gif" class="" title="image-20200724145112483">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724145555997.png" srcset="/img/loading.gif" class="" title="image-20200724145555997">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724145757350.png" srcset="/img/loading.gif" class="" title="image-20200724145757350">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724150056109.png" srcset="/img/loading.gif" class="" title="image-20200724150056109">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724150109672.png" srcset="/img/loading.gif" class="" title="image-20200724150109672">
+
+<h3 id="Implementing-Type-Checking"><a href="#Implementing-Type-Checking" class="headerlink" title="Implementing Type Checking"></a>Implementing Type Checking</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724151522565.png" srcset="/img/loading.gif" class="" title="image-20200724151522565">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724151938870.png" srcset="/img/loading.gif" class="" title="image-20200724151938870">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724152341217.png" srcset="/img/loading.gif" class="" title="image-20200724152341217">
+
+<h3 id="PA4"><a href="#PA4" class="headerlink" title="PA4"></a>PA4</h3><h3 id="Intermediate-Code"><a href="#Intermediate-Code" class="headerlink" title="Intermediate Code"></a>Intermediate Code</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724164441833.png" srcset="/img/loading.gif" class="" title="image-20200724164441833">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724164545484.png" srcset="/img/loading.gif" class="" title="image-20200724164545484">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724164657828.png" srcset="/img/loading.gif" class="" title="image-20200724164657828">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724165004707.png" srcset="/img/loading.gif" class="" title="image-20200724165004707">
             </div>
             <hr>
             <div>
