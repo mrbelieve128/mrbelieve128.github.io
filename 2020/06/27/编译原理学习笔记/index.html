@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    3.5k 字
+                    5k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      13 分钟
+                      22 分钟
                   </span>
                 
 
@@ -187,8 +187,8 @@
 <p>predicate条件判断，then语句和else语句</p>
 {% asset_img image-20200626235143347.png image-20200626235143347 %}
 
-<h3 id="语义分析"><a href="#语义分析" class="headerlink" title="语义分析"></a>语义分析</h3><p>尝试去找出矛盾的地方 </p>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>修改代码使之使用更少的资源</p>
+<h3 id="语义分析-semantic-analysis"><a href="#语义分析-semantic-analysis" class="headerlink" title="语义分析 semantic analysis"></a>语义分析 semantic analysis</h3><p>尝试去找出矛盾的地方 </p>
+<h3 id="优化-optimization"><a href="#优化-optimization" class="headerlink" title="优化 optimization"></a>优化 optimization</h3><p>修改代码使之使用更少的资源</p>
 <h3 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h3><p>高级语言转变成汇编</p>
 <h2 id="Cool语言"><a href="#Cool语言" class="headerlink" title="Cool语言"></a>Cool语言</h2><pre><code class="cool">class Main {
     i : IO &lt;- new IO;
@@ -677,13 +677,538 @@ class Main inherits IO{
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724152341217.png" srcset="/img/loading.gif" class="" title="image-20200724152341217">
 
-<h3 id="PA4"><a href="#PA4" class="headerlink" title="PA4"></a>PA4</h3><h3 id="Intermediate-Code"><a href="#Intermediate-Code" class="headerlink" title="Intermediate Code"></a>Intermediate Code</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724164441833.png" srcset="/img/loading.gif" class="" title="image-20200724164441833">
+<h3 id="PA4"><a href="#PA4" class="headerlink" title="PA4"></a>PA4</h3><h2 id="Cool-Type-Checking-amp-Runtime-Organization"><a href="#Cool-Type-Checking-amp-Runtime-Organization" class="headerlink" title="Cool Type Checking &amp; Runtime Organization"></a>Cool Type Checking &amp; Runtime Organization</h2><h3 id="Static-vs-Dynamic-Typing"><a href="#Static-vs-Dynamic-Typing" class="headerlink" title="Static vs. Dynamic Typing"></a>Static vs. Dynamic Typing</h3><p>Static type systems detect common errors( at compile time)</p>
+<p><strong>But some correct programs are disallowed</strong></p>
+<ul>
+<li>Some argue for dynamic type checking instead</li>
+<li>Others want more expressive static type checking</li>
+</ul>
+<p>Soundness theorem: for all expressions <strong>E</strong> </p>
+<p><strong>dynamic_type(E)=static_type(E)</strong></p>
+<p><em>In all executions,E evaluates to values of the type inferred by the compiler.</em></p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200803110654648.png" srcset="/img/loading.gif" class="" title="image-20200803110654648">
+
+<h3 id="Self-Type"><a href="#Self-Type" class="headerlink" title="Self Type"></a>Self Type</h3><pre><code>class Count{
+    i:int-0; 
+    inc():Count{//返回Count的class类型
+        {
+            i&lt;-i+1; 
+            self;
+        }
+    };
+};
+
+class Stock inherits Count{
+    name: String;--name of item
+}
+class Main{
+    Stocka-(new Stock).inc();//类型错误，Count不是Stock的子集
+    ...a.name ...
+}</code></pre><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200803112048486.png" srcset="/img/loading.gif" class="" title="image-20200803112048486">
+
+<h3 id="Self-Type-Operations"><a href="#Self-Type-Operations" class="headerlink" title="Self Type Operations"></a>Self Type Operations</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200803112942180.png" srcset="/img/loading.gif" class="" title="image-20200803112942180">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200803113101122.png" srcset="/img/loading.gif" class="" title="image-20200803113101122">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200803113408665.png" srcset="/img/loading.gif" class="" title="image-20200803113408665">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200803114939592.png" srcset="/img/loading.gif" class="" title="image-20200803114939592">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200803115337069.png" srcset="/img/loading.gif" class="" title="image-20200803115337069">
+
+<h3 id="Self-Type-Usage"><a href="#Self-Type-Usage" class="headerlink" title="Self Type Usage"></a>Self Type Usage</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804090907495.png" srcset="/img/loading.gif" class="" title="image-20200804090907495">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804090921258.png" srcset="/img/loading.gif" class="" title="image-20200804090921258">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804091404056.png" srcset="/img/loading.gif" class="" title="image-20200804091404056">
+
+<h3 id="Self-Type-Checking"><a href="#Self-Type-Checking" class="headerlink" title="Self Type Checking"></a>Self Type Checking</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804094143731.png" srcset="/img/loading.gif" class="" title="image-20200804094143731">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804094222838.png" srcset="/img/loading.gif" class="" title="image-20200804094222838">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804094434305.png" srcset="/img/loading.gif" class="" title="image-20200804094434305">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804094508391.png" srcset="/img/loading.gif" class="" title="image-20200804094508391">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804094930978.png" srcset="/img/loading.gif" class="" title="image-20200804094930978">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804094952794.png" srcset="/img/loading.gif" class="" title="image-20200804094952794">
+
+<h3 id="Error-Recovery"><a href="#Error-Recovery" class="headerlink" title="Error Recovery"></a>Error Recovery</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804100054994.png" srcset="/img/loading.gif" class="" title="image-20200804100054994">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804095353003.png" srcset="/img/loading.gif" class="" title="image-20200804095353003">
+
+<blockquote>
+<p>a workable solution but with cascading errors</p>
+</blockquote>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804100442013.png" srcset="/img/loading.gif" class="" title="image-20200804100442013">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804100525228.png" srcset="/img/loading.gif" class="" title="image-20200804100525228">
+
+<h3 id="Runtime-Organization"><a href="#Runtime-Organization" class="headerlink" title="Runtime Organization"></a>Runtime Organization</h3><p> Enforcing the language definition is just one purpose of the front-end. The front-end also builds the data structures that are needed to do co-generation as we seen but there is a real. Once we get through the front-end we no longer looking for errors in the program. We’re no longer trying to figure out whether it’s a valid program. Now we’re really down to the point where we’re going to generate code And that is a job at the back end. </p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804100935737.png" srcset="/img/loading.gif" class="" title="image-20200804100935737">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804101607087.png" srcset="/img/loading.gif" class="" title="image-20200804101607087">
+
+<h3 id="Activations"><a href="#Activations" class="headerlink" title="Activations"></a>Activations</h3><p>Two goals:</p>
+<ul>
+<li>Correctness</li>
+<li>Speed</li>
+</ul>
+<p>Complications in code generation come from trying to be fast as well as correct</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804102036374.png" srcset="/img/loading.gif" class="" title="image-20200804102036374">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804103800174.png" srcset="/img/loading.gif" class="" title="image-20200804103800174">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804103904151.png" srcset="/img/loading.gif" class="" title="image-20200804103904151">
+
+<h4 id="activation-tree"><a href="#activation-tree" class="headerlink" title="activation tree"></a>activation tree</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804104501937.png" srcset="/img/loading.gif" class="" title="image-20200804104501937">
+
+<blockquote>
+<p>子树在同一行内代表调用后，需要依次调用的函数</p>
+<pre><code>isEven(x:Int) : Bool {x % 2 == 0};
+isOne(x:Int) : Bool {x == 1};
+powerOfTwo(x:Int) : Bool {
+if isEven(x) then powerOfTwo(x / 2)
+else isOne(x)
+};</code></pre><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804105015043.png" srcset="/img/loading.gif" class="" title="image-20200804105015043">
+</blockquote>
+<h3 id="Activation-Records"><a href="#Activation-Records" class="headerlink" title="Activation Records"></a>Activation Records</h3><p>The information needed to manage one procedure activation is called an activation record (AR) or frame</p>
+<p>If procedure <strong>F</strong> calls <strong>G</strong>, then <strong>G</strong>‘s activation record contains a mix of info about <strong>F</strong> and <strong>G</strong>.</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804105747132.png" srcset="/img/loading.gif" class="" title="image-20200804105747132">
+
+<p>The compiler must determine,at compile-time,the layout of activation records and generate code that correctly accesses locations in the activation record </p>
+<p>Thus,the AR layout and the code generator must be designed together!</p>
+<h3 id="Globals-and-Heap"><a href="#Globals-and-Heap" class="headerlink" title="Globals and Heap"></a>Globals and Heap</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804111927233.png" srcset="/img/loading.gif" class="" title="image-20200804111927233">
+
+<p>Both the heap and the stack grow</p>
+<p>Must take care that they don’t grow into each other</p>
+<p>Solution:start heap and stack at opposite ends of memory and let them grow towards each other</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804112106101.png" srcset="/img/loading.gif" class="" title="image-20200804112106101">
+
+<h3 id="Alignment"><a href="#Alignment" class="headerlink" title="Alignment"></a>Alignment</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804112719766.png" srcset="/img/loading.gif" class="" title="image-20200804112719766">
+
+<h3 id="Stack-Machines"><a href="#Stack-Machines" class="headerlink" title="Stack Machines"></a>Stack Machines</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804112851657.png" srcset="/img/loading.gif" class="" title="image-20200804112851657">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804113208145.png" srcset="/img/loading.gif" class="" title="image-20200804113208145">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804113359758.png" srcset="/img/loading.gif" class="" title="image-20200804113359758"> 
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804114035608.png" srcset="/img/loading.gif" class="" title="image-20200804114035608">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804114216478.png" srcset="/img/loading.gif" class="" title="image-20200804114216478">
+
+<p>After evaluating an expression e, the accumulator holds the value of e and the stack is unchanged.</p>
+<p> <em>Expression evaluation preserves the stack.</em></p>
+<h4 id="exmaple"><a href="#exmaple" class="headerlink" title="exmaple"></a>exmaple</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200804115009773.png" srcset="/img/loading.gif" class="" title="image-20200804115009773">
+
+<h2 id="Code-Generation"><a href="#Code-Generation" class="headerlink" title="Code Generation"></a>Code Generation</h2><h3 id="Introduction-to-Code-Generation"><a href="#Introduction-to-Code-Generation" class="headerlink" title="Introduction to Code Generation"></a>Introduction to Code Generation</h3><p>The accumulator is kept in MIPS register $a0</p>
+<p>The stack is kept in memory</p>
+<ul>
+<li>The stack grows towards lower addresses</li>
+<li>Standard convention on MIPS</li>
+</ul>
+<p>The address of the next location on the stack is kept in MIPS register <code>$sp</code> (stack pointer</p>
+<ul>
+<li>The top of the stack is at address <code>$sp+4</code></li>
+</ul>
+<p><strong>Stack is growing towards low addresses</strong></p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808090532307.png" srcset="/img/loading.gif" class="" title="image-20200808090532307">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808090733566.png" srcset="/img/loading.gif" class="" title="image-20200808090733566">
+
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808090948399.png" srcset="/img/loading.gif" class="" title="image-20200808090948399">
+
+<h3 id="Code-Generation-I"><a href="#Code-Generation-I" class="headerlink" title="Code Generation I"></a>Code Generation I</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808092449719.png" srcset="/img/loading.gif" class="" title="image-20200808092449719">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808092520377.png" srcset="/img/loading.gif" class="" title="image-20200808092520377">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808092406241.png" srcset="/img/loading.gif" class="" title="image-20200808092406241">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808092138761.png" srcset="/img/loading.gif" class="" title="image-20200808092138761">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808092837102.png" srcset="/img/loading.gif" class="" title="image-20200808092837102">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808093434286.png" srcset="/img/loading.gif" class="" title="image-20200808093434286">
+
+<h3 id="Code-Generation-II"><a href="#Code-Generation-II" class="headerlink" title="Code Generation II"></a>Code Generation II</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808101554898.png" srcset="/img/loading.gif" class="" title="image-20200808101554898">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808101652847.png" srcset="/img/loading.gif" class="" title="image-20200808101652847">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808101826630.png" srcset="/img/loading.gif" class="" title="image-20200808101826630">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808102115320.png" srcset="/img/loading.gif" class="" title="image-20200808102115320">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808102420307.png" srcset="/img/loading.gif" class="" title="image-20200808102420307">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808102625336.png" srcset="/img/loading.gif" class="" title="image-20200808102625336">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808102731121.png" srcset="/img/loading.gif" class="" title="image-20200808102731121">
+
+<h4 id="example-1"><a href="#example-1" class="headerlink" title="example"></a>example</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808103106476.png" srcset="/img/loading.gif" class="" title="image-20200808103106476">
+
+
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808103516812.png" srcset="/img/loading.gif" class="" title="image-20200808103516812">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808103618842.png" srcset="/img/loading.gif" class="" title="image-20200808103618842">
+
+<h3 id="Code-Generation-Example"><a href="#Code-Generation-Example" class="headerlink" title="Code Generation Example"></a>Code Generation Example</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808104801419.png" srcset="/img/loading.gif" class="" title="image-20200808104801419">
+
+<h3 id="Temporaries"><a href="#Temporaries" class="headerlink" title="Temporaries"></a>Temporaries</h3><p>Idea:Keep temporaries in the AR</p>
+<p>The code generator must assign a fixed location in the AR for each temporary</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808113002505.png" srcset="/img/loading.gif" class="" title="image-20200808113002505">
+
+<blockquote>
+<p>While we need one here for the predicate, but notice that once the predicate is decided, once we know the answer to whether this predicate is true or false, we don’t need that temporary anymore. So in fact, that temporary can be reclaimed; we don’t need the space for that temporary anymore by the time we get to the false branch.</p>
+</blockquote>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808112920088.png" srcset="/img/loading.gif" class="" title="image-20200808112920088">
+
+<blockquote>
+<p>NT(e1 + e2) = max(NT(e1), 1 + NT(e2))</p>
+</blockquote>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808113708280.png" srcset="/img/loading.gif" class="" title="image-20200808113708280">
+
+<h4 id="example-2"><a href="#example-2" class="headerlink" title="example"></a>example</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808113903169.png" srcset="/img/loading.gif" class="" title="image-20200808113903169">
+
+<blockquote>
+<p>最多需要两个temporaries来储存这些数据</p>
+<p>if 的true 或flase 一个，单个int可以变成返回值（不用临时变量），调用fib 传递的参数需要用临时变量</p>
+</blockquote>
+<p>For a function definition <strong>f(x.…… Xn)=e</strong> the AR has <strong>2+n+NT(e)</strong> elements</p>
+<ul>
+<li>Return addressL</li>
+<li>Frame pointer C</li>
+<li><strong>n</strong> arguments</li>
+<li><strong>NT(e)</strong> locations for intermediate results</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808114653932.png" srcset="/img/loading.gif" class="" title="image-20200808114653932">
+
+
+
+<h4 id="new-scheme"><a href="#new-scheme" class="headerlink" title="new scheme"></a>new scheme</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808115316923.png" srcset="/img/loading.gif" class="" title="image-20200808115316923">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808115353156.png" srcset="/img/loading.gif" class="" title="image-20200808115353156">
+
+<blockquote>
+<p>nt  unused temporary</p>
+</blockquote>
+<h3 id="Object-Layout"><a href="#Object-Layout" class="headerlink" title="Object Layout"></a>Object Layout</h3><p>00 implementation=Basic code generation + <strong>More stuff</strong></p>
+<p>0o Slogan:If <strong>B is a subclass of A</strong>,than an object of class B can be used wherever an object of class A is expected</p>
+<p>This means that code in class A works <strong>unmodified</strong> for an object of class B</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808120906584.png" srcset="/img/loading.gif" class="" title="image-20200808120906584">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808121002133.png" srcset="/img/loading.gif" class="" title="image-20200808121002133">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808121205970.png" srcset="/img/loading.gif" class="" title="image-20200808121205970">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808120828905.png" srcset="/img/loading.gif" class="" title="image-20200808120828905">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808120723112.png" srcset="/img/loading.gif" class="" title="image-20200808120723112">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808121617559.png" srcset="/img/loading.gif" class="" title="image-20200808121617559">
+
+<p>Every class has a fixed set of methods</p>
+<ul>
+<li>including inherited methods</li>
+</ul>
+<p>A <strong>dispatch table</strong> indexes these methods</p>
+<ul>
+<li>An array of method entry points</li>
+<li>A method <strong>f</strong> lives at <strong>a fixed offset</strong> in the dispatch table for a class and <strong>all of its subclasses</strong></li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808122344016.png" srcset="/img/loading.gif" class="" title="image-20200808122344016">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808122753473.png" srcset="/img/loading.gif" class="" title="image-20200808122753473">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808122815394.png" srcset="/img/loading.gif" class="" title="image-20200808122815394">
+
+<h3 id="opentional-Semantics-overview"><a href="#opentional-Semantics-overview" class="headerlink" title="opentional Semantics overview"></a>opentional Semantics overview</h3><p>We must specify for every Cool expression what happens<br>when it is evaluated</p>
+<ul>
+<li>This is the”meaning”of an expression</li>
+</ul>
+<p>The definition of a programming language:</p>
+<ul>
+<li>The tokens &gt;lexical analysis</li>
+<li>The grammar &gt;syntactic analysis</li>
+<li>The typing rules &gt;semantic analysis</li>
+<li>The evaluation rules<br>  →code generation and optimization</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808142452501.png" srcset="/img/loading.gif" class="" title="image-20200808142452501">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808142730543.png" srcset="/img/loading.gif" class="" title="image-20200808142730543">
+
+<h4 id="Denotaional-semantics"><a href="#Denotaional-semantics" class="headerlink" title="Denotaional semantics"></a>Denotaional semantics</h4><p>Program’s meaning is a mathematical function</p>
+<h4 id="Axiomatic-semantics"><a href="#Axiomatic-semantics" class="headerlink" title="Axiomatic semantics"></a>Axiomatic semantics</h4><ul>
+<li>Program behavior described via logical formulae<ul>
+<li>If execution begins in state satisfying X,then it ends in state satisfyingY</li>
+<li>X,Y formulas</li>
+</ul>
+</li>
+<li>Foundation of many program verification systems</li>
+</ul>
+<h3 id="Operational-Semantics"><a href="#Operational-Semantics" class="headerlink" title="Operational Semantics"></a>Operational Semantics</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808143144331.png" srcset="/img/loading.gif" class="" title="image-20200808143144331">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808143427301.png" srcset="/img/loading.gif" class="" title="image-20200808143427301">
+
+<p>A variable environment maps variables to locations</p>
+<ul>
+<li><p>Keeps track of which yariables are in scope</p>
+</li>
+<li><p>Tells us where those variables are</p>
+<p><strong>E = [ a : l1, b : l2 ]</strong></p>
+</li>
+</ul>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808144113316.png" srcset="/img/loading.gif" class="" title="image-20200808144113316">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808144211557.png" srcset="/img/loading.gif" class="" title="image-20200808144211557">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808144502293.png" srcset="/img/loading.gif" class="" title="image-20200808144502293">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808144825648.png" srcset="/img/loading.gif" class="" title="image-20200808144825648">
+
+<h3 id="Cool-Semantics"><a href="#Cool-Semantics" class="headerlink" title="Cool Semantics"></a>Cool Semantics</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808145028046.png" srcset="/img/loading.gif" class="" title="image-20200808145028046">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808145137544.png" srcset="/img/loading.gif" class="" title="image-20200808145137544">
+
+<blockquote>
+<p>first we look up in the environment <strong>E</strong> where that identifier <strong>id</strong> is stored so now we give us back a memory </p>
+<p>location <strong>l</strong>. So by in this case And then we look up in the store <strong>S</strong> what the value is at that memory locations, So, </p>
+<p>we use the same memory location here as an argument to the store to get back the value that variable currently</p>
+<p>has And notice I just have a reference, this is a read of memories so this is loading, I think it was loading the </p>
+<p>value of the variable. This does not affect the store so the store <strong>S</strong> is the same before and after. This is just looking </p>
+<p>at the value</p>
+</blockquote>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808145557313.png" srcset="/img/loading.gif" class="" title="image-20200808145557313">
+
+<h4 id="assignment"><a href="#assignment" class="headerlink" title="assignment"></a>assignment</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808145750438.png" srcset="/img/loading.gif" class="" title="image-20200808145750438">
+
+<blockquote>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808145944381.png" srcset="/img/loading.gif" class="" title="image-20200808145944381">
+
+<p>we modify the store at that point with the new value so we replace the location l id or we update the value of l, i, d to be the value of v and we do that in store s1 which gives us a new store s2.</p>
+</blockquote>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808150452154.png" srcset="/img/loading.gif" class="" title="image-20200808150452154">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808150819402.png" srcset="/img/loading.gif" class="" title="image-20200808150819402">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808151558053.png" srcset="/img/loading.gif" class="" title="image-20200808151558053">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808151807567.png" srcset="/img/loading.gif" class="" title="image-20200808151807567">
+
+<h4 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808151959085.png" srcset="/img/loading.gif" class="" title="image-20200808151959085">
+
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808152117753.png" srcset="/img/loading.gif" class="" title="image-20200808152117753">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808152158870.png" srcset="/img/loading.gif" class="" title="image-20200808152158870">
+
+<h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808152603765.png" srcset="/img/loading.gif" class="" title="image-20200808152603765">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808152652618.png" srcset="/img/loading.gif" class="" title="image-20200808152652618">
+
+<h3 id="Cool-Semantics-II"><a href="#Cool-Semantics-II" class="headerlink" title="Cool Semantics II"></a>Cool Semantics II</h3><h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808153226162.png" srcset="/img/loading.gif" class="" title="image-20200808153226162">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808153301600.png" srcset="/img/loading.gif" class="" title="image-20200808153301600">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808153553893.png" srcset="/img/loading.gif" class="" title="image-20200808153553893">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808154013836.png" srcset="/img/loading.gif" class="" title="image-20200808154013836">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808154217191.png" srcset="/img/loading.gif" class="" title="image-20200808154217191">
+
+<h4 id="dynamic-dispatch"><a href="#dynamic-dispatch" class="headerlink" title="dynamic dispatch"></a>dynamic dispatch</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808154401563.png" srcset="/img/loading.gif" class="" title="image-20200808154401563">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808154927736.png" srcset="/img/loading.gif" class="" title="image-20200808154927736">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808155513811.png" srcset="/img/loading.gif" class="" title="image-20200808155513811">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808155706318.png" srcset="/img/loading.gif" class="" title="image-20200808155706318">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200808155830158.png" srcset="/img/loading.gif" class="" title="image-20200808155830158">
+
+<h3 id="PA5"><a href="#PA5" class="headerlink" title="PA5"></a>PA5</h3><h2 id="优化-Optimization"><a href="#优化-Optimization" class="headerlink" title="优化 Optimization"></a>优化 Optimization</h2><h3 id="Intermediate-Code"><a href="#Intermediate-Code" class="headerlink" title="Intermediate Code"></a>Intermediate Code</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724164441833.png" srcset="/img/loading.gif" class="" title="image-20200724164441833">
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724164545484.png" srcset="/img/loading.gif" class="" title="image-20200724164545484">
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724164657828.png" srcset="/img/loading.gif" class="" title="image-20200724164657828">
 
 <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200724165004707.png" srcset="/img/loading.gif" class="" title="image-20200724165004707">
+
+<h3 id="Optimization-Overview"><a href="#Optimization-Overview" class="headerlink" title="Optimization Overview"></a>Optimization Overview</h3><p><img src="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727113032723.png" srcset="/img/loading.gif" alt="image-20200727113032723">)<img src="%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727113227764.png" srcset="/img/loading.gif" alt="image-20200727113227764"></p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727114137055.png" srcset="/img/loading.gif" class="" title="image-20200727114137055">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727114346148.png" srcset="/img/loading.gif" class="" title="image-20200727114346148">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727135941770.png" srcset="/img/loading.gif" class="" title="image-20200727135941770">
+
+ <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727140110611.png" srcset="/img/loading.gif" class="" title="image-20200727140110611">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727141024199.png" srcset="/img/loading.gif" class="" title="image-20200727141024199">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727142541805.png" srcset="/img/loading.gif" class="" title="image-20200727142541805">
+
+<h3 id="Local-Optimization"><a href="#Local-Optimization" class="headerlink" title="Local Optimization"></a>Local Optimization</h3><p>有些可以删除的</p>
+<pre><code>x = x + 0
+x = x * 1</code></pre><p>有些可以简化的</p>
+<pre><code>x = x * 0 =&gt; x =0
+y = y ** 2 =&gt; y = y * y
+x = x *8 =&gt; x = x &lt;&lt; 3
+x = x * 15 =&gt; t = x &lt;&lt; 4;x = t - x;</code></pre><p>（一些机子上&lt;&lt;比*号快</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727143956671.png" srcset="/img/loading.gif" class="" title="image-20200727143956671">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727144813527.png" srcset="/img/loading.gif" class="" title="image-20200727144813527">
+
+<p>保留最高精度的浮点数，让架构决定计算结果</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727145423870.png" srcset="/img/loading.gif" class="" title="image-20200727145423870">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727145657145.png" srcset="/img/loading.gif" class="" title="image-20200727145657145">
+
+<h3 id="Peephole-Optimization"><a href="#Peephole-Optimization" class="headerlink" title="Peephole Optimization"></a>Peephole Optimization</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727150656620.png" srcset="/img/loading.gif" class="" title="image-20200727150656620">
+
+<h3 id="Dataflow-Analysis"><a href="#Dataflow-Analysis" class="headerlink" title="Dataflow Analysis"></a>Dataflow Analysis</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727152656236.png" srcset="/img/loading.gif" class="" title="image-20200727152656236">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727152915293.png" srcset="/img/loading.gif" class="" title="image-20200727152915293">
+
+<h3 id="Constant-Propagation"><a href="#Constant-Propagation" class="headerlink" title="Constant Propagation"></a>Constant Propagation</h3> <img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727153509070.png" srcset="/img/loading.gif" class="" title="image-20200727153509070">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727154004049.png" srcset="/img/loading.gif" class="" title="image-20200727154004049">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727154640486.png" srcset="/img/loading.gif" class="" title="image-20200727154640486">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727155002293.png" srcset="/img/loading.gif" class="" title="image-20200727155002293">
+
+<h3 id="Analysis-of-Loops"><a href="#Analysis-of-Loops" class="headerlink" title="Analysis of Loops"></a>Analysis of Loops</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727161011290.png" srcset="/img/loading.gif" class="" title="image-20200727161011290">
+
+<h3 id="Orderings"><a href="#Orderings" class="headerlink" title="Orderings"></a>Orderings</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727162943132.png" srcset="/img/loading.gif" class="" title="image-20200727162943132">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727163013545.png" srcset="/img/loading.gif" class="" title="image-20200727163013545">
+
+<h3 id="Liveness-Analysis"><a href="#Liveness-Analysis" class="headerlink" title="Liveness Analysis"></a>Liveness Analysis</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727164706188.png" srcset="/img/loading.gif" class="" title="image-20200727164706188">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727164954867.png" srcset="/img/loading.gif" class="" title="image-20200727164954867"> 
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727165049700.png" srcset="/img/loading.gif" class="" title="image-20200727165049700">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727165134688.png" srcset="/img/loading.gif" class="" title="image-20200727165134688">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727165215533.png" srcset="/img/loading.gif" class="" title="image-20200727165215533">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727165457537.png" srcset="/img/loading.gif" class="" title="image-20200727165457537">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200727165949003.png" srcset="/img/loading.gif" class="" title="image-20200727165949003"> 
+
+<h3 id="Register-Allocation"><a href="#Register-Allocation" class="headerlink" title="Register Allocation"></a>Register Allocation</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730092739618.png" srcset="/img/loading.gif" class="" title="image-20200730092739618">
+
+<h4 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730093244462.png" srcset="/img/loading.gif" class="" title="image-20200730093244462">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730093639654.png" srcset="/img/loading.gif" class="" title="image-20200730093639654">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730093758586.png" srcset="/img/loading.gif" class="" title="image-20200730093758586">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730094201480.png" srcset="/img/loading.gif" class="" title="image-20200730094201480">
+
+<h3 id="Graph-Coloring"><a href="#Graph-Coloring" class="headerlink" title="Graph Coloring"></a>Graph Coloring</h3><p>A <strong>coloring of a graph</strong> is an assignment of colors to nodes, sch that nodes connected by an edge have different colors.</p>
+<p>A graph is <strong>k-colorable</strong> if it has a coloring with k colors.In here, colors = registers. Let k = number of machine registers.</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730100849423.png" srcset="/img/loading.gif" class="" title="image-20200730100849423">
+
+<p>再用寄存器名字替换</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730101320589.png" srcset="/img/loading.gif" class="" title="image-20200730101320589">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730104742443.png" srcset="/img/loading.gif" class="" title="image-20200730104742443">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730105029797.png" srcset="/img/loading.gif" class="" title="image-20200730105029797">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730105203033.png" srcset="/img/loading.gif" class="" title="image-20200730105203033">
+
+<h4 id="example-3"><a href="#example-3" class="headerlink" title="example"></a>example</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730105810302.png" srcset="/img/loading.gif" class="" title="image-20200730105810302">
+
+<p>Remove d Stack:{d,a}</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730105936761.png" srcset="/img/loading.gif" class="" title="image-20200730105936761">
+
+<p> now it doesn’t matter which node we pick because we can process them in any</p>
+<p>Remove c,b,e,f </p>
+<p><strong>now Empty-graph - done with the first part</strong></p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730110258876.png" srcset="/img/loading.gif" class="" title="image-20200730110258876">
+
+<p>going to pick the <strong>lowest numbered register</strong> that is not used by any of its neighbors. </p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730110339115.png" srcset="/img/loading.gif" class="" title="image-20200730110339115">
+
+<p>b is the only register that isnt used</p>
+<h3 id="Spilling"><a href="#Spilling" class="headerlink" title="Spilling"></a>Spilling</h3><p>if tgere’s no node that we can delete from the graph, in this situation, we’re going to pick and know that<br>there is a candidate for spilling.</p>
+<ul>
+<li>A spilled value “lives” in memory</li>
+</ul>
+<blockquote>
+<p>optimisitic coloring =&gt; hope that among the 4 neighbors of f we use less than 3 colors</p>
+</blockquote>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730112509274.png" srcset="/img/loading.gif" class="" title="image-20200730112509274"> 
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730112551179.png" srcset="/img/loading.gif" class="" title="image-20200730112551179">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730113112519.png" srcset="/img/loading.gif" class="" title="image-20200730113112519">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730112936005.png" srcset="/img/loading.gif" class="" title="image-20200730112936005">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730113228217.png" srcset="/img/loading.gif" class="" title="image-20200730113228217">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730113618452.png" srcset="/img/loading.gif" class="" title="image-20200730113618452">
+
+<h3 id="Managing-Caches"><a href="#Managing-Caches" class="headerlink" title="Managing Caches"></a>Managing Caches</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730114154225.png" srcset="/img/loading.gif" class="" title="image-20200730114154225">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730114748858.png" srcset="/img/loading.gif" class="" title="image-20200730114748858">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730114725025.png" srcset="/img/loading.gif" class="" title="image-20200730114725025">
+
+<h2 id="Garbage-collection"><a href="#Garbage-collection" class="headerlink" title="Garbage collection"></a>Garbage collection</h2><h3 id="Automatic-Memory-Management"><a href="#Automatic-Memory-Management" class="headerlink" title="Automatic Memory Management"></a>Automatic Memory Management</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730144340907.png" srcset="/img/loading.gif" class="" title="image-20200730144340907">
+
+<h4 id="How-to-know-an-object-will-“never-be-used-again”"><a href="#How-to-know-an-object-will-“never-be-used-again”" class="headerlink" title="How to know an object will “never be used again”?"></a>How to know an object will “never be used again”?</h4><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730145148008.png" srcset="/img/loading.gif" class="" title="image-20200730145148008">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730145452186.png" srcset="/img/loading.gif" class="" title="image-20200730145452186">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730150153526.png" srcset="/img/loading.gif" class="" title="image-20200730150153526"> 
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730150244426.png" srcset="/img/loading.gif" class="" title="image-20200730150244426">
+
+<h3 id="Mark-and-Sweep"><a href="#Mark-and-Sweep" class="headerlink" title="Mark and Sweep"></a>Mark and Sweep</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730150356190.png" srcset="/img/loading.gif" class="" title="image-20200730150356190">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730150542396.png" srcset="/img/loading.gif" class="" title="image-20200730150542396">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730162740553.png" srcset="/img/loading.gif" class="" title="image-20200730162740553">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730163335635.png" srcset="/img/loading.gif" class="" title="image-20200730163335635">
+
+<h3 id="Stop-and-Copy"><a href="#Stop-and-Copy" class="headerlink" title="Stop and Copy"></a>Stop and Copy</h3><p>当旧区域满的时候，将有用的复制到新区域，然后新旧区域名字对换。</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730171624649.png" srcset="/img/loading.gif" class="" title="image-20200730171624649">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730171725223.png" srcset="/img/loading.gif" class="" title="image-20200730171725223">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730172133916.png" srcset="/img/loading.gif" class="" title="image-20200730172133916">
+
+<p>被复制过去之后，指针访问旧区域的时候，会发现旧区域已被标记，然后会更新指针指向新区域</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730172842124.png" srcset="/img/loading.gif" class="" title="image-20200730172842124">
+
+<p>scan到alloc之间就是需要被更新的</p>
+<h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><p>先复制A，然后根据指向按序复制到新区域并更新pointer</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730173025615.png" srcset="/img/loading.gif" class="" title="image-20200730173025615">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730173211485.png" srcset="/img/loading.gif" class="" title="image-20200730173211485">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730174134335.png" srcset="/img/loading.gif" class="" title="image-20200730174134335">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730174236562.png" srcset="/img/loading.gif" class="" title="image-20200730174236562">
+
+<h3 id="Conservative-Collection"><a href="#Conservative-Collection" class="headerlink" title="Conservative Collection"></a>Conservative Collection</h3><img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730175043466.png" srcset="/img/loading.gif" class="" title="image-20200730175043466">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730175410736.png" srcset="/img/loading.gif" class="" title="image-20200730175410736">
+
+<h3 id="Reference-Counting"><a href="#Reference-Counting" class="headerlink" title="Reference Counting"></a>Reference Counting</h3><p>Try to collect an object when there are no more pointers to it.</p>
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730180530542.png" srcset="/img/loading.gif" class="" title="image-20200730180530542">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730181146802.png" srcset="/img/loading.gif" class="" title="image-20200730181146802">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730181841627.png" srcset="/img/loading.gif" class="" title="image-20200730181841627">
+
+<img src="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20200730182213114.png" srcset="/img/loading.gif" class="" title="image-20200730182213114">
             </div>
             <hr>
             <div>
@@ -698,6 +1223,12 @@ class Main inherits IO{
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/2020/08/21/LLVM%20pass/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">LLVM pass</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">

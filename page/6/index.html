@@ -157,6 +157,53 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/get_started_3dsctf_2016/">
+        <p class="h4 index-header">get_started_3dsctf_2016</p>
+      </a>
+
+      <a href="/2020/01/13/get_started_3dsctf_2016/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">二进制菜鸡的小窝的WPmprotect函数原型： int mprotect(void *addr, size_t len, int prot);
+addr 内存启始地址
+len 修改内存的长度
+prot 内存的权限
+[
+所以得到exp:
+# _*_ coding:utf-8 _*_
+from pwn import *
+elf = ELF(&#39;./get_started_3dsctf_2016&#39;)
+sh = elf.process()
+#sh = remote(&#39;node3.buuoj.cn&#39;,27037)
+
+pop3_ret = 0x804951D #为了后续再能</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/13/buu-ciscn_2019-c_1%20WP/">
         <p class="h4 index-header">buu-ciscn_2019-c_1 WP</p>
       </a>

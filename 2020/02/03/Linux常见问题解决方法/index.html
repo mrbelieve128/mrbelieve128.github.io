@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    102 字
+                    148 字
                   </span>
                 
 
@@ -190,6 +190,11 @@ sudo rm /var/lib/dpkg/lock-frontend</code></pre>
 sudo rm /var/lib/apt/lists/lock
 sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock</code></pre>
+<p>Ubuntu-突然无法联网，且右上方没有网络标志</p>
+<pre><code class="shell">sudo service network-manager stop
+sudo rm /var/lib/NetworkManager/NetworkManager.state 
+sudo service network-manager start</code></pre>
+<p>来自 <a href="http://yoursite.com/">咲夜南梦’s 博客</a>，<a href="[https://196011564.github.io/2018/12/23/Ubuntu-%E7%AA%81%E7%84%B6%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91/](https://196011564.github.io/2018/12/23/Ubuntu-突然无法联网/)">原地址</a></p>
 
             </div>
             <hr>
