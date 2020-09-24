@@ -157,6 +157,104 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
+        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
+      </a>
+
+      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">查看main
+
+
+进入test()
+
+
+看见了read，等等先
+
+
+judge无法反编译，查看汇编
+
+
+看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
+点开read的buf
+
+
+buf只有30字节
+再看看strings
+
+
+没有/bin/sh
+所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
+遂写poc
+from pwn import *
+sh = process(&quot;./my_cannary&quot;)
+elf = ELF</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
+        <p class="h4 index-header">git同步到github和gitee</p>
+      </a>
+
+      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
+一、准备工作1、建立一个仓库https://gitee.com/
+
+
+2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
+二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/13/ciscn_2019_n_1%20WP/">
         <p class="h4 index-header">ciscn_2019_n_1 WP</p>
       </a>
@@ -509,71 +607,11 @@ pwn学习流程– [ ] 小甲鱼视频– [ ] liveoverflow那一套视频入门�
     </div>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        <p class="h4 index-header">转载-编写shellcode测试工具</p>
-      </a>
-
-      <a href="/2019/11/19/%E7%BC%96%E5%86%99shellcode%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">不知不觉，shellcode已成功攻击过程中必不可少的步骤，后面的文章会继续介绍如何编写其它类型的shellcode。直到目前为止，每次完shellcode汇编代码，都需要找到之前（或者重新编写）带缓冲区溢出漏洞的代码进行测试，同时要不停地对准EIP以及esp地址。这对于测试shellcode的正确性来说，很不方便，也难以调试。为此，我们先编写shellcode测试工具，方便后面测试shellcode，所谓磨刀不误砍柴功。
-shellcode测试工具sctest我们将工具取名为sctest，是shell code test的缩写。命令用法：sctest  &lt;shellcode二进制文件&</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/11/19/hello-world/">
-        <p class="h4 index-header">Hello World!</p>
-      </a>
-
-      <a href="/2019/11/19/hello-world/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">2019/8/3日 15：22，我的网站算是正式开通了。这里可能是我展现最真实的我的地方，也用来记录我的学习过程和学习资料。在此先感谢一下毛同学的大力鼓吹，让我搞了这个，也感谢我的学校给我报销（笑
-最近在学校的大数据班学习了在centOS搭建hadoop平台（使用java进行程序编写），最开始的是计算和管理都在一个模拟机里的伪分布式，一主一仆的也在回家后在自家电脑上完成了搭建。
-后来为了搞github和gitee备份代码，又去研究了git如何使用，以及在vscode里同步代码，现在也是可以啦~点这可以看 相关代码和操作
-为了在学校更好的敲代码（装逼），也是打算买一个豆子峡谷，装上黑苹果和cen</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-19&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

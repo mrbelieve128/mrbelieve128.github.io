@@ -157,6 +157,101 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <p class="h4 index-header">数据库复习笔记</p>
+      </a>
+
+      <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">使用的是sql server，操作可能跟mysql有区别
+第一次实验新建数据库create database stuhyy
+on 
+(
+    name = stu, 
+    filename=&#39;C:\stu_data.mdf&#39;,
+    size = 3mb,
+    maxsize = 500mb,
+    filegrowth = 10%
+
+)
+log on
+(
+    name = stu_log,
+    filename = &#39;D:\stu_log.ldf&#39;,
+    size=3mb,
+    maxsize = unlimited,
+    f</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
+        <p class="h4 index-header">手动脱壳</p>
+      </a>
+
+      <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
+注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
+ESP定律
+参考
+nsPack还要找到OEP，所谓的OEP，意即程序的入口点，可以用OD载入，不分析代码。
+首先已知是nSPack壳，直接用OD打开，发现pushfd和pushad两句关键句：==win下的吾爱破解版od</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/13/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
         <p class="h4 index-header">使用docker为pwn题目搭配环境</p>
       </a>
@@ -573,109 +668,11 @@ FW</div>
     </div>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
-      </a>
-
-      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">查看main
-
-
-进入test()
-
-
-看见了read，等等先
-
-
-judge无法反编译，查看汇编
-
-
-看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
-点开read的buf
-
-
-buf只有30字节
-再看看strings
-
-
-没有/bin/sh
-所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
-遂写poc
-from pwn import *
-sh = process(&quot;./my_cannary&quot;)
-elf = ELF</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        <p class="h4 index-header">git同步到github和gitee</p>
-      </a>
-
-      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
-一、准备工作1、建立一个仓库https://gitee.com/
-
-
-2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
-二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

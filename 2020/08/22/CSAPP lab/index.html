@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>堆之UAF(Use_after_free)及调试-hitcontraining_uaf - Mr.BelieVe&#39;s Treasure</title>
+  <title>CSAPP lab - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -132,7 +132,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期日, 二月 2日 2020, 12:06 凌晨
+                  星期六, 八月 22日 2020, 11:27 晚上
                 </p>
               
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    655 字
+                    1.8k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      2 分钟
+                      9 分钟
                   </span>
                 
 
@@ -177,87 +177,258 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="堆之UAF-Use-after-free-及调试-hitcontraining-uaf"><a href="#堆之UAF-Use-after-free-及调试-hitcontraining-uaf" class="headerlink" title="堆之UAF(Use_after_free)及调试-hitcontraining_uaf"></a>堆之UAF(Use_after_free)及调试-hitcontraining_uaf</h1><blockquote>
-<p><a href="https://wiki.x10sec.org/pwn/heap/use_after_free/" target="_blank" rel="noopener">https://wiki.x10sec.org/pwn/heap/use_after_free/</a></p>
-<p><strong>一个很直接的想法是修改note的put字段为magic函数的地址，从而实现在执行print note 的时候执行magic函数。</strong> 那么该怎么执行呢？</p>
-<p>我们可以简单来看一下每一个note生成的具体流程</p>
-<ol>
-<li><p>程序申请8字节内存用来存放note中的put以及content指针。</p>
-</li>
-<li><p>程序根据输入的size来申请指定大小的内存，然后用来存储content。</p>
-</li>
-</ol>
-<pre><code>      +-----------------+                       
-      |   put           |                       
-      +-----------------+                       
-      |   content       |       size              
-      +-----------------+-------------------&gt;+----------------+
-                                             |     real       |
-                                             |    content     |
-                                             |                |
-                                             +----------------+</code></pre><p>那么，根据我们之前在堆的实现中所学到的，显然note是一个fastbin chunk（大小为16字节）。我们的目的是希望一个note的put字段为magic的函数地址，那么我们必须想办法让某个note的put指针被覆盖为magic地址。由于程序中只有唯一的地方对put进行赋值。所以我们必须利用写real content的时候来进行覆盖。具体采用的思路如下</p>
-<ul>
-<li>申请note0，real content size为16（大小与note大小所在的bin不一样即可）</li>
-<li>申请note1，real content size为16（大小与note大小所在的bin不一样即可）</li>
-<li>释放note0</li>
-<li>释放note1</li>
-<li>此时，大小为16的fast bin chunk中链表为note1-&gt;note0</li>
-<li>申请note2，并且设置real content的大小为8，那么根据堆的分配规则</li>
-<li>note2其实会分配note1对应的内存块。</li>
-<li>real content 对应的chunk其实是note0。</li>
-<li>如果我们这时候向note3的chunk部分写入magic的地址，那么由于我们没有note1为NULL。当我们再次尝试输出note1的时候，程序就会调用magic函数。</li>
-</ul>
+              <h1 id="CSAPP-lab"><a href="#CSAPP-lab" class="headerlink" title="CSAPP lab"></a>CSAPP lab</h1><h2 id="datalab"><a href="#datalab" class="headerlink" title="datalab"></a>datalab</h2><p>正数用<strong>原码</strong>表示的，负数用<strong>补码</strong>表示</p>
+<blockquote>
+<p>补码：正数的补码就是其原码；<strong>负数的反码+1</strong>就是补码</p>
+<p>如单字节5，在计算机中就表示为：0000 0101。负数用补码表示，如单字节-5，在计算机中表示为1111 1011。</p>
 </blockquote>
-<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201220702851.png" srcset="/img/loading.gif" class="" title="image-20200201220702851">
+<h3 id="allOddBits"><a href="#allOddBits" class="headerlink" title="allOddBits"></a>allOddBits</h3><pre><code class="c++">/* 
+ * allOddBits - return 1 if all odd-numbered bits in word set to 1
+ *   where bits are numbered from 0 (least significant) to 31 (most significant)
+ *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 12
+ *   Rating: 2
+ */
+int allOddBits(int x) {
+  int ALL_A = 0xAAAAAAAA;//10101010101010101010101010101010
+  return !((x &amp; ALL_A) ^ ALL_A);
+}</code></pre>
+<h3 id="isAsciiDigit"><a href="#isAsciiDigit" class="headerlink" title="isAsciiDigit"></a>isAsciiDigit</h3><pre><code class="c++">/* 
+ * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters &#39;0&#39; to &#39;9&#39;)
+ *   Example: isAsciiDigit(0x35) = 1.
+ *            isAsciiDigit(0x3a) = 0.
+ *            isAsciiDigit(0x05) = 0.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 15
+ *   Rating: 3
+ */
+int isAsciiDigit(int x) {
+  // x &gt; 0x30 &amp;&amp; x &lt; 0x39
+  int TMIN = 0x80000000; // 10000000000000000000000000000000
+  int minus0x30 = ~0x30 + 1;
+  return !((x + minus0x30) &amp; TMIN) // x - 0x30 &gt; 0
+                &amp;&amp; !((0x39 - x) &amp; TMIN); // 0x39 - x &gt; 0
+}</code></pre>
+<h3 id="conditional-x-y-z"><a href="#conditional-x-y-z" class="headerlink" title="conditional x ? y : z"></a>conditional x ? y : z</h3><pre><code class="c++">/* 
+ * conditional - same as x ? y : z 
+ *   Example: conditional(3,4,5) = 4
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 16
+ *   Rating: 3
+ */
+int conditional(int x, int y, int z) {
+  int x1 = !!x;//if x==0, x1 = 1 else x1 = 0
+  x = ~x1+1;//if x1 == 1, x = 111111111...11 else x =0
+  return (x&amp;y)|(~x&amp;z);
+  //if x =11111... 1111 ,(x &amp; y) = y,( ~x &amp; z) = 0
+    //if x = 0 , (x &amp; γ〕 = 0, (~x &amp; z) = z
+}</code></pre>
+<h3 id="isLessOrEqual"><a href="#isLessOrEqual" class="headerlink" title="isLessOrEqual"></a>isLessOrEqual</h3><pre><code class="c++">/* 
+ * isLessOrEqual - if x &lt;= y  then return 1, else return 0 
+ *   Example: isLessOrEqual(4,5) = 1.
+ *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 24
+ *   Rating: 3
+ */
+int isLessOrEqual(int x, int y)
+{
+  int isLessOrEqual(int x, int y) {
+  int diff_sign = ((x &gt;&gt; 31) &amp; 1)         // x &lt; 0
+                  &amp; (((y &gt;&gt; 31) &amp; 1) ^ 1);// y &gt; 0
+  int same_sign = (((x &gt;&gt; 31) &amp; 1)        // same equals 1
+                  ^ ((y &gt;&gt; 31) &amp; 1) ^ 1); // not the same euqals 0
+  int x_minus_y = (((x + (~y)) &gt;&gt; 31) &amp; 1);
+  return diff_sign || ( same_sign &amp;&amp; x_minus_y);
+}
+}</code></pre>
+<h4 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h4><p>x &lt;= y 的条件等价于</p>
+<ul>
+<li><p>x，y异号。<code>sign(x) == 1 &amp;&amp; sing(y) == 0</code>，即<code>sign(x) &amp; (sign(y) ^ 1)</code></p>
+<blockquote>
+<p>Sign(x) {</p>
+<p>​    return ((x &gt;&gt; 31) &amp; 1); // 逻辑位移，详见下</p>
+<p>}</p>
+<p>如果为负数，返回1</p>
+<p>正数，返回0</p>
+</blockquote>
+</li>
+<li><p>x，y同号。</p>
+</li>
+</ul>
+<pre><code>1.sign(x) == sign(y) =&gt; (sign(x) ^ sign(y) ^ 1)
+2.x - y &lt;= 0
+=&gt; x - y &lt; 1
+=&gt; x + (~y+1) &lt; 1
+=&gt; x + (~y) &lt; 1
+=&gt; sign(x + (~y))</code></pre><blockquote>
+<p><a href="https://www.cnblogs.com/sinkinben/p/12323784.html" target="_blank" rel="noopener">来源&amp;参考-最大数值</a></p>
+</blockquote>
+<h4 id="逻辑位移算数位移"><a href="#逻辑位移算数位移" class="headerlink" title="逻辑位移算数位移"></a>逻辑位移算数位移</h4><p>逻辑右移只将二进制数整体右移，<strong>左边补0</strong>，屏蔽了右移带出来的符号位</p>
+<p>算术位移，左边补上符号位。</p>
+<h3 id="logicalNeg"><a href="#logicalNeg" class="headerlink" title="logicalNeg"></a>logicalNeg</h3><blockquote>
+<p>当 x≠0x≠0 时，x|(−x)x|(−x) 的符号位必然为 1</p>
+<p><a href="https://mcginn7.github.io/2020/02/14/CSAPP-datalab/#isLessOrEqual-x-y" target="_blank" rel="noopener">来源</a></p>
+</blockquote>
+<pre><code class="c++">/* 
+ * logicalNeg - implement the ! operator, using all of 
+ *              the legal operators except !
+ *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
+ *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *   Max ops: 12
+ *   Rating: 4 
+ */
+int logicalNeg(int x) {
+  return ((x | (~x + 1))&gt;&gt;31)+1;
+}</code></pre>
+<h3 id="howManyBits"><a href="#howManyBits" class="headerlink" title="howManyBits"></a>howManyBits</h3><pre><code class="c">/* howManyBits - return the minimum number of bits required to represent x in
+ *             two&#39;s complement
+ *  Examples: howManyBits(12) = 5
+ *            howManyBits(298) = 10
+ *            howManyBits(-5) = 4
+ *            howManyBits(0)  = 1
+ *            howManyBits(-1) = 1
+ *            howManyBits(0x80000000) = 32
+ *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
+ *  Max ops: 90
+ *  Rating: 4
+ */
+int howManyBits(int x) {
+  int b16,b8,b4,b2,b1,b0;
+  int sign=x&gt;&gt;31;
+  x = (sign&amp;~x)|(~sign&amp;x);//如果x&gt;0, 则x = x, 否则x = ~x
 
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221032403.png" srcset="/img/loading.gif" class="" title="image-20200201221032403">
+  b16 = !!(x&gt;&gt;16)&lt;&lt;4;//高十六位有1，则b16 = 2^4 = 16, 否则b16 = 0
+  x = x&gt;&gt;b16;
+  b8 = !!(x&gt;&gt;8)&lt;&lt;3;
+  x = x&gt;&gt;b8;
+  b4 = !!(x&gt;&gt;4)&lt;&lt;2;
+  x = x&gt;&gt;b4;
+  b2 = !!(x&gt;&gt;2)&lt;&lt;1;
+  x = x&gt;&gt;b2;
+  b1 = !!(x&gt;&gt;1);
+  x = x&gt;&gt;b1;
+  b0 = x;
+  return b16+b8+b4+b2+b1+b0+1;//+1表示加上符号位
+}</code></pre>
+<h3 id="floatScale2"><a href="#floatScale2" class="headerlink" title="floatScale2"></a>floatScale2</h3><pre><code class="c++">/* 
+ * floatScale2 - Return bit-level equivalent of expression 2*f for
+ *   floating point argument f.
+ *   Both the argument and result are passed as unsigned int&#39;s, but
+ *   they are to be interpreted as the bit-level representation of
+ *   single-precision floating point values.
+ *   When argument is NaN, return argument
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */
+unsigned floatScale2(unsigned uf) {
+    int exp_const = 0x7f800000; // 01111111100000000000000000000000
+    int frac_const = 0x7fffff;  // 00000000011111111111111111111111
+    int exp = (uf &amp; exp_const)&gt;&gt;23; // get exp part
+    int frac = uf &amp; frac_const;     // get frac part
+    int sign = uf &gt;&gt; 31;            // get sign
+    int sign_bit = sign &lt;&lt; 31;
+    if (exp == 0) return uf &lt;&lt; 1 | sign_bit; // exp = 0, not a correct format
+    if (exp == 255) return uf; // When argument is NaN, return argument
+    return ((exp + 1) &lt;&lt; 23) | frac | sign_bit;// 组合在一起
 
-<p>free了但没有设置为0，所以存在uaf</p>
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221102009.png" srcset="/img/loading.gif" class="" title="image-20200201221102009">
+}</code></pre>
+<blockquote>
+<p>1位符号位，8位exp，23位frac</p>
+<p>如125.125（10进制）</p>
+<p>转换成二进制<code>1111101.001</code>(二进制)，再转换成浮点数标准格式</p>
+<p><code>1.111101001 * 2^6</code> </p>
+<p>6代表点向左移动了几位，加上偏移量<code>127(32位)或者1023(64位)</code>，32位下，exp = (6+127)的二进制表示<code>10000101</code></p>
+<p>Frac = 小数点后的数，如<code>111101001</code></p>
+</blockquote>
+<h3 id="floatFloat2Int"><a href="#floatFloat2Int" class="headerlink" title="floatFloat2Int"></a>floatFloat2Int</h3><pre><code class="c++">/* 
+ * floatFloat2Int - Return bit-level equivalent of expression (int) f
+ *   for floating point argument f.
+ *   Argument is passed as unsigned int, but
+ *   it is to be interpreted as the bit-level representation of a
+ *   single-precision floating point value.
+ *   Anything out of range (including NaN and infinity) should return
+ *   0x80000000u.
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
+ *   Max ops: 30
+ *   Rating: 4
+ */
+int floatFloat2Int(unsigned uf) {
+    int exp_const = 0x7f800000; // 01111111100000000000000000000000
+    int frac_const = 0x7fffff;  // 00000000011111111111111111111111
+    int exp = (uf &amp; exp_const)&gt;&gt;23; // get exp part
+    int frac = uf &amp; frac_const;     // get frac part
+    frac = frac | 0x800000;         // 浮点数省略了第一个1，一般到位移的时候，1.frac，小数点前的1被省略了，所以得补上
+    int sign = uf &gt;&gt; 31;            // get sign
+    int sign_bit = sign &lt;&lt; 31;
+    int shift_num = exp - 127;
 
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221149782.png" srcset="/img/loading.gif" class="" title="image-20200201221149782">
+    if (shift_num &lt; 0)
+        return 0;
+    if (shift_num &gt; 31)
+        return 0x80000000u;
 
-<p>在这里，<code>notelist[i][0]</code>存放的是puts函数的地址，<code>notelist[i][1]</code>存放的就是指向content的地址</p>
-<p>先申请两个0x10的空间，内容为aaaa</p>
-<pre><code class="python">add(0x10,&quot;aaaa&quot;)
-add(0x10,&quot;aaaa&quot;)</code></pre>
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201220613982.png" srcset="/img/loading.gif" class="" title="image-20200201220613982">
+    if (shift_num &gt; 23)                            // 如果位移在23以上，说明frac部分全都是小数点前的，需要左移
+        frac = frac &lt;&lt; (shift_num - 23);
+    else                                                        // 右移并将小数点后的省略掉
+        frac = (frac &gt;&gt; (23 - shift_num));
 
-<p>最下面的是top chunk，我们申请了的两块0x10空间，还有两块是因为下图，并且，堆块地址向上生长</p>
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201221459981.png" srcset="/img/loading.gif" class="" title="image-20200201221459981">
-
-<p>所以，最先的<code>0x826300</code>和<code>0x826328</code>应该就是最先分配的notelist[i]，里面存放着指向print_note_content的地址，<code>0x826310</code>和<code>0x826338</code>就是我们自己申请的堆了</p>
-<p>然后在我们delete了这两个堆块之后，（由于重新运行程序所以地址改变</p>
-<pre><code class="python">delete(0)
-delete(1)</code></pre>
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201224306213.png" srcset="/img/loading.gif" class="" title="image-20200201224306213">
-
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201224344952.png" srcset="/img/loading.gif" class="" title="image-20200201224344952">
-
-<p><code>0x902e010</code>（我们申请的）和<code>0x902e00</code>（存放puts地址的）先进入fastbins单链表</p>
-<p>然后此时我们再<code>add(8,p32(shell))</code></p>
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201225157906.png" srcset="/img/loading.gif" class="" title="image-20200201225157906">
-
-<img src="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/image-20200201225221156.png" srcset="/img/loading.gif" class="" title="image-20200201225221156">
-
-<p><code>0x87d0028</code>先出来，储存print地址，然后再<code>0x87d0000</code>,储存magic地址</p>
-<p>最后，我们再print heap0时，就跳转到了magic地址上面去了</p>
+    if (sign)
+        return ~frac+1;
+    else
+        return frac;
+}</code></pre>
+<h3 id="floatPower2"><a href="#floatPower2" class="headerlink" title="floatPower2"></a>floatPower2</h3><pre><code class="c++">/* 
+ * floatPower2 - Return bit-level equivalent of the expression 2.0^x
+ *   (2.0 raised to the power x) for any 32-bit integer x.
+ *
+ *   The unsigned value that is returned should have the identical bit
+ *   representation as the single-precision floating-point number 2.0^x.
+ *   If the result is too small to be represented as a denorm, return
+ *   0. If too large, return +INF.
+ * 
+ *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while 
+ *   Max ops: 30 
+ *   Rating: 4
+ */
+unsigned floatPower2(int x) {
+    int INF = 0x7f800000; // 01111111100000000000000000000000
+    int exp = x + 127;
+    if (exp &gt; 255)
+        return INF;
+    if (exp &gt; 0)
+        return exp &lt;&lt; 23;
+    else
+        return 0;
+}</code></pre>
+<blockquote>
+<p>2.0的位级表示（ 1.0 * 2^1 ）：符号位：0，指数：1+127=128，frac=1.0-1=0。</p>
+<p>首先得到偏移之后的指数值e，如果e小于等于0（为0时，结果为0，因为2.0的浮点表示frac部分为0），对应的如果e大于等于255则为无穷大或越界了。否则返回正常浮点值，frac为0，直接对应指数即可</p>
+<p>来源<a href="https://zhuanlan.zhihu.com/p/59534845" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59534845</a></p>
+</blockquote>
+<h2 id="bomblab"><a href="#bomblab" class="headerlink" title="bomblab"></a>bomblab</h2><h3 id="Phase-1"><a href="#Phase-1" class="headerlink" title="Phase_1"></a>Phase_1</h3><p><code>Border relations with Canada have never been better.</code></p>
+<h3 id="Phase-2"><a href="#Phase-2" class="headerlink" title="Phase_2"></a>Phase_2</h3><p>看phase_2函数里</p>
+<p>![image-20200905200221312](CSAPP lab/image-20200905200221312.png)</p>
+<p>![image-20200905201155428](CSAPP lab/image-20200905201155428.png)</p>
+<p>读取了六个数字，结合f5生成的伪代码，可以看到讲读取的数据存入到栈种。调用结束后会将[rsp]与1进行比较，所以第一个数必须是1。</p>
+<p>![image-20200905202536189](CSAPP lab/image-20200905202536189.png)</p>
+<p>标黄的地方，将[rsp+4]放到rbx中，然后在0x400F17这里，可以看到将[rbx-4]，也就是[rsp]放入eax中，再eax自加，随后将exa和[rbx]相比较，所以也就是读取的数字中，第二个数字是第一个数字*2，以此类推，一直到rbx = rbp 也就是直到rsp + 18h，也就是比对完这读取的六个数字，然后再结束循环解除炸弹。</p>
+<h3 id="Phase-3"><a href="#Phase-3" class="headerlink" title="Phase_3"></a>Phase_3</h3><p>根据输入的v8，比对result是否和v9一样</p>
+<h3 id="Phase-4"><a href="#Phase-4" class="headerlink" title="Phase_4"></a>Phase_4</h3><p>可以用python写一下func4的代码，或者直接让v8=7让返回结果是0就行</p>
+<h3 id="Phase-5"><a href="#Phase-5" class="headerlink" title="Phase_5"></a>Phase_5</h3><p>![image-20200906215307237](CSAPP lab/image-20200906215307237.png)</p>
+<p>![image-20200906215354052](CSAPP lab/image-20200906215354052.png)</p>
+<p>赋值这里，由于会和 0xF与一下，所以为了使结果是flyers，输入<code>9on567</code>即可在这个数组中取得对应的字幕</p>
+<pre><code>o = 0110 1111 
+o &amp; 0xf = 0000 1111 = 16 = 0xf
+n = 0110 1110
+n &amp; 0xf = 0000 1110 = 15 = 0xe</code></pre><h3 id="Phase-6"><a href="#Phase-6" class="headerlink" title="Phase_6"></a>Phase_6</h3><p>4 3 2 1 6 5</p>
+<p>挖坑，咕咕咕</p>
 
             </div>
             <hr>
             <div>
               <p>
-                
-                  <span>
-                <i class="iconfont icon-inbox"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
-                      &nbsp;
-                    
-                      <a class="hover-with-bg" href="/categories/CTF/buu/">buu</a>
-                      &nbsp;
-                    
-                  </span>&nbsp;&nbsp;
                 
                 
               </p>
@@ -269,9 +440,9 @@ delete(1)</code></pre>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/02/02/babyheap_0ctf_2017/">
+                      <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">
                         <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">babyheap_0ctf_2017</span>
+                        <span class="hidden-mobile">简要介绍一下nas和软路由</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -279,8 +450,8 @@ delete(1)</code></pre>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
-                        <span class="hidden-mobile">BrainOverFlow_Vol.1_BUU特供</span>
+                      <a href="/2020/08/21/LLVM%20pass/">
+                        <span class="hidden-mobile">LLVM pass</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -519,7 +690,7 @@ delete(1)</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "堆之UAF(Use_after_free)及调试-hitcontraining_uaf&nbsp;",
+        "CSAPP lab&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
