@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>c++ static的作用 - Mr.BelieVe&#39;s Treasure</title>
+  <title>PCTF2016：Confused ARM 调试记录 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -132,7 +132,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期三, 九月 23日 2020, 2:33 下午
+                  星期五, 十月 9日 2020, 10:29 上午
                 </p>
               
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    488 字
+                    1.2k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      2 分钟
+                      5 分钟
                   </span>
                 
 
@@ -177,111 +177,140 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="c-static的作用"><a href="#c-static的作用" class="headerlink" title="c++ static的作用"></a>c++ static的作用</h1><p><a href="https://www.tutorialspoint.com/cplusplus/cpp_static_members.htm#:~:text=By%20declaring%20a%20function%20member,the%20scope%20resolution%20operator%20%3A%3A." target="_blank" rel="noopener">原文</a></p>
-<h2 id="static-menmbers-of-a-c-class"><a href="#static-menmbers-of-a-c-class" class="headerlink" title="static menmbers of a c++ class"></a>static menmbers of a c++ class</h2><p>当我们声明一个类成员为static的时候，这意味着无论有其他多少种类的对象被创建了，也仅有这一份静态成员的copy。</p>
-<p>静态成员也被类的所有对象共享。</p>
-<pre><code class="c++">Live Demo
-#include &lt;iostream&gt;
-
-using namespace std;
-
-class Box {
-   public:
-      static int objectCount;
-
-      // Constructor definition
-      Box(double l = 2.0, double b = 2.0, double h = 2.0) {
-         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
-         length = l;
-         breadth = b;
-         height = h;
-
-         // Increase every time object is created
-         objectCount++;
-      }
-      double Volume() {
-         return length * breadth * height;
-      }
-
-   private:
-      double length;     // Length of a box
-      double breadth;    // Breadth of a box
-      double height;     // Height of a box
-};
-
-// Initialize static member of class Box
-int Box::objectCount = 0;
-
-int main(void) {
-   Box Box1(3.3, 1.2, 1.5);    // Declare box1
-   Box Box2(8.5, 6.0, 2.0);    // Declare box2
-
-   // Print total number of objects.
-   cout &lt;&lt; &quot;Total objects: &quot; &lt;&lt; Box::objectCount &lt;&lt; endl;
-
-   return 0;
-}</code></pre>
-<p>结果</p>
-<pre><code class="c++">Constructor called.
-Constructor called.
-Total objects: 2</code></pre>
-<h2 id="static-function-members"><a href="#static-function-members" class="headerlink" title="static function members"></a>static function members</h2><p>声明一个静态成员函数，这将会让它独立于类的所有对象。</p>
-<p>静态成员函数只能访问静态数据成员，其他静态成员函数和类外所有函数。</p>
+              <h1 id="PCTF2016：Confused-ARM-调试记录"><a href="#PCTF2016：Confused-ARM-调试记录" class="headerlink" title="PCTF2016：Confused ARM 调试记录"></a>PCTF2016：Confused ARM 调试记录</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>结合书《CTF特训营》IoT篇看最佳</p>
+<h2 id="0x01-静态分析"><a href="#0x01-静态分析" class="headerlink" title="0x01 静态分析"></a>0x01 静态分析</h2><p>指定处理器类型为ARM little-endian，不然</p>
+<p>![image-20201009103732001](PCTF2016：Confused ARM 调试记录/image-20201009103732001.png)</p>
+<p>正常打开之后先看看DCD部分</p>
 <blockquote>
-<p>Static member functions have a class scope and they do not have access to the <strong>this</strong> pointer of the class. You could use a static member function to determine whether some objects of the class have been created or not.</p>
+<p>DCD：数据定义（ Data Definition ）伪指令<br>一般用于为特定的数据分配存储单元，同时可完成已分配存储单元的初始化。</p>
+<h3 id="语法格式："><a href="#语法格式：" class="headerlink" title="语法格式："></a>语法格式：</h3><pre><code>标号 DCD（或 DCDU） 表达式</code></pre><p>DCD（或 DCDU）伪指令用于分配一片连续的字存储单元并用指定的表达式初始化。其中表达式可以为程序标号或数字表达式。 DCD 也可用 “ &amp;” 代替。</p>
+<p>用 DCD 分配的字存储单元是字对齐的，而用 DCDU 分配的字存储单元并不严格字对齐。</p>
+<h3 id="实例（STM32-启动文件）："><a href="#实例（STM32-启动文件）：" class="headerlink" title="实例（STM32 启动文件）："></a>实例（STM32 启动文件）：</h3><pre><code>__Vectors       DCD     __initial_sp               ; Top of Stack
+                DCD     Reset_Handler              ; Reset Handler
+                DCD     NMI_Handler                ; NMI Handler
+                DCD     HardFault_Handler          ; Hard Fault Handler
+                DCD     MemManage_Handler          ; MPU Fault Handler
+                DCD     BusFault_Handler           ; Bus Fault Handler
+                DCD     UsageFault_Handler         ; Usage Fault Handler
+                DCD     0                          ; Reserved
+                DCD     0                          ; Reserved
+                DCD     0                          ; Reserved
+                DCD     0                          ; Reserved
+                DCD     SVC_Handler                ; SVCall Handler
+                DCD     DebugMon_Handler           ; Debug Monitor Handler
+                DCD     0                          ; Reserved
+                DCD     PendSV_Handler             ; PendSV Handler
+                DCD     SysTick_Handler            ; SysTick Handler</code></pre><p><a href="https://www.cnblogs.com/GyForever1004/p/8893789.html" target="_blank" rel="noopener">来源</a></p>
 </blockquote>
-<pre><code class="c++">#include &lt;iostream&gt;
+<p>所以第二个即为Reset handler，即<code>0x8000101</code></p>
+<blockquote>
+<p>The <strong>reset handler</strong> contains program code that is executed as soon as the processor exits from <strong>reset</strong>. In some cases, it contains some hardware initialization.</p>
+</blockquote>
+<p>实际地址为<code>0x8000100</code></p>
+<blockquote>
+<p>These vectors have LSB set to 1 to indicate that the exceptions handlers are to be executed with Thumb instructions</p>
+</blockquote>
+<p>另一种判断指令集为thumb的方法</p>
+<blockquote>
+<p><a href="https://eternalsakura13.com/2018/01/18/arm1/" target="_blank" rel="noopener">来源</a></p>
+<p>这有一段指令，判断出目前是thumb指令集的</p>
+<p><a href="https://sakura-1252236262.cos.ap-beijing.myqcloud.com/blog/180118/bDfa164Gm2.png?imageslim" target="_blank" rel="noopener">![mark](PCTF2016：Confused ARM 调试记录/bDfa164Gm2.png)</a></p>
+<p>（图来自sakura博客，与confused arm无关）</p>
+<p>![mark](PCTF2016：Confused ARM 调试记录/L44GbeBb0g.png)</p>
+<ul>
+<li>Edit-&gt;segments-&gt;change segment register value(快捷键ALT+G)</li>
+</ul>
+</blockquote>
+<p>按下ALT+G，T的value 为0x0，就是指定为ARM指令集，设定为0x1，就是thumb指令集</p>
+<p>然后在<code>0x8000100</code>处按C转换成code</p>
+<p>![image-20201009153839279](PCTF2016：Confused ARM 调试记录/image-20201009153839279.png)</p>
+<p>然后我们跟随<code>0x8000100</code>这个程序入口开始，一路跳转到<code>0x8001084</code></p>
+<p>![image-20201009154947339](PCTF2016：Confused ARM 调试记录/image-20201009154947339.png)</p>
+<p>多选然后转换成hex</p>
+<p>![image-20201009155719385](PCTF2016：Confused ARM 调试记录/image-20201009155719385.png)</p>
+<p><code>0x40000000</code>和<code>0x20000000</code>，前者是特殊功能寄存器的基地址，后者是sram的起始地址</p>
+<p>将这些地址添加为segment，在Edit-&gt;Segments-&gt;Create segemt </p>
+<p>![image-20201009160159665](PCTF2016：Confused ARM 调试记录/image-20201009160159665.png)</p>
+<p>SRAM部分同上，</p>
+<p>然后在汇编中对这地址按O</p>
+<p>![image-20201009160319480](PCTF2016：Confused ARM 调试记录/image-20201009160319480.png)</p>
+<p>![image-20201009160429796](PCTF2016：Confused ARM 调试记录/image-20201009160429796.png)</p>
+<p>然后在伪代码中再按一次F5刷新</p>
+<p>![image-20201009160509472](PCTF2016：Confused ARM 调试记录/image-20201009160509472.png)</p>
+<p>随后在这些疑似数组的地方用如下方式进行转换</p>
+<p>![image-20201009160758788](PCTF2016：Confused ARM 调试记录/image-20201009160758788.png)</p>
+<pre><code class="c">void __fastcall __noreturn sub_8001084(int a1)
+{
+  int v1; // r0
+  int v2; // r0
 
-using namespace std;
+  v1 = sub_8000A00(a1);
+  v2 = sub_80006A4(v1);
+  sub_80007F0(v2);
+  sub_8000A50(0x1C200);
+  sub_8000AA8(&amp;USART1, 0x40);
+  sub_8000560(byte_2000000C, &amp;unk_2000026C);
+  while ( 1 )
+  {
+    if ( unk_20000000 )
+    {
+      sub_8000BA4(
+        &quot;Key is :0x%08x,0x%08x,0x%08x,0x%08x\r\n&quot;,
+        byte_2000000C[0],
+        byte_2000000C[1],
+        byte_2000000C[2],
+        byte_2000000C[3]);
+      unk_20000000 = 0;
+    }
+    if ( !sub_80007E2(1073809408, 2) )
+    {
+      sub_800055C(byte_2000000C, &amp;unk_2000026C);
+      sub_8000248(&amp;unk_2000001C, byte_2000031C);
+      sub_8000AA8(&amp;USART1, 64);
+      sub_8000BA4(
+        &quot;Fl4g 1s :PCTF{%08x%08x%08x%08x}\r\n&quot;,
+        byte_2000031C[0],
+        byte_2000031C[1],
+        byte_2000031C[2],
+        byte_2000031C[3]);
+    }
+  }
+}</code></pre>
+<h2 id="0x02-动态调试"><a href="#0x02-动态调试" class="headerlink" title="0x02 动态调试"></a>0x02 动态调试</h2><p>参考书459页进行配置</p>
+<blockquote>
+<p>如果load hex之后提示no write permission，请按照462页的工程设置界面，将最下面的CPU DLL, Driver DLl, Dialog DLL和Parameter对照一致设置好就行</p>
+</blockquote>
+<p>按照书上改名过后</p>
+<p>![image-20201010091446144](PCTF2016：Confused ARM 调试记录/image-20201010091446144.png)</p>
+<p>资料可参考<a href="https://blog.csdn.net/weixin_40117614/article/details/93018940" target="_blank" rel="noopener">这儿</a></p>
+<p>==打patch为0C 4A，改成0B 4A 理解不能QwQ，后面的打patch也理解不能QwQ==</p>
+<p>改checksum，可用以下脚本计算，<a href="https://blog.csdn.net/qq_28840013/article/details/84143501" target="_blank" rel="noopener">来源</a></p>
+<pre><code class="python">def check(DD):
+    length=len(DD)  #求长度
 
-class Box {
-   public:
-      static int objectCount;
+    #创建一个list，将传入的str的每两个数合在一起，再求和
+    list1=[]
+    if(length%2==1):    #如果str长度为单数，则抛出错误
+        print(&#39;[!] 数据长度有误&#39;)
+    else:   
+        for i in range(0, length, 2):  #range（开始，结束-1，每次加多少）  这里即0——length-1  每次循环i+2
+            hex_digit=DD[i:i + 2]      #将传入的str的每两个数合在一起
+            list1.append(&#39;0x&#39;+hex_digit)    #再每个字符前+0x  但是它仍然是字符，但更便于下面通过int(list1[i], 16)转换成16进制
+    print(list1)
 
-      // Constructor definition
-      Box(double l = 2.0, double b = 2.0, double h = 2.0) {
-         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
-         length = l;
-         breadth = b;
-         height = h;
+    sum=0
+    for i in range(int(length/2)):   #求和
+        sum=int(list1[i], 16)+sum      #int(list1[i], 16)将16进制转换成10进制 int类型
+    sum=sum%256
+    sum=256-sum
+    print(&#39;校验码: &#39;+hex(sum))   #将sum和结果转换成16进制  hex(sum)
 
-         // Increase every time object is created
-         objectCount++;
-      }
-      double Volume() {
-         return length * breadth * height;
-      }
-      static int getCount() {
-         return objectCount;
-      }
+if __name__==&quot;__main__&quot;:
+    DD=input(&quot;请输入HEX文件数据记录（校验值除外）：&quot;)   #input接收参数为str类型
+    check(DD)</code></pre>
+<p>然后MDK里reload之后，run就可以了</p>
+<p>![image-20201010155940502](PCTF2016：Confused ARM 调试记录/image-20201010155940502.png)</p>
 
-   private:
-      double length;     // Length of a box
-      double breadth;    // Breadth of a box
-      double height;     // Height of a box
-};
-
-// Initialize static member of class Box
-int Box::objectCount = 0;
-
-int main(void) {
-   // Print total number of objects before creating object.
-   cout &lt;&lt; &quot;Inital Stage Count: &quot; &lt;&lt; Box::getCount() &lt;&lt; endl;
-
-   Box Box1(3.3, 1.2, 1.5);    // Declare box1
-   Box Box2(8.5, 6.0, 2.0);    // Declare box2
-
-   // Print total number of objects after creating object.
-   cout &lt;&lt; &quot;Final Stage Count: &quot; &lt;&lt; Box::getCount() &lt;&lt; endl;
-
-   return 0;
-}
-</code></pre>
-<p>结果</p>
-<pre><code>Inital Stage Count: 0
-Constructor called.
-Constructor called.
-Final Stage Count: 2</code></pre>
             </div>
             <hr>
             <div>
@@ -297,18 +326,12 @@ Final Stage Count: 2</code></pre>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">PCTF2016：Confused ARM 调试记录</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">
-                        <span class="hidden-mobile">简要介绍一下nas和软路由</span>
+                      <a href="/2020/09/23/c++%20static%E7%9A%84%E4%BD%9C%E7%94%A8/">
+                        <span class="hidden-mobile">c++ static的作用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -547,7 +570,7 @@ Final Stage Count: 2</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "c++ static的作用&nbsp;",
+        "PCTF2016：Confused ARM 调试记录&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

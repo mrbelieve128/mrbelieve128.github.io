@@ -157,6 +157,51 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
+        <p class="h4 index-header">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</p>
+      </a>
+
+      <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">堆之UAF(Use_after_free)及调试-hitcontraining_uaf
+https://wiki.x10sec.org/pwn/heap/use_after_free/
+一个很直接的想法是修改note的put字段为magic函数的地址，从而实现在执行print note 的时候执行magic函数。 那么该怎么执行呢？
+我们可以简单来看一下每一个note生成的具体流程
+
+程序申请8字节内存用来存放note中的put以及content指针。
+
+程序根据输入的size来申请指定大小的内存，然后用来存储content。
+
+
+      +-----------------+      </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
         <p class="h4 index-header">BrainOverFlow_Vol.1_BUU特供</p>
       </a>
@@ -603,50 +648,6 @@ p +=</div>
             <a href="/categories/CTF/buu/">buu</a>&nbsp;
           
             <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编基础</p>
-      </a>
-
-      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">X86汇编基础==Intel和AT&amp;T语法区别：==
-
-Intel操作数在前面，AT&amp;T的在后面
-
-
-在Intel语法中：  在AT&amp;T语法中：  有一个简单的记住它们的方法: 当你面对intel语法的时候，你可以想象把等号(=)放到2个操作数中间，当面对AT&amp;T语法的时候，你可以放一个右箭头(→）到两个操作数之间。
-
-
-AT&amp;T: 寄存器名之前需要写一个百分号(%)并且在数字前面需要加上美元符($)。并用圆括号替代方括号
-AT&amp;T: 以下是一些添加到操作符后，用来表示数据形式的后缀：– q — quad (64 bits)– l — long </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
           &nbsp;
         
         
