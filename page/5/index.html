@@ -157,6 +157,54 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">
+        <p class="h4 index-header">ROPgadget-not_the_same_3dsctf_2016</p>
+      </a>
+
+      <a href="/2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ROPgadget-not_the_same_3dsctf_2016
+
+
+
+ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
+自动生成
+from struct import pack
+p = &#39;&#39;
+p += pack(&#39;&lt;I&#39;, 0x0806fcca) # pop edx ; ret
+p += pack(&#39;&lt;I&#39;, 0x080eb060) # @ .data
+p += pack(&#39;&lt;I&#39;, 0x08048b0b) # pop eax ; ret
+p +=</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
         <p class="h4 index-header">汇编基础</p>
       </a>
@@ -571,56 +619,6 @@ class Linkedli</div>
             <a href="/categories/python/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
           &nbsp;
         
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/Proxychains/">
-        <p class="h4 index-header">Proxychains</p>
-      </a>
-
-      <a href="/2020/01/13/Proxychains/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">折腾两小时，不如问一下人= =
-Proxychains
-先安装
-然后sudo vi /etc/proxychains.conf
-socks5 win_ip 1080
-win_ip为你的windows主机ip，可在cmd ifconfig查看
-飞机要打开允许局域网连接
-
-
-然后运行测试
-proxychains4 telnet www.google.com 443
-可以之后就可以直接sudo proxychains4 apt-get update了
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>&nbsp;
-          
         
       </div>
     </div>

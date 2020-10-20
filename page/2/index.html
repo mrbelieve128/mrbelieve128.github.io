@@ -157,6 +157,47 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+        <p class="h4 index-header">记一次转移环境上服务器</p>
+      </a>
+
+      <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">记一次转移后端环境上服务器本想着本地docker调好直接传上去的，然鹅一开vscode remote就崩
+并且，vscode remote也仅指本地的docker里，不是云服务器的环境，QAQ
+上传xftp 学生免费版，可了
+安装好数据库后，记得设置密码，参考
+修改utf8为utf8mb4
+vim /etc/mysql/my.cnf
+[mysqld]
+character-set-server=utf8mb4
+
+[mysql]
+default-character-set=utf8mb4
+
+[client]
+default-character-set=utf8mb4                </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
         <p class="h4 index-header">django学习记录</p>
       </a>
@@ -621,65 +662,6 @@ C类
             <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/02/08/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
-        <p class="h4 index-header">ROPgadget&amp;系统调用-cmcc_simplerop</p>
-      </a>
-
-      <a href="/2020/02/08/ROPgadget&%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8-cmcc_simplerop/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">ROPgadget&amp;系统调用-cmcc_simplerop
-
-
-
-第一反应就是用ROPgadget自动生成ropchains
-但在这里不行，算出来的偏移是0x20，那么只有68字节给ropchains了
-
-
-而自动生成的都太长了= =，只能手动调整ropchains长度
-
-参考http://m4x.fun/post/hitcon-training-writeup/
-
-    from struct import pack 
-
-    pop_edx_ecx_ebx = 0x0806e850
-    payload = cyclic(0x14 + 12) 
-
-    p = lambda</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/ROPgadget-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%8F%B7/">-ROPgadget -系统调用号</a>&nbsp;
-          
         
       </div>
     </div>

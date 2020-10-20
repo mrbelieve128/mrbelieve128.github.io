@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
-  <title>PCTF2016：Confused ARM 调试记录 - Mr.BelieVe&#39;s Treasure</title>
+  <title>Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -132,7 +132,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期五, 十月 9日 2020, 10:29 上午
+                  星期一, 十月 19日 2020, 8:50 早上
                 </p>
               
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1.2k 字
+                    2k 字
                   </span>
                 
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      5 分钟
+                      10 分钟
                   </span>
                 
 
@@ -177,139 +177,189 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="PCTF2016：Confused-ARM-调试记录"><a href="#PCTF2016：Confused-ARM-调试记录" class="headerlink" title="PCTF2016：Confused ARM 调试记录"></a>PCTF2016：Confused ARM 调试记录</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>结合书《CTF特训营》IoT篇看最佳</p>
-<h2 id="0x01-静态分析"><a href="#0x01-静态分析" class="headerlink" title="0x01 静态分析"></a>0x01 静态分析</h2><p>指定处理器类型为ARM little-endian，不然</p>
-<p>![image-20201009103732001](PCTF2016：Confused ARM 调试记录/image-20201009103732001.png)</p>
-<p>正常打开之后先看看DCD部分</p>
-<blockquote>
-<p>DCD：数据定义（ Data Definition ）伪指令<br>一般用于为特定的数据分配存储单元，同时可完成已分配存储单元的初始化。</p>
-<h3 id="语法格式："><a href="#语法格式：" class="headerlink" title="语法格式："></a>语法格式：</h3><pre><code>标号 DCD（或 DCDU） 表达式</code></pre><p>DCD（或 DCDU）伪指令用于分配一片连续的字存储单元并用指定的表达式初始化。其中表达式可以为程序标号或数字表达式。 DCD 也可用 “ &amp;” 代替。</p>
-<p>用 DCD 分配的字存储单元是字对齐的，而用 DCDU 分配的字存储单元并不严格字对齐。</p>
-<h3 id="实例（STM32-启动文件）："><a href="#实例（STM32-启动文件）：" class="headerlink" title="实例（STM32 启动文件）："></a>实例（STM32 启动文件）：</h3><pre><code>__Vectors       DCD     __initial_sp               ; Top of Stack
-                DCD     Reset_Handler              ; Reset Handler
-                DCD     NMI_Handler                ; NMI Handler
-                DCD     HardFault_Handler          ; Hard Fault Handler
-                DCD     MemManage_Handler          ; MPU Fault Handler
-                DCD     BusFault_Handler           ; Bus Fault Handler
-                DCD     UsageFault_Handler         ; Usage Fault Handler
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     SVC_Handler                ; SVCall Handler
-                DCD     DebugMon_Handler           ; Debug Monitor Handler
-                DCD     0                          ; Reserved
-                DCD     PendSV_Handler             ; PendSV Handler
-                DCD     SysTick_Handler            ; SysTick Handler</code></pre><p><a href="https://www.cnblogs.com/GyForever1004/p/8893789.html" target="_blank" rel="noopener">来源</a></p>
+              <h1 id="Netgear-Nighthawk-R8300-upnpd-PreAuth-RCE-复现辅助"><a href="#Netgear-Nighthawk-R8300-upnpd-PreAuth-RCE-复现辅助" class="headerlink" title="Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助"></a>Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助</h1><p>小声：因为nvram那里我实在搞不定了，如果有愿意帮忙的师傅欢迎联系！</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p><a href="https://www.netgear.com/support/product/R8300.aspx#Firmware%20Version%201.0.2.130" target="_blank" rel="noopener">固件下载地址</a></p>
+<p>md5sum</p>
+<pre><code>c3eb8f8c004d466796a05b4c60503162  R8300-V1.0.2.130_1.0.99.zip</code></pre><p>binwalk</p>
+<pre><code class="shell">binwalk R8300-V1.0.2.130_1.0.99.chk 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+58            0x3A            TRX firmware header, little endian, image size: 32653312 bytes, CRC32: 0x5CEAB739, flags: 0x0, version: 1, header size: 28 bytes, loader offset: 0x1C, linux kernel offset: 0x21AB50, rootfs offset: 0x0
+86            0x56            LZMA compressed data, properties: 0x5D, dictionary size: 65536 bytes, uncompressed size: 5470272 bytes
+2206602       0x21AB8A        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 30443160 bytes, 1650 inodes, blocksize: 131072 bytes, created: 2018-12-13 04:36:38</code></pre>
+<p>查找upnpd</p>
+<pre><code class="bash">iot@attifyos ~/t/f/_/_R8300-V1.0.2.130_1.0.99.chk.extracted&gt; cd squashfs-root/
+iot@attifyos ~/t/f/_/_/squashfs-root&gt; ls
+bin/  etc/  media@  opt/   sbin/   sys/  usr/  www/
+dev/  lib/  mnt/    proc/  share/  tmp/  var@
+iot@attifyos ~/t/f/_/_/squashfs-root&gt; find . -name upnpd
+./usr/sbin/upnpd
+iot@attifyos ~/t/f/_/_/squashfs-root&gt; file ./usr/sbin/upnpd
+./usr/sbin/upnpd: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-, stripped</code></pre>
+<h3 id="fat模拟"><a href="#fat模拟" class="headerlink" title="fat模拟"></a>fat模拟</h3><pre><code>./fat.py R8300-V1.0.2.130_1.0.99.zip 
+
+                               __           _
+                              / _|         | |
+                             | |_    __ _  | |_
+                             |  _|  / _` | | __|
+                             | |   | (_| | | |_
+                             |_|    \__,_|  \__|
+
+                Welcome to the Firmware Analysis Toolkit - v0.3
+    Offensive IoT Exploitation Training http://bit.do/offensiveiotexploitation
+                  By Attify - https://attify.com  | @attifyme
+
+[+] Firmware: R8300-V1.0.2.130_1.0.99.zip
+[+] Extracting the firmware...
+[+] Image ID: 1
+[+] Identifying architecture...
+[+] Architecture: armel
+[+] Building QEMU disk image...
+[+] Setting up the network connection, please standby...
+[+] Network interfaces: []
+[+] All set! Press ENTER to run the firmware...
+[+] When running, press Ctrl + A X to terminate qemu</code></pre><p>没有提供ip和端口的话，一般就不能自动处理了。</p>
+<h3 id="qemu-user-mode模拟"><a href="#qemu-user-mode模拟" class="headerlink" title="qemu user mode模拟"></a>qemu user mode模拟</h3><pre><code>sudo chroot . ./qemu-arm-static  ./usr/sbin/upnpd
+或者 
+sudo chroot . ./qemu-arm-static --strace ./usr/sbin/upnpd</code></pre><blockquote>
+<p>-strace              QEMU_STRACE       log system calls</p>
 </blockquote>
-<p>所以第二个即为Reset handler，即<code>0x8000101</code></p>
-<blockquote>
-<p>The <strong>reset handler</strong> contains program code that is executed as soon as the processor exits from <strong>reset</strong>. In some cases, it contains some hardware initialization.</p>
+<pre><code>33359 open(&quot;/var/run/upnpd.pid&quot;,O_RDWR|O_CREAT|O_TRUNC,0666) = -1 errno=2 (No such file or directory)</code></pre><p>查看文件结构后</p>
+<pre><code>drwxr-xr-x  4 mrbelieve mrbelieve     4096 Oct 20 00:00 tmp
+drwxrwxr-x 10 mrbelieve mrbelieve     4096 Dec 12  2018 usr
+lrwxrwxrwx  1 mrbelieve mrbelieve        7 Dec 12  2018 var -&gt; tmp/var
+drwxr-xr-x  8 mrbelieve mrbelieve    24576 Dec 12  2018 www</code></pre><p>通过<code>mkdir -p ./tmp/var/run</code>解决，再次运行后显示大量</p>
+<pre><code>open(&quot;/dev/nvram&quot;,O_RDWR) = -1 errno=2 (No such file or directory)</code></pre><p>或者</p>
+<pre><code>/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+open: No such file or directory</code></pre><blockquote>
+<p>均与<code>NVRAM</code>有关，该错误在进行<code>IoT</code>设备仿真时会经常遇到。<code>NVRAM</code>中保存了设备的一些配置信息，而程序运行时需要读取配置信息，由于缺少对应的外设，因此会报错。一种常见的解决方案是<code>&quot;劫持&quot;</code>与<code>NVRAM</code>读写相关的函数，通过软件的方式来提供相应的配置。</p>
+<p>网上有很多类似的模拟<code>NVRAM</code>行为的库，而<code>Firmadyne</code>框架提供的<code>libnvram</code>库：支持很多常见的<code>api</code>，对很多嵌入式设备进行了适配，同时还会解析固件中默认的一些<code>NVRAM</code>配置，实现方式比较优雅。采用该库，往往只需要做很少的改动，甚至无需改动，就可以满足需求。</p>
 </blockquote>
-<p>实际地址为<code>0x8000100</code></p>
+<p>libnvram<a href="https://github.com/firmadyne/libnvram" target="_blank" rel="noopener">文档</a>。编译好后直接放在squashfs-root</p>
 <blockquote>
-<p>These vectors have LSB set to 1 to indicate that the exceptions handlers are to be executed with Thumb instructions</p>
+<p>编译可以使用buildroot，make menuconfig记得将”Target Architecture”改成ARM(little endian) ，最后使用<code>buildroot/output/host/usr/bin/arm-linux-gcc -Wall -fPIC -shared nvram.c -o libnvram.so.armel -nostdlib</code>  即可</p>
+<p>具体选项来自libnvram的Makefile</p>
 </blockquote>
-<p>另一种判断指令集为thumb的方法</p>
+<pre><code>sem_lock: Triggering NVRAM initialization!
+nvram_init: Initializing NVRAM...
+sem_get: Unable to get semaphore key!
+sem_lock: Unable to get semaphore!
+sem_get: Unable to get semaphore key!
+sem_unlock: Unable to get semaphore!
+nvram_init: Unable to mount tmpfs on mount point /firmadyne/libnvram/!
+sem_get: Unable to get semaphore key!
+sem_lock: Unable to get semaphore!
+sem_get: Unable to get semaphore key!
+sem_unlock: Unable to get semaphore!
+nvram_get_buf: Unable to open key: /firmadyne/libnvram/upnpd_debug_level!</code></pre><p>这样可以开始调nvram的配置了</p>
+<p>这样我就实在调不来了。。。<strong>最终死在lan_ipaddr上面，怎么设置都不对</strong>。。。</p>
+<h3 id="qemu-system-mode模拟"><a href="#qemu-system-mode模拟" class="headerlink" title="qemu system mode模拟"></a>qemu system mode模拟</h3><p><strong>过于麻烦，本质是起一个完整虚拟机然后再跑这个服务的样子（而且虚拟机很慢）</strong></p>
+<p>下面是ubuntu20环境，attifyOS还未测试成功过。</p>
+<p>新建一个tap接口，并配置ip</p>
+<pre><code>sudo tunctl -t tap0 -u `whoami`
+
+sudo ifconfig tap0 192.168.2.1/24</code></pre><blockquote>
+<p>The tap networking backend makes use of a tap networking device in the host. It offers very good performance and can be configured to create virtually any type of network topology. Unfortunately, it requires configuration of that network topology in the host which tends to be different depending on the operating system you are using.</p>
+</blockquote>
+<p>然后把<code>vmlinuz-3.2.0-4-vexpress</code>， <code>initrd.img-3.2.0-4-vexpress -drive</code>和<code>debian_wheezy_armhf_standard.qcow2</code>放到当前目录下。<a href="https://people.debian.org/~aurel32/qemu/armhf/" target="_blank" rel="noopener">前面几个东西的下载地址</a></p>
 <blockquote>
-<p><a href="https://eternalsakura13.com/2018/01/18/arm1/" target="_blank" rel="noopener">来源</a></p>
-<p>这有一段指令，判断出目前是thumb指令集的</p>
-<p><a href="https://sakura-1252236262.cos.ap-beijing.myqcloud.com/blog/180118/bDfa164Gm2.png?imageslim" target="_blank" rel="noopener">![mark](PCTF2016：Confused ARM 调试记录/bDfa164Gm2.png)</a></p>
-<p>（图来自sakura博客，与confused arm无关）</p>
-<p>![mark](PCTF2016：Confused ARM 调试记录/L44GbeBb0g.png)</p>
+<p>armel and armhf</p>
+<p>The ARM EABI (<strong>armel</strong>) port targets a range of older 32-bit ARM devices, particularly those used in NAS hardware and a variety of <em>plug computers. The newer ARM hard-float (*</em>armhf**) port supports newer, more powerful 32-bit devices using version 7 of the ARM architecture specification.</p>
+</blockquote>
+<pre><code>qemu-system-arm -M vexpress-a9 -kernel vmlinuz-3.2.0-4-vexpress -initrd initrd.img-3.2.0-4-vexpress -drive if=sd,file=debian_wheezy_armhf_standard.qcow2 -append &quot;root=/dev/mmcblk0p2&quot; -net nic -net tap,ifname=tap0,script=no,downscript=no -nographic</code></pre><p>关于这个<code>root=/dev/mmcblk0p2</code>，我自己尝试直接将文件夹放进去会起不来。。。我的解决方法是先这样跑然后通过scp传进去</p>
+<p><code>cp -r root@192.168.2.2  ./squashfs-root /home/user/squashfs-root</code></p>
+<p>等待……</p>
+<p>启动之后</p>
+<blockquote>
 <ul>
-<li>Edit-&gt;segments-&gt;change segment register value(快捷键ALT+G)</li>
+<li>Root password:  root</li>
+<li>User account:   user</li>
+<li>User password:  user</li>
 </ul>
 </blockquote>
-<p>按下ALT+G，T的value 为0x0，就是指定为ARM指令集，设定为0x1，就是thumb指令集</p>
-<p>然后在<code>0x8000100</code>处按C转换成code</p>
-<p>![image-20201009153839279](PCTF2016：Confused ARM 调试记录/image-20201009153839279.png)</p>
-<p>然后我们跟随<code>0x8000100</code>这个程序入口开始，一路跳转到<code>0x8001084</code></p>
-<p>![image-20201009154947339](PCTF2016：Confused ARM 调试记录/image-20201009154947339.png)</p>
-<p>多选然后转换成hex</p>
-<p>![image-20201009155719385](PCTF2016：Confused ARM 调试记录/image-20201009155719385.png)</p>
-<p><code>0x40000000</code>和<code>0x20000000</code>，前者是特殊功能寄存器的基地址，后者是sram的起始地址</p>
-<p>将这些地址添加为segment，在Edit-&gt;Segments-&gt;Create segemt </p>
-<p>![image-20201009160159665](PCTF2016：Confused ARM 调试记录/image-20201009160159665.png)</p>
-<p>SRAM部分同上，</p>
-<p>然后在汇编中对这地址按O</p>
-<p>![image-20201009160319480](PCTF2016：Confused ARM 调试记录/image-20201009160319480.png)</p>
-<p>![image-20201009160429796](PCTF2016：Confused ARM 调试记录/image-20201009160429796.png)</p>
-<p>然后在伪代码中再按一次F5刷新</p>
-<p>![image-20201009160509472](PCTF2016：Confused ARM 调试记录/image-20201009160509472.png)</p>
-<p>随后在这些疑似数组的地方用如下方式进行转换</p>
-<p>![image-20201009160758788](PCTF2016：Confused ARM 调试记录/image-20201009160758788.png)</p>
-<pre><code class="c">void __fastcall __noreturn sub_8001084(int a1)
-{
-  int v1; // r0
-  int v2; // r0
+<pre><code class="bash">root@debian-armhf:/home/user# ifconfig eth0 192.168.2.2/24
+root@debian-armhf:/home/user# ifconfig
+eth0      Link encap:Ethernet  HWaddr 52:54:00:12:34:56  
+          inet addr:192.168.2.2  Bcast:192.168.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::5054:ff:fe12:3456/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:2178 (2.1 KiB)
+          Interrupt:47 
 
-  v1 = sub_8000A00(a1);
-  v2 = sub_80006A4(v1);
-  sub_80007F0(v2);
-  sub_8000A50(0x1C200);
-  sub_8000AA8(&amp;USART1, 0x40);
-  sub_8000560(byte_2000000C, &amp;unk_2000026C);
-  while ( 1 )
-  {
-    if ( unk_20000000 )
-    {
-      sub_8000BA4(
-        &quot;Key is :0x%08x,0x%08x,0x%08x,0x%08x\r\n&quot;,
-        byte_2000000C[0],
-        byte_2000000C[1],
-        byte_2000000C[2],
-        byte_2000000C[3]);
-      unk_20000000 = 0;
-    }
-    if ( !sub_80007E2(1073809408, 2) )
-    {
-      sub_800055C(byte_2000000C, &amp;unk_2000026C);
-      sub_8000248(&amp;unk_2000001C, byte_2000031C);
-      sub_8000AA8(&amp;USART1, 64);
-      sub_8000BA4(
-        &quot;Fl4g 1s :PCTF{%08x%08x%08x%08x}\r\n&quot;,
-        byte_2000031C[0],
-        byte_2000031C[1],
-        byte_2000031C[2],
-        byte_2000031C[3]);
-    }
-  }
-}</code></pre>
-<h2 id="0x02-动态调试"><a href="#0x02-动态调试" class="headerlink" title="0x02 动态调试"></a>0x02 动态调试</h2><p>参考书459页进行配置</p>
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+root@debian-armhf:/home/user# id
+uid=0(root) gid=0(root) groups=0(root)</code></pre>
+<pre><code class="sh">root@debian-armhf:/home/user# mount -t proc /proc ./squashfs-root/proc
+root@debian-armhf:/home/user# mount -o bind /dev ./squashfs-root/dev
+root@debian-armhf:/home/user# chroot ./squashfs-root/ sh #切换根目录后执行新目录结构下的 sh shell
+
+
+BusyBox v1.7.2 (2018-12-13 12:34:27 CST) built-in shell (ash)
+Enter &#39;help&#39; for a list of built-in commands.
+
+# id
+uid=0 gid=0(root)
+</code></pre>
 <blockquote>
-<p>如果load hex之后提示no write permission，请按照462页的工程设置界面，将最下面的CPU DLL, Driver DLl, Dialog DLL和Parameter对照一致设置好就行</p>
+<p><a href="https://zhuanlan.zhihu.com/p/61278842?from_voters_page=true" target="_blank" rel="noopener"><strong>PS:</strong></a> 使用 chroot 后，系统读取的是新根下的目录和文件，也就是固件的目录和文件 chroot 默认不会切换 /dev 和 /proc, 因此切换根目录前需要现挂载这两个目录</p>
 </blockquote>
-<p>按照书上改名过后</p>
-<p>![image-20201010091446144](PCTF2016：Confused ARM 调试记录/image-20201010091446144.png)</p>
-<p>资料可参考<a href="https://blog.csdn.net/weixin_40117614/article/details/93018940" target="_blank" rel="noopener">这儿</a></p>
-<p>==打patch为0C 4A，改成0B 4A 理解不能QwQ，后面的打patch也理解不能QwQ==</p>
-<p>改checksum，可用以下脚本计算，<a href="https://blog.csdn.net/qq_28840013/article/details/84143501" target="_blank" rel="noopener">来源</a></p>
-<pre><code class="python">def check(DD):
-    length=len(DD)  #求长度
-
-    #创建一个list，将传入的str的每两个数合在一起，再求和
-    list1=[]
-    if(length%2==1):    #如果str长度为单数，则抛出错误
-        print(&#39;[!] 数据长度有误&#39;)
-    else:   
-        for i in range(0, length, 2):  #range（开始，结束-1，每次加多少）  这里即0——length-1  每次循环i+2
-            hex_digit=DD[i:i + 2]      #将传入的str的每两个数合在一起
-            list1.append(&#39;0x&#39;+hex_digit)    #再每个字符前+0x  但是它仍然是字符，但更便于下面通过int(list1[i], 16)转换成16进制
-    print(list1)
-
-    sum=0
-    for i in range(int(length/2)):   #求和
-        sum=int(list1[i], 16)+sum      #int(list1[i], 16)将16进制转换成10进制 int类型
-    sum=sum%256
-    sum=256-sum
-    print(&#39;校验码: &#39;+hex(sum))   #将sum和结果转换成16进制  hex(sum)
-
-if __name__==&quot;__main__&quot;:
-    DD=input(&quot;请输入HEX文件数据记录（校验值除外）：&quot;)   #input接收参数为str类型
-    check(DD)</code></pre>
-<p>然后MDK里reload之后，run就可以了</p>
-<p>![image-20201010155940502](PCTF2016：Confused ARM 调试记录/image-20201010155940502.png)</p>
+<pre><code class="sh"># /usr/sbin/upnpd
+# ps | grep upnpd | grep -v grep</code></pre>
+<blockquote>
+<p>-v, –invert-match        select non-matching lines</p>
+</blockquote>
+<p>没有任何信息就exit了</p>
+<p>==咋调试出是open的问题的。。。==</p>
+<p>创建了/var/run之后，就提示</p>
+<pre><code># mkdir /var/run
+# ./usr/sbin/upnpd 
+# /dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory</code></pre><h2 id="分析参考"><a href="#分析参考" class="headerlink" title="分析参考"></a>分析参考</h2><ul>
+<li><p><a href="https://ssd-disclosure.com/ssd-advisory-netgear-nighthawk-r8300-upnpd-preauth-rce/" target="_blank" rel="noopener">https://ssd-disclosure.com/ssd-advisory-netgear-nighthawk-r8300-upnpd-preauth-rce/</a></p>
+</li>
+<li><p><a href="https://paper.seebug.org/1311/#1" target="_blank" rel="noopener">https://paper.seebug.org/1311/#1</a></p>
+</li>
+<li><p><a href="https://cq674350529.github.io/2020/09/16/PSV-2020-0211-Netgear-R8300-UPnP%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/" target="_blank" rel="noopener">https://cq674350529.github.io/2020/09/16/PSV-2020-0211-Netgear-R8300-UPnP%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/</a></p>
+</li>
+</ul>
+<h3 id="分析总结"><a href="#分析总结" class="headerlink" title="分析总结"></a>分析总结</h3><h4 id="PC寄存器在arm中的作用"><a href="#PC寄存器在arm中的作用" class="headerlink" title="PC寄存器在arm中的作用"></a>PC寄存器在arm中的作用</h4><p>Program Counter 存储下一条程序指令的地址。顺序执行的情况是存储当前地址+4</p>
+<h4 id="可用rasm2工具翻译汇编指令到机器指令"><a href="#可用rasm2工具翻译汇编指令到机器指令" class="headerlink" title="可用rasm2工具翻译汇编指令到机器指令"></a>可用rasm2工具翻译汇编指令到机器指令</h4><p>例子：</p>
+<pre><code># rasm2 -a arm &quot;mov r3, r0&quot;
+0030a0e1</code></pre><p>这样可以在ida Patch program - Change byte里使用</p>
+<h4 id="多关注较危险函数"><a href="#多关注较危险函数" class="headerlink" title="多关注较危险函数"></a>多关注较危险函数</h4><p>strcpy，等</p>
+<blockquote>
+<p>strcpy拷贝的时候，如果n &lt; src的长度，那只是将src的前几个字符复制到dest的前n个字符里，不会自动添加<code>\x00</code>。而如果src小于n，则会自动填充<code>\x00</code>到dest直至复制完</p>
+</blockquote>
+<p>未初始化的空间</p>
+<h4 id="函数与漏洞点之间路径较短"><a href="#函数与漏洞点之间路径较短" class="headerlink" title="函数与漏洞点之间路径较短"></a>函数与漏洞点之间路径较短</h4><p>栈上数据不会发生太大变化，可以复用填充的rop gadgets</p>
+<h4 id="arm栈溢出之后好像可以一路覆盖到n个寄存器（有待详细确认"><a href="#arm栈溢出之后好像可以一路覆盖到n个寄存器（有待详细确认" class="headerlink" title="arm栈溢出之后好像可以一路覆盖到n个寄存器（有待详细确认"></a>arm栈溢出之后好像可以一路覆盖到n个寄存器（有待详细确认</h4><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>分析参考</p>
+<ul>
+<li><a href="https://paper.seebug.org/1311/#1" target="_blank" rel="noopener">https://paper.seebug.org/1311/#1</a></li>
+<li><a href="https://cq674350529.github.io/2020/09/16/PSV-2020-0211-Netgear-R8300-UPnP%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/" target="_blank" rel="noopener">https://cq674350529.github.io/2020/09/16/PSV-2020-0211-Netgear-R8300-UPnP%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/</a></li>
+</ul>
+<p><a href="https://paper.seebug.org/480/" target="_blank" rel="noopener">qemu部分参考</a></p>
 
             </div>
             <hr>
@@ -326,18 +376,12 @@ if __name__==&quot;__main__&quot;:
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/19/Netgear%20Nighthawk%20R8300%20upnpd%20PreAuth%20RCE%20%E5%A4%8D%E7%8E%B0%E8%BE%85%E5%8A%A9/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/09/23/c++%20static%E7%9A%84%E4%BD%9C%E7%94%A8/">
-                        <span class="hidden-mobile">c++ static的作用</span>
+                      <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
+                        <span class="hidden-mobile">PCTF2016：Confused ARM 调试记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -576,7 +620,7 @@ if __name__==&quot;__main__&quot;:
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "PCTF2016：Confused ARM 调试记录&nbsp;",
+        "Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
