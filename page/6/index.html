@@ -157,6 +157,54 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
+        <p class="h4 index-header">Python中下划线的5种含义</p>
+      </a>
+
+      <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
+
+单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
+
+单末尾下划线：var_            解决命名冲突的问题
+
+双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
+
+单下划线：_                        使用“_”来表示它只是一个临时值
+
+双前导和末尾下划线：
+__var__这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法
+
+class Linkedli</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/python/">python</a>&nbsp;
+          
+            <a href="/categories/python/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/13/Proxychains/">
         <p class="h4 index-header">Proxychains</p>
       </a>
@@ -600,62 +648,6 @@ mysqldump --all-databases &gt; bak.sql　　　　　　
             <a href="/categories/CTF/">CTF</a>&nbsp;
           
             <a href="/categories/CTF/AWD/">AWD</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%5BOGeek2019%5Dbabyrop/">
-        <p class="h4 index-header">[OGeek2019]babyrop</p>
-      </a>
-
-      <a href="/2020/01/13/%5BOGeek2019%5Dbabyrop/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">[OGeek2019]babyrop
-
-程序
-
-
-
-为了绕过strncmp，我们在v6这里可以放一个\x00 因为strlen会在识别到\x00之后停止，这样strncmp就会默认返回0
-
-
-这里的v5返回值又跟下面的a1是一致的
-
-
-
-
-这里也没有啥可以调用的
-那就是rop，leak libc了
-EXPleak libc版#!/usr/bin/python2.7
-# -*- coding: utf-8 -*-
-from pwn import *
-context.log_level = &#39;debug&#39;
-context.arch = &#39;amd64&#39;
-elf = E</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/buu/">buu</a>&nbsp;
           &nbsp;
         
         
