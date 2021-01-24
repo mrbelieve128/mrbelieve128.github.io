@@ -157,6 +157,117 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
+        <p class="h4 index-header">ciscn_2019_ne_5-骚骚的小东西</p>
+      </a>
+
+      <a href="/2020/01/20/ciscn_2019_ne_5-%E9%AA%9A%E9%AA%9A%E7%9A%84%E5%B0%8F%E4%B8%9C%E8%A5%BF/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ciscn_2019_ne_5-骚骚的小东西
+
+
+
+输入之后，在调用getflag这里会造成溢出
+
+
+函数里调用有system，但没有/bin/sh
+骚东西：
+0x80482E6 + 0x4就是 sh
+我们可以system(“sh”)也可以
+exp:
+from pwn import *
+context.log_level = &#39;debug&#39;
+context.arch = &#39;i386&#39;
+#sh = process(&#39;ciscn_2019_ne_5&#39;)
+sh = remote(&quot;node3.buuoj.cn&quot;,27887)
+elf</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
+        <p class="h4 index-header">ez_pz_hackover_2016-继续深入学习edb</p>
+      </a>
+
+      <a href="/2020/01/18/ez_pz_hackover_2016-%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0edb/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">ez_pz_hackover_2016-继续深入学习edb
+
+
+
+
+
+
+
+
+
+得先绕过result的strcmp
+sh.recvuntil(&quot;&gt;&quot;)
+payload = &quot;crashme&quot;
+payload = payload.ljust(10,&quot;\x00&quot;)
+payload += cyclic(200)
+pause()
+sh.sendline(payload)
+pause时，打开edb并attach ez_pz_hackover_2016
+我常用：f8单步运行，ctrl+f9直接跳到ret，shift+f7进入函数运行
+
+
+
+一</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CTF/">CTF</a>&nbsp;
+          
+            <a href="/categories/CTF/buu/">buu</a>&nbsp;
+          
+            <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/15/%E6%A0%88%E8%BF%81%E7%A7%BB/">
         <p class="h4 index-header">栈迁移</p>
       </a>
@@ -531,97 +642,6 @@ EBX： 基</div>
           
             <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        <p class="h4 index-header">博弈论</p>
-      </a>
-
-      <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
-Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\
-结论1：不要选择严格劣势策略
-结论2：理性的选择，使得总结果变得更坏
-改变收益，就会改变目的。
-结论3：予欲得之，必先知之\
-结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做
-
-2019/8/6
-
-
-Class2博弈的要素：参与人</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AF%BE%E5%A4%96%E5%AD%A6%E4%B9%A0/">课外学习</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
-        <p class="h4 index-header">安洵杯线下AWD总结</p>
-      </a>
-
-      <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">安洵杯线下AWD总结
-
-
-
-
-
-事后BB==赛前自动提交flag脚本没有，自动化打全场脚本没有，哎。==
-线下还是很友好的，可以连接外网，伙食也很不错，但是！
-只有先黑盒测试过了自己的，拿了flag并提交了之后，才可以找主办方要ssh密码=。=并且AWD只有1道pwn题，3个web题，域渗透部分就更不必多说了，都是web，哎
-AWD规则连接的是docker服务器，所以给的都是端口
-端口列表：axx80/axx22 
-
-eg: team01-web1 10180(web) 10122(ssh) 
-eg: team18-web2 11880(web) 11822(ssh) 
-eg: team19-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93/">反思总结</a>&nbsp;
-          &nbsp;
-        
         
       </div>
     </div>
