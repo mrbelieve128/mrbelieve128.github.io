@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Mr.BelieVe">
+  <meta name="keywords" content="">
+  
+  <title>Xray 社区版 再学习记录 - Mr.BelieVe&#39;s Treasure</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Xray 社区版 再学习记录">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-06 14:12" pubdate>
+        2021年3月6日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      66
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Xray 社区版 再学习记录</h1>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>以前也有用xray扫扫学校的漏洞，最近有在开发自己的扫描平台，估借此机会再学习。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.xray.cool/#/README">官方文档</a></p>
+<p>VulnType的复现在最后边。</p>
+<h2 id="三种基本模式"><a href="#三种基本模式" class="headerlink" title="三种基本模式"></a>三种基本模式</h2><h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>初始配置证书部分看官方文档吧Orz， <a target="_blank" rel="noopener" href="https://docs.xray.cool/#/tutorial/webscan_proxy">代理模式进行扫描 - xray 安全评估工具文档</a></p>
+<p>建议配合 SwitchyOmega 这个插件使用，可以随意切换代理服务器及端口。</p>
+<p><code>config.yaml</code>配置好</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs 1c">mitm:<br>  restriction: <span class="hljs-meta"># 代理能够访问的资源限制, 以下各项为空表示不限制</span><br>    hostname_allowed: [&#x27;*.web-security-academy.net&#x27;,&#x27;192.168.3.188&#x27;] <span class="hljs-meta"># 允许访问的 Hostname，支持格式如 t.com、*.t.com、1.1.1.1、1.1.1.1/24、1.1-4.1.1-8</span><br></code></pre></td></tr></table></figure>
+
+<p>然后游览页面即可，若没有<code>config.yaml</code>则先运行一次xray</p>
+<h3 id="基础爬虫模式"><a href="#基础爬虫模式" class="headerlink" title="基础爬虫模式"></a>基础爬虫模式</h3><blockquote>
+<p>爬虫模式是模拟人工去点击网页的链接，然后去分析扫描，爬虫不需要人工的介入，访问速度要快很多，但是也有一些缺点</p>
+<ul>
+<li>xray 的基础爬虫不能处理 js 渲染的页面</li>
+</ul>
+</blockquote>
+<p><code>./xray webscan --basic-crawler http://testphp.vulnweb.com/ --html-output xray-crawler-testphp.html</code></p>
+<h4 id="配置Cookie"><a href="#配置Cookie" class="headerlink" title="配置Cookie"></a>配置Cookie</h4><p>配置文件<code>config.yaml</code>里，<code>http</code> 配置部分的 <code>headers</code> 项:</p>
+<p>添加一条Cookie，如</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">headers:</span><br><span class="hljs-symbol">  Cookie:</span> key=value<br></code></pre></td></tr></table></figure>
+
+
+<p>例子</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><br>  ...<br> <br><span class="hljs-symbol">  headers:</span><br><span class="hljs-symbol">    Cookie:</span> sysauth=xxxxx<br></code></pre></td></tr></table></figure>
+
+<h3 id="服务扫描"><a href="#服务扫描" class="headerlink" title="服务扫描"></a>服务扫描</h3><blockquote>
+<p>目前主要是服务扫描相关的poc，目前只有一个 tomcat-cve-2020-1938 ajp 协议任意文件检测 poc。</p>
+</blockquote>
+<p>target参数支持ip:port方式，和 xxx.file方式</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">./xray</span> servicescan <span class="hljs-params">--target</span> 127.0.0.1<span class="hljs-function">:8009</span><br><span class="hljs-string">./xray</span> servicescan <span class="hljs-params">--target</span> xxx.file<br></code></pre></td></tr></table></figure>
+
+<p>xxx.file格式，一行一个ip:port目标，进行批量导入</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">127.0.0.1:8009</span><br><span class="hljs-number">10.1.1.1:8099</span><br></code></pre></td></tr></table></figure>
+
+<p>可以使用如下不同的导出方式</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sas">NAME:<br>    servicescan - Run a service scan task<br><br>USAGE:<br>    servicescan [command <span class="hljs-meta">options</span>] [arguments...]<br><br><span class="hljs-meta">OPTIONS</span>:<br>   --target value          指定单一目标，例子: host:8009<br>   --target-<span class="hljs-meta">file</span> value     从文件加载目标，一目标一行<br>   --json-<span class="hljs-meta">output</span> <span class="hljs-meta">FILE</span>      使用json格式导出xray结果<br>   --webhook-<span class="hljs-meta">output</span> value  用json格式post xray结果到某url<br>   --html-<span class="hljs-meta">output</span> <span class="hljs-meta">FILE</span>      用html格式导出报告<br></code></pre></td></tr></table></figure>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="HTTP-配置"><a href="#HTTP-配置" class="headerlink" title="HTTP 配置"></a>HTTP 配置</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><br><span class="hljs-symbol">  proxy:</span> <span class="hljs-string">&quot;&quot;</span>                             <span class="hljs-meta"># 漏洞扫描时使用的代理，如: http:<span class="hljs-comment">//127.0.0.1:8080。 如需设置多个代理，请使用 proxy_rule 或自行创建上层代理</span></span><br><span class="hljs-symbol">  proxy_rule:</span> []                        <span class="hljs-meta"># 漏洞扫描使用多个代理的配置规则, 具体请参照文档</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h3><p>支持 <code>http</code>, <code>https</code> 和 <code>socks5</code> 三种格式，如:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1111</span><br>https:<span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1111</span><br>socks5:<span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1080</span><br></code></pre></td></tr></table></figure>
+<p>如果代理需要认证，可以使用下面的格式 <code>http://user:password@127.0.0.1:1111</code></p>
+<h3 id="多代理配置"><a href="#多代理配置" class="headerlink" title="多代理配置"></a>多代理配置</h3><p>不同的域名使用不同的代理，设置多个代理切换等，可以通过 <code>proxy_rule</code> 字段来配置。==Proxy 配置将优先于本配置。==</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs vim">proxy_rule:<br>  - <span class="hljs-keyword">match</span>: <span class="hljs-string">&quot;*host1&quot;</span><br>    server<span class="hljs-variable">s:</span><br>      - addr: <span class="hljs-string">&quot;http://127.0.0.1:8001&quot;</span><br>        weigh<span class="hljs-variable">t:</span> <span class="hljs-number">1</span><br>      - addr: <span class="hljs-string">&quot;http://127.0.0.1:8002&quot;</span><br>        weigh<span class="hljs-variable">t:</span> <span class="hljs-number">2</span><br>  - <span class="hljs-keyword">match</span>: <span class="hljs-string">&quot;*&quot;</span><br>    server<span class="hljs-variable">s:</span><br>      - addr: <span class="hljs-string">&quot;http://127.0.0.1:8003&quot;</span><br>        weigh<span class="hljs-variable">t:</span> <span class="hljs-number">1</span><br>      - addr: <span class="hljs-string">&quot;http://127.0.0.1:8004&quot;</span><br>        weigh<span class="hljs-variable">t:</span> <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>match: 请求的 url 的主机名如果匹配，就使用本条规则。<ul>
+<li>如果是 <code>*</code>，则代表可以匹配所有。所以一定要将 <code>*</code> 放在最后面，上面没有匹配到的域名都将使用这个配置。</li>
+<li>如果没有任何一条可以匹配，这个请求将不会使用代理。</li>
+</ul>
+</li>
+<li>addr: 代理服务器的地址，同 <code>proxy</code> 的配置。</li>
+<li>weight: 代理服务器的权重，如果 <code>servers</code> 中配置了多个代理服务器，设置权重可以均衡负载，比如权重是 <code>3:7</code>，则代表每 10 个请求，有 3 个选择 server1，有 7 个选择 server2。要注意的是，这里是 round bin 算法，前 3 个一定发往 server1，后面 7 个一定发往 server2，然后继续循环，不是每个请求都是基于权重随机的。</li>
+</ul>
+<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><h4 id="dirscan"><a href="#dirscan" class="headerlink" title="dirscan"></a>dirscan</h4><ul>
+<li><code>depth</code> 深度限制</li>
+<li><code>dictionary</code> 配置目录字典, 需要是绝对路径, 配置后将与内置字典<strong>合并</strong></li>
+</ul>
+<p><code>depth</code> 是探测深度, 默认为 1, 即只在 URL 深度为 0, 和深度为 1 时运行该插件（前提是启用了该插件)</p>
+<p>定义 <code>http://example.com/</code>，深度为 0，定义 <code>http://example.com/a/</code>, 深度为 1。 在这种配置下，dirscan 将对</p>
+<p><code>http://example.com/</code> 和 <code>http://example.com/a/</code> 做两次扫描，如果存在 <code>http://example.com/a/example.zip</code> 那么就能将其扫描出来。</p>
+<h4 id="sqldet"><a href="#sqldet" class="headerlink" title="sqldet"></a>sqldet</h4><p>下面这个选项很<strong>危险</strong>，开启之后可以增加检测率，但是有破坏数据库数据的可能性，请务必了解工作原理之后再开启</p>
+<ul>
+<li><code>dangerously_use_comment_in_sql</code> 允许检查注入的时候使用注释</li>
+</ul>
+<h4 id="phantasm"><a href="#phantasm" class="headerlink" title="phantasm"></a>phantasm</h4><p>xray 的 poc 框架，在其下运行着许多 yaml 和 go 写的 poc，用户可以通过该模块编写自己的 poc 并让 xray 加载，具体见 自定义POC语法</p>
+<p>两个重点配置:</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">depth:</span> <span class="hljs-number">1</span>                            <span class="hljs-meta"># 与 dirscan 一样，不再赘述</span><br><span class="hljs-symbol">exclude_poc:</span> []                     <span class="hljs-meta"># 排除哪些 poc, 支持 glob 语法, 如: /home/poc/*thinkphp* 或 poc-yaml-weblogic*</span><br><span class="hljs-symbol">local_poc:</span> []                       <span class="hljs-meta"># 加载本地的 poc, 支持 glob 语法, 如： /home/poc/*</span><br></code></pre></td></tr></table></figure>
+
+<p><code>exclude_poc</code> 用于去除加载哪些 poc。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">plugins:</span><br>  <span class="hljs-string">...</span><br>  <span class="hljs-attr">phantasm:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">exclude_poc:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">poc-yaml-bad-poc</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">*bad-poc*</span><br></code></pre></td></tr></table></figure>
+
+<p><code>local_poc</code> 是用于加载本地的 poc 的配置，最好指定绝对路径，且同样支持 glob 语法。</p>
+<p>一个稍微复杂的情况是将这两个搭配起来使用，比如:</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">plugins:</span><br>  ...<br><span class="hljs-symbol">  phantasm:</span><br><span class="hljs-symbol">    enabled:</span> true<br><span class="hljs-symbol">    exclude_poc:</span><br>    - <span class="hljs-meta-keyword">/home/</span>poc/poc-fake-good-poc<br><span class="hljs-symbol">    local_poc:</span><br>    - <span class="hljs-meta-keyword">/home/</span>poc<span class="hljs-comment">/*good-poc*</span><br></code></pre></td></tr></table></figure>
+
+<p>上述配置的意思是加载 <code>/home/poc/</code> 目录下所有符合 <code>*good-poc*</code> 这个pattern 的poc，同时去掉同样目录下的 <code>poc-fake-good-poc</code></p>
+<h3 id="被动代理配置"><a href="#被动代理配置" class="headerlink" title="被动代理配置"></a>被动代理配置</h3><p>这部分是代理模式的配置</p>
+<h4 id="代理启用密码保护"><a href="#代理启用密码保护" class="headerlink" title="代理启用密码保护"></a>代理启用密码保护</h4><p>对应于 <code>auth</code> 中的配置。</p>
+<p>支持给代理配置基础认证的密码，当设置好 <code>auth</code> 中的 <code>username</code> 和 <code>password</code> 后，使用代理时浏览器会弹框要求输出用户名密码，输入成功后代理才可正常使用。</p>
+<h4 id="限制允许使用该代理的ip"><a href="#限制允许使用该代理的ip" class="headerlink" title="限制允许使用该代理的ip"></a>限制允许使用该代理的ip</h4><p><code>allow_ip_range</code> ，限制哪些ip可以使用该代理。支持单个 IP 和 CIDR 格式的地址，如：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">allow_ip_range:</span> [<span class="hljs-string">&quot;127.0.0.1&quot;</span>,<span class="hljs-string">&quot;192.168.1.1/24&quot;</span>]<br></code></pre></td></tr></table></figure>
+
+<p>留空则允许所有地址访问</p>
+<h4 id="限制扫描范围"><a href="#限制扫描范围" class="headerlink" title="限制扫描范围"></a>限制扫描范围</h4><p><code>restriction</code>中，allowed即为允许访问的，disallowed即为不允许的。如</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">hostname_allowed: []                # 允许访问的 Hostname，支持格式如 t.com、*.t.com、<span class="hljs-number">1.1.1.1</span>、<span class="hljs-number">1.1.1.1</span>/<span class="hljs-number">24、1.1-4</span>.<span class="hljs-number">1</span>.<span class="hljs-number">1</span>-<span class="hljs-number">8</span><br>hostname_disallowed:                # 不允许访问的 Hostname，支持格式如 t.com、*.t.com、<span class="hljs-number">1.1.1.1</span>、<span class="hljs-number">1.1.1.1</span>/<span class="hljs-number">24、1.1-4</span>.<span class="hljs-number">1</span>.<span class="hljs-number">1</span>-<span class="hljs-number">8</span><br>- &#x27;*google*&#x27;<br></code></pre></td></tr></table></figure>
+
+<h4 id="代理请求头配置-proxy-header"><a href="#代理请求头配置-proxy-header" class="headerlink" title="代理请求头配置 proxy_header"></a>代理请求头配置 <code>proxy_header</code></h4><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">proxy_header:</span><br><span class="hljs-symbol">    via:</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-meta"># 如果不为空，proxy 将添加类似 Via: 1.1 $some-value-$random 的 http 头</span><br><span class="hljs-symbol">    x_forwarded:</span> false <span class="hljs-meta"># 是否添加 X-Forwarded-&#123;For,Host,Proto,Url&#125; 四个 http 头</span><br></code></pre></td></tr></table></figure>
+
+<p>如果开启 proxy_header，代理会添加 <code>via</code> 头和 <code>X-Forwarded-*</code> 系列头。</p>
+<p>比如 <code>curl http://127.0.0.1:1234 -H &quot;Via: test&quot; -H &quot;X-Forwarded-For: 1.2.3.4&quot; -v</code>，后端实际收到的请求将会是</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>127.0.0.1:1234<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>curl/7.54.0<br><span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>*/*<br><span class="hljs-attribute">Via</span><span class="hljs-punctuation">: </span>test, 1.1 xray-1fe7f9e5241b2b150f32<br><span class="hljs-attribute">X-Forwarded-For</span><span class="hljs-punctuation">: </span>1.2.3.4, 127.0.0.1<br><span class="hljs-attribute">X-Forwarded-Host</span><span class="hljs-punctuation">: </span>127.0.0.1:1234<br><span class="hljs-attribute">X-Forwarded-Proto</span><span class="hljs-punctuation">: </span>http<br><span class="hljs-attribute">X-Forwarded-Url</span><span class="hljs-punctuation">: </span>http://127.0.0.1:1234/<br><span class="hljs-attribute">Accept-Encoding</span><span class="hljs-punctuation">: </span>gzip<br></code></pre></td></tr></table></figure>
+
+<h4 id="http的代理-upstream-proxy"><a href="#http的代理-upstream-proxy" class="headerlink" title="http的代理 upstream_proxy"></a>http的代理 <code>upstream_proxy</code></h4><p>该项配置仅对 http 代理本身生效，不对漏洞扫描发出的请求生效。漏扫的代理配置HTTP部分</p>
+<h3 id="基础爬虫配置"><a href="#基础爬虫配置" class="headerlink" title="基础爬虫配置"></a>基础爬虫配置</h3><p>看配置就行</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">basic-crawler:</span><br>  <span class="hljs-attr">max_depth:</span> <span class="hljs-number">0</span>                          <span class="hljs-comment"># 最大爬取深度， 0 为无限制</span><br>  <span class="hljs-attr">max_count_of_links:</span> <span class="hljs-number">0</span>                 <span class="hljs-comment"># 本次爬取收集的最大链接数, 0 为无限制</span><br>  <span class="hljs-attr">allow_visit_parent_path:</span> <span class="hljs-literal">false</span>        <span class="hljs-comment"># 是否允许爬取父目录, 如果扫描目标为 t.com/a/且该项为 false, 那么就不会爬取 t.com/ 这级的内容</span><br>  <span class="hljs-attr">restriction:</span>                          <span class="hljs-comment"># 爬虫的允许爬取的资源限制, 为空表示不限制。爬虫会自动添加扫描目标到 Hostname_allowed。</span><br>    <span class="hljs-attr">hostname_allowed:</span> []                <span class="hljs-comment"># 允许访问的 Hostname，支持格式如 t.com、*.t.com、1.1.1.1、1.1.1.1/24、1.1-4.1.1-8</span><br>    <span class="hljs-attr">hostname_disallowed:</span>                <span class="hljs-comment"># 不允许访问的 Hostname，支持格式如 t.com、*.t.com、1.1.1.1、1.1.1.1/24、1.1-4.1.1-8</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*google*&#x27;</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*github*&#x27;</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*.gov.cn&#x27;</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*.edu.cn&#x27;</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*chaitin*&#x27;</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*.xray.cool&#x27;</span><br>    <span class="hljs-attr">port_allowed:</span> []                    <span class="hljs-comment"># 允许访问的端口, 支持的格式如: 80、80-85</span><br>    <span class="hljs-attr">port_disallowed:</span> []                 <span class="hljs-comment"># 不允许访问的端口, 支持的格式如: 80、80-85</span><br>    <span class="hljs-attr">path_allowed:</span> []                    <span class="hljs-comment"># 允许访问的路径，支持的格式如: test、*test*</span><br>    <span class="hljs-attr">path_disallowed:</span> []                 <span class="hljs-comment"># 不允许访问的路径, 支持的格式如: test、*test*</span><br>    <span class="hljs-attr">query_key_allowed:</span> []               <span class="hljs-comment"># 允许访问的 Query Key，支持的格式如: test、*test*</span><br>    <span class="hljs-attr">query_key_disallowed:</span> []            <span class="hljs-comment"># 不允许访问的 Query Key, 支持的格式如: test、*test*</span><br>    <span class="hljs-attr">fragment_allowed:</span> []                <span class="hljs-comment"># 允许访问的 Fragment, 支持的格式如: test、*test*</span><br>    <span class="hljs-attr">fragment_disallowed:</span> []             <span class="hljs-comment"># 不允许访问的 Fragment, 支持的格式如: test、*test*</span><br>    <span class="hljs-attr">post_key_allowed:</span> []                <span class="hljs-comment"># 允许访问的 Post Body 中的参数, 支持的格式如: test、*test*</span><br>    <span class="hljs-attr">post_key_disallowed:</span> []             <span class="hljs-comment"># 不允许访问的 Post Body 中的参数, 支持的格式如: test、*test*</span><br>  <span class="hljs-attr">basic_auth:</span>                           <span class="hljs-comment"># 基础认证信息</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="反连平台"><a href="#反连平台" class="headerlink" title="反连平台"></a>反连平台</h3><p>反连平台默认不启用，因为这里面有些配置没有办法自动化，必须由人工配置完成才可使用。需要反连平台才可以检测出来的漏洞包括但不限于：</p>
+<ul>
+<li>ssrf</li>
+<li>fastjson</li>
+<li>s2-052</li>
+<li>xxe 盲打</li>
+<li>所有依赖反连平台的 poc</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">reverse:</span><br><span class="hljs-symbol">  db_file_path:</span> <span class="hljs-string">&quot;&quot;</span>                      <span class="hljs-meta"># 反连平台数据库文件位置, 这是一个 KV 数据库</span><br><span class="hljs-symbol">  token:</span> <span class="hljs-string">&quot;&quot;</span>                             <span class="hljs-meta"># 反连平台认证的 Token, 独立部署时不能为空</span><br><span class="hljs-symbol">  http:</span><br><span class="hljs-symbol">    enabled:</span> false<br><span class="hljs-symbol">    listen_ip:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> <br><span class="hljs-symbol">    listen_port:</span> <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-symbol">    ip_header:</span> <span class="hljs-string">&quot;&quot;</span>                       <span class="hljs-meta"># 在哪个 http header 中取 ip，为空代表从 REMOTE_ADDR 中取</span><br><span class="hljs-symbol">  dns:</span><br><span class="hljs-symbol">    enabled:</span> false<br><span class="hljs-symbol">    listen_ip:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> <br><span class="hljs-symbol">    domain:</span> <span class="hljs-string">&quot;&quot;</span>                          <span class="hljs-meta"># DNS 域名配置</span><br><span class="hljs-symbol">    is_domain_name_server:</span> false        <span class="hljs-meta"># 是否修改了域名的 ns 为反连平台，如果是，那 nslookup 等就不需要指定 dns 了</span><br><span class="hljs-symbol">    resolve:</span>                            <span class="hljs-meta"># DNS 静态解析规则</span><br>    - type: A                           <span class="hljs-meta"># A, AAAA, TXT 三种</span><br><span class="hljs-symbol">      record:</span> localhost<br><span class="hljs-symbol">      value:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br><span class="hljs-symbol">      ttl:</span> <span class="hljs-number">60</span><br><span class="hljs-symbol">  client:</span><br><span class="hljs-symbol">    remote_server:</span> false                <span class="hljs-meta"># 是否是独立的远程 server，如果是要在下面配置好远程的服务端地址</span><br><span class="hljs-symbol">    http_base_url:</span> <span class="hljs-string">&quot;&quot;</span>                   <span class="hljs-meta"># 默认将根据 ListenIP 和 ListenPort 生成，该地址是存在漏洞的目标反连回来的地址, 当反连平台前面有反代、绑定域名、端口映射时需要自行配置</span><br><span class="hljs-symbol">    dns_server_ip:</span> <span class="hljs-string">&quot;&quot;</span>                   <span class="hljs-meta"># 和 http_base_url 类似，实际用来访问 dns 服务器的地址</span><br><br></code></pre></td></tr></table></figure>
+
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><h5 id="xray和目标可以用ip双向互联"><a href="#xray和目标可以用ip双向互联" class="headerlink" title="xray和目标可以用ip双向互联"></a>xray和目标可以用ip双向互联</h5><p>假设 192.168.1.2 是 xray 所在机器的地址</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">reverse:</span><br>  <span class="hljs-attr">http:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">listen_ip:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.2</span><br></code></pre></td></tr></table></figure>
+
+<p>这里的 192.168.1.2 是 xray 所在的机器的地址, 也是扫描目标反连时所使用的地址。也就是，目标存在漏洞的时候，会访问 <a target="_blank" rel="noopener" href="http://192.168.1.2/xxxx">http://192.168.1.2/xxxx</a> 携带漏洞结果和数据</p>
+<h5 id="xray-和目标可以使用-ip-双向互联，但-listen-的地址和目标反连访问的地址不一样"><a href="#xray-和目标可以使用-ip-双向互联，但-listen-的地址和目标反连访问的地址不一样" class="headerlink" title="xray 和目标可以使用 ip 双向互联，但 listen 的地址和目标反连访问的地址不一样"></a>xray 和目标可以使用 ip 双向互联，但 listen 的地址和目标反连访问的地址不一样</h5><p>这种情况经常出现在云主机中，比如腾讯云的 linux 机器网卡地址时 10.xxx，但实际公网假设是 221.xxx</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">reverse:</span><br><span class="hljs-symbol">  http:</span><br><span class="hljs-symbol">    enabled:</span> true<br><span class="hljs-symbol">    listen_ip:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br><span class="hljs-symbol">  client:</span><br><span class="hljs-symbol">    http_base_url:</span> <span class="hljs-string">&quot;http://221.xxx:$&#123;port&#125;&quot;</span> <br></code></pre></td></tr></table></figure>
+
+<p><code>$&#123;port&#125;</code> 是一个预定义的宏，在运行时将被替换为实际监听的端口, 当然你也可以使用这种方式固定监听的端口：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">reverse:</span><br>  <span class="hljs-attr">http:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">listen_ip:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br>    <span class="hljs-attr">listen_port:</span> <span class="hljs-number">8888</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">http_base_url:</span> <span class="hljs-string">&quot;http://221.xxx:8888&quot;</span> <br></code></pre></td></tr></table></figure>
+
+<h5 id="单独布置反连平台"><a href="#单独布置反连平台" class="headerlink" title="单独布置反连平台"></a>单独布置反连平台</h5><p>xray 自带了一个 <code>reverse</code> 命令，可以启动反连平台作为一个远程服务运行，给多个客户端使用。</p>
+<p>在启动之前，需要配置好配置文件的 <code>db_file_path</code> 和 <code>token</code>，前者用于存储数据，后者用于服务端和客户端通信的秘钥。</p>
+<p>一个示例的服务端配置是：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">reverse:</span><br><span class="hljs-symbol">  db_file_path:</span> <span class="hljs-string">&quot;reverse.db&quot;</span><br><span class="hljs-symbol">  token:</span> <span class="hljs-string">&quot;please_change_me_to_a_new_token&quot;</span><br><span class="hljs-symbol">  http:</span><br><span class="hljs-symbol">    listen_ip:</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span><br><span class="hljs-symbol">    listen_port:</span> <span class="hljs-string">&quot;80&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>与之对应的客户端配置是：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">reverse:</span><br><span class="hljs-symbol">  token:</span> <span class="hljs-string">&quot;please_change_me_to_a_new_token&quot;</span><br><span class="hljs-symbol">  client:</span><br><span class="hljs-symbol">    remote_server:</span> true<br><span class="hljs-symbol">    http_base_url:</span> <span class="hljs-string">&quot;http://YOUR_REVERSE_SERVER_IP:80&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>需要客户端和服务端版本相同</strong></p>
+<h4 id="管理界面"><a href="#管理界面" class="headerlink" title="管理界面"></a>管理界面</h4><p>反连平台贴心的内置了一个管理界面，可以访问反连平台 http 地址，url 为 <code>/cland/</code>。</p>
+<p>功能包括</p>
+<ul>
+<li>生成自定义 url，并记录访问记录</li>
+<li>生成自定义域名，并记录解析记录</li>
+<li>使用平台预制 payload，记录抓取的数据</li>
+</ul>
+<blockquote>
+<p>mac 下的 docker 由于网络环境特殊，其实无法双向互联，建议使用远程部署的模式或使用 <code>host.docker.internal</code> 作为 http_base_url 的 host</p>
+</blockquote>
+<h3 id="子域名配置"><a href="#子域名配置" class="headerlink" title="子域名配置"></a>子域名配置</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">subdomain:</span><br>  <span class="hljs-attr">max_parallel:</span> <span class="hljs-number">30</span>                      <span class="hljs-comment"># 子域名探测的并发度</span><br>  <span class="hljs-attr">allow_recursion:</span> <span class="hljs-literal">false</span>                <span class="hljs-comment"># 是否允许递归探测, 开启后，扫描完一级域名后，会自动将一级的每个域名作为新的目标</span><br>  <span class="hljs-attr">max_recursion_depth:</span> <span class="hljs-number">3</span>                <span class="hljs-comment"># 最大允许的递归深度, 3 表示 3 级子域名 仅当 allow_recursion 开启时才有意义</span><br>  <span class="hljs-attr">web_only:</span> <span class="hljs-literal">false</span>                       <span class="hljs-comment"># 结果中仅显示有 web 应用的, 没有 web 应用的将被丢弃</span><br>  <span class="hljs-attr">ip_only:</span> <span class="hljs-literal">false</span>                        <span class="hljs-comment"># 结果中仅展示解析出 IP 的，没有解析成功的将被丢弃</span><br>  <span class="hljs-attr">servers:</span>                              <span class="hljs-comment"># 子域名扫描过程中使用的 DNS Server</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">8.8</span><span class="hljs-number">.4</span><span class="hljs-number">.4</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">223.5</span><span class="hljs-number">.5</span><span class="hljs-number">.5</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">223.6</span><span class="hljs-number">.6</span><span class="hljs-number">.6</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-number">114.114</span><span class="hljs-number">.114</span><span class="hljs-number">.114</span><br>  <span class="hljs-attr">sources:</span><br>    <span class="hljs-attr">brute:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">main_dict:</span> <span class="hljs-string">&quot;&quot;</span>                     <span class="hljs-comment"># 一级大字典路径，为空将使用内置的 TOP 30000 字典</span><br>      <span class="hljs-attr">sub_dict:</span> <span class="hljs-string">&quot;&quot;</span>                      <span class="hljs-comment"># 其他级小字典路径，为空将使用内置过的 TOP 100 字典</span><br>    <span class="hljs-attr">httpfinder:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span>                     <span class="hljs-comment"># 使用 http 的一些方式来抓取子域名，包括 js, 配置文件，http header 等等</span><br>    <span class="hljs-attr">dnsfinder:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span>                     <span class="hljs-comment"># 使用 dns 的一些错误配置来找寻子域名，如区域传送（zone transfer)</span><br>    <span class="hljs-attr">certspotter:</span>                        <span class="hljs-comment"># 下面的通过 api 获取的了</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">crt:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">hackertarget:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">qianxun:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">rapiddns:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">sublist3r:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">threatminer:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">virusTotal:</span><br>      <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br><br></code></pre></td></tr></table></figure>
+
+<h3 id="检查更新配置"><a href="#检查更新配置" class="headerlink" title="检查更新配置"></a>检查更新配置</h3><p>添加如下即可禁用更新检查</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">update:</span><br>  <span class="hljs-attr">check:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="并发配置"><a href="#并发配置" class="headerlink" title="并发配置"></a>并发配置</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">parallel</span>: <span class="hljs-number">30</span> # 漏洞探测的 worker 数量，可以简单理解为同时有 <span class="hljs-number">30</span> 个 POC 在运行<br></code></pre></td></tr></table></figure>
+<p>默认基本足够</p>
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><h3 id="优化扫描速度"><a href="#优化扫描速度" class="headerlink" title="优化扫描速度"></a>优化扫描速度</h3><p>在 xray 的默认配置中，影响扫描速度的主要有两个参数</p>
+<ul>
+<li><code>max_qps</code> 每秒最大请求数，默认值为 500</li>
+<li><code>max_parallel</code> 插件调度并发数，默认值为 30</li>
+</ul>
+<blockquote>
+<p>即使到了 2000 qps，也还没有达到配置的检测最大并发，所以 <code>max_parallel</code> 一般情况下不需要修改。<br><code>max_qps</code> 在非测试场景下，也很难打满，一般情况下只会改低，防止影响业务，而不需要再调高。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>限制 xray 扫描速度的主要原因为</p>
+<ul>
+<li>xray 与被扫描目标之间的网络情况</li>
+<li>被扫描目标的性能；否则网络再好，扫描速度也无法提升</li>
+</ul>
+<p>这两点可以从 <code>latency</code> 和  <code>failedRatio</code> 字段评估。<code>latency</code> 比较大，超过 100ms，说明网络比较慢，或者被扫描的目标响应比较慢。<code>failedRatio</code> 比较大，说明网络比较差，或者被扫描目标负载高而失去了响应等。</p>
+<p>在网络情况稳定的情况下，可以考虑</p>
+<ul>
+<li>降低 <code>max_qps</code>，防止业务方负载过高</li>
+<li>关闭特定模块和禁用部分 poc，减少请求量</li>
+<li>不要性能比较差的代理作为 xray 的扫描代理，比如 burp 的代理通过请求的速度基本只有几十 qps，这样整个扫描的瓶颈就在 burp 上了。</li>
+</ul>
+<h3 id="自定义POC语法和编写高质量POC"><a href="#自定义POC语法和编写高质量POC" class="headerlink" title="自定义POC语法和编写高质量POC"></a>自定义POC语法和编写高质量POC</h3><p><a target="_blank" rel="noopener" href="https://docs.xray.cool/#/guide/poc">官方文档</a></p>
+<h2 id="webhook"><a href="#webhook" class="headerlink" title="webhook"></a>webhook</h2><p><code>--webhook-output</code></p>
+<p>统一的格式为:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;xxx&quot;</span>,<br>    <span class="hljs-attr">&quot;data&quot;</span>: &#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>type 的 enum 为 ：</p>
+<ul>
+<li>“web_statistic” web 扫描统计信息</li>
+<li>“web_vuln” web 漏洞</li>
+<li>“host_vuln” 服务漏洞</li>
+<li>“subdomain” 子域名</li>
+</ul>
+<h3 id="漏洞信息"><a href="#漏洞信息" class="headerlink" title="漏洞信息"></a>漏洞信息</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;web_vuln&quot;</span>,<br>  <span class="hljs-attr">&quot;data&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;create_time&quot;</span>: <span class="hljs-number">1604736253090</span>,<br>    <span class="hljs-attr">&quot;detail&quot;</span>: &#123;<br>      <span class="hljs-attr">&quot;addr&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:9000/xss/example1.php?name=hacker&quot;</span>,<br>      <span class="hljs-attr">&quot;extra&quot;</span>: &#123;<br>        <span class="hljs-attr">&quot;param&quot;</span>: &#123;<br>          <span class="hljs-attr">&quot;key&quot;</span>: <span class="hljs-string">&quot;name&quot;</span>,<br>          <span class="hljs-attr">&quot;position&quot;</span>: <span class="hljs-string">&quot;query&quot;</span>,<br>          <span class="hljs-attr">&quot;value&quot;</span>: <span class="hljs-string">&quot;pkbnekwkjhwzabxnfjwh&quot;</span><br>        &#125;<br>      &#125;,<br>      <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-string">&quot;&lt;sCrIpT&gt;alert(1)&lt;/ScRiPt&gt;&quot;</span>,<br>      <span class="hljs-attr">&quot;snapshot&quot;</span>: [<br>        [<br>          <span class="hljs-string">&quot;GET /xxx&quot;</span>,<br>          <span class="hljs-string">&quot;HTTP/1.1 200 OK&quot;</span><br>        ]<br>      ]<br>    &#125;,<br>    <span class="hljs-attr">&quot;plugin&quot;</span>: <span class="hljs-string">&quot;xss/reflected/default&quot;</span>,<br>    <span class="hljs-attr">&quot;target&quot;</span>: &#123;<br>      <span class="hljs-attr">&quot;params&quot;</span>: [],<br>      <span class="hljs-attr">&quot;url&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:9000/xss/example1.php&quot;</span><br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>type 是 <code>web_vuln</code> 或 <code>host_vuln</code></li>
+<li>snapshot 是漏洞探测的请求流，定义是 <code>[][2]string</code>, 即每一组有两部分，对应于请求和响应。对于 sql 注入这种就会有多组请求响应。</li>
+<li>target 实际意义不大, 主要是 detail 中的部分, detail 的定义为:</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-built_in">type</span> VulnDetail struct &#123;<br>    Addr     <span class="hljs-built_in">string</span>                 `json:<span class="hljs-string">&quot;addr&quot;</span> yam<span class="hljs-variable">l:</span><span class="hljs-string">&quot;addr&quot;</span>`<br>    Payload  <span class="hljs-built_in">string</span>                 `json:<span class="hljs-string">&quot;payload&quot;</span> yam<span class="hljs-variable">l:</span><span class="hljs-string">&quot;payload&quot;</span>`<br>    SnapShot []interface&#123;&#125;          `json:<span class="hljs-string">&quot;snapshot&quot;</span> yam<span class="hljs-variable">l:</span><span class="hljs-string">&quot;snapshot&quot;</span>`<br>    Extra    <span class="hljs-keyword">map</span>[<span class="hljs-built_in">string</span>]interface&#123;&#125; `json:<span class="hljs-string">&quot;extra&quot;</span> yam<span class="hljs-variable">l:</span><span class="hljs-string">&quot;extra&quot;</span>`<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="web统计信息"><a href="#web统计信息" class="headerlink" title="web统计信息"></a>web统计信息</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;web_statistic&quot;</span>,<br>  <span class="hljs-attr">&quot;data&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;num_found_urls&quot;</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">&quot;num_scanned_urls&quot;</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">&quot;num_sent_http_requests&quot;</span>: <span class="hljs-number">3</span>,<br>    <span class="hljs-attr">&quot;average_response_time&quot;</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">&quot;ratio_failed_http_requests&quot;</span>: <span class="hljs-number">0</span>,<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>num_found_urls</code> 发现的扫描目标数量</li>
+<li><code>num_scanned_urls</code> 已扫描完成的扫描目标数量</li>
+<li><code>num_sent_http_requests</code> 已经发出的漏洞探测请求数量</li>
+<li><code>average_response_time</code> 近 30s 请求平均响应时间</li>
+<li><code>ratio_failed_http_requests</code> 近 30s 请求失败率</li>
+</ul>
+<p>这些信息除了表面意思，还有其他隐藏含义：</p>
+<ul>
+<li>pending 的数量等于 <code>num_found_urls</code> - <code>num_scanned_urls</code>, 如果 pending = 0，那么就意味着扫描完成了</li>
+<li><code>average_response_time</code> 比较高 (&gt;200ms) 意味着网络延迟比较大</li>
+<li><code>ratio_failed_http_requests</code> 比较高(&gt;5%) 意味着可能有 waf, 反正就是很多请求失败了</li>
+</ul>
+<h3 id="子域名消息格式"><a href="#子域名消息格式" class="headerlink" title="子域名消息格式"></a>子域名消息格式</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;subdomain&quot;</span>,<br>  <span class="hljs-attr">&quot;data&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;cname&quot;</span>: [],<br>    <span class="hljs-attr">&quot;domain&quot;</span>: <span class="hljs-string">&quot;example.com&quot;</span>,<br>    <span class="hljs-attr">&quot;extra&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>    <span class="hljs-attr">&quot;ip&quot;</span>: [<br>      &#123;<br>        <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-string">&quot;EDGECAST (ASN15133)&quot;</span>,<br>        <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;北美洲 美国&quot;</span>,<br>        <span class="hljs-attr">&quot;ip&quot;</span>: <span class="hljs-string">&quot;93.184.216.34&quot;</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">&quot;asn&quot;</span>: <span class="hljs-string">&quot;EDGECAST (ASN15133)&quot;</span>,<br>        <span class="hljs-attr">&quot;country&quot;</span>: <span class="hljs-string">&quot;北美洲 美国&quot;</span>,<br>        <span class="hljs-attr">&quot;ip&quot;</span>: <span class="hljs-string">&quot;2606:2800:220:1:248:1893:25c8:1946&quot;</span><br>      &#125;<br>    ],<br>    <span class="hljs-attr">&quot;parent&quot;</span>: <span class="hljs-string">&quot;example.com&quot;</span>,<br>    <span class="hljs-attr">&quot;verbose_name&quot;</span>: <span class="hljs-string">&quot;initial&quot;</span>,<br>    <span class="hljs-attr">&quot;web&quot;</span>: [<br>      &#123;<br>        <span class="hljs-attr">&quot;link&quot;</span>: <span class="hljs-string">&quot;http://example.com/&quot;</span>,<br>        <span class="hljs-attr">&quot;server&quot;</span>: <span class="hljs-string">&quot;ECS (sjc/4FB8)&quot;</span>,<br>        <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">200</span>,<br>        <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;Example Domain&quot;</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">&quot;link&quot;</span>: <span class="hljs-string">&quot;https://example.com/&quot;</span>,<br>        <span class="hljs-attr">&quot;server&quot;</span>: <span class="hljs-string">&quot;ECS (sjc/4E8D)&quot;</span>,<br>        <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">200</span>,<br>        <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;Example Domain&quot;</span><br>      &#125;<br>    ]<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="VulnType大类复现"><a href="#VulnType大类复现" class="headerlink" title="VulnType大类复现"></a>VulnType大类复现</h2><h3 id="Server-error"><a href="#Server-error" class="headerlink" title="Server-error"></a>Server-error</h3><p><img src="Snipaste_2021-03-09_21-01-20.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>使用bp的Repeater，设置目标复制Request即可。由于是概率引发error，多次刷新才行。<br><img src="Snipaste_2021-03-09_20-58-41.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="crossdomain"><a href="#crossdomain" class="headerlink" title="crossdomain"></a>crossdomain</h3><p><img src="Snipaste_2021-03-09_21-07-40.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="config-ide"><a href="#config-ide" class="headerlink" title="config/ide"></a>config/ide</h3><p><img src="Snipaste_2021-03-12_08-42-08.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>其中，FileEditorManager包含文件名及相对路径</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&lt;component <span class="hljs-attribute">name</span>=<span class="hljs-string">&quot;FileEditorManager&quot;</span>&gt;<br> <span class="hljs-built_in">..</span>.<br>	&lt;file <span class="hljs-attribute">leaf-file-name</span>=<span class="hljs-string">&quot;cart.php&quot;</span> <span class="hljs-attribute">pinned</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attribute">current</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attribute">current-in-tab</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;<br>		&lt;entry <span class="hljs-attribute">file</span>=<span class="hljs-string">&quot;file://<span class="hljs-variable">$PROJECT_DIR</span>$/cart.php&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p>Git.Settings包含Git的一些设置</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">&lt;component <span class="hljs-type">name</span>=&quot;Git.Settings&quot;&gt;<br>  	&lt;<span class="hljs-keyword">option</span> <span class="hljs-type">name</span>=&quot;CHECKOUT_INCLUDE_TAGS&quot; <span class="hljs-keyword">value</span>=&quot;false&quot;/&gt;<br>  	&lt;<span class="hljs-keyword">option</span> <span class="hljs-type">name</span>=&quot;UPDATE_CHANGES_POLICY&quot; <span class="hljs-keyword">value</span>=&quot;STASH&quot;/&gt;<br>  	&lt;<span class="hljs-keyword">option</span> <span class="hljs-type">name</span>=&quot;LINE_SEPARATORS_CONVERSION&quot; <span class="hljs-keyword">value</span>=&quot;ASK&quot;/&gt;<br>&lt;/component&gt;<br></code></pre></td></tr></table></figure>
+
+<p>ide文件历史记录</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;IdeDocumentHistory&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;changedFiles&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">list</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$PROJECT_DIR$/.htaccess&quot;</span>/&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$PROJECT_DIR$/cart.php&quot;</span>/&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">list</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>修改历史记录</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ChangeListManager&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">list</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;190e5f86-a42c-4cc9-a03a-80ac0d47d6d2&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;Default&quot;</span> <span class="hljs-attr">comment</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">ignored</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;acuart.iws&quot;</span>/&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">ignored</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;.idea/workspace.xml&quot;</span>/&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;TRACKING_ENABLED&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;SHOW_DIALOG&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;HIGHLIGHT_CONFLICTS&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;HIGHLIGHT_NON_ACTIVE_CHANGELIST&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;LAST_RESOLUTION&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;IGNORE&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;editorHistoryManager&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">file</span>=<span class="hljs-string">&quot;file://$PROJECT_DIR$/.htaccess&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">provider</span> <span class="hljs-attr">selected</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">editor-type-id</span>=<span class="hljs-string">&quot;text-editor&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">state</span> <span class="hljs-attr">line</span>=<span class="hljs-string">&quot;6&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">selection-start</span>=<span class="hljs-string">&quot;213&quot;</span> <span class="hljs-attr">selection-end</span>=<span class="hljs-string">&quot;222&quot;</span> <span class="hljs-attr">vertical-scroll-proportion</span>=<span class="hljs-string">&quot;0.124847&quot;</span>&gt;</span><br>	...<br>	<span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">file</span>=<span class="hljs-string">&quot;file://$PROJECT_DIR$/cart.php&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">provider</span> <span class="hljs-attr">selected</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">editor-type-id</span>=<span class="hljs-string">&quot;text-editor&quot;</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">state</span> <span class="hljs-attr">line</span>=<span class="hljs-string">&quot;60&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;26&quot;</span> <span class="hljs-attr">selection-start</span>=<span class="hljs-string">&quot;2336&quot;</span> <span class="hljs-attr">selection-end</span>=<span class="hljs-string">&quot;2336&quot;</span> <span class="hljs-attr">vertical-scroll-proportion</span>=<span class="hljs-string">&quot;-0.41645244&quot;</span>&gt;</span><br><br>	...<br><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="poc-yaml-phpstudy-nginx-wrong-resolve"><a href="#poc-yaml-phpstudy-nginx-wrong-resolve" class="headerlink" title="poc-yaml-phpstudy-nginx-wrong-resolve"></a>poc-yaml-phpstudy-nginx-wrong-resolve</h3><p>请求了</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-number">94561621.</span>php<br><span class="hljs-keyword">index</span>.php<br><span class="hljs-keyword">index</span>.php/.php<br><span class="hljs-keyword">index</span>.php/.xxx<br></code></pre></td></tr></table></figure>
+
+<p>只有<code>index.php</code>和<code>index.php/.php</code>请求成功了，并且都返回的是index.php的页面。但由于网页使用相对路径加载图片，所以在<code>index.php/.php</code>时图片都无法正常加载。</p>
+<p><img src="Snipaste_2021-03-12_09-12-46.png" srcset="/img/loading.gif" lazyload alt=""></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/19/Python%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%BB%E5%86%99mysql/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python线程池读写mysql</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/">
+                        <span class="hidden-mobile">你访问谷歌时，都发生了啥</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

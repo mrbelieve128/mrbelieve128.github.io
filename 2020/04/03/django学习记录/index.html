@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,29 +17,51 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
+  
   <title>django学习记录 - Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
 
 <link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -63,54 +85,84 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -118,43 +170,53 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="django学习记录">
               
             </span>
 
             
-              
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期五, 四月 3日 2020, 3:30 下午
-                </p>
-              
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-03 15:30" pubdate>
+        2020年4月3日 下午
+      </time>
+    </span>
+  
+</div>
 
-              <p class="mt-1">
-                
-                  
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    1.4k 字
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
 
-                
-                  
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      6 分钟
-                  </span>
-                
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
 
-                
-              </p>
+  
+  
+</div>
+
             
           </div>
 
@@ -168,264 +230,175 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
-          <div class="post-content mx-auto" id="post">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">django学习记录</h1>
             
             <div class="markdown-body">
-              <h1 id="django学习记录"><a href="#django学习记录" class="headerlink" title="django学习记录"></a>django学习记录</h1><h2 id="将现有数据库导入到models-py中"><a href="#将现有数据库导入到models-py中" class="headerlink" title="将现有数据库导入到models.py中"></a>将现有数据库导入到models.py中</h2><pre><code class="shell">python manage.py inspectdb &gt; app/models.py</code></pre>
-<h2 id="js实现定时刷新页面"><a href="#js实现定时刷新页面" class="headerlink" title="js实现定时刷新页面"></a>js实现定时刷新页面</h2><p><a href="https://blog.csdn.net/baidu_38990811/article/details/79172163" target="_blank" rel="noopener">Ajax轮询,Ajax长轮询和websocket(详细使用)</a></p>
+              <h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p><code>python manage.py runserver 127.0.0.1:28000</code></p>
+<h2 id="将现有数据库导入到models-py中"><a href="#将现有数据库导入到models-py中" class="headerlink" title="将现有数据库导入到models.py中"></a>将现有数据库导入到models.py中</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py inspectdb &gt; app/models.py<br></code></pre></td></tr></table></figure>
+<h2 id="js实现定时刷新页面"><a href="#js实现定时刷新页面" class="headerlink" title="js实现定时刷新页面"></a>js实现定时刷新页面</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_38990811/article/details/79172163">Ajax轮询,Ajax长轮询和websocket(详细使用)</a></p>
 <h2 id="django-shell-调试"><a href="#django-shell-调试" class="headerlink" title="django shell 调试"></a>django shell 调试</h2><p><code>python manage.py shell</code></p>
-<h3 id="python小问题"><a href="#python小问题" class="headerlink" title="python小问题"></a>python小问题</h3><pre><code class="python">orders_num = ordersdate = orders_car_size = orders_price = []</code></pre>
+<h3 id="python小问题"><a href="#python小问题" class="headerlink" title="python小问题"></a>python小问题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">orders_num = ordersdate = orders_car_size = orders_price = []<br></code></pre></td></tr></table></figure>
 
+<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200322135749091.png" srcset="/img/loading.gif" lazyload class="" title="image-20200322135749091">
 
 <p>会指向同一个内存地址QAQ</p>
 <p>叫引用赋值</p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="访问不到写好的path"><a href="#访问不到写好的path" class="headerlink" title="访问不到写好的path"></a>访问不到写好的path</h3><pre><code class="python">urlpatterns = [   path(&#39;addUsers/&#39;,views.add_users,name=&#39;add_users&#39;)#api/addUsers
-]</code></pre>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="访问不到写好的path"><a href="#访问不到写好的path" class="headerlink" title="访问不到写好的path"></a>访问不到写好的path</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">urlpatterns = [   path(<span class="hljs-string">&#x27;addUsers/&#x27;</span>,views.add_users,name=<span class="hljs-string">&#x27;add_users&#x27;</span>)<span class="hljs-comment">#api/addUsers</span><br>]<br></code></pre></td></tr></table></figure>
+
 <p>检查path(‘path/‘)的斜杠</p>
 <h3 id="Django-用postman进行post请求时：Forbidden-CSRF-cookie-not-set-403"><a href="#Django-用postman进行post请求时：Forbidden-CSRF-cookie-not-set-403" class="headerlink" title="Django 用postman进行post请求时：Forbidden (CSRF cookie not set.) 403"></a>Django 用postman进行post请求时：Forbidden (CSRF cookie not set.) 403</h3><p>注释掉settings.py中的<br>MIDDLEWARE 的 ‘django.middleware.csrf.CsrfViewMiddleware’ </p>
 <p><strong>连接mysql出错</strong></p>
-<p>django.db.utils.OperationalError: (2059) <a href="https://www.jianshu.com/p/e6e6293af2dc" target="_blank" rel="noopener">解决办法</a></p>
+<p>django.db.utils.OperationalError: (2059) <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e6e6293af2dc">解决办法</a></p>
 <p><strong>orm查询</strong></p>
-<p><a href="https://www.cnblogs.com/chenxinming-top/p/9506857.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenxinming-top/p/9506857.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenxinming-top/p/9506857.html">https://www.cnblogs.com/chenxinming-top/p/9506857.html</a></p>
 <p><strong>引入bootstrap网站错位</strong></p>
 <p>可能原本就引入了（XD</p>
 <p><strong>异步加载数据</strong></p>
 <p>从mysql读取数据，然后放置到echarts中，效果如图</p>
-
+<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200222230043961.png" srcset="/img/loading.gif" lazyload class="" title="image-20200222230043961">
 
 <p>echarts js</p>
-<pre><code class="js">&lt;div id=&quot;main&quot; style=&quot;width: 790px;height:600px;&quot;&gt;&lt;/div&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;
-      var develop_name_list = {{ develop_name_list|safe }};
-      var develop_num_list = {{ develop_num_list|safe }};
-      var myChart = echarts.init(document.getElementById(&#39;main&#39;));
-      var option = {
-          grid: {containLabel: true},
-          xAxis: {name: &#39;数量&#39;},
-          yAxis: {
-            type: &#39;category&#39;,
-            data: develop_name_list
-            },
-          series: [
-              {
-                  type: &#39;bar&#39;,
-                  encode: {x: &#39;amount&#39;,y: &#39;product&#39;},
-                  data: develop_num_list
-              }
-          ]
-      };
-      myChart.setOption(option);
-    &lt;/script&gt;</code></pre>
-<p><code></code> 的<code>|safe</code>是必须的，<code>myChart.setOption(option);</code>也是必须的，并且</p>
-<pre><code class="js">yAxis: {
-            type: &#39;category&#39;,
-            data: develop_name_list
-            },</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;div id=<span class="hljs-string">&quot;main&quot;</span> style=<span class="hljs-string">&quot;width: 790px;height:600px;&quot;</span>&gt;&lt;/div&gt;<br>    &lt;script type=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;<br>      <span class="hljs-keyword">var</span> develop_name_list = &#123;&#123; develop_name_list|safe &#125;&#125;;<br>      <span class="hljs-keyword">var</span> develop_num_list = &#123;&#123; develop_num_list|safe &#125;&#125;;<br>      <span class="hljs-keyword">var</span> myChart = echarts.init(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;main&#x27;</span>));<br>      <span class="hljs-keyword">var</span> option = &#123;<br>          grid: &#123;<span class="hljs-attr">containLabel</span>: <span class="hljs-literal">true</span>&#125;,<br>          xAxis: &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;数量&#x27;</span>&#125;,<br>          yAxis: &#123;<br>            type: <span class="hljs-string">&#x27;category&#x27;</span>,<br>            data: develop_name_list<br>            &#125;,<br>          series: [<br>              &#123;<br>                  type: <span class="hljs-string">&#x27;bar&#x27;</span>,<br>                  encode: &#123;<span class="hljs-attr">x</span>: <span class="hljs-string">&#x27;amount&#x27;</span>,<span class="hljs-attr">y</span>: <span class="hljs-string">&#x27;product&#x27;</span>&#125;,<br>                  data: develop_num_list<br>              &#125;<br>          ]<br>      &#125;;<br>      myChart.setOption(option);<br>    &lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p><code>&#123;&#123; develop_name_list|safe &#125;&#125;</code> 的<code>|safe</code>是必须的，<code>myChart.setOption(option);</code>也是必须的，并且</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">yAxis: &#123;<br>            type: <span class="hljs-string">&#x27;category&#x27;</span>,<br>            data: develop_name_list<br>            &#125;,<br></code></pre></td></tr></table></figure>
+
 <p>的type:也一定时category==目前仅知道针对这个图可行==</p>
 <h3 id="使用bootstrap折叠面板之后在里面放置js不渲染"><a href="#使用bootstrap折叠面板之后在里面放置js不渲染" class="headerlink" title="使用bootstrap折叠面板之后在里面放置js不渲染"></a>使用bootstrap折叠面板之后在里面放置js不渲染</h3><p>还没会，无解qaq</p>
-<h3 id="python模糊查询-问题"><a href="#python模糊查询-问题" class="headerlink" title="python模糊查询%问题"></a>python模糊查询%问题</h3><pre><code class="python">sql = &#39;&#39;&#39; SELECT job_Name,description FROM history
-                WHERE job_Name like &quot;%%{}%%&quot; and job_Name like &quot;%%{}%%&quot;&#39;&#39;&#39;.format(&#39;java&#39;,&#39;后端&#39;)</code></pre>
-<h1 id="django后端开发"><a href="#django后端开发" class="headerlink" title="django后端开发"></a>django后端开发</h1>
+<h3 id="python模糊查询-问题"><a href="#python模糊查询-问题" class="headerlink" title="python模糊查询%问题"></a>python模糊查询%问题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">sql = <span class="hljs-string">&#x27;&#x27;&#x27; SELECT job_Name,description FROM history</span><br><span class="hljs-string">                WHERE job_Name like &quot;%%&#123;&#125;%%&quot; and job_Name like &quot;%%&#123;&#125;%%&quot;&#x27;&#x27;&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;java&#x27;</span>,<span class="hljs-string">&#x27;后端&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<h2 id="接收header或body"><a href="#接收header或body" class="headerlink" title="接收header或body"></a>接收header或body</h2><pre><code class="python"> 获取正则匹配到的数据,num1未位置参数,num2为命名参数,
-def index(request,num2=None, num1=None):
- print(num2)
- # 构造响应数据
- reNT&#39;)
- sp = HttpResponse(&#39;hello world&#39;)
- # 获取请求头
- header = request.META.get(&#39;HTTP_USER_AGE)
- # 获取地址
- path = request.path
- # 获取GET后面的数据(获取查询字符串数据)
- para = request.GET()
- # 获取json数据
- json_data = request.body
- data = eval(request.body.decode()).get(&#39;asd&#39;)
- data1 = json.loads(request.body).get(&#39;asd&#39;)
- # 获取表单数据
- form_data = request.POST
- # 获取请求方法
- method = request.method
- # 获取文件
- file_obj = request.FILES.get(&#39;image&#39;)
- return resp</code></pre>
-<h2 id="token和cookie"><a href="#token和cookie" class="headerlink" title="token和cookie"></a>token和cookie</h2><p><a href="https://www.cnblogs.com/moyand/p/9047978.html" target="_blank" rel="noopener">参考资料</a></p>
+<h2 id="Get方法"><a href="#Get方法" class="headerlink" title="Get方法"></a>Get方法</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Scan_Detail</span>(<span class="hljs-title">TemplateView</span>):</span><br>    template_name = <span class="hljs-string">&#x27;scandetails.html&#x27;</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, request, *args, **kwargs)</span></span><span class="hljs-symbol">:</span><br>        <span class="hljs-keyword">self</span>.target = request.GET.get(<span class="hljs-string">&#x27;target&#x27;</span>)<br>        <span class="hljs-keyword">self</span>.timestamp = request.GET.get(<span class="hljs-string">&#x27;timestamp&#x27;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>().get(request, *args, **kwargs)<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_context_data</span><span class="hljs-params">(<span class="hljs-keyword">self</span> , **kwargs)</span></span><span class="hljs-symbol">:</span><br>        context = <span class="hljs-keyword">super</span>().get_context_data(**kwargs)<br>        data_list = NetworkSegmentVuln_sql(<span class="hljs-keyword">self</span>.target,<span class="hljs-keyword">self</span>.timestamp)<br>        <span class="hljs-keyword">return</span> context<br></code></pre></td></tr></table></figure>
+
+
+
+<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200315130344606.png" srcset="/img/loading.gif" lazyload class="" title="image-20200315130344606">
+
+<h2 id="接收header或body"><a href="#接收header或body" class="headerlink" title="接收header或body"></a>接收header或body</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"> 获取正则匹配到的数据,num1未位置参数,num2为命名参数,<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>(<span class="hljs-params">request,num2=<span class="hljs-literal">None</span>, num1=<span class="hljs-literal">None</span></span>):</span><br> <span class="hljs-built_in">print</span>(num2)<br> <span class="hljs-comment"># 构造响应数据</span><br> reNT<span class="hljs-string">&#x27;)</span><br><span class="hljs-string"> sp = HttpResponse(&#x27;</span>hello world<span class="hljs-string">&#x27;)</span><br><span class="hljs-string"> # 获取请求头</span><br><span class="hljs-string"> header = request.META.get(&#x27;</span>HTTP_USER_AGE)<br> <span class="hljs-comment"># 获取地址</span><br> path = request.path<br> <span class="hljs-comment"># 获取GET后面的数据(获取查询字符串数据)</span><br> para = request.GET()<br> <span class="hljs-comment"># 获取json数据</span><br> json_data = request.body<br> data = <span class="hljs-built_in">eval</span>(request.body.decode()).get(<span class="hljs-string">&#x27;asd&#x27;</span>)<br> data1 = json.loads(request.body).get(<span class="hljs-string">&#x27;asd&#x27;</span>)<br> <span class="hljs-comment"># 获取表单数据</span><br> form_data = request.POST<br> <span class="hljs-comment"># 获取请求方法</span><br> method = request.method<br> <span class="hljs-comment"># 获取文件</span><br> file_obj = request.FILES.get(<span class="hljs-string">&#x27;image&#x27;</span>)<br> <span class="hljs-keyword">return</span> resp<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="token和cookie"><a href="#token和cookie" class="headerlink" title="token和cookie"></a>token和cookie</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/moyand/p/9047978.html">参考资料</a></p>
 <p>大部分api和web应用都用tokens，例如fb，google，推特，gihub</p>
 <p>实现方法是JSON Web Tokens</p>
-<p><a href="https://www.v2ex.com/t/530103" target="_blank" rel="noopener">详细-有案例-Django+JWT 实现 Token 认证</a></p>
-<p><a href="https://juejin.im/post/59749e3751882559274bc80d#heading-11?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">理解JWT（JSON Web Token）认证及python实践</a></p>
-<p><a href="https://juejin.im/post/5df04203e51d45581269a146?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">python接口自动化（二十）–token登录（详解）</a></p>
-<p>可用库：<a href="https://github.com/jpadilla/pyjwt/" target="_blank" rel="noopener">pyjwt</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.v2ex.com/t/530103">详细-有案例-Django+JWT 实现 Token 认证</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/59749e3751882559274bc80d#heading-11?tdsourcetag=s_pctim_aiomsg">理解JWT（JSON Web Token）认证及python实践</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5df04203e51d45581269a146?tdsourcetag=s_pctim_aiomsg">python接口自动化（二十）–token登录（详解）</a></p>
+<p>可用库：<a target="_blank" rel="noopener" href="https://github.com/jpadilla/pyjwt/">pyjwt</a></p>
 <h2 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h2><p>所有响应包含三部分，状态码 code、数据 data、消息 msg<br>所有内容都在 data 里，msg 是附加的状态消息</p>
 <p>最后用了简单方法：</p>
-<pre><code class="python">#后端
-def create_token(users_id,users_name):
-    payload = {
-        &quot;iss&quot;: &quot;parkingapp.com&quot;,
-         &quot;iat&quot;: int(time.time()),
-         &quot;exp&quot;: int(time.time()) + 86400 * 7,
-         &quot;users_id&quot;: users_id,
-         &quot;user_name&quot;: users_name,
-    }
-    token = jwt.encode(payload, &#39;secret&#39;, algorithm=&#39;HS256&#39;).decode(&#39;utf-8&#39;)
-    json_dict_success = {&#39;code&#39;: Httpcode.success,&#39;token&#39;: str(token)}
-    return JsonResponse(json_dict_success, json_dumps_params={&#39;ensure_ascii&#39;: False})
-</code></pre>
-<pre><code class="js">&lt;!-- js --&gt;
-$.ajax({
-    type: &#39;POST&#39;,
-    url: &#39;http://localhost:8000&#39;+ add_users_api,
-    data: {users_name: name,
-            users_email: email,
-            users_phone: phone},
-    success: function(data) {
-        if (201 === data.code){
-            alert(&quot;注册成功！&quot;);
-            localStorage.setItem(&quot;token&quot;, data.token);
-        } else {
-            alert(&quot;注册失败，请在检查网络后重试！&quot;);
-        }
-     },
-    error: function(data) {
-        alert(&quot;注册失败，请在检查网络后重试！&quot;)
-     },
-});
-</code></pre>
-<h3 id="识别token"><a href="#识别token" class="headerlink" title="识别token"></a>识别token</h3><pre><code class="js">var token = localStorage.getItem(&#39;token&#39;);
-console.log(token);
-if (null === token){
-    alert(&quot;请先登录或注册账户&quot;);
-}
-$.ajax({
-    type: &#39;POST&#39;,
-    url: &#39;http://localhost:8000&#39;+ verify_token,
-    data: {token: token},
-success: function(data){
-    alert(&#39;验证成功&#39;);
-},
-error: function(data){
-    alert(data)
-},
-});    </code></pre>
-<pre><code class="python">def verify_token(request):
-    token = request.POST.get(&#39;token&#39;,0)
-    result = jwt.decode(token, &#39;secret&#39;, algorithm=&#39;HS256&#39;)</code></pre>
-<h3 id="回传数据"><a href="#回传数据" class="headerlink" title="回传数据"></a>回传数据</h3><p>一开始是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#后端</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_token</span>(<span class="hljs-params">users_id,users_name</span>):</span><br>    payload = &#123;<br>        <span class="hljs-string">&quot;iss&quot;</span>: <span class="hljs-string">&quot;parkingapp.com&quot;</span>,<br>         <span class="hljs-string">&quot;iat&quot;</span>: <span class="hljs-built_in">int</span>(time.time()),<br>         <span class="hljs-string">&quot;exp&quot;</span>: <span class="hljs-built_in">int</span>(time.time()) + <span class="hljs-number">86400</span> * <span class="hljs-number">7</span>,<br>         <span class="hljs-string">&quot;users_id&quot;</span>: users_id,<br>         <span class="hljs-string">&quot;user_name&quot;</span>: users_name,<br>    &#125;<br>    token = jwt.encode(payload, <span class="hljs-string">&#x27;secret&#x27;</span>, algorithm=<span class="hljs-string">&#x27;HS256&#x27;</span>).decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    json_dict_success = &#123;<span class="hljs-string">&#x27;code&#x27;</span>: Httpcode.success,<span class="hljs-string">&#x27;token&#x27;</span>: <span class="hljs-built_in">str</span>(token)&#125;<br>    <span class="hljs-keyword">return</span> JsonResponse(json_dict_success, json_dumps_params=&#123;<span class="hljs-string">&#x27;ensure_ascii&#x27;</span>: <span class="hljs-literal">False</span>&#125;)<br><br></code></pre></td></tr></table></figure>
 
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;!-- js --&gt;<br>$.ajax(&#123;<br>	type: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>	url: <span class="hljs-string">&#x27;http://localhost:8000&#x27;</span>+ add_users_api,<br>	data: &#123;<span class="hljs-attr">users_name</span>: name,<br>	        users_email: email,<br>	        users_phone: phone&#125;,<br>	success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>&#123;<br>		<span class="hljs-keyword">if</span> (<span class="hljs-number">201</span> === data.code)&#123;<br>			alert(<span class="hljs-string">&quot;注册成功！&quot;</span>);<br>			<span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-string">&quot;token&quot;</span>, data.token);<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			alert(<span class="hljs-string">&quot;注册失败，请在检查网络后重试！&quot;</span>);<br>		&#125;<br> 	&#125;,<br>	error: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>&#123;<br>		alert(<span class="hljs-string">&quot;注册失败，请在检查网络后重试！&quot;</span>)<br> 	&#125;,<br>&#125;);<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="识别token"><a href="#识别token" class="headerlink" title="识别token"></a>识别token</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> token = <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">&#x27;token&#x27;</span>);<br><span class="hljs-built_in">console</span>.log(token);<br><span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> === token)&#123;<br>	alert(<span class="hljs-string">&quot;请先登录或注册账户&quot;</span>);<br>&#125;<br>$.ajax(&#123;<br>	type: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>	url: <span class="hljs-string">&#x27;http://localhost:8000&#x27;</span>+ verify_token,<br>	data: &#123;<span class="hljs-attr">token</span>: token&#125;,<br>success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123;<br>	alert(<span class="hljs-string">&#x27;验证成功&#x27;</span>);<br>&#125;,<br>error: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123;<br>	alert(data)<br>&#125;,<br>&#125;);	<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">verify_token</span>(<span class="hljs-params">request</span>):</span><br>    token = request.POST.get(<span class="hljs-string">&#x27;token&#x27;</span>,<span class="hljs-number">0</span>)<br>    result = jwt.decode(token, <span class="hljs-string">&#x27;secret&#x27;</span>, algorithm=<span class="hljs-string">&#x27;HS256&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="回传数据"><a href="#回传数据" class="headerlink" title="回传数据"></a>回传数据</h3><p>一开始是</p>
+<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/image-20200322164623665.png" srcset="/img/loading.gif" lazyload class="" title="image-20200322164623665">
 
 <p>大佬推荐改成如下图，面向对象</p>
-
+<img src="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%7B603E00A4-D802-FAFC-F8C6-D56187F2F88A%7D.jpg" srcset="/img/loading.gif" lazyload class="" title="img">
 
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="前端post数据到后端，后端接收到请求但无数据传递"><a href="#前端post数据到后端，后端接收到请求但无数据传递" class="headerlink" title="前端post数据到后端，后端接收到请求但无数据传递"></a>前端post数据到后端，后端接收到请求但无数据传递</h3><p>可能因为跨域</p>
-<p>跨越定义 :由于浏览器同源策略，凡是发送请求的url的协议(http和https)、域名（<a href="http://www.example.com,about.example.com）、端口(8010和8020)三者之间任意一个与当前页面地址不同则视为跨域。" target="_blank" rel="noopener">www.example.com,about.example.com）、端口(8010和8020)三者之间任意一个与当前页面地址不同则视为跨域。</a></p>
-<p><a href="https://www.cnblogs.com/randomlee/p/9752705.html" target="_blank" rel="noopener">https://www.cnblogs.com/randomlee/p/9752705.html</a></p>
-<hr>
-<h2 id="职业分类"><a href="#职业分类" class="headerlink" title="职业分类"></a>职业分类</h2><h3 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h3><h3 id="后端开发"><a href="#后端开发" class="headerlink" title="后端开发"></a>后端开发</h3><p>java python php .net c# c++ C vb Delpho perl Ruby Hadoop Node.js 数据挖掘 自然语言处理 搜索算法 精准推荐 全栈 Go ASP Shell 其他</p>
-<h3 id="移动开发"><a href="#移动开发" class="headerlink" title="移动开发"></a>移动开发</h3><p>HTML5 Android IOS WP </p>
-<h3 id="前端开发"><a href="#前端开发" class="headerlink" title="前端开发"></a>前端开发</h3><p>web前端 Flash html5 javascript U3D COCOS2D-X </p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>测试工程师 自动化测试 功能测试 性能测试 测试开发 游戏测试 白盒测试 灰盒测试 手机测试 硬件测试 测试经理</p>
-<h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><p>运维工程师 运维开发 网络工程师 系统工程师 it支持 idc CDN f5 系统管理员</p>
-<h3 id="DBA"><a href="#DBA" class="headerlink" title="DBA"></a>DBA</h3><p>mysql sqlserver oracle db2 mongoDB ETL</p>
-<p>Hive 数据仓库</p>
-<h3 id="高端职业"><a href="#高端职业" class="headerlink" title="高端职业"></a>高端职业</h3><p>技术经理 技术总监 架构师 cto 运维总监 技术合伙人 项目总监 测试总监 安全专家</p>
-<h3 id="项目管理"><a href="#项目管理" class="headerlink" title="项目管理"></a>项目管理</h3><p>项目经理 项目助理</p>
-<h3 id="硬件开发"><a href="#硬件开发" class="headerlink" title="硬件开发"></a>硬件开发</h3><p>硬件 嵌入式 自动化 单片机 电路设计 驱动开发 系统集成 fpga开发 dsp开发 arm开发 pcb工艺 模具设计 热传导 材料工程师 精益工程师 射频工程师</p>
-<p>企业软件</p>
-<p>实施工程师 售前工程师 售后工程师 BI工程师 </p>
-<h2 id="产品类"><a href="#产品类" class="headerlink" title="产品类"></a>产品类</h2><h3 id="产品经理"><a href="#产品经理" class="headerlink" title="产品经理"></a>产品经理</h3><p>产品经理 页面产品经理 移动产品经理 产品助理 数据产品经理 电商产品经理 游戏策划 产品实习生</p>
-<h3 id="产品设计师"><a href="#产品设计师" class="headerlink" title="产品设计师"></a>产品设计师</h3><p>网页产品设计 无线产品设计师</p>
-<h3 id="高端职位"><a href="#高端职位" class="headerlink" title="高端职位"></a>高端职位</h3><p>产品部经理 产品总监</p>
-<h2 id="设计类"><a href="#设计类" class="headerlink" title="设计类"></a>设计类</h2><h2 id="运营类"><a href="#运营类" class="headerlink" title="运营类"></a>运营类</h2><h2 id="市场"><a href="#市场" class="headerlink" title="市场"></a>市场</h2><blockquote>
-<p>来源：<a href="http://www.360doc.com/content/17/0520/09/43284313_655479904.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/17/0520/09/43284313_655479904.shtml</a></p>
-</blockquote>
+<p>跨越定义 :由于浏览器同源策略，凡是发送请求的url的协议(http和https)、域名（<a target="_blank" rel="noopener" href="http://www.example.com,about.example.com）、端口(8010和8020)三者之间任意一个与当前页面地址不同则视为跨域。">www.example.com,about.example.com）、端口(8010和8020)三者之间任意一个与当前页面地址不同则视为跨域。</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/randomlee/p/9752705.html">https://www.cnblogs.com/randomlee/p/9752705.html</a></p>
 
             </div>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
                 
-              </p>
+              </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">记一次转移环境上服务器</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
                         <span class="hidden-mobile">cisco课程代码记录</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
                   
-                  
-  <div id="gitalk-container"></div>
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+                
+                
   <script type="text/javascript">
-    var oldLoad = window.onload;
-    window.onload = function () {
-      var gitalk = new Gitalk({
-        clientID: 'c16704b33f7cc977ea90',
-        clientSecret: '9f8ad5600be82be115466ef0daf0f8a24a7b2da1',
-        repo: 'mrbelieve128.github.io',
-        owner: 'mrbelieve128',
-        admin: 'mrbelieve128',
-        id: md5(location.pathname),
-        language: 'zh-CN',
-        perPage: 15,
-        pagerDirection: 'last',
-        createIssueManually: 'false',
-        distractionFreeMode: 'false'
-      });
-
-      gitalk.render('gitalk-container')
-      oldLoad && oldLoad();
-    }
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
-                </div>
-              
-          </div>
+              </article>
+            
+          </article>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -437,16 +410,15 @@ error: function(data){
 
 
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -467,123 +439,103 @@ error: function(data){
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    </div>
     
-  <div>
+
     
-      <!-- 不蒜子统计PV -->
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
     
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">浙ICP备19033044号</a>
-    
-
-
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
     
   </div>
+
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
-
-
-
+  <!-- SCRIPTS -->
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
   <script>
-    $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
-
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '.post-content',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
-      }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
-    });
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
 
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -592,141 +544,48 @@ error: function(data){
 
 
 
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "django学习记录&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
 
 
 
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

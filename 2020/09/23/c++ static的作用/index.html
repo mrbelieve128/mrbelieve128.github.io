@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,29 +17,51 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
+  
   <title>c++ static的作用 - Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
 
 <link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -63,54 +85,84 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -118,43 +170,53 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="c++ static的作用">
               
             </span>
 
             
-              
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期三, 九月 23日 2020, 2:33 下午
-                </p>
-              
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-23 14:33" pubdate>
+        2020年9月23日 下午
+      </time>
+    </span>
+  
+</div>
 
-              <p class="mt-1">
-                
-                  
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    488 字
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      499 字
+    </span>
+  
 
-                
-                  
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      2 分钟
-                  </span>
-                
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
 
-                
-              </p>
+  
+  
+</div>
+
             
           </div>
 
@@ -168,200 +230,123 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
-          <div class="post-content mx-auto" id="post">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">c++ static的作用</h1>
             
             <div class="markdown-body">
-              <h1 id="c-static的作用"><a href="#c-static的作用" class="headerlink" title="c++ static的作用"></a>c++ static的作用</h1><p><a href="https://www.tutorialspoint.com/cplusplus/cpp_static_members.htm#:~:text=By%20declaring%20a%20function%20member,the%20scope%20resolution%20operator%20%3A%3A." target="_blank" rel="noopener">原文</a></p>
+              <p><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/cplusplus/cpp_static_members.htm#:~:text=By%20declaring%20a%20function%20member,the%20scope%20resolution%20operator%20%3A%3A.">原文</a></p>
 <h2 id="static-menmbers-of-a-c-class"><a href="#static-menmbers-of-a-c-class" class="headerlink" title="static menmbers of a c++ class"></a>static menmbers of a c++ class</h2><p>当我们声明一个类成员为static的时候，这意味着无论有其他多少种类的对象被创建了，也仅有这一份静态成员的copy。</p>
 <p>静态成员也被类的所有对象共享。</p>
-<pre><code class="c++">Live Demo
-#include &lt;iostream&gt;
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs c++">Live Demo<br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br> <br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Box</span> &#123;</span><br>   <span class="hljs-keyword">public</span>:<br>      <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> objectCount;<br>      <br>      <span class="hljs-comment">// Constructor definition</span><br>      <span class="hljs-built_in">Box</span>(<span class="hljs-keyword">double</span> l = <span class="hljs-number">2.0</span>, <span class="hljs-keyword">double</span> b = <span class="hljs-number">2.0</span>, <span class="hljs-keyword">double</span> h = <span class="hljs-number">2.0</span>) &#123;<br>         cout &lt;&lt;<span class="hljs-string">&quot;Constructor called.&quot;</span> &lt;&lt; endl;<br>         length = l;<br>         breadth = b;<br>         height = h;<br>         <br>         <span class="hljs-comment">// Increase every time object is created</span><br>         objectCount++;<br>      &#125;<br>      <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">Volume</span><span class="hljs-params">()</span> </span>&#123;<br>         <span class="hljs-keyword">return</span> length * breadth * height;<br>      &#125;<br>      <br>   <span class="hljs-keyword">private</span>:<br>      <span class="hljs-keyword">double</span> length;     <span class="hljs-comment">// Length of a box</span><br>      <span class="hljs-keyword">double</span> breadth;    <span class="hljs-comment">// Breadth of a box</span><br>      <span class="hljs-keyword">double</span> height;     <span class="hljs-comment">// Height of a box</span><br>&#125;;<br><br><span class="hljs-comment">// Initialize static member of class Box</span><br><span class="hljs-keyword">int</span> Box::objectCount = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>&#123;<br>   <span class="hljs-function">Box <span class="hljs-title">Box1</span><span class="hljs-params">(<span class="hljs-number">3.3</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">1.5</span>)</span></span>;    <span class="hljs-comment">// Declare box1</span><br>   <span class="hljs-function">Box <span class="hljs-title">Box2</span><span class="hljs-params">(<span class="hljs-number">8.5</span>, <span class="hljs-number">6.0</span>, <span class="hljs-number">2.0</span>)</span></span>;    <span class="hljs-comment">// Declare box2</span><br><br>   <span class="hljs-comment">// Print total number of objects.</span><br>   cout &lt;&lt; <span class="hljs-string">&quot;Total objects: &quot;</span> &lt;&lt; Box::objectCount &lt;&lt; endl;<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-using namespace std;
-
-class Box {
-   public:
-      static int objectCount;
-
-      // Constructor definition
-      Box(double l = 2.0, double b = 2.0, double h = 2.0) {
-         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
-         length = l;
-         breadth = b;
-         height = h;
-
-         // Increase every time object is created
-         objectCount++;
-      }
-      double Volume() {
-         return length * breadth * height;
-      }
-
-   private:
-      double length;     // Length of a box
-      double breadth;    // Breadth of a box
-      double height;     // Height of a box
-};
-
-// Initialize static member of class Box
-int Box::objectCount = 0;
-
-int main(void) {
-   Box Box1(3.3, 1.2, 1.5);    // Declare box1
-   Box Box2(8.5, 6.0, 2.0);    // Declare box2
-
-   // Print total number of objects.
-   cout &lt;&lt; &quot;Total objects: &quot; &lt;&lt; Box::objectCount &lt;&lt; endl;
-
-   return 0;
-}</code></pre>
 <p>结果</p>
-<pre><code class="c++">Constructor called.
-Constructor called.
-Total objects: 2</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++">Constructor called.<br>Constructor called.<br>Total objects: <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="static-function-members"><a href="#static-function-members" class="headerlink" title="static function members"></a>static function members</h2><p>声明一个静态成员函数，这将会让它独立于类的所有对象。</p>
 <p>静态成员函数只能访问静态数据成员，其他静态成员函数和类外所有函数。</p>
 <blockquote>
 <p>Static member functions have a class scope and they do not have access to the <strong>this</strong> pointer of the class. You could use a static member function to determine whether some objects of the class have been created or not.</p>
 </blockquote>
-<pre><code class="c++">#include &lt;iostream&gt;
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br> <br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Box</span> &#123;</span><br>   <span class="hljs-keyword">public</span>:<br>      <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> objectCount;<br>      <br>      <span class="hljs-comment">// Constructor definition</span><br>      <span class="hljs-built_in">Box</span>(<span class="hljs-keyword">double</span> l = <span class="hljs-number">2.0</span>, <span class="hljs-keyword">double</span> b = <span class="hljs-number">2.0</span>, <span class="hljs-keyword">double</span> h = <span class="hljs-number">2.0</span>) &#123;<br>         cout &lt;&lt;<span class="hljs-string">&quot;Constructor called.&quot;</span> &lt;&lt; endl;<br>         length = l;<br>         breadth = b;<br>         height = h;<br><br>         <span class="hljs-comment">// Increase every time object is created</span><br>         objectCount++;<br>      &#125;<br>      <span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">Volume</span><span class="hljs-params">()</span> </span>&#123;<br>         <span class="hljs-keyword">return</span> length * breadth * height;<br>      &#125;<br>      <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span> </span>&#123;<br>         <span class="hljs-keyword">return</span> objectCount;<br>      &#125;<br>      <br>   <span class="hljs-keyword">private</span>:<br>      <span class="hljs-keyword">double</span> length;     <span class="hljs-comment">// Length of a box</span><br>      <span class="hljs-keyword">double</span> breadth;    <span class="hljs-comment">// Breadth of a box</span><br>      <span class="hljs-keyword">double</span> height;     <span class="hljs-comment">// Height of a box</span><br>&#125;;<br><br><span class="hljs-comment">// Initialize static member of class Box</span><br><span class="hljs-keyword">int</span> Box::objectCount = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>&#123;<br>   <span class="hljs-comment">// Print total number of objects before creating object.</span><br>   cout &lt;&lt; <span class="hljs-string">&quot;Inital Stage Count: &quot;</span> &lt;&lt; Box::<span class="hljs-built_in">getCount</span>() &lt;&lt; endl;<br><br>   <span class="hljs-function">Box <span class="hljs-title">Box1</span><span class="hljs-params">(<span class="hljs-number">3.3</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">1.5</span>)</span></span>;    <span class="hljs-comment">// Declare box1</span><br>   <span class="hljs-function">Box <span class="hljs-title">Box2</span><span class="hljs-params">(<span class="hljs-number">8.5</span>, <span class="hljs-number">6.0</span>, <span class="hljs-number">2.0</span>)</span></span>;    <span class="hljs-comment">// Declare box2</span><br><br>   <span class="hljs-comment">// Print total number of objects after creating object.</span><br>   cout &lt;&lt; <span class="hljs-string">&quot;Final Stage Count: &quot;</span> &lt;&lt; Box::<span class="hljs-built_in">getCount</span>() &lt;&lt; endl;<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-using namespace std;
-
-class Box {
-   public:
-      static int objectCount;
-
-      // Constructor definition
-      Box(double l = 2.0, double b = 2.0, double h = 2.0) {
-         cout &lt;&lt;&quot;Constructor called.&quot; &lt;&lt; endl;
-         length = l;
-         breadth = b;
-         height = h;
-
-         // Increase every time object is created
-         objectCount++;
-      }
-      double Volume() {
-         return length * breadth * height;
-      }
-      static int getCount() {
-         return objectCount;
-      }
-
-   private:
-      double length;     // Length of a box
-      double breadth;    // Breadth of a box
-      double height;     // Height of a box
-};
-
-// Initialize static member of class Box
-int Box::objectCount = 0;
-
-int main(void) {
-   // Print total number of objects before creating object.
-   cout &lt;&lt; &quot;Inital Stage Count: &quot; &lt;&lt; Box::getCount() &lt;&lt; endl;
-
-   Box Box1(3.3, 1.2, 1.5);    // Declare box1
-   Box Box2(8.5, 6.0, 2.0);    // Declare box2
-
-   // Print total number of objects after creating object.
-   cout &lt;&lt; &quot;Final Stage Count: &quot; &lt;&lt; Box::getCount() &lt;&lt; endl;
-
-   return 0;
-}
-</code></pre>
 <p>结果</p>
-<pre><code>Inital Stage Count: 0
-Constructor called.
-Constructor called.
-Final Stage Count: 2</code></pre>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs delphi">Inital Stage Count: <span class="hljs-number">0</span><br><span class="hljs-function"><span class="hljs-keyword">Constructor</span> <span class="hljs-title">called</span>.</span><br><span class="hljs-function"><span class="hljs-title">Constructor</span> <span class="hljs-title">called</span>.</span><br><span class="hljs-function"><span class="hljs-title">Final</span> <span class="hljs-title">Stage</span> <span class="hljs-title">Count</span>:</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
                 
-              </p>
+              </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">PCTF2016：Confused ARM 调试记录</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">
                         <span class="hidden-mobile">简要介绍一下nas和软路由</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
                   
-                  
-  <div id="gitalk-container"></div>
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+                
+                
   <script type="text/javascript">
-    var oldLoad = window.onload;
-    window.onload = function () {
-      var gitalk = new Gitalk({
-        clientID: 'c16704b33f7cc977ea90',
-        clientSecret: '9f8ad5600be82be115466ef0daf0f8a24a7b2da1',
-        repo: 'mrbelieve128.github.io',
-        owner: 'mrbelieve128',
-        admin: 'mrbelieve128',
-        id: md5(location.pathname),
-        language: 'zh-CN',
-        perPage: 15,
-        pagerDirection: 'last',
-        createIssueManually: 'false',
-        distractionFreeMode: 'false'
-      });
-
-      gitalk.render('gitalk-container')
-      oldLoad && oldLoad();
-    }
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
-                </div>
-              
-          </div>
+              </article>
+            
+          </article>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -373,16 +358,15 @@ Final Stage Count: 2</code></pre>
 
 
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -403,123 +387,103 @@ Final Stage Count: 2</code></pre>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    </div>
     
-  <div>
+
     
-      <!-- 不蒜子统计PV -->
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
     
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">浙ICP备19033044号</a>
-    
-
-
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
     
   </div>
+
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
-
-
-
+  <!-- SCRIPTS -->
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
   <script>
-    $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
-
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '.post-content',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
-      }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
-    });
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
 
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -528,141 +492,48 @@ Final Stage Count: 2</code></pre>
 
 
 
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "c++ static的作用&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
 
 
 
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

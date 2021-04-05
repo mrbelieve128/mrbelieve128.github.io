@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,29 +17,35 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
+  
   <title>Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
 
 <link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -63,54 +69,84 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -118,13 +154,13 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Keep On Going">
               
             </span>
 
@@ -133,7 +169,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -143,8 +179,8 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
           style=margin-top:0>
           
           <div class="container">
@@ -156,368 +192,399 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
-        <p class="h4 index-header">个人原则宪法</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">个人原则宪法</a>
+      </h1>
 
-      <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">个人原则宪法史蒂芬.柯维提出，以原则为导向是以终为始最有效的方法。
-
-李源在解读查理.芒格时说，芒格的思维方式解决了他一直以来困惑的“愚人船”命题——一群人在船舱里掌舵，但他们看不清前方；另一群人在岸上，他们能看见一切，想要为船指引方向，但是无论他们如何叫喊，船里的人都听不见。生活就像一艘愚人船，掌舵人代表过去的我们，岸上的人代表现在的我们。现在我们了解过去，却无法为过去的我们指引方向。芒格不仅是成功的投资大师，更是生活的智者，他总结了一系列“为”与“不为”的清单，作为自己的投资原则。
-作者：土月君链接：https://www.jianshu.com/p/7cd520b68d5e来源：简书
-
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2099-12-31&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">个人原则宪法</a>&nbsp;
-          &nbsp;
+            
+          
+          史蒂芬.柯维提出，以原则为导向是以终为始最有效的方法。
+
+李源在解读查理.芒格时说，芒格的思维方式解决了他一直以来困惑的“愚人船”命题——一群人在船舱里掌舵，但他们看不清前方；另一群人在岸上，他们能看见一切，想要为船指引方向，但是无论他们如何叫喊，船里的人都听不见。生活就像一艘愚人船，掌舵人代表过去的我们，岸上的人代表现在的我们。现在我们了解过去，却无法为过去的我们指引方向。芒格不仅是成功的投资大
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2099-12-31 23:59" pubdate>
+              2099-12-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">个人原则宪法</a>
+            
+          </div>
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2021/03/21/Python%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%BB%E5%86%99mysql/">
-        <p class="h4 index-header">Python线程池读写mysql</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/02/Hexo%E5%86%8D%E5%8D%87%E7%BA%A7/">Hexo再升级</a>
+      </h1>
 
-      <a href="/2021/03/21/Python%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%BB%E5%86%99mysql/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2021/04/02/Hexo%E5%86%8D%E5%8D%87%E7%BA%A7/">
           
+          
+            
+          
+          从4.2.1到5.4.0Warning: 更新后front-matter十分严格，我又改了好久脚本。。。。嫌麻烦的请不要更新，又不是不能用.jpg
+hexo目录下查看版本
+
+
+直接修改 hexo init 目录下的package.json的
+1234&quot;dependencies&quot;: &#123; &quot;hexo&quot;: &quot;^5.4.0&quot;, &#12
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">基于mysql-connector-python，主要是因为一次函数调用有七个select语句，而一共有3w8次7个select，原先要跑两天才能跑完。先吐槽一波mysql connector的库文档，关闭连接啥的不和建立连接放一起，找了老久最后百度出来的。。
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-02 14:00" pubdate>
+              2021-04-02
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/19/Python%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%BB%E5%86%99mysql/">Python线程池读写mysql</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/19/Python%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%BB%E5%86%99mysql/">
+          
+          
+            
+          
+          基于mysql-connector-python，主要是因为一次函数调用有七个select语句，而一共有3w8次7个select，原先要跑两天才能跑完。先吐槽一波mysql connector的库文档，关闭连接啥的不和建立连接放一起，找了老久最后百度出来的。。
 mysql连接池建立连接池
-from mysql.connector import pooling
-mydb = pooling.MySQLConnectionPool(
-            host=&quot;localhost&quot;,
-            user=&quot;root&quot;,
-        </div>
-        </div>
-      </a>
+12345678910from mysql.connector import poolingmydb = po
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2021-03-21&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-19 22:03" pubdate>
+              2021-03-19
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2021/03/09/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-        <p class="h4 index-header">Xray 社区版 再学习记录</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/06/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">Xray 社区版 再学习记录</a>
+      </h1>
 
-      <a href="/2021/03/09/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2021/03/06/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Xray 社区版 再学习记录前言以前也有用xray扫扫学校的漏洞，最近有在开发自己的扫描平台，估借此机会再学习。
+          
+            
+          
+          前言以前也有用xray扫扫学校的漏洞，最近有在开发自己的扫描平台，估借此机会再学习。
 官方文档
+VulnType的复现在最后边。
 三种基本模式代理模式初始配置证书部分看官方文档吧Orz， 代理模式进行扫描 - xray 安全评估工具文档
 建议配合 SwitchyOmega 这个插件使用，可以随意切换代理服务器及端口。
 config.yaml配置好
-mitm:
-  restriction: # 代理能够访问的资源限制, 以下各项为空表示不限制
-    hostname_allowed: [&#39;*.web-security-academy.net&#39;,&#39;192.168.3.188&#</div>
-        </div>
-      </a>
+123mitm:  restriction: # 
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2021-03-09&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-06 14:12" pubdate>
+              2021-03-06
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/">
-        <p class="h4 index-header">你访问谷歌时，都发生了啥</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/">你访问谷歌时，都发生了啥</a>
+      </h1>
 
-      <a href="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">免责声明此文章针对学校萌新，如有错误还请指教。仅出于教育科普意义，不是为了指引。遵守网络安全法，守法青年，从我做起。
+          
+            
+          
+          免责声明此文章针对学校萌新，如有错误还请指教。仅出于教育科普意义，不是为了指引。遵守网络安全法，守法青年，从我做起。
 
 当你访问谷歌的时候，你是否想过为什么会无法打开谷歌？你也可能听说过GFW 防火墙，下面就来探索一番叭。
-什么是防火墙可以当作一个在网络出入口，负责过滤所有数据包、网络请求的电脑。里面要访问外面的网站都要经过这里，同理，外面访问里面的网站等也要经过这里。看到这里，聪明的小伙伴应该就猜到了，我们访问谷歌等，基本就是过不去这个坎儿。
-什么法子，拦住了我们ping谷歌
+什么是防火墙可以当作一个在网络出入口，负责过滤所有数据包、网络请求的电脑。里面要访问外面的网站都要经过这里，同理，外面访问里面的网站等也要经过这里。看到这里，聪明的小伙伴应该就
+        </a>
+      </p>
 
-
-可以看到，多次ping之后返回了不同的ip，但这两个都不在 谷歌公布的ip范围内。那么，最起码的，DNS劫持是有</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2021-02-12&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-12 03:44" pubdate>
+              2021-02-12
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/">
-        <p class="h4 index-header">笔记管理升级</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/">笔记管理升级</a>
+      </h1>
 
-      <a href="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">笔记管理升级前言我当前的笔记环境，是直接在hexo的根目录下，_posts 和 _unposts 文件进行笔记的记录，图片保存在md文件名\下，结构简陋，也不方便找（在两个文件夹下）。阅读了《漏洞战争》的作者泉哥的技术人的修炼之道：从业余到专业 - 知乎，也研究了一下Obsidian，其展现的笔记间的关系则让我思考如何更好的记录和保存笔记。
-笔记方法之 Zettelkasten 卡片盒笔记法有本书是讲这个的，就是How to take smart notes，感兴趣的请务必看一下这本书，很能启发人，半天到一天就能翻完。也可以选择看
-什么是 Zettelkasten 卡片盒笔记法？ - 知乎
-笔</div>
-        </div>
-      </a>
+          
+            
+          
+          前言我当前的笔记环境，是直接在hexo的根目录下，_posts 和 _unposts 文件进行笔记的记录，图片保存在md文件名\下，结构简陋，也不方便找（在两个文件夹下）。阅读了《漏洞战争》的作者泉哥的技术人的修炼之道：从业余到专业 - 知乎，也研究了一下Obsidian，其展现的笔记间的关系则让我思考如何更好的记录和保存笔记。
+笔记方法之 Zettelkasten 卡片盒笔记法有本书是讲这个的，
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2021-01-24&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-24 19:44" pubdate>
+              2021-01-24
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">
-        <p class="h4 index-header">iot信息整理</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">iot信息整理</a>
+      </h1>
 
-      <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">IoT信息整理前言持续更新，欢迎贡献！目前私信QQ，麻烦了！
+          
+            
+          
+          前言持续更新，欢迎贡献！目前私信QQ，麻烦了！
 总览必看-IOT 安全实战资料收集整合
 优先看-IOT 安全实战资料收集整合#总结性资料
 IoT Pentesting 101 &amp;&amp; IoT Security 101
 pwnable/靶场microcorruption 教导详细，感觉更像是打游戏！
 IoT-vulhub 建好的docker环境，可直接进行复现
-DVAR - Damn Vulnerable ARM Router | The Exploit Laboratory  给好vm环境，启动即可开始玩耍。但是我挣不出来，拿别人的exp也弄不出来，搞了好几天QwQ</div>
-        </div>
-      </a>
+DVAR - Damn 
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-12-30&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-30 23:59" pubdate>
+              2020-12-30
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/11/03/IoTGoat/">
-        <p class="h4 index-header">IoTGoat</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/03/IoTGoat/">IoTGoat</a>
+      </h1>
 
-      <a href="/2020/11/03/IoTGoat/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/11/03/IoTGoat/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">IoTGoatNo 1: Weak, Guessable, or Hardcoded Passwords:$ find . -name cgi-bin
-./www/cgi-bin查找，firmwalker
+          
+            
+          
+          No 1: Weak, Guessable, or Hardcoded Passwords:12$ find . -name cgi-bin./www/cgi-bin
+
+查找，firmwalker
 
 It will search through the extracted or mounted firmware file system for things of interest such as:
+        </a>
+      </p>
 
-etc/shadow and etc/passwd
-list out the etc/ssl directory
-search for SSL related files such as </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-11-03&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-03 19:50" pubdate>
+              2020-11-03
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/10/19/Netgear%20Nighthawk%20R8300%20upnpd%20PreAuth%20RCE%20%E5%A4%8D%E7%8E%B0%E8%BE%85%E5%8A%A9/">
-        <p class="h4 index-header">Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/19/Netgear%20Nighthawk%20R8300%20upnpd%20PreAuth%20RCE%20%E5%A4%8D%E7%8E%B0%E8%BE%85%E5%8A%A9/">Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助</a>
+      </h1>
 
-      <a href="/2020/10/19/Netgear%20Nighthawk%20R8300%20upnpd%20PreAuth%20RCE%20%E5%A4%8D%E7%8E%B0%E8%BE%85%E5%8A%A9/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/10/19/Netgear%20Nighthawk%20R8300%20upnpd%20PreAuth%20RCE%20%E5%A4%8D%E7%8E%B0%E8%BE%85%E5%8A%A9/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助小声：因为nvram那里我实在搞不定了，如果有愿意帮忙的师傅欢迎联系！
+          
+            
+          
+          小声：因为nvram那里我实在搞不定了，如果有愿意帮忙的师傅欢迎联系！
 环境固件下载地址
 md5sum
-c3eb8f8c004d466796a05b4c60503162  R8300-V1.0.2.130_1.0.99.zipbinwalk
-binwalk R8300-V1.0.2.130_1.0.99.chk 
+1c3eb8f8c004d466796a05b4c60503162  R8300-V1.0.2.130_1.0.99.zip
 
-DECIMAL       HEXADECIMAL     DESCRIPTION
------------------------------------------------------</div>
-        </div>
-      </a>
 
-      <div class="index-btm">
+
+binwalk
+1234567binwalk R8300-V1.0.2.130_1.0.99.chk DECIMAL       HEXADECIMAL     D
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-19&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-19 08:50" pubdate>
+              2020-10-19
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
-        <p class="h4 index-header">PCTF2016：Confused ARM 调试记录</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">PCTF2016：Confused ARM 调试记录</a>
+      </h1>
 
-      <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">PCTF2016：Confused ARM 调试记录前言结合书《CTF特训营》IoT篇看最佳
+          
+            
+          
+          前言结合书《CTF特训营》IoT篇看最佳
 0x01 静态分析指定处理器类型为ARM little-endian，不然
 ![image-20201009103732001](PCTF2016：Confused ARM 调试记录/image-20201009103732001.png)
 正常打开之后先看看DCD部分
 
-DCD：数据定义（ Data Definition ）伪指令一般用于为特定的数据分配存储单元，同时可完成已分配存储单元的初始化。
-语法格式：标号 DCD（或 DCDU） 表达式DCD（或 DCDU）伪指令用于分配一片连续的字存储单元</div>
-        </div>
-      </a>
+DCD：数据定义（ Data Definition ）伪指令一般用于为特定的数据分配
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-09&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-09 10:29" pubdate>
+              2020-10-09
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/09/23/c++%20static%E7%9A%84%E4%BD%9C%E7%94%A8/">
-        <p class="h4 index-header">c++ static的作用</p>
-      </a>
-
-      <a href="/2020/09/23/c++%20static%E7%9A%84%E4%BD%9C%E7%94%A8/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">c++ static的作用原文
-static menmbers of a c++ class当我们声明一个类成员为static的时候，这意味着无论有其他多少种类的对象被创建了，也仅有这一份静态成员的copy。
-静态成员也被类的所有对象共享。
-Live Demo
-#include &lt;iostream&gt;
-
-using namespace std;
-
-class Box {
-   public:
-      static int objectCount;
-
-      // Constructor definition
-      Box(double l = 2.0, double b</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-23&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
+    </article>
   </div>
 
 
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -527,16 +594,15 @@ class Box {
         </div>
       </div>
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -557,70 +623,97 @@ class Box {
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    </div>
     
-  <div>
+
     
-      <!-- 不蒜子统计PV -->
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
     
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">浙ICP备19033044号</a>
-    
-
-
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
     
   </div>
+
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-  <script  src="/js/lazyload.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
 
 
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -629,141 +722,48 @@ class Box {
 
 
 
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Keep On Going&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
 
 
 
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

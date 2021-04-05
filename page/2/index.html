@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,29 +17,35 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
+  
   <title>Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
 
 <link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -63,54 +69,84 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -118,13 +154,13 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Keep On Going">
               
             </span>
 
@@ -133,7 +169,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -143,8 +179,8 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
           style=margin-top:0>
           
           <div class="container">
@@ -156,152 +192,207 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">
-        <p class="h4 index-header">简要介绍一下nas和软路由</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/09/23/c++%20static%E7%9A%84%E4%BD%9C%E7%94%A8/">c++ static的作用</a>
+      </h1>
 
-      <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/09/23/c++%20static%E7%9A%84%E4%BD%9C%E7%94%A8/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">简要介绍一下nas和软路由nas和软路由作用对于普通人来说，nas的最大作用就是备份系统（全系统备份）以及作为外部存储空间来使用了，其次就是远程访问nas中的电影/剧，还有方便的共享文件和云协作、挂着下载bt/pt了。一般局域网访问有110M/s的速度，2.5G也有250M/s上下的速度，只要不是视频制作者和单反使用者，这应该很足够使用。
-nas如果有视频输出接口，或者家庭用的智能电视，也可以通过安装软件，自动扫描硬盘上的电影资源，自动获取展示海报等，作为家庭影音中心。
-而软路由，除了作为起飞地点之外，还可以流控，还可以玩高端路由器才玩得起的东西（因为我也没咋玩过hhh）。软路由可以在nas里</div>
-        </div>
-      </a>
+          
+            
+          
+          原文
+static menmbers of a c++ class当我们声明一个类成员为static的时候，这意味着无论有其他多少种类的对象被创建了，也仅有这一份静态成员的copy。
+静态成员也被类的所有对象共享。
+1234567891011121314151617181920212223242526272829303132333435363738394041Live Demo#include &
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-26&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-09-23 14:33" pubdate>
+              2020-09-23
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/08/22/CSAPP%20lab/">
-        <p class="h4 index-header">CSAPP lab</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">简要介绍一下nas和软路由</a>
+      </h1>
 
-      <a href="/2020/08/22/CSAPP%20lab/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">
           
+          
+            
+          
+          nas和软路由作用对于普通人来说，nas的最大作用就是备份系统（全系统备份）以及作为外部存储空间来使用了，其次就是远程访问nas中的电影/剧，还有方便的共享文件和云协作、挂着下载bt/pt了。一般局域网访问有110M/s的速度，2.5G也有250M/s上下的速度，只要不是视频制作者和单反使用者，这应该很足够使用。
+nas如果有视频输出接口，或者家庭用的智能电视，也可以通过安装软件，自动扫描硬盘上的
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">CSAPP labdatalab正数用原码表示的，负数用补码表示
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-26 00:49" pubdate>
+              2020-08-26
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/08/22/CSAPP%20lab/">CSAPP lab</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/08/22/CSAPP%20lab/">
+          
+          
+            
+          
+          datalab正数用原码表示的，负数用补码表示
 
 补码：正数的补码就是其原码；负数的反码+1就是补码
 如单字节5，在计算机中就表示为：0000 0101。负数用补码表示，如单字节-5，在计算机中表示为1111 1011。
 
-allOddBits/* 
- * allOddBits - return 1 if all odd-numbered bits in word set to 1
- *   where bits are numbered from 0 (least significant) to 31 (most significant)
- *   Examples all</div>
-        </div>
-      </a>
+allOddBits123456789101112/*  * allOddBits - return 1 if all odd-numbered bits in word se
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-22&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-22 23:27" pubdate>
+              2020-08-22
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/08/21/LLVM%20pass/">
-        <p class="h4 index-header">LLVM pass</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/08/21/LLVM%20pass/">LLVM pass</a>
+      </h1>
 
-      <a href="/2020/08/21/LLVM%20pass/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/08/21/LLVM%20pass/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">LLVM pass可以先看看 这里
+          
+            
+          
+          可以先看看 这里
 LLVM的核心是一个库。从CSCD70的Assignment1来看，llvm pass可以调用库来输出源代码loop.c里有的函数名称，直接调用该函数的次数，参数个数，Basic Blocks数量和指令个数(FunctionInfo.cpp里完成)和对代码进行优化使其运行更快(LocalOpt.cpp里完成)，优化指加减乘除优化，如
-x + 0 = 0 + x =&gt; x
-2 * x = x * 2 =&gt; (x + x) or x &lt;&lt; 1
-a = b + 1, c = a - 1 =&gt; a = b + 1, c = b可以参考y</div>
-        </div>
-      </a>
+123x + 0 = 0 + x =&gt; 
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-08-21&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-21 19:59" pubdate>
+              2020-08-21
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <p class="h4 index-header">编译原理学习笔记</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">编译原理学习笔记</a>
+      </h1>
 
-      <a href="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">编译原理学习笔记视频
+          
+            
+          
+          视频
 编译器结构词法分析 Lexical analysis or scanning检测输入字符串中不属于我们语言的那部分符号
 词法分析把程序字段变成关键字words or 词法单元tokens
 如
-if x == y then z = 1; else z = 2;分号，标点，分隔符都是词法单元
-语法分析syntax analysis parsing试着去判断是否格式正确或者是否是有效程序（语句中是否存在格式错误或没用解析树）
-if then else包含三部分
-predicate条件判断，then语句和else语句
-{% asset_img image-202006262351</div>
-        </div>
-      </a>
+1if x == y then z = 1; else z = 2;
 
-      <div class="index-btm">
+分号，标点，分隔符都是词法单元
+语法分析syntax analysis parsing试着去判断是否格式正确或者是否是有效程序（语
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-27&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-27 17:08" pubdate>
+              2020-06-27
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/05/23/Natas/">
-        <p class="h4 index-header">Natas</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/23/Natas/">Natas</a>
+      </h1>
 
-      <a href="/2020/05/23/Natas/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/05/23/Natas/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">natasnatas0
+          
+            
+          
+          natas0
 
 natas1禁用了右键，但还是可以F12或者
 
@@ -315,248 +406,190 @@ natas3
 awsl
 natas4
 
-点击refresh之后Referer会显示，改成对应的natas5即可
-natas5Login, 那就看cookie
+点击refresh之后Referer会显示，改成对应的natas5即
+        </a>
+      </p>
 
-
-改成1就行
-natas6
-
-打开再按f12就可以看见了
-natas7
-
-看到hint之后，就尝试在url中尝试page=ls
-
-
-等号后</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-23&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-23 10:59" pubdate>
+              2020-05-23
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/05/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8&%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-        <p class="h4 index-header">数据库使用&amp;学习记录</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8&%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">数据库使用&amp;学习记录</a>
+      </h1>
 
-      <a href="/2020/05/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8&%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/05/19/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8&%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">数据库使用&amp;学习记录权限GRANT CREATE TABLE TO  { PUBLIC | GROUP group | username }
+          
+            
+          
+          权限GRANT CREATE TABLE TO  { PUBLIC | GROUP group | username }
 GRANT ALTER TABLE
 Grant的用法
 忘记密码一个窗口
-mysqld --shared-memory --skip-grant-tables另一个窗口
-mysql -u root -p
-//press enter
-FLUSH PRIVILEGES
-ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;你要设置的密码&#39;
-FLUSH PRIVILEGE</div>
-        </div>
-      </a>
+1mysqld --shared-memory --skip-grant-tables
 
-      <div class="index-btm">
+另一个窗口
+12345mysql -u root -p//press enterFLUSH PRIVILEGESAL
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-19&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-19 16:40" pubdate>
+              2020-05-19
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
-        <p class="h4 index-header">hexo升级跳坑</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">hexo升级跳坑</a>
+      </h1>
 
-      <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">hexo升级跳坑应该是从4.0升级到4.2，_config.yml的更改就不说了，主要讲讲昨天晚上都干了啥（吐血捂肝
+          
+            
+          
+          应该是从4.0升级到4.2，_config.yml的更改就不说了，主要讲讲昨天晚上都干了啥（吐血捂肝
 4.2多了个友链（万恶起源）上来之后，最开始的变化就是，所有文章的日期都变成了创建时间，即便修改时间比创建时间还早0.0
 
 
 于是，写了脚本给每个文章加上date，确定最早的发布/创建时间，并且，没有这个Front-matter是会报莫名其妙的YAMLException的。
-import os
-import sys
-import time
-import datetime
-fpath = os.getcwd()
-path=os.path.abspath(os.path.dirna</div>
-        </div>
-      </a>
+12345678910
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-07 07:58" pubdate>
+              2020-04-07
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-        <p class="h4 index-header">记一次转移环境上服务器</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">记一次转移环境上服务器</a>
+      </h1>
 
-      <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">记一次转移后端环境上服务器本想着本地docker调好直接传上去的，然鹅一开vscode remote就崩
+          
+            
+          
+          本想着本地docker调好直接传上去的，然鹅一开vscode remote就崩
 并且，vscode remote也仅指本地的docker里，不是云服务器的环境，QAQ
 上传xftp 学生免费版，可了
 安装好数据库后，记得设置密码，参考
 修改utf8为utf8mb4
 vim /etc/mysql/my.cnf
-[mysqld]
-character-set-server=utf8mb4
+12345678[mysqld]character-set-server=utf8mb4[
+        </a>
+      </p>
 
-[mysql]
-default-character-set=utf8mb4
-
-[client]
-default-character-set=utf8mb4                </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-07&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-07 00:11" pubdate>
+              2020-04-07
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-        <p class="h4 index-header">django学习记录</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">django学习记录</a>
+      </h1>
 
-      <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/04/03/django%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">django学习记录将现有数据库导入到models.py中python manage.py inspectdb &gt; app/models.py
+          
+            
+          
+          调试python manage.py runserver 127.0.0.1:28000
+将现有数据库导入到models.py中1python manage.py inspectdb &gt; app/models.py
 js实现定时刷新页面Ajax轮询,Ajax长轮询和websocket(详细使用)
 django shell 调试python manage.py shell
-python小问题orders_num = ordersdate = orders_car_size = orders_price = []
+python小问题1
+        </a>
+      </p>
 
-
-会指向同一个内存地址QAQ
-叫引用赋值
-问题解决访问不到写好的pathurlpatterns = [   path(&#39;addUsers/&</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-03&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-03 15:30" pubdate>
+              2020-04-03
+            </time>
+          </div>
         
         
         
       </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
-        <p class="h4 index-header">cisco课程代码记录</p>
-      </a>
-
-      <a href="/2020/03/31/cisco%E8%AF%BE%E7%A8%8B%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">cisco课程代码记录不记肯定会忘记QAQ,只敲简写然后敲tab也是可以的
-enable
-configure terminal
-hostname R1加密enable password xxx # 设置用户执行密码
-enable secret class # 设置特权执行密码
-line console 0 #线路密码
-(config-line)password cisco
-(config-line)login
-(config-line)exit
-line vty 0 4 #加密密码设置
-(config-line)password class
-(config-line)login
-(config</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-31&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          
-        
-      </div>
-    </div>
+    </article>
   </div>
 
 
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -566,16 +599,15 @@ line vty 0 4 #加密密码设置
         </div>
       </div>
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -596,70 +628,97 @@ line vty 0 4 #加密密码设置
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    </div>
     
-  <div>
+
     
-      <!-- 不蒜子统计PV -->
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
     
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">浙ICP备19033044号</a>
-    
-
-
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
     
   </div>
+
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-  <script  src="/js/lazyload.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
 
 
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -668,141 +727,48 @@ line vty 0 4 #加密密码设置
 
 
 
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Keep On Going&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
 
 
 
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

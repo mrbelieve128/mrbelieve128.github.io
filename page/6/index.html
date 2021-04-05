@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,29 +17,35 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
+  
   <title>Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
 
 <link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -63,54 +69,84 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -118,13 +154,13 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Keep On Going">
               
             </span>
 
@@ -133,7 +169,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -143,8 +179,8 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
           style=margin-top:0>
           
           <div class="container">
@@ -156,107 +192,161 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
-        <p class="h4 index-header">使用docker为pwn题目搭配环境</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">手动脱壳</a>
+      </h1>
 
-      <a href="/2020/01/13/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
           
+          
+            
+          
+          手动脱壳可分为压缩壳（常见的有UPX、北斗、ASDPack、Npack、PECompact等）和保护壳（如强壳Safengine、VMprotect、winlicense、Themida等），压缩壳作用是把程序进行体积缩小化处理，保护壳主要作用是混淆或加密代码防止他人进行逆向程序、破解程序。
+注意右面寄存器FPU的显示，当有且只有ESP和EIP为红色时，我们可以用ESP定律了
+ESP定律
+参考
+n
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">为pwn题目搭配环境-docker将多个题目搭建一个docker里ubuntu *1 
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:06" pubdate>
+              2020-01-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">使用docker为pwn题目搭配环境</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E4%BD%BF%E7%94%A8docker%E4%B8%BApwn%E9%A2%98%E7%9B%AE%E6%90%AD%E9%85%8D%E7%8E%AF%E5%A2%83/">
+          
+          
+            
+          
+          将多个题目搭建一个docker里ubuntu *1 
 docker 安装
 docker-compose 官方文档
 giantbranch/pwn_deploy_chroot
 解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?
-docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it</div>
-        </div>
-      </a>
+docker-compose up解决
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:06" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/%E8%BF%90%E7%BB%B4/">运维</a>
+            
+          </div>
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">汇编、逆向工程基础</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">汇编、逆向工程基础</a>
+      </h1>
 
-      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
+          
+            
+          
+          原文链接：https://blog.csdn.net/qq_21508727/article/details/80559270
 单位
 
 ·WORD（字） - 一个字由两个字节组成，共有16位。一个字的最大值是0FFFFh (或者是 65535d) (h代表16进制，d代表10进制)。
-·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者是 4294967295d)。
+·DOUBLE WORD（双字DWORD） - 一个双字包含两个字，共有32位。最大值为0FFFFFFFF (或者
+        </a>
+      </p>
 
-
-一个16进制占4bit
-
-
-寄存器Win+Intel CPU组成的计算机通常有9个32位寄存器 (w/o 标志寄存器)。它们是：
-
-
-EAX： 累加器
-EBX： 基</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:05" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+            
+          </div>
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
-        <p class="h4 index-header">操作系统复习</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">操作系统复习</a>
+      </h1>
 
-      <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">对不起我看吐了，考炸了第一章操作系统的目标方便性，有效性，可扩充性和开放性
+          
+            
+          
+          对不起我看吐了，考炸了操作系统的目标方便性，有效性，可扩充性和开放性
 可扩充性：采用微内核结构 P30
 发展主要动力
 不断提高计算机资源利用率
@@ -272,91 +362,99 @@ EBX： 基</div>
 平均周转时间长
 没有交互能力
 
-==操作系统定义为:一组能有效组织和管理硬件和软件资源，合理进行调度，方便用户使用程序的集合==
-分时系统（The Sharing System）在一台主机上连接多个终端，允许多个用户同时通过终端以交互方式使用计算机，共享主机资源
-特征</div>
-        </div>
-      </a>
+==操作系统定义为:一组能有效组织和管理硬
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:03" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>
+            
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>
+            
+          </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        <p class="h4 index-header">博弈论</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">博弈论</a>
+      </h1>
 
-      <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
-Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。\
+          
+            
+          
+          LINK《博弈圣经》博弈论的定义：我们把动物利用大自然移动的瘾魂，在决策人期待的空间里，形成三维均衡的学术理论，称为博弈论。基本概念中包括局中人、行动、信息、策略、收益、均衡和结果等。其中局中人、策略和收益是最基本要素。局中人、行动和结果被统称为博弈规则。
+Class1定义：如果一个选项得到的结果严格优于另一个选项，那么称这个选项为严格优势策略。
 结论1：不要选择严格劣势策略
-结论2：理性的选择，使得总结果变得更坏
-改变收益，就会改变目的。
-结论3：予欲得之，必先知之\
-结论4：分析他们（对手）的收益，站在别人的立场上去分析他们会怎么做
+结论2：理性的选择，
+        </a>
+      </p>
 
-2019/8/6
-
-
-Class2博弈的要素：参与人</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:02" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AF%BE%E5%A4%96%E5%AD%A6%E4%B9%A0/">课外学习</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AF%BE%E5%A4%96%E5%AD%A6%E4%B9%A0/">课外学习</a>
+            
+          </div>
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
-        <p class="h4 index-header">安洵杯线下AWD总结</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">安洵杯线下AWD总结</a>
+      </h1>
 
-      <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E5%AE%89%E6%B4%B5%E6%9D%AF%E7%BA%BF%E4%B8%8BAWD%E6%80%BB%E7%BB%93/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">安洵杯线下AWD总结
+          
+            
+          
+          
 
 
 
@@ -368,42 +466,47 @@ Class2博弈的要素：参与人</div>
 AWD规则连接的是docker服务器，所以给的都是端口
 端口列表：axx80/axx22 
 
-eg: team01-web1 10180(web) 10122(ssh) 
-eg: team18-web2 11880(web) 11822(ssh) 
-eg: team19-</div>
-        </div>
-      </a>
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:01" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93/">反思总结</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93/">反思总结</a>
+            
+          </div>
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
-        <p class="h4 index-header">Python中下划线的5种含义</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">Python中下划线的5种含义</a>
+      </h1>
 
-      <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
+          
+            
+          
+          在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
 
 单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
 
@@ -411,47 +514,50 @@ eg: team19-</div>
 
 双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
 
-单下划线：_                        使用“_”来表示它只是一个临时值
+单下划线：_               
+        </a>
+      </p>
 
-双前导和末尾下划线：
-__var__这个感觉有点奇怪，一个是常见的类内init，另一个则是下面这种len的写法
-
-class Linkedli</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 22:59" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/python/">python</a>&nbsp;
-          
-            <a href="/categories/python/%E5%AD%A6%E4%B9%A0/">学习</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/python/">python</a>
+            
+              <a href="/categories/python/%E5%AD%A6%E4%B9%A0/">学习</a>
+            
+          </div>
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/Proxychains/">
-        <p class="h4 index-header">Proxychains</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/Proxychains/">Proxychains</a>
+      </h1>
 
-      <a href="/2020/01/13/Proxychains/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/Proxychains/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">折腾两小时，不如问一下人= =
+          
+            
+          
+          折腾两小时，不如问一下人= =
 Proxychains
 先安装
 然后sudo vi /etc/proxychains.conf
@@ -462,46 +568,55 @@ win_ip为你的windows主机ip，可在cmd ifconfig查看
 
 然后运行测试
 proxychains4 telnet www.google.com 443
-可以之后就可以直接sudo proxychains4 apt-get update了
-</div>
-        </div>
-      </a>
+可以之后就可以直接sudo prox
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 22:57" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>
+            
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>
+            
+          </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/HCNP-SEC-19.11.23/">
-        <p class="h4 index-header">HCNP-SEC-19.11.23</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/HCNP-SEC-19.11.23/">HCNP-SEC-19.11.23</a>
+      </h1>
 
-      <a href="/2020/01/13/HCNP-SEC-19.11.23/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/HCNP-SEC-19.11.23/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">HCNP-SEC-19.11.23
+          
+            
+          
+          
 
 
 eSight网管 可管其他厂商设备，几乎都可以
@@ -513,81 +628,48 @@ NGFW USG9000 网络运营商，广电（超大型网络）USG6000 中大型企�
 S12700 整个网络核心 S9k S7k
 
 
-网络安全运维安全策略：简单，稳定，安全
-端口要加端口描述
-脚本配置
+网络安全运维安全策略：简
+        </a>
+      </p>
 
-
-
-
-
-
-
-
-
-监控（类似只读）
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-QS 优先级？优先保证业务
-FW</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 22:56" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">网络专业知识</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">网络专业知识</a>
+            
+          </div>
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        <p class="h4 index-header">GXY_CTF_my_cannary-从零记录如何调试出来</p>
-      </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">GXY_CTF_my_cannary-从零记录如何调试出来</a>
+      </h1>
 
-      <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">查看main
+          
+            
+          
+          查看main
 
 
 进入test()
@@ -608,82 +690,41 @@ buf只有30字节
 
 
 没有/bin/sh
-所以我们得先绕过栈校验，再leak libc地址，然后再system /bin/sh
-遂写poc
-from pwn import *
-sh = process(&quot;./my_cannary&quot;)
-elf = ELF</div>
-        </div>
-      </a>
+所以我们得先绕过栈校验，再le
+        </a>
+      </p>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 22:55" pubdate>
+              2020-01-13
+            </time>
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CTF/">CTF</a>&nbsp;
-          
-            <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>
+            
+          </div>
         
         
       </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        <p class="h4 index-header">git同步到github和gitee</p>
-      </a>
-
-      <a href="/2020/01/13/git%E5%90%8C%E6%AD%A5%E5%88%B0github%E5%92%8Cgitee/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">==按照此说明做下来保证可用，但我也还没完全研究透彻所以有诸多不足请多原谅==
-一、准备工作1、建立一个仓库https://gitee.com/
-
-
-2、下载githttps://git-scm.com/可以跟随这个 https://blog.csdn.net/sishen47k/article/details/80211002 安装
-二、开始操作1、创建SSHkey打开Git Bash，输入ssh-keygen -t rsa会分别提示你文件名，密码（可不设置），确认密码。一般三次回车就可以在 C:\Users\“你的用户名”.ssh 目录下就会有.pub结尾的文件，用记事本打开，复制里面的东</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
+    </article>
   </div>
 
 
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-double-right"></i></a>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/5/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/7/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -693,16 +734,15 @@ elf = ELF</div>
         </div>
       </div>
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -723,70 +763,97 @@ elf = ELF</div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    </div>
     
-  <div>
+
     
-      <!-- 不蒜子统计PV -->
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
     
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">浙ICP备19033044号</a>
-    
-
-
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
     
   </div>
+
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-  <script  src="/js/lazyload.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
 
 
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -795,141 +862,48 @@ elf = ELF</div>
 
 
 
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Keep On Going&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
 
 
 
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

