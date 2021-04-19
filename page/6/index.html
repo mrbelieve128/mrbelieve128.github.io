@@ -195,6 +195,209 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/01/15/%E6%A0%88%E8%BF%81%E7%A7%BB/">栈迁移</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/01/15/%E6%A0%88%E8%BF%81%E7%A7%BB/">
+          
+          
+            
+          
+          劫持一次流程，覆盖一次ebp
+栈迁移后跳到read
+正常Rop到libc，再rop，再到libc
+rop到libc，由于跳到read上，后面可以继续任意地址跳转
+pop_ret
+leave_ret  
+payload += elf.plt[‘puts’]
+payload += p32(pop_ebp_ret)
+payload += p32(elf.got[“__libc_start”])
+payl
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-15 21:00" pubdate>
+              2020-01-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/%E5%B8%B8%E7%94%A8/">常用</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">ROPgadget-not_the_same_3dsctf_2016</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/01/14/ROPgadget-not_the_same_3dsctf_2016/">
+          
+          
+            
+          
+          
+
+
+
+ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
+自动生成
+123456789101112131415161718192021222324252627282930313233343536from struct import packp = &#x27;&#x27;p += pack(&#x27;&lt;I&#x27;, 0x080
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-14 23:13" pubdate>
+              2020-01-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/buu/">buu</a>
+            
+              <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">汇编基础</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
+          
+          
+            
+          
+          X86汇编基础==Intel和AT&amp;T语法区别：==
+
+Intel操作数在前面，AT&amp;T的在后面
+
+
+在Intel语法中：  在AT&amp;T语法中：  有一个简单的记住它们的方法: 当你面对intel语法的时候，你可以想象把等号(=)放到2个操作数中间，当面对AT&amp;T语法的时候，你可以放一个右箭头(→）到两个操作数之间。
+
+
+AT&amp;T: 寄存器名之前需要写一个百
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:08" pubdate>
+              2020-01-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">数据库复习笔记</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+          
+          
+            
+          
+          使用的是sql server，操作可能跟mysql有区别
+新建数据库123456789101112131415161718create database stuhyyon (	name &#x3D; stu, 	filename&#x3D;&#39;C:\stu_data.mdf&#39;,	size &#x3D; 3mb,	maxsize &#x3D; 500mb,	filegrowth &#x
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:08" pubdate>
+              2020-01-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">手动脱壳</a>
       </h1>
 
@@ -491,238 +694,11 @@ AWD规则连接的是docker服务器，所以给的都是端口
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">Python中下划线的5种含义</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/01/13/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/">
-          
-          
-            
-          
-          在用python重写算法，学习学习算法时，一时好奇（打基础）来学习了python的下划线
-
-单前导下划线：_var            小小警示，提示只在内部使用，非public和private那种
-
-单末尾下划线：var_            解决命名冲突的问题
-
-双前导下划线：__var          防止变量在子类中被重写，只能在类内访问
-
-单下划线：_               
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-13 22:59" pubdate>
-              2020-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/python/">python</a>
-            
-              <a href="/categories/python/%E5%AD%A6%E4%B9%A0/">学习</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/13/Proxychains/">Proxychains</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/01/13/Proxychains/">
-          
-          
-            
-          
-          折腾两小时，不如问一下人= =
-Proxychains
-先安装
-然后sudo vi /etc/proxychains.conf
-socks5 win_ip 1080
-win_ip为你的windows主机ip，可在cmd ifconfig查看
-飞机要打开允许局域网连接
-
-
-然后运行测试
-proxychains4 telnet www.google.com 443
-可以之后就可以直接sudo prox
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-13 22:57" pubdate>
-              2020-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux%E4%BD%BF%E7%94%A8/">Linux使用</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Linux 问题解决</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/13/HCNP-SEC-19.11.23/">HCNP-SEC-19.11.23</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/01/13/HCNP-SEC-19.11.23/">
-          
-          
-            
-          
-          
-
-
-eSight网管 可管其他厂商设备，几乎都可以
-CIS可用于抵御APT攻击。它从海量数据中提取关键信息，智能可视化，还原攻击链，防御攻击
-FireHunter还原流量，在虚拟环境对网络中传输的文件进行检测
-UMA 审计上网行为
-NGFW USG9000 网络运营商，广电（超大型网络）USG6000 中大型企业
-业务随行
-S12700 整个网络核心 S9k S7k
-
-
-网络安全运维安全策略：简
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-13 22:56" pubdate>
-              2020-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">网络专业知识</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">GXY_CTF_my_cannary-从零记录如何调试出来</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-          
-          
-            
-          
-          查看main
-
-
-进入test()
-
-
-看见了read，等等先
-
-
-judge无法反编译，查看汇编
-
-
-看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
-点开read的buf
-
-
-buf只有30字节
-再看看strings
-
-
-没有/bin/sh
-所以我们得先绕过栈校验，再le
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-13 22:55" pubdate>
-              2020-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/CTF/">CTF</a>
-            
-              <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/5/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/7/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/5/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/7/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

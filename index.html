@@ -465,20 +465,20 @@ DVAR - Damn
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/11/03/IoTGoat/">IoTGoat</a>
+        <a href="/2020/12/18/HackTheBox%20Starting%20Point%20Shield%20.29/">HackTheBox Starting Point Shield .29</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/11/03/IoTGoat/">
+        <a href="/2020/12/18/HackTheBox%20Starting%20Point%20Shield%20.29/">
           
           
             
           
-          No 1: Weak, Guessable, or Hardcoded Passwords:12$ find . -name cgi-bin./www/cgi-bin
-
-查找，firmwalker
-
-It will search through the extracted or mounted firmware file system for things of interest such as:
+          扫描出来80 ISS和 3306 mysql
+bp发现路径下有wordpress
+查看wordpress版本，网页搜索generator即可搜到generator
+wordpress 登陆界面，使用看到的admin账户和先前的密码登录即可。
+使用msf的exploit/unix/webapp/wp_admin_shell_upload就可以获得meterpreter shell，注意要设置LHOS
         </a>
       </p>
 
@@ -486,12 +486,19 @@ It will search through the extracted or mounted firmware file system for things 
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-11-03 19:50" pubdate>
-              2020-11-03
+            <time datetime="2020-12-18 11:56" pubdate>
+              2020-12-18
             </time>
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HackTheBox/">HackTheBox</a>
+            
+          </div>
         
       </div>
     </article>
@@ -503,24 +510,20 @@ It will search through the extracted or mounted firmware file system for things 
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/19/Netgear%20Nighthawk%20R8300%20upnpd%20PreAuth%20RCE%20%E5%A4%8D%E7%8E%B0%E8%BE%85%E5%8A%A9/">Netgear Nighthawk R8300 upnpd PreAuth RCE 复现辅助</a>
+        <a href="/2020/12/17/HackTheBox%20Starting%20point%20Vaccine%20.46/">Hack The Box Starting point Vaccine .46</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/19/Netgear%20Nighthawk%20R8300%20upnpd%20PreAuth%20RCE%20%E5%A4%8D%E7%8E%B0%E8%BE%85%E5%8A%A9/">
+        <a href="/2020/12/17/HackTheBox%20Starting%20point%20Vaccine%20.46/">
           
           
             
           
-          小声：因为nvram那里我实在搞不定了，如果有愿意帮忙的师傅欢迎联系！
-环境固件下载地址
-md5sum
-1c3eb8f8c004d466796a05b4c60503162  R8300-V1.0.2.130_1.0.99.zip
-
-
-
-binwalk
-1234567binwalk R8300-V1.0.2.130_1.0.99.chk DECIMAL       HEXADECIMAL     D
+          信息收集扫描之后有ftp，ssh和web
+联想到之前获得的ftp账户，输入进去登录后获得了backup.zip
+使用Seclist的字典，通过爆破获得密码，成功登陆进的了后台
+sql注入获得登陆密码的md5，解开后登陆进后台跳转到dashboard
+推测登陆页面sql为select * from table where name = Input，输入sport&#39;+and+1=1，根据页面返
         </a>
       </p>
 
@@ -528,12 +531,19 @@ binwalk
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-19 08:50" pubdate>
-              2020-10-19
+            <time datetime="2020-12-17 09:33" pubdate>
+              2020-12-17
             </time>
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HackTheBox/">HackTheBox</a>
+            
+          </div>
         
       </div>
     </article>
@@ -545,21 +555,17 @@ binwalk
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">PCTF2016：Confused ARM 调试记录</a>
+        <a href="/2020/12/04/HackTheBox%20Starting%20Point%20Oopsie%20.28/">HackTheBox Starting Point Oopsie .28</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/">
+        <a href="/2020/12/04/HackTheBox%20Starting%20Point%20Oopsie%20.28/">
           
           
             
           
-          前言结合书《CTF特训营》IoT篇看最佳
-0x01 静态分析指定处理器类型为ARM little-endian，不然
-![image-20201009103732001](PCTF2016：Confused ARM 调试记录/image-20201009103732001.png)
-正常打开之后先看看DCD部分
-
-DCD：数据定义（ Data Definition ）伪指令一般用于为特定的数据分配
+          扫描结果
+1234567891011121314151617181920212223242526272829303132Starting Nmap 7.80 ( https://nmap.org ) at 2020-12-03 06:15 ESTNmap scan report for 10.10.10.28Host is up (0.49s latency).PORT     STATE  SE
         </a>
       </p>
 
@@ -567,12 +573,19 @@ DCD：数据定义（ Data Definition ）伪指令一般用于为特定的数据
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-09 10:29" pubdate>
-              2020-10-09
+            <time datetime="2020-12-04 20:08" pubdate>
+              2020-12-04
             </time>
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HackTheBox/">HackTheBox</a>
+            
+          </div>
         
       </div>
     </article>
@@ -582,7 +595,7 @@ DCD：数据定义（ Data Definition ）伪指令一般用于为特定的数据
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
