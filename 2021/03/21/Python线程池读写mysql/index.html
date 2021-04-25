@@ -18,7 +18,7 @@
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
   
-  <title>使用docker为pwn题目搭配环境 - Mr.BelieVe&#39;s Treasure</title>
+  <title>Python线程池读写mysql - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="使用docker为pwn题目搭配环境">
+            <span class="h2" id="subtitle" title="Python线程池读写mysql">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-01-13 23:06" pubdate>
-        2020年1月13日 晚上
+      <time datetime="2021-03-21 20:47" pubdate>
+        2021年3月21日 晚上
       </time>
     </span>
   
@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      309 字
+      642 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      8
        分钟
     </span>
   
@@ -238,46 +238,48 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">使用docker为pwn题目搭配环境</h1>
+            <h1 style="display: none">Python线程池读写mysql</h1>
             
             <div class="markdown-body">
-              <h2 id="将多个题目搭建一个docker里"><a href="#将多个题目搭建一个docker里" class="headerlink" title="将多个题目搭建一个docker里"></a>将多个题目搭建一个docker里</h2><p>ubuntu *1 </p>
-<p>docker <a target="_blank" rel="noopener" href="https://www.runoob.com/docker/ubuntu-docker-install.html">安装</a></p>
-<p>docker-compose <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/">官方文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/giantbranch/pwn_deploy_chroot">giantbranch/pwn_deploy_chroot</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiojing825/article/details/79494408">解决 ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.awaimai.com/2587.html">docker-compose up解决错误ERROR: Couldn’t connect to Docker daemon at http+docker://localunixsocket - is it running?</a></p>
-<blockquote>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>将题目放到bin目录中</p>
-<p>然后在config.py，将REPLACE_BINSH设置为False</p>
-<p>运行一次python initialize.py</p>
-<p>然后会出现一个flags.txt（如果想替换flag，就直接修改flag.txt里的flag字符串即可，然后运行一次python initialize.py）</p>
-<p>然后运行 docker-compose up -build -d</p>
-<p>开启题目即可</p>
-<p>注意：若出现libstdc++.so.6找不到的情况，说明C++环境没有配好，只需要在已经配好C++环境的同版本ubuntu下找到libstdc++.so.6.0.XX（XX为数字）和libgcc_s.so.1放到pwn_deploy_chroot目录下，然后在dockerfile里加入一下代码</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gradle">&gt;<span class="hljs-keyword">COPY</span> .<span class="hljs-regexp">/libstdc++.so.6.0.21 /u</span>sr<span class="hljs-regexp">/lib/</span>libstdc++.so.<span class="hljs-number">6</span><br>&gt;<span class="hljs-keyword">COPY</span> .<span class="hljs-regexp">/libgcc_s.so.1 /u</span>sr<span class="hljs-regexp">/lib/</span>libgcc_s.so.<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+              <p>基于mysql-connector-python，主要是因为一次函数调用有七个select语句，而一共有3w8次7个select，原先要跑两天才能跑完。先吐槽一波mysql connector的库文档，关闭连接啥的不和建立连接放一起，找了老久最后百度出来的。。</p>
+<h2 id="mysql连接池"><a href="#mysql连接池" class="headerlink" title="mysql连接池"></a>mysql连接池</h2><p>建立连接池</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">from</span> mysql.connector import pooling<br>mydb = pooling.MySQLConnectionPool(<br>            <span class="hljs-attribute">host</span>=<span class="hljs-string">&quot;localhost&quot;</span>,<br>            <span class="hljs-attribute">user</span>=<span class="hljs-string">&quot;root&quot;</span>,<br>            <span class="hljs-attribute">passwd</span>=<span class="hljs-string">&quot;xxx&quot;</span>,<br>            <span class="hljs-attribute">database</span>=<span class="hljs-string">&quot;xxxxx&quot;</span>,<br>            <span class="hljs-attribute">auth_plugin</span>=<span class="hljs-string">&#x27;mysql_native_password&#x27;</span>,<br>            <span class="hljs-attribute">pool_name</span>=<span class="hljs-string">&#x27;test&#x27;</span>,<br>            <span class="hljs-attribute">pool_size</span>=32<br>        )<br></code></pre></td></tr></table></figure>
 
-<p>来源:<a target="_blank" rel="noopener" href="https://196011564.github.io/2019/07/22/Linux-简单PWN搭建/?tdsourcetag=s_pctim_aiomsg#找到Pwn所在的端口">咲夜南梦</a></p>
+<p>申请连接，获得游标，关闭游标和连接</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus">thread_connection = mydb<span class="hljs-selector-class">.get_connection</span>()<br>mycursor = thread_connection<span class="hljs-selector-class">.cursor</span>()<br><br>mycursor<span class="hljs-selector-class">.close</span>()<br>thread_connection<span class="hljs-selector-class">.close</span>()<br></code></pre></td></tr></table></figure>
+
+<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/concurrent.futures.html">concurrent.futures — 启动并行任务 — Python 3.9.2 文档</a></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-keyword">from</span> concurrent.futures.thread <span class="hljs-keyword">import</span> ThreadPoolExecutor<br>pool = ThreadPoolExecutor(<span class="hljs-number">16</span>)<br></code></pre></td></tr></table></figure>
+
+<p>一开始我用的<code>submit()</code>，这样会导致mysql连接池被耗尽并且还没有任何报错的情况（调试也不好发现问题在哪），翻看文档后用了<code>map</code></p>
+<blockquote>
+<p><code>map</code>(<em>func</em>, <em>*iterables</em>, <em>timeout=None</em>, <em>chunksize=1</em>)<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.Executor.map" title="永久链接至目标"></a><br>类似于 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/functions.html#map" title="map"><code>map(func, *iterables)</code></a> 函数，除了以下两点：</p>
+<ul>
+<li><em>iterables</em> 是立即执行而不是延迟执行的；</li>
+<li><em>func</em> 是异步执行的，对 <em>func</em> 的多个调用可以并发执行。</li>
+</ul>
+<p>如果 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator.__next__" title="iterator.__next__"><code>__next__()</code></a> 已被调用且返回的结果在对 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.Executor.map" title="concurrent.futures.Executor.map"><code>Executor.map()</code></a> 的原始调用经过 <em>timeout</em> 秒后还不可用，则已返回的迭代器将引发 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.TimeoutError" title="concurrent.futures.TimeoutError"><code>concurrent.futures.TimeoutError</code></a>。 <em>timeout</em> 可以为 int 或 float 类型。 如果 <em>timeout</em> 未指定或为 <code>None</code>，则不限制等待时间。<br>如果 <em>func</em> 调用引发一个异常，当从迭代器中取回它的值时这个异常将被引发。<br>使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.ProcessPoolExecutor" title="concurrent.futures.ProcessPoolExecutor"><code>ProcessPoolExecutor</code></a> 时，这个方法会将 <em>iterables</em> 分割任务块并作为独立的任务并提交到执行池中。这些块的大概数量可以由 <em>chunksize</em> 指定正整数设置。 对很长的迭代器来说，使用大的 <em>chunksize</em> 值比默认值 1 能显著地提高性能。 <em>chunksize</em> 对 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor" title="concurrent.futures.ThreadPoolExecutor"><code>ThreadPoolExecutor</code></a> 没有效果。</p>
 </blockquote>
-<p>停止容器 docker stop name</p>
-<h2 id="一个题目一个docker"><a href="#一个题目一个docker" class="headerlink" title="一个题目一个docker"></a>一个题目一个docker</h2><p><a target="_blank" rel="noopener" href="https://github.com/glzjin/base_pwn_xinetd">ubuntu16</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/glzjin/base_pwn_xinetd_kafel_1804">ubuntu18</a></p>
-<p>一般情况下，使用赵师傅Ubuntu18.04环境的docker镜像</p>
-<p>下载下来之后，删除除了文件夹：src，文件：docker-compose.yml，Dockerfile以外的所有文件，并复制多个以供其它题目使用</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs axapta">userlist = list(xxx)<span class="hljs-meta">#*iterables的要</span><br>pool = ThreadPoolExecutor(<span class="hljs-number">16</span>)<br>result = pool.map(select_function, userlist)<br><span class="hljs-keyword">count</span> = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> result:<span class="hljs-meta">#线程正常完成会返回None，print(r)可以帮助调试</span><br>    <span class="hljs-keyword">count</span> += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">print</span>(<span class="hljs-built_in">str</span>(<span class="hljs-keyword">count</span>) + <span class="hljs-string">&quot; in &quot;</span> + <span class="hljs-built_in">str</span>(len(userlist)))<br></code></pre></td></tr></table></figure>
+
+
+<p>这里选择16，是因为填32会崩，索性直接砍半了。最后再展示一下mysql的情况</p>
+<img src="/2021/03/21/Python%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AF%BB%E5%86%99mysql/Snipaste_2021-03-21_20-25-58.png" srcset="/img/loading.gif" lazyload class="">
+
+
+<h2 id="性能测试对比"><a href="#性能测试对比" class="headerlink" title="性能测试对比"></a>性能测试对比</h2><p>库里一共有6w条记录，for循环的话要死人了，所以只测1000条时候的速度</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">date &amp;&amp; <span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/python3 ./</span>test.py &amp;&amp; date <br>日  <span class="hljs-number">3</span> <span class="hljs-number">21</span> <span class="hljs-number">20</span>:<span class="hljs-number">36</span>:<span class="hljs-number">01</span> CST <span class="hljs-number">2021</span><br>日  <span class="hljs-number">3</span> <span class="hljs-number">21</span> <span class="hljs-number">20</span>:<span class="hljs-number">36</span>:<span class="hljs-number">24</span> CST <span class="hljs-number">2021</span><br></code></pre></td></tr></table></figure>
+
+<p>23秒，然后for循环</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">date &amp;&amp; <span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/python3 ./</span>test.py &amp;&amp; date <br>日  <span class="hljs-number">3</span> <span class="hljs-number">21</span> <span class="hljs-number">20</span>:<span class="hljs-number">43</span>:<span class="hljs-number">57</span> CST <span class="hljs-number">2021</span><br>日  <span class="hljs-number">3</span> <span class="hljs-number">21</span> <span class="hljs-number">20</span>:<span class="hljs-number">45</span>:<span class="hljs-number">13</span> CST <span class="hljs-number">2021</span><br></code></pre></td></tr></table></figure>
+
+<p>1分16秒</p>
+<p>暂时够用了👨‍💻</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
-                    
-                      <a class="hover-with-bg" href="/categories/CTF/%E8%BF%90%E7%BB%B4/">运维</a>
-                    
-                  </div>
                 
                 
               </div>
@@ -293,9 +295,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">
+                      <a href="/2021/04/02/Hexo%E5%86%8D%E5%8D%87%E7%BA%A7/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">手动脱壳</span>
+                        <span class="hidden-mobile">Hexo再升级</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -303,8 +305,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">
-                        <span class="hidden-mobile">汇编、逆向工程基础</span>
+                      <a href="/2021/03/12/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                        <span class="hidden-mobile">Xray 社区版 再学习记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
