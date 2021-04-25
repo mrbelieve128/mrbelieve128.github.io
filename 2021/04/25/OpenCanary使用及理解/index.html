@@ -1,0 +1,555 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Mr.BelieVe">
+  <meta name="keywords" content="">
+  
+  <title>OpenCanary使用及理解 - Mr.BelieVe&#39;s Treasure</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="OpenCanary使用及理解">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-25 08:39" pubdate>
+        2021年4月25日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">OpenCanary使用及理解</h1>
+            
+            <div class="markdown-body">
+              <h2 id="协议支持列表"><a href="#协议支持列表" class="headerlink" title="协议支持列表"></a>协议支持列表</h2><p>22 ssh : a Secure Shell server which alerts on login attempts<br>21 ftp - a File Transfer Protocol server which on login attempts<br>git - a Git protocol which alerts on repo cloning<br>80 http - an HTTP web server that alerts on login attempts<br>httpproxy - an HTTP web proxy that alerts when there is an attempt to proxy to another page<br>1433 mssql - an MS SQL server that alerts on login attempts<br>3306 mysql - a MYSQL server that alerts on login attempts<br>23 telnet - a Telnet server that alerts on login attempts<br>25 snmp - an SNMP server which alerts on oid requests<br>sip - a SIP server which alerts on sip requests<br>5900 vnc - a VNC server which alerts on login attempts<br>redis - a Redis server which alerts on actions<br>tftp - a tftp server which alerts on requests<br>ntp - an NTP server which alerts on ntp requests.<br>tcpbanner - a TCPbanner service which alerts on connection and subsequent data recieved events.<br>ignorelist - comma separated ips or CIDRs that will ignore alerting on.</p>
+<h2 id="安装在docker中"><a href="#安装在docker中" class="headerlink" title="安装在docker中"></a>安装在docker中</h2><p>使用官方的办法始终无法在docker中运行起来，只能看到</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">Attaching <span class="hljs-keyword">to</span> opencanary<br>opencanary exited <span class="hljs-keyword">with</span> code <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>我去找了一个改改就能用的<a target="_blank" rel="noopener" href="https://github.com/mrbelieve128/Docker-OpenCanary">mrbelieve128/Docker-OpenCanary: Simple Docker image for OpenCanary in Ubuntu</a></p>
+<h2 id="试用"><a href="#试用" class="headerlink" title="试用"></a>试用</h2><p>日志保存在<code>/var/tmp/opencanary.log</code></p>
+<p>80端口</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<span class="hljs-attr">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-attr">&quot;dst_port&quot;</span>: <span class="hljs-number">-1</span>, <span class="hljs-attr">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:24:33.054025&quot;</span>, <span class="hljs-attr">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:24:33.054043&quot;</span>, <span class="hljs-attr">&quot;logdata&quot;</span>: &#123;<span class="hljs-attr">&quot;msg&quot;</span>: &#123;<span class="hljs-attr">&quot;logdata&quot;</span>: <span class="hljs-string">&quot;Canary running!!!&quot;</span>&#125;&#125;, <span class="hljs-attr">&quot;logtype&quot;</span>: <span class="hljs-number">1001</span>, <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-attr">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-attr">&quot;src_port&quot;</span>: <span class="hljs-number">-1</span>, <span class="hljs-attr">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:24:33.054037&quot;</span>&#125;<br>&#123;<span class="hljs-attr">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-attr">&quot;dst_port&quot;</span>: <span class="hljs-number">80</span>, <span class="hljs-attr">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:33:59.434581&quot;</span>, <span class="hljs-attr">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:33:59.434644&quot;</span>, <span class="hljs-attr">&quot;logdata&quot;</span>: &#123;<span class="hljs-attr">&quot;HOSTNAME&quot;</span>: <span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-attr">&quot;PATH&quot;</span>: <span class="hljs-string">&quot;/index.html&quot;</span>, <span class="hljs-attr">&quot;SKIN&quot;</span>: <span class="hljs-string">&quot;nasLogin&quot;</span>, <span class="hljs-attr">&quot;USERAGENT&quot;</span>: <span class="hljs-string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.42&quot;</span>&#125;, <span class="hljs-attr">&quot;logtype&quot;</span>: <span class="hljs-number">3000</span>, <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-attr">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-attr">&quot;src_port&quot;</span>: <span class="hljs-number">55736</span>, <span class="hljs-attr">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:33:59.434633&quot;</span>&#125;<br>&#123;<span class="hljs-attr">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-attr">&quot;dst_port&quot;</span>: <span class="hljs-number">80</span>, <span class="hljs-attr">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:35:34.959679&quot;</span>, <span class="hljs-attr">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:35:34.959764&quot;</span>, <span class="hljs-attr">&quot;logdata&quot;</span>: &#123;<span class="hljs-attr">&quot;HOSTNAME&quot;</span>: <span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-attr">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin1&quot;</span>, <span class="hljs-attr">&quot;PATH&quot;</span>: <span class="hljs-string">&quot;/index.html&quot;</span>, <span class="hljs-attr">&quot;SKIN&quot;</span>: <span class="hljs-string">&quot;nasLogin&quot;</span>, <span class="hljs-attr">&quot;USERAGENT&quot;</span>: <span class="hljs-string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.42&quot;</span>, <span class="hljs-attr">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-attr">&quot;logtype&quot;</span>: <span class="hljs-number">3001</span>, <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-attr">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-attr">&quot;src_port&quot;</span>: <span class="hljs-number">55752</span>, <span class="hljs-attr">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:35:34.959754&quot;</span>&#125;<br>&#123;<span class="hljs-attr">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-attr">&quot;dst_port&quot;</span>: <span class="hljs-number">80</span>, <span class="hljs-attr">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:35:40.035831&quot;</span>, <span class="hljs-attr">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:35:40.035866&quot;</span>, <span class="hljs-attr">&quot;logdata&quot;</span>: &#123;<span class="hljs-attr">&quot;HOSTNAME&quot;</span>: <span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-attr">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-attr">&quot;PATH&quot;</span>: <span class="hljs-string">&quot;/index.html&quot;</span>, <span class="hljs-attr">&quot;SKIN&quot;</span>: <span class="hljs-string">&quot;nasLogin&quot;</span>, <span class="hljs-attr">&quot;USERAGENT&quot;</span>: <span class="hljs-string">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.42&quot;</span>, <span class="hljs-attr">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-attr">&quot;logtype&quot;</span>: <span class="hljs-number">3001</span>, <span class="hljs-attr">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-attr">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-attr">&quot;src_port&quot;</span>: <span class="hljs-number">55772</span>, <span class="hljs-attr">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:35:40.035860&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>21端口</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs powershell">&#123;<span class="hljs-string">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-string">&quot;dst_port&quot;</span>: <span class="hljs-number">21</span>, <span class="hljs-string">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:52:34.745897&quot;</span>, <span class="hljs-string">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:52:34.745986&quot;</span>, <span class="hljs-string">&quot;logdata&quot;</span>: &#123;<span class="hljs-string">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin1&quot;</span>, <span class="hljs-string">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-string">&quot;logtype&quot;</span>: <span class="hljs-number">2000</span>, <span class="hljs-string">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-string">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-string">&quot;src_port&quot;</span>: <span class="hljs-number">57076</span>, <span class="hljs-string">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:52:34.745964&quot;</span>&#125;<br>&#123;<span class="hljs-string">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-string">&quot;dst_port&quot;</span>: <span class="hljs-number">21</span>, <span class="hljs-string">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:52:34.751212&quot;</span>, <span class="hljs-string">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:52:34.751331&quot;</span>, <span class="hljs-string">&quot;logdata&quot;</span>: &#123;<span class="hljs-string">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin1&quot;</span>, <span class="hljs-string">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-string">&quot;logtype&quot;</span>: <span class="hljs-number">2000</span>, <span class="hljs-string">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-string">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-string">&quot;src_port&quot;</span>: <span class="hljs-number">57078</span>, <span class="hljs-string">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:52:34.751236&quot;</span>&#125;<br>&#123;<span class="hljs-string">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-string">&quot;dst_port&quot;</span>: <span class="hljs-number">21</span>, <span class="hljs-string">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:02.559717&quot;</span>, <span class="hljs-string">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:02.559749&quot;</span>, <span class="hljs-string">&quot;logdata&quot;</span>: &#123;<span class="hljs-string">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin1&quot;</span>, <span class="hljs-string">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-string">&quot;logtype&quot;</span>: <span class="hljs-number">2000</span>, <span class="hljs-string">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-string">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-string">&quot;src_port&quot;</span>: <span class="hljs-number">57086</span>, <span class="hljs-string">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:02.559741&quot;</span>&#125;<br>&#123;<span class="hljs-string">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-string">&quot;dst_port&quot;</span>: <span class="hljs-number">21</span>, <span class="hljs-string">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:02.560316&quot;</span>, <span class="hljs-string">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:02.560336&quot;</span>, <span class="hljs-string">&quot;logdata&quot;</span>: &#123;<span class="hljs-string">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin1&quot;</span>, <span class="hljs-string">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-string">&quot;logtype&quot;</span>: <span class="hljs-number">2000</span>, <span class="hljs-string">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-string">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-string">&quot;src_port&quot;</span>: <span class="hljs-number">57084</span>, <span class="hljs-string">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:02.560332&quot;</span>&#125;<br>&#123;<span class="hljs-string">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-string">&quot;dst_port&quot;</span>: <span class="hljs-number">21</span>, <span class="hljs-string">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:04.350338&quot;</span>, <span class="hljs-string">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:04.350379&quot;</span>, <span class="hljs-string">&quot;logdata&quot;</span>: &#123;<span class="hljs-string">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-string">&quot;logtype&quot;</span>: <span class="hljs-number">2000</span>, <span class="hljs-string">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-string">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-string">&quot;src_port&quot;</span>: <span class="hljs-number">57090</span>, <span class="hljs-string">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:04.350363&quot;</span>&#125;<br>&#123;<span class="hljs-string">&quot;dst_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.2&quot;</span>, <span class="hljs-string">&quot;dst_port&quot;</span>: <span class="hljs-number">21</span>, <span class="hljs-string">&quot;local_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:04.350905&quot;</span>, <span class="hljs-string">&quot;local_time_adjusted&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:04.350921&quot;</span>, <span class="hljs-string">&quot;logdata&quot;</span>: &#123;<span class="hljs-string">&quot;PASSWORD&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;USERNAME&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>&#125;, <span class="hljs-string">&quot;logtype&quot;</span>: <span class="hljs-number">2000</span>, <span class="hljs-string">&quot;node_id&quot;</span>: <span class="hljs-string">&quot;opencanary_device01&quot;</span>, <span class="hljs-string">&quot;src_host&quot;</span>: <span class="hljs-string">&quot;172.17.0.1&quot;</span>, <span class="hljs-string">&quot;src_port&quot;</span>: <span class="hljs-number">57094</span>, <span class="hljs-string">&quot;utc_time&quot;</span>: <span class="hljs-string">&quot;2021-04-22 08:53:04.350917&quot;</span>&#125;<br><span class="hljs-built_in">r</span><br></code></pre></td></tr></table></figure>
+
+<p>监控文件修改/使用hpfeed等直接发送json都可以，也可以通过设置邮件提醒</p>
+<h2 id="源码理解"><a href="#源码理解" class="headerlink" title="源码理解"></a>源码理解</h2><h3 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h3><p><del>这里的绝大部分都使用了twisted框架</del> 绝大部分都复用了twisted框架下的服务代码</p>
+<h4 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h4><p>类<code>LoggingFTP</code><br>复用了twisted框架的FTP绝大部分代码，只是重写了<code>ftp_PASS</code>函数</p>
+<p>diff比较之后，唯一的差别就是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">logdata = &#123;<span class="hljs-string">&#x27;USERNAME&#x27;</span>: self._user, <span class="hljs-string">&#x27;PASSWORD&#x27;</span>: password&#125;<br>self.factory.canaryservice.log(logdata, transport=self.transport)<br></code></pre></td></tr></table></figure>
+
+<p>这里会传递用户名和密码，然后调用<code>__init__.py</code>里的<code>canaryservice.log</code>来获取源、目标端口地址。</p>
+<p>类<code>CanaryFTP</code><br>功能：设置banner，端口，地址，然后设置服务<br>这里如果修改Portal的第二个参数，写成允许登录的话估计就可以进一步拓展变成高交互蜜罐了，但是文件交互这个又是个大坑0.0</p>
+<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><h3 id="init"><a href="#init" class="headerlink" title="init"></a><strong>init</strong></h3><p>ToDo</p>
+<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>函数<code>__init__</code><br>功能：负责读取三个位置的配置文件</p>
+<p>函数<code>moduleEnabled</code><br>功能：判断模组是否启用</p>
+<p>函数<code>getVal</code><br>功能：获取配置的某个值</p>
+<p>函数<code>setVaules</code><br>功能：设置所有有效的值和返回错误值</p>
+<p>……</p>
+<h3 id="honeycred"><a href="#honeycred" class="headerlink" title="honeycred"></a>honeycred</h3><p>Todo: 搞清楚<code>honeycreds</code> 是干啥的</p>
+<p>函数<code>buildHoneyCredHook</code><br>功能：设置钩子方法，验证蜜罐凭证（？）</p>
+<h3 id="iphelper"><a href="#iphelper" class="headerlink" title="iphelper"></a>iphelper</h3><p>转换和验证ip</p>
+<h3 id="logger"><a href="#logger" class="headerlink" title="logger"></a>logger</h3><p>类<code>LoggerBase</code><br>功能：定义报错类型和规范log输出格式</p>
+<p>类<code>PyLogger</code><br>功能：继承LoggerBase，配置日志记录工具logging<br>实现：使用了 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.html#module-logging" title="logging: Flexible event logging system for applications."><code>logging</code></a> -– Python 的日志记录工具</p>
+<p>类<code>SocketJSONHandler</code><br>功能：通过TCP发送json信息<br>实现：使用 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/logging.handlers.html#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code>logging.handlers</code></a> </p>
+<p>类<code>HpfeedsHandler</code><br>功能：发送<a target="_blank" rel="noopener" href="https://github.com/hpfeeds/hpfeeds">hpfeeds/hpfeeds: Honeynet Project generic authenticated datafeed protocol</a>协议的数据包</p>
+<p>类<code>SlackHandler</code><br>功能：我猜是把信息发送到slack这个类似钉钉的办公软件上</p>
+<p>类<code>TeamsHandler</code><br>功能：报警信息发送到teams这个软件上</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">个人原则宪法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/19/HackTheBox%20Starting%20Point%20Shield%20.29/">
+                        <span class="hidden-mobile">HackTheBox Starting Point Shield .29</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
