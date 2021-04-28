@@ -195,22 +195,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">iot信息整理</a>
+        <a href="/2020/12/18/HackTheBox%20Starting%20Point%20Shield%20.29/">HackTheBox Starting Point Shield .29</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">
+        <a href="/2020/12/18/HackTheBox%20Starting%20Point%20Shield%20.29/">
           
           
             
           
-          前言持续更新，欢迎贡献！目前私信QQ，麻烦了！
-总览必看-IOT 安全实战资料收集整合
-优先看-IOT 安全实战资料收集整合#总结性资料
-IoT Pentesting 101 &amp;&amp; IoT Security 101
-pwnable/靶场microcorruption 教导详细，感觉更像是打游戏！
-IoT-vulhub 建好的docker环境，可直接进行复现
-DVAR - Damn 
+          扫描出来80 ISS和 3306 mysql
+bp发现路径下有wordpress
+查看wordpress版本，网页搜索generator即可搜到generator
+wordpress 登陆界面，使用看到的admin账户和先前的密码登录即可。
+使用msf的exploit/unix/webapp/wp_admin_shell_upload就可以获得meterpreter shell，注意要设置LHOS
         </a>
       </p>
 
@@ -218,12 +216,64 @@ DVAR - Damn
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-12-30 23:59" pubdate>
-              2020-12-30
+            <time datetime="2020-12-18 11:56" pubdate>
+              2020-12-18
             </time>
           </div>
         
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HackTheBox/">HackTheBox</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/17/HackTheBox%20Starting%20point%20Vaccine%20.46/">HackTheBox Starting point Vaccine .46</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/17/HackTheBox%20Starting%20point%20Vaccine%20.46/">
+          
+          
+            
+          
+          信息收集扫描之后有ftp，ssh和web
+联想到之前获得的ftp账户，输入进去登录后获得了backup.zip
+使用Seclist的字典，通过爆破获得密码，成功登陆进的了后台
+sql注入获得登陆密码的md5，解开后登陆进后台跳转到dashboard
+推测登陆页面sql为select * from table where name = Input，输入sport&#39;+and+1=1，根据页面返
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-17 09:33" pubdate>
+              2020-12-17
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HackTheBox/">HackTheBox</a>
+            
+          </div>
         
       </div>
     </article>
@@ -523,42 +573,6 @@ allOddBits123456789101112/*  * allOddBits - return 1 if all odd-numbered bits in
             <i class="iconfont icon-date"></i>
             <time datetime="2020-08-22 23:27" pubdate>
               2020-08-22
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/08/21/LLVM%20pass/">LLVM pass</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/08/21/LLVM%20pass/">
-          
-          
-            
-          
-          可以先看看 这里
-LLVM的核心是一个库。从CSCD70的Assignment1来看，llvm pass可以调用库来输出源代码loop.c里有的函数名称，直接调用该函数的次数，参数个数，Basic Blocks数量和指令个数(FunctionInfo.cpp里完成)和对代码进行优化使其运行更快(LocalOpt.cpp里完成)，优化指加减乘除优化，如
-123x + 0 = 0 + x =&gt; 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-08-21 19:59" pubdate>
-              2020-08-21
             </time>
           </div>
         
