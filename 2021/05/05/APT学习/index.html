@@ -18,7 +18,7 @@
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
   
-  <title>你访问谷歌时，都发生了啥 - Mr.BelieVe&#39;s Treasure</title>
+  <title>APT学习 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="你访问谷歌时，都发生了啥">
+            <span class="h2" id="subtitle" title="APT学习">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-12 03:44" pubdate>
-        2021年2月12日 凌晨
+      <time datetime="2021-05-05 14:46" pubdate>
+        2021年5月5日 下午
       </time>
     </span>
   
@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      906 字
+      1k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      12
        分钟
     </span>
   
@@ -238,43 +238,81 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">你访问谷歌时，都发生了啥</h1>
+            <h1 style="display: none">APT学习</h1>
             
             <div class="markdown-body">
-              <h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2><p>此文章针对学校萌新，如有错误还请指教。仅出于教育科普意义，不是为了指引。遵守网络安全法，守法青年，从我做起。</p>
-<hr>
-<p>当你访问谷歌的时候，你是否想过为什么会无法打开谷歌？你也可能听说过GFW 防火墙，下面就来探索一番叭。</p>
-<h2 id="什么是防火墙"><a href="#什么是防火墙" class="headerlink" title="什么是防火墙"></a>什么是防火墙</h2><p>可以当作一个在网络出入口，负责过滤所有数据包、网络请求的电脑。里面要访问外面的网站都要经过这里，同理，外面访问里面的网站等也要经过这里。看到这里，聪明的小伙伴应该就猜到了，我们访问谷歌等，基本就是过不去这个坎儿。</p>
-<h2 id="什么法子，拦住了我们"><a href="#什么法子，拦住了我们" class="headerlink" title="什么法子，拦住了我们"></a>什么法子，拦住了我们</h2><p>ping谷歌</p>
-<img src="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/Snipaste_2021-02-12_04-06-08.png" srcset="/img/loading.gif" lazyload class="">
+              <p>记录自己看过的一些APT报告，学习攻击思路</p>
+<h2 id="安全研究人员发布针对WeSteal的技术分析"><a href="#安全研究人员发布针对WeSteal的技术分析" class="headerlink" title="安全研究人员发布针对WeSteal的技术分析"></a><a target="_blank" rel="noopener" href="https://unit42.paloaltonetworks.com/westeal/">安全研究人员发布针对WeSteal的技术分析</a></h2><h3 id="混淆"><a href="#混淆" class="headerlink" title="混淆"></a>混淆</h3><p> The Trojan was specifically written for Python 3.9, as the PyInstaller package included python39.dll as the Python interpreter. The developer also used the open source <strong>PyArmor</strong> source code obfuscator, which encrypts the contents of the Python script and decrypts the contents before sending to the Python interpreter for execution,</p>
+<h3 id="长久化"><a href="#长久化" class="headerlink" title="长久化"></a>长久化</h3><p> WeSteal将自己复制到<code>C:\Users\&lt;username&gt;\AppData\Local.exe</code></p>
+<p> 然后创建一个batch脚本来实现自启<code>c:\Users\&lt;username&gt;\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\appdata.bat</code></p>
+<p> 内容包含<code>start %localappdata%</code></p>
+<p> The command above uses a novel technique to obfuscate the batch file starting the WeSteal executable. The start<br>command attempts to run the environment variable %localappdata%, which on a default Windows system is a path to the<br>folder <code>C:\Users\&lt;username&gt;\AppData\Local</code>. However, in this context, the Local in that environment variable is<br>interpreted as a file rather than a subfolder. The start command will run the WeSteal executable Local.exe (the start<br>command does not require the .exe file extension) in the path <code>C:\Users\&lt;username&gt;\AppData\</code>.</p>
+<h2 id="Water-Pamola通过恶意订单攻击网店"><a href="#Water-Pamola通过恶意订单攻击网店" class="headerlink" title="Water Pamola通过恶意订单攻击网店"></a><a target="_blank" rel="noopener" href="https://www.trendmicro.com/en_us/research/21/d/water-pamola-attacked-online-shops-via-malicious-orders.html">Water Pamola通过恶意订单攻击网店</a></h2><p>攻击链<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_19-28-55.png" srcset="/img/loading.gif" lazyload class=""></p>
+<h3 id="XSS脚本的功能"><a href="#XSS脚本的功能" class="headerlink" title="XSS脚本的功能"></a>XSS脚本的功能</h3><h4 id="获取页面信息"><a href="#获取页面信息" class="headerlink" title="获取页面信息"></a>获取页面信息</h4><p>向特定页面请求信息并转发响应包到Water Pamola服务器。这样可以让攻击者理解环境并设计攻击脚本</p>
+<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_19-31-12.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>可以看到，多次ping之后返回了不同的ip，但这两个都不在 <a target="_blank" rel="noopener" href="https://www.gstatic.com/ipranges/goog.json">谷歌公布的ip范围</a>内。那么，最起码的，<strong>DNS劫持</strong>是有的了。（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F/2251573?fromtitle=DNS&fromid=427444&fr=aladdin">DNS是什么请点我</a>）他返回一个错误的ip地址给你，即如上所见一样。</p>
-<p>我们在 <a target="_blank" rel="noopener" href="https://myssl.com/dns_check.html">在线dns工具</a>查询可得如图结果</p>
-<img src="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/Snipaste_2021-02-12_04-22-50.png" srcset="/img/loading.gif" lazyload class="">
+<h4 id="窃取凭证"><a href="#窃取凭证" class="headerlink" title="窃取凭证"></a>窃取凭证</h4><p>一种方法是伪造登录界面。如果输入了登录信息，脚本会用base64编码凭证，然后发送到Water Pamola服务器上</p>
+<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_19-40-57.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>并经我这测试，选择的ip是可以直接访问打开Google.com的。那么看看网络访问情况如何叭</p>
-<img src="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/Snipaste_2021-02-12_04-24-12.png" srcset="/img/loading.gif" lazyload class="">
+<p>另一种方法是显示认证报错，然后重定向到钓鱼网站，再让用户输入凭证。域名就像<code>&#123;victim’s domain&#125;[.]basic-authentication[.]live</code>，咋一看域名和正常的一样，迷惑用户</p>
+<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_19-44-25.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>可以看到，直接ping也是不通的。那使用<code>tracert</code>来跟踪路由（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/TRACERT%E5%91%BD%E4%BB%A4/7680170?fr=aladdin">TRACERT命令_百度百科 (baidu.com)</a>）。可以看到跳着跳着，就直接超时了。那么也可以猜到，GFW对于这个ip，是封禁掉了。一看到目的ip是这个，就直接将数据包丢弃了，对于我们这里也就超时了。那么，<strong>IP封禁</strong>，也是有了。</p>
-<p>还有个网传的内容审查，我就不测试了，本质是查询数据包内容，有封禁关键字则把你的链接断掉。这在http时可行，因为基本都是明文的。但是到了https，我个人感觉是不可行了。<a target="_blank" rel="noopener" href="https://www.svlik.com/1804.html#:~:text=GFW%EF%BC%8C%E5%8D%B3Great%20Wall%20of,%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E5%9B%BD%E5%86%85%E7%9A%84%E7%AB%99%E7%82%B9%E3%80%82">详细可看这里</a></p>
-<h2 id="我们能怎么过去"><a href="#我们能怎么过去" class="headerlink" title="我们能怎么过去"></a>我们能怎么过去</h2><p>既然针对了ip和dns进行了，那我们的办法即为如何绕过。这就像你在学校里面，学校针对 王者的服务器的ip和dns进行了封禁。为了能继续玩游戏，就有人开动脑筋：我在学校没有封禁的公网服务器上做一个跳板，从这里走，就绕开了学校的封禁了$^1$。又有人，对我们的数据包进行加密，让学校的防火墙打开数据包，横竖都看不出你是发给王者服务器的，那自然也放行了$^2$。还有一种是，肉身出国（误</p>
-<p>基本上，你去找人家，说你要绕过防火墙来玩王者，别人就会秒懂，啪的一下给你一大堆链接，再给你一个订阅链接。</p>
-<p>这里介绍一个软件，clash <a target="_blank" rel="noopener" href="https://github.com/Fndroid/clash_for_windows_pkg">clash_for_windows_pkg: A Windows/macOS GUI based on Clash</a> 只要你的上家给你的链接包括了分流规则（也就是，正常的正常走，不正常的跳着走，从跳板走），这里就会自动的帮你分流流量。</p>
-<p>先</p>
-<img src="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/Snipaste_2021-02-12_04-45-54.png" srcset="/img/loading.gif" lazyload class="">
+<h3 id="webshell-PHP-后门注入"><a href="#webshell-PHP-后门注入" class="headerlink" title="webshell / PHP 后门注入"></a>webshell / PHP 后门注入</h3><p>针对特定网站的框架，如在日本很火的EC-CUBE框架。</p>
+<p>第一种方法是通过调用框架的API来上传php webshell，</p>
+<p><a target="_blank" rel="noopener" href="http://achineseboy.com/archives/49">php几个实用小技巧 – Chinese boy</a></p>
+<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_19-54-17.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>URL这里粘贴进去你的链接，然后点download，下载好后点一下下方的框框。</p>
-<p>接下来</p>
-<img src="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/Snipaste_2021-02-12_04-47-52.png" srcset="/img/loading.gif" lazyload class="">
+<p>第二种方法是篡改网页header来注入可以执行任何php代码的代码，当然，代码都是混淆了得。一开始用异或来解码，然后把base64 字符串解码出eval。</p>
+<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_20-00-53.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>System Proxy勾上即可，这样windows大部分的流量都会走clash出去了。</p>
-<h2 id="最后的叮嘱"><a href="#最后的叮嘱" class="headerlink" title="最后的叮嘱"></a>最后的叮嘱</h2><p>网络不是法外之地。切忌发些反动的东西，不要以为匿名就找不到你，更何况基本没有完全的匿名。网络上总会留有你的蛛丝马迹的。谨言慎行，做守法青年。</p>
+<p>第三种方法是安装恶意插件到框架中。插件是设计来放置webshell的</p>
+<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_20-06-17.png" srcset="/img/loading.gif" lazyload class="">
+
+<img src="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/Snipaste_2021-05-05_20-09-17.png" srcset="/img/loading.gif" lazyload class="">
+
+<h3 id="传送恶意软件"><a href="#传送恶意软件" class="headerlink" title="传送恶意软件"></a>传送恶意软件</h3><p>脚本会提示Flash版本过低，然后重定向到假的flash安装站</p>
+<p>下载之后，Flash安装器是正常的，但是sideload的dll可能是被打补丁的，然后再加载真正的恶意dll。这样通过两个正常和有adobe签名的可执行文件再加载恶意dll</p>
+<h2 id="双头龙-RotaJakiro-，一个至少潜伏了3年的后门木马"><a href="#双头龙-RotaJakiro-，一个至少潜伏了3年的后门木马" class="headerlink" title="双头龙(RotaJakiro)，一个至少潜伏了3年的后门木马"></a><a target="_blank" rel="noopener" href="https://blog.netlab.360.com/stealth_rotajakiro_backdoor_cn/">双头龙(RotaJakiro)，一个至少潜伏了3年的后门木马</a></h2><p>这个过于硬核了，直接逆程序分析加密算法等</p>
+<h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p>root用户，根据不同Linux系统发行版本，创建相应的自启动脚本 <code>/etc/init/systemd-
+agent.conf</code> 或者 <code>/lib/systemd/system/systemd-agent.service</code></p>
+<p>用于伪装的文件名，俩者2选1</p>
+<ul>
+<li><code>/bin/systemd/systemd-daemon</code></li>
+<li><code>/usr/lib/systemd/systemd-daemon</code></li>
+</ul>
+<p>非root用户，创建桌面环境的自启动脚本<br><code>$HOME/$.config/autostart/gnomehelper.desktop</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Desktop Entry]</span><br><span class="hljs-attr">Type</span>=Application<br><span class="hljs-attr">Exec</span>=<span class="hljs-variable">$HOME</span>/.gvfsd/.profile/gvfsd-helper<br></code></pre></td></tr></table></figure>
+
+<p>然后修改<code>.bashrc</code>创建shell环境的自启动脚本</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">if</span> [ -d <span class="hljs-variable">$&#123;HOME&#125;</span> ]; then<br>		<span class="hljs-variable">$&#123;HOME&#125;</span><span class="hljs-regexp">/.gvfsd/</span>.profile/gvfsd-helper<br>fi<br><br></code></pre></td></tr></table></figure>
+
+<p>用于伪装的文件名，俩者同时存在</p>
+<ul>
+<li><code>$HOME/.dbus/sessions/session-dbus</code></li>
+<li><code>$HOME/.gvfsd/.profile/gvfsd-helper</code></li>
+</ul>
+<h3 id="进程守护"><a href="#进程守护" class="headerlink" title="进程守护"></a>进程守护</h3><p>root账户下，根据不同版本，向服务配置文件写入<code>Restart=always</code>或者<code>respawn</code>，这样服务进程被结束时，自动创建新进程</p>
+<p>非root用户，会生成两个进程，彼此见识，双进程保护：<br>通过共享内存实现进程间通讯，告诉对方PID，然后通过<code>/proc/[PID]</code>动态获得进程存活情况，死亡时通过execvo创建进程，帮助复活</p>
+<h3 id="单一实例"><a href="#单一实例" class="headerlink" title="单一实例"></a>单一实例</h3><p>通过文件锁实现单一实例</p>
+<h3 id="网络通信"><a href="#网络通信" class="headerlink" title="网络通信"></a>网络通信</h3><p>可以分成两个截断</p>
+<ul>
+<li>Stage1 初始化截断：解密C2列表，建立连接，发送上线信息，接受并解密C2返回信息</li>
+<li>Stage2 业务截断，验证返回信息，通过验证则执行下发指令</li>
+</ul>
+<h2 id="以招聘信息为诱饵对制药公司发起攻击"><a href="#以招聘信息为诱饵对制药公司发起攻击" class="headerlink" title="以招聘信息为诱饵对制药公司发起攻击"></a><a target="_blank" rel="noopener" href="https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/lazarus-recruitment/">以招聘信息为诱饵对制药公司发起攻击</a></h2><p>Todo</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/APT/">APT</a>
+                    
+                  </div>
                 
               </div>
               
@@ -289,9 +327,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/06/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                      <a href="/2021/05/05/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Xray 社区版 再学习记录</span>
+                        <span class="hidden-mobile">笔记管理升级</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -299,8 +337,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">
-                        <span class="hidden-mobile">iot信息整理</span>
+                      <a href="/2021/04/27/Xray%20poc%20%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">Xray poc 编写学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

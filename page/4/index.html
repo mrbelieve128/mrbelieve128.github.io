@@ -195,6 +195,42 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">docker隔离开发环境和宿主</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/03/18/docker%E9%9A%94%E7%A6%BB%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%BF%E4%B8%BB/">
+          
+          
+            
+          
+          如何把开发环境移到docker里？
+目前设想了有：通过scp传数据，来让宿主机知道docker里安装了啥包。然后对应自动生成dockerfile。通过vscode remote。
+基础镜像，是一开始自己也不知道需要什么包的,所以直接装在镜像里,然后通过python来检测docker里安装了啥东西，再传出来到宿主机补充到dockerfile/自动安装包脚本里。至于开发的文件，git和云同步都挺好。真
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-18 11:50" pubdate>
+              2020-03-18
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/03/16/docker/">docker</a>
       </h1>
 
@@ -741,56 +777,6 @@ __libc_start_main = u32(sh.recvuntil(&qu
               <a href="/categories/CTF/">CTF</a>
             
               <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/02/05/oneshot_tjctf_2016/">oneshot_tjctf_2016</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/02/05/oneshot_tjctf_2016/">
-          
-          
-            
-          
-          
-
-
-
-*v4，要用str(elf.got[&#39;__libc_start_main&#39;])
-接受要用int(sh.recvuntil(&quot;\n&quot;,True),16)
-exp
-12345678910111213141516171819202122232425262728from pwn import *context.log_level = &#x27;debug&#x
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-02-05 02:04" pubdate>
-              2020-02-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/CTF/">CTF</a>
-            
-              <a href="/categories/CTF/buu/">buu</a>
             
           </div>
         
