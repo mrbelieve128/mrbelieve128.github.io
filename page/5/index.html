@@ -195,6 +195,52 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/02/05/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">Pwn常用指令</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/05/Pwn%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+          
+          
+            
+          
+          ldd filename 读取libc
+ROPgadget --binary filename --only &quot;pop|ret&quot;
+__libc_start_main = u64(sh.recvuntil(&quot;\x7f&quot;)[-6:].ljust(8,&#39;\x00&#39;))
+__libc_start_main = u32(sh.recvuntil(&qu
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-05 02:05" pubdate>
+              2020-02-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/02/05/oneshot_tjctf_2016/">oneshot_tjctf_2016</a>
       </h1>
 
@@ -636,62 +682,6 @@ PWNTOOLS部分123u64 asm disasm
               <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
             
               <a href="/categories/CTF/%E6%95%99%E7%A8%8B/">教程</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/28/Hgame/">Hgame</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/01/28/Hgame/">
-          
-          
-            
-          
-          Hard_AAAAA
-
-
-
-V5在-0x31，s在-0xAC
-12345sh.recvuntil(&quot;Let&#x27;s 0O0o\\0O0!&quot;)payload=&quot;a&quot;*(0xAC - 0x31)payload += &#x27;0O0o\x00O0&#x27;sh.send(payload)sh.interactive()
-
-
-
-One_Shot
-
-
-
-0
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-28 10:26" pubdate>
-              2020-01-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/CTF/">CTF</a>
-            
-              <a href="/categories/CTF/Hgame/">Hgame</a>
             
           </div>
         

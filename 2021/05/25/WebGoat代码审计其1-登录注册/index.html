@@ -18,7 +18,7 @@
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
   
-  <title>笔记管理升级 - Mr.BelieVe&#39;s Treasure</title>
+  <title>WebGoat代码审计其1-登录注册 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="笔记管理升级">
+            <span class="h2" id="subtitle" title="WebGoat代码审计其1-登录注册">
               
             </span>
 
@@ -186,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-24 19:44" pubdate>
-        2021年1月24日 晚上
+      <time datetime="2021-05-25 21:36" pubdate>
+        2021年5月25日 晚上
       </time>
     </span>
   
@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      710 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      8
        分钟
     </span>
   
@@ -238,100 +238,77 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">笔记管理升级</h1>
+            <h1 style="display: none">WebGoat代码审计其1-登录注册</h1>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我当前的笔记环境，是直接在hexo的根目录下，<code>_posts</code> 和 <code>_unposts</code> 文件进行笔记的记录，图片保存在<code>md文件名\</code>下，结构简陋，也不方便找（在两个文件夹下）。阅读了《漏洞战争》的作者泉哥的<a target="_blank" rel="noopener" href="https://www.zhihu.com/column/p/138401561">技术人的修炼之道：从业余到专业 - 知乎</a>，也研究了一下<a target="_blank" rel="noopener" href="https://obsidian.md/">Obsidian</a>，其展现的笔记间的关系则让我思考如何更好的记录和保存笔记。</p>
-<h2 id="笔记方法之-Zettelkasten-卡片盒笔记法"><a href="#笔记方法之-Zettelkasten-卡片盒笔记法" class="headerlink" title="笔记方法之 Zettelkasten 卡片盒笔记法"></a>笔记方法之 Zettelkasten 卡片盒笔记法</h2><p>有本书是讲这个的，就是<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI1NTA4Nzk5Mw==&action=getalbum&album_id=1464601583634939905">How to take smart notes</a>，感兴趣的请务必看一下这本书，很能启发人，半天到一天就能翻完。也可以选择看</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/384309878/answer/1120682799">什么是 Zettelkasten 卡片盒笔记法？ - 知乎</a></p>
-<h3 id="笔记摘录"><a href="#笔记摘录" class="headerlink" title="笔记摘录"></a>笔记摘录</h3><blockquote>
-<p>How to take smart note<br>分为四类：临时笔记、文献笔记、永久笔记、项目笔记。</p>
-<p>文件名：最短最精确的话概括内容/概念。 </p>
-<p>操作方法很简单，一部分是<strong>文章文献书目的信息</strong>，以及<strong>自己对内容的简要概括</strong>的卡片盒。一部分是永久笔记卡片盒。通过时不时的回看文章文献书目卡片，在<strong>永久笔记中写下想法看法，评论或补充</strong>。并且，会<strong>沿着已有笔记新增卡片，形成笔记链</strong>。再把<strong>相关的笔记链放在一起，做好记号写明参考笔记</strong>参考链接。这样这部分的笔记都是有千丝万缕的关系的。而且，完全不分类，而是将一两条笔记单独列出，作为索引卡。</p>
-</blockquote>
-<h3 id="笔记步骤"><a href="#笔记步骤" class="headerlink" title="笔记步骤"></a>笔记步骤</h3><blockquote>
-<p>步骤一：临时笔记：记录突发奇想的念头，统一放到一个地方</p>
+              <h2 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h2><p>下载idea之后, webgoat要求</p>
 <blockquote>
-<p>临时笔记要求：一个紧凑的关键句、详细说明的概念和一个例子。 文件名：最短最精确的话概括内容/概念。</p>
+<p>* Java 15<br>* Maven &gt; 3.2.1<br>* Your favorite IDE<br>* Git, or Git support in your IDE</p>
 </blockquote>
-<p>步骤二：文献笔记：读到想牢记在心的东西，仔细斟酌，用自己的话写下来，要言简意骇。斟酌并用自己的话写下来就是为了最大化的思考，经过大脑再保存下来，而不是复制粘贴收藏怪（笑</p>
-<p>步骤三：永久笔记：每天游览临时笔记和文献笔记，思考与自己的联系。</p>
-<p>关键：要做的不是收集，而是思考</p>
-<ul>
-<li>和以前的想法有不同之处吗？</li>
-<li>可以支持或者否定之前的观点吗？</li>
-<li>是否有新的知识？</li>
-<li>是否可以整合想法？</li>
-<li>有没有触发新的问题？</li>
-</ul>
-<p>步骤四：封装，将笔记形成链，或者网。如果想更标准一点，可以给链接设定类型。例子：补充、延伸、修正、 评论、反驳、例子、启发、疑问</p>
-<p>步骤五：不断更新迭代。持续阅读，颠覆或强化已有观点，修正已有观点。看看他们最终带向哪里。跟着兴趣走，越感兴趣，越思考。</p>
+<p>但是调试的话, 只安装java即可</p>
+<p>安装好后先配置Project SDK。点下图位置, 找Project Structre, 然后Project SDK选择自己的java15位置</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528230703.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>然后就是Run configuration, 点击下图箭头位置，然后<code>Edit Configuration</code>,选择Spring Boot,然后填<code>Main class</code>和<br><code>Use classpath of module</code></p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528230936.png" srcset="/img/loading.gif" lazyload class="">
+
+<blockquote>
+<p>如果出现Run按钮灰色, 可能是在配置/下载包, 如果都好了但还是灰色, 建议尝试重启idea(倒</p>
 </blockquote>
-<h2 id="Obisidian特性"><a href="#Obisidian特性" class="headerlink" title="Obisidian特性"></a>Obisidian特性</h2><ul>
-<li>internal link，可以连接笔记，跳转和展示</li>
-<li>关系图，展示笔记间的关系</li>
-<li><code>Ctrl + O</code>或<code>Command + O</code>快速切换笔记，带有搜索功能</li>
-<li>以库的形式存储笔记，所以也可以一个库存上课的知识，一个库存阅读学习笔记这样的</li>
-</ul>
-<h2 id="Obsidian的使用"><a href="#Obsidian的使用" class="headerlink" title="Obsidian的使用"></a>Obsidian的使用</h2><p>抛砖引玉，介绍我的用法。</p>
-<h3 id="我的文件夹结构"><a href="#我的文件夹结构" class="headerlink" title="我的文件夹结构"></a>我的文件夹结构</h3><p>如图</p>
-<img src="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/image-20210117141035.png" srcset="/img/loading.gif" lazyload class="">
-<p>打码部分是从同学那顺来的</p>
-<p>从How to take smart note中的哲学包含如下三个<br>文件夹/盒子，结合我自身的想法定的用途</p>
-<ul>
-<li>Output 放写好的文章</li>
-<li>PermanentBox 放正在写的</li>
-<li>RelatedBox 其他绝大部分笔记，杂乱的等</li>
-</ul>
-<p>然后根据需要添加了如下几个文件夹</p>
-<ul>
-<li>Category 作为我主要关注的，时不时要看和参考的笔记的入口</li>
-<li>DailyDiary 每天日记都在里面</li>
-<li>DailTmp 每周的都暂存里面，周日统一整理<del>和回顾</del></li>
-<li>InsertPic 插入的图片都统一放里面</li>
-<li>Templates 放插入的模板，比如日记模板，笔记模板，摘录模板等</li>
-</ul>
-<h3 id="日记"><a href="#日记" class="headerlink" title="日记"></a>日记</h3><p>效果如图</p>
-<img src="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/image-20210124200512351.png" srcset="/img/loading.gif" lazyload class="" title="image-20210124200512351">
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p><code>webgoat-container/src/main/java/org/owasp/webgoat/WebSecurityConfig.java</code> 中，放着安全相关的配置文件</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528145107.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>结合了插件：Calendar(左上日历样子的)，Natural Language Dates(将输入的日期转为特定格式)，Templater(插入模板)</p>
-<p>Todo部分是打算的事情，Journal则是结合番茄时间（<a target="_blank" rel="noopener" href="https://sspai.com/post/37307">经过 1700 个番茄时间，番茄工作法改变了我什么</a>），记录每个事件我都大概干了啥，以及将要干什么。这样可以在完成上一项任务的时候，清空大脑并高效面对下一件事情。Tracking则表示我在跟着做什么的，但从我自身的情况来看可以删掉（逃</p>
-<p>Daily quote and Pic则是模板自动生成的。</p>
-<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><p><code>Ctrl + N</code>快捷生成一篇空的，设置默认放置在DailyTmp之中，介于这不是所写即所得的，所以我一般将一半设置为预览，一般为编辑</p>
-<img src="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/image-20210124201724241.png" srcset="/img/loading.gif" lazyload class="" title="image-20210124201724241">
+<p>身份验证没有用框架给的</p>
+<blockquote>
+<p>后面调试的时候发现获取到了username和passwd之后,还是进入了框架的代码进行判断是否匹配</p>
+</blockquote>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528152945.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>markdown部分都是一致的，所以说说几个不一样的点叭。一个是这个internal link，格式 <code>[[note_name]]</code>，鼠标悬停在上面会有笔记的预览窗口，带!号就默认显示。</p>
-<img src="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/image-20210124201918778.png" srcset="/img/loading.gif" lazyload class="" title="image-20210124201918778">
+<p>用<code>command + 左键</code> 就可以跟随跳转直到<code>webgoat-container/src/main/java/org/owasp/webgoat/users/UserService.java</code></p>
+<p>跳回按<code>Ctrl + alt + 左方向键</code></p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528155108.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>并且，这样用多了之后，obsidian可以生成节点图，展示内在关系。</p>
-<img src="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/image-20210124202344312.png" srcset="/img/loading.gif" lazyload class="" title="image-20210124202344312">
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528155720.png" srcset="/img/loading.gif" lazyload class="">
 
+<p>其中<code>existsByUsername</code>和<code>save</code>，<code>findByUsername</code>都是<strong>UserRepository</strong>类的</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528155945.png" srcset="/img/loading.gif" lazyload class="">
 
+<p>这个接口继承自<strong>JpaRepository</strong></p>
+<blockquote>
+<p>Jpa是一种可以让开发者在使用过程中不使用SQL语句的一种方法，通过ORM框架将数据库中的字段和我们的类的属性进行一个关系映射                 – 天下大木头</p>
+</blockquote>
+<p>作用就是根据username 查询并返回一个WebGoatUser类型的对象</p>
+<p>WebGoatUser类其实就是进行数据库和类的映射</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528162435.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>另一个例子</p>
-<img src="/2021/01/24/%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86%E5%8D%87%E7%BA%A7/image-20210124202546728.png" srcset="/img/loading.gif" lazyload class="" title="image-20210124202546728">
+<p>数据库中有username, password 和role. </p>
+<p>回到先前的<code>UserService.loadUserByUsername</code>, 打断点后web登录,就可以看到这里返回了查询的账户密码</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528163112.png" srcset="/img/loading.gif" lazyload class="">
 
-<p>嗯对了，ob的窗口都是可以自由拖动和放大缩小的，也可以预设工作区，比如我ReadMode，默认就打开预览模式，在台式上就切换成上下样子，上面预览下面编辑这样。</p>
-<p>再具体的操作我就不列举了，请继续阅读学习更高效更好的用法叭！我不行了QAQ</p>
-<h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><p><a target="_blank" rel="noopener" href="https://sspai.com/post/63481">玩转 Obsidian | 基础设置篇 - 少数派</a></p>
-<p><a target="_blank" rel="noopener" href="https://sspai.com/post/63674">玩转 Obsidian | 间歇式日记 - 少数派</a></p>
-<p><a target="_blank" rel="noopener" href="https://sspai.com/post/62414">玩转 Obsidian | 打造知识循环利器 - 少数派</a></p>
-<h2 id="相关模板"><a href="#相关模板" class="headerlink" title="相关模板"></a>相关模板</h2><p>提供参考</p>
-<h3 id="摘录模板"><a href="#摘录模板" class="headerlink" title="摘录模板"></a>摘录模板</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><br><span class="hljs-attr">Link:</span> <br><span class="hljs-attr">Date:</span> &#123;&#123;<span class="hljs-string">tp_today:f=YYYY-MM-DD</span> <span class="hljs-string">dddd</span>&#125;&#125;<br><span class="hljs-attr">Tag:</span> <br><span class="hljs-attr">Category:</span> <br><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+<p>调试时提醒执行的是这种命令<br><code>select webgoatuse0_.username as username1_6_, webgoatuse0_.password as password2_6_, webgoatuse0_.role as role3_6_ from container.web_goat_user webgoatuse0_ where webgoatuse0_.username=?</code> 进行了预处理</p>
+<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528231350.png" srcset="/img/loading.gif" lazyload class="">
 
-<h3 id="日记模板"><a href="#日记模板" class="headerlink" title="日记模板"></a>日记模板</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs clean">##  Todo<br><br>- [ ] 阅读RSS<br>- [ ] <br><br>## Journal<br><br>- 时间 写几句已经做了的。写几句有关将要做的。<br><br><br>## Tracking<br>- [ ] <br><br>### ReadList<br><br>- [ ] Link<br><br>## Daily quote and Pic<br><br>&#123;&#123;tp_daily_quote&#125;&#125;<br><br>&#123;&#123;tp_random_picture&#125;&#125;<br></code></pre></td></tr></table></figure>
+<p>数据包发往这个地址</p>
+<p>按<code>Ctrl + Shift + F</code>或<code>Command + Shift + F</code>全局搜索, 就可以看到了</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528231538.png" srcset="/img/loading.gif" lazyload class="">
 
-<h3 id="笔记模板"><a href="#笔记模板" class="headerlink" title="笔记模板"></a>笔记模板</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">Category:</span> <br><span class="hljs-attr">tag:</span> <br><span class="hljs-attr">related:</span> <br><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+<p>这个@PostMapping, 是Spring boot的一个Controller, 功能是有声明处理这个请求的路由. 更详细可以看<a target="_blank" rel="noopener" href="https://howtodoinjava.com/spring5/webmvc/controller-getmapping-postmapping/">Spring @PostMapping Example - @GetMapping Example</a></p>
+<p>第一行代码</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528234130.png" srcset="/img/loading.gif" lazyload class="">
 
-<hr>
-<p>2021/2/6更新</p>
-<p>以前用snipaste，直接截屏然后粘贴进typora/obsidian会有图片名字存在空格的情况，如 <code>Pasted image 20210117141035.png</code>这个在我这个版本的hexo(4.2.0)会无法解析图片，也就不能自动转成对应的html代码。</p>
-<p>方法：<strong>snipaste右键-控制-全局快捷键</strong> 里，<strong>截屏并自动复制</strong> 快捷键改为F1即可，这样直接粘贴文件名格式就是<code>image-2021xxxxxxx.png</code>了，这种方法也比在 <strong>输出-文件</strong> 开启自动保存要好0.0</p>
-<p>obsidian暂时还是只能手动保存来实现图片文件改名了。。。。已发邮件请作者加功能，等有空再找找截图工具吧。</p>
-<p>2021/5/2更新</p>
-<p>摘录模板中我改为了<code>Date: &#123;&#123;tp_today:f=YYYY-MM-DD dddd&#125;&#125;</code>，这样笔记就不会围绕着当天的记录走了。看网状图的时候会更加容易找到相关的东西。</p>
-<p>看了篇<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7eHfhBZWKBoCG1qwRKctJw">漏洞学习的“笨“方法</a> 意识到看得文章多，其实是学习案例，扩展思维。案例学习了不能忘，所以我想明白了，PermanentBox里应该放些务必要多次看得摘录笔记和重要的笔记。relatedbox可以放各种各样，为我的Output和PermanentBox做基底的东西。</p>
-<p>而且，每周的总结时，也要复习看PermanentBox的东西，这些可能是忘记的、重要的，太熟了再放回related好了。relatedbox里的也是要扫一遍标题看是否有遗忘的，重要的。</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210528234039.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>将表单转成UserFrom类型的, UserForm如下,限定了长度.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserForm</span> </span>&#123;<br><br>    <span class="hljs-meta">@NotNull</span><br>    <span class="hljs-meta">@Size(min=6, max=40)</span><br>    <span class="hljs-keyword">private</span> String username;<br>    <span class="hljs-meta">@NotNull</span><br>    <span class="hljs-meta">@Size(min=6, max=10)</span><br>    <span class="hljs-keyword">private</span> String password;<br>    <span class="hljs-meta">@NotNull</span><br>    <span class="hljs-meta">@Size(min=6, max=10)</span><br>    <span class="hljs-keyword">private</span> String matchingPassword;<br>    <span class="hljs-meta">@NotNull</span><br>    <span class="hljs-keyword">private</span> String agree;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后判断了用户名是否,密码和确认密码是否相同. 都正确就不抛出任何异常.</p>
+<p>中间的<code>bindingResult.hasErrors()</code>,如果使用相同的用户名,会在这里报错然后退出.</p>
+<p>然后添加用户</p>
+<img src="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/image-20210529000843.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>先查询是否存在,然后将用户名密码保存入库. 最后如果不存在就保存到Tracker库中. </p>
+<p>这里我感觉,查询也应该查询的是Tracker库中吧. 能走到这里肯定都是User库中用户名不存在的. </p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="http://wjlshare.com/archives/1386">Java代码审计02: 登录注册模块初审计(未完待续) - 木头的小屋</a></p>
 
             </div>
             <hr>
@@ -352,9 +329,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/12/%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%B0%B7%E6%AD%8C%E6%97%B6%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E5%95%A5/">
+                      <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">你访问谷歌时，都发生了啥</span>
+                        <span class="hidden-mobile">个人原则宪法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -362,8 +339,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/30/iot%E4%BF%A1%E6%81%AF%E6%95%B4%E7%90%86/">
-                        <span class="hidden-mobile">iot信息整理</span>
+                      <a href="/2021/05/05/APT%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">APT学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

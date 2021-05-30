@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.9k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      22
        分钟
     </span>
   
@@ -300,6 +300,26 @@ agent.conf</code> 或者 <code>/lib/systemd/system/systemd-agent.service</code><
 <li>Stage2 业务截断，验证返回信息，通过验证则执行下发指令</li>
 </ul>
 <h2 id="以招聘信息为诱饵对制药公司发起攻击"><a href="#以招聘信息为诱饵对制药公司发起攻击" class="headerlink" title="以招聘信息为诱饵对制药公司发起攻击"></a><a target="_blank" rel="noopener" href="https://www.ptsecurity.com/ww-en/analytics/pt-esc-threat-intelligence/lazarus-recruitment/">以招聘信息为诱饵对制药公司发起攻击</a></h2><p>Todo</p>
+<h2 id="某货运物流公司Lazarus后门"><a href="#某货运物流公司Lazarus后门" class="headerlink" title="某货运物流公司Lazarus后门"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8MN6s-QPDGgr79rEq5wyeA">某货运物流公司Lazarus后门</a></h2><p>通过Tor网络与其C2服务器通信</p>
+<p>后门是Vyveva的主要组件，它连接到C2服务器并执行威胁参与者发出的命令，其中一些命令是异步的，并且在它们自己的线程中执行。<br>它们中的大多数是用于文件和进程操作或信息收集的普通命令，但是对于文件时间戳记也存在一种较不常用的命令，它可以将creation/write/access time元数据从“donor”文件复制到目标文件，或使用2000-2004年之间的随机日期。</p>
+<h2 id="Lazarus利用ThreatNeedle攻击某工业"><a href="#Lazarus利用ThreatNeedle攻击某工业" class="headerlink" title="Lazarus利用ThreatNeedle攻击某工业"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/b7QdHIVJ8ItkKoTk7eayqg">Lazarus利用ThreatNeedle攻击某工业</a></h2><h3 id="ThreatNeedle的初次感染"><a href="#ThreatNeedle的初次感染" class="headerlink" title="ThreatNeedle的初次感染"></a>ThreatNeedle的初次感染</h3><p>观察到他们如何通过访问内部路由器机器并将其配置为代理服务器，从而允许他们将被盗数据从Intranet网络传输到其远程服务器，从而克服了网络分段的问题。</p>
+<p>攻击者使用公共电子邮件服务注册了帐户，确保发件人的电子邮件地址看起来与医疗中心的真实电子邮件地址相似。网络钓鱼电子邮件中显示的签名包括受攻击组织的医疗中心副校长的实际个人数据。攻击者能够在医疗中心的公共网站上找到此信息。</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">payload路径：％APPDATA％<span class="hljs-symbol">\ </span>Microsoft <span class="hljs-symbol">\ </span>Windows <span class="hljs-symbol">\ </span>lconcaches.db<br>快捷方式路径：％APPDATA％<span class="hljs-symbol">\ </span>Microsoft <span class="hljs-symbol">\ </span>Windows <span class="hljs-symbol">\开</span>始菜单<span class="hljs-symbol">\ </span>Programs <span class="hljs-symbol">\ </span>Startup <span class="hljs-symbol">\ </span>OneDrives.lnk<br></code></pre></td></tr></table></figure>
+
+<p>payload将下一个阶段加载为内存中运行的后门程序-ThreatNeedle后门程序</p>
+<h4 id="ThreatNeedle-installer"><a href="#ThreatNeedle-installer" class="headerlink" title="ThreatNeedle installer"></a>ThreatNeedle installer</h4><p>恶意软件还会将配置数据另存为在RC4中加密的注册表项</p>
+<h4 id="ThreatNeedle-loader"><a href="#ThreatNeedle-loader" class="headerlink" title="ThreatNeedle loader"></a>ThreatNeedle loader</h4><p>该组件负责将最终的后门payload加载到内存中。为了做到这一点，ThreatNeedle使用多种技术来解密其payload：</p>
+<p>从注册表加载payload。</p>
+<p>解密RC4和解压缩后，从自身加载payload。</p>
+<p>解密AES和解压缩后，从自身加载payload。</p>
+<p>解压后从自身加载payload。</p>
+<p>一字节异或后，从自身加载payload。</p>
+<h3 id="成功感染Threat-Needle后的阶段"><a href="#成功感染Threat-Needle后的阶段" class="headerlink" title="成功感染Threat Needle后的阶段"></a>成功感染Threat Needle后的阶段</h3><p>攻击者执行了一个名为Responder的凭据收集工具，并使用Windows命令横向移动。Lazarus克服了网络分段问题，通过破坏路由器虚拟机，从与互联网断开的完全隔离的网络分段中窃取数据。</p>
+<p>最初，攻击者能够访问具有Internet访问权限的系统，并花费了很长时间在网络的企业部门的计算机之间分发恶意软件。在受感染计算机中，有企业IT基础架构管理员使用的计算机。</p>
+<p>管理员可以同时连接到公司网段和受限制的网段，以维护系统并在两个区域中为用户提供技术支持。结果，通过获得管理员工作站的控制权，攻击者能够访问受限制的网段。</p>
+<p>路由器是一台运行CentOS的虚拟机，可根据预定义的规则在多个网络接口之间进行路由连接。攻击者扫描了路由器的端口并检测到Webmin界面。接下来，攻击者使用特权根帐户登录Web界面。凭据可能保存在受感染系统的浏览器密码管理器之一中。</p>
+<p>通过访问配置面板，攻击者配置了Apache Web服务器，并开始将路由器用作组织的公司部门和受限部门之间的代理服务器。</p>
+<h4 id="数据泄漏"><a href="#数据泄漏" class="headerlink" title="数据泄漏"></a>数据泄漏</h4><p>为了创建隐蔽通道，恶意软件使用trivial binary encryption对转发的流量进行加密。</p>
 
             </div>
             <hr>
@@ -327,9 +347,9 @@ agent.conf</code> 或者 <code>/lib/systemd/system/systemd-agent.service</code><
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2099/12/31/%E4%B8%AA%E4%BA%BA%E5%8E%9F%E5%88%99%E5%AE%AA%E6%B3%95/">
+                      <a href="/2021/05/25/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B61-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">个人原则宪法</span>
+                        <span class="hidden-mobile">WebGoat代码审计其1-登录注册</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

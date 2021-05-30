@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      30
+      33
        分钟
     </span>
   
@@ -255,13 +255,25 @@
 
 <p>监控文件修改/使用hpfeed等直接发送json都可以，也可以通过设置邮件提醒</p>
 <h2 id="源码理解"><a href="#源码理解" class="headerlink" title="源码理解"></a>源码理解</h2><h3 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h3><p><del>这里的绝大部分都使用了twisted框架</del> 绝大部分都复用了twisted框架下的服务代码</p>
+<h4 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h4><p>使用的<a target="_blank" rel="noopener" href="https://github.com/desaster/kippo/blob/master/kippo/core/ssh.py">kippo/ssh.py</a>的代码。主要区别是<code>HoneyPotAvatar</code>类中的函数，去掉了打开shell执行命令的代码。</p>
+<img src="/2021/04/22/OpenCanary%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%90%86%E8%A7%A3/Snipaste_2021-05-10_11-12-27.png" srcset="/img/loading.gif" lazyload class="">
+
+<p>高交互的ssh蜜罐可以看<a target="_blank" rel="noopener" href="https://github.com/cowrie/cowrie">cowrie/cowrie: Cowrie SSH/Telnet Honeypot</a></p>
 <h4 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h4><p>类<code>LoggingFTP</code><br>复用了twisted框架的FTP绝大部分代码，只是重写了<code>ftp_PASS</code>函数</p>
 <p>diff比较之后，唯一的差别就是</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">logdata = &#123;<span class="hljs-string">&#x27;USERNAME&#x27;</span>: self._user, <span class="hljs-string">&#x27;PASSWORD&#x27;</span>: password&#125;<br>self.factory.canaryservice.log(logdata, transport=self.transport)<br></code></pre></td></tr></table></figure>
 
 <p>这里会传递用户名和密码，然后调用<code>__init__.py</code>里的<code>canaryservice.log</code>来获取源、目标端口地址。</p>
 <p>类<code>CanaryFTP</code><br>功能：设置banner，端口，地址，然后设置服务<br>这里如果修改Portal的第二个参数，写成允许登录的话估计就可以进一步拓展变成高交互蜜罐了，但是文件交互这个又是个大坑0.0</p>
-<h4 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h4><h3 id="init"><a href="#init" class="headerlink" title="init"></a><strong>init</strong></h3><p>ToDo</p>
+<h4 id="http"><a href="#http" class="headerlink" title="http"></a>http</h4><p><code>BasicLogin</code>负责记录Get的登录信息，Post的登录信息，以及渲染登录界面</p>
+<p>调用流程：<br>初始化<code>CanaryHTTP</code>类，先去<code>.opencanary.conf</code>获取http的皮、设置端口、banner，然后设置默认重定向到index.html。首页为index.html。</p>
+<h5 id="添加自定义http皮方法"><a href="#添加自定义http皮方法" class="headerlink" title="添加自定义http皮方法"></a>添加自定义http皮方法</h5><p>http的皮放置在<code>\opencanary\modules\data\http\skin</code>里，有<code>403.html</code>，<code>404.html</code>和<code>index.html</code>。</p>
+<p>放置后在</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-string">&quot;http.banner&quot;</span>: <span class="hljs-string">&quot;Apache/2.2.22 (Ubuntu)&quot;</span>,<br>   <span class="hljs-string">&quot;http.enabled&quot;</span>: <span class="hljs-literal">true</span>,<br>   <span class="hljs-string">&quot;http.port&quot;</span>: <span class="hljs-number">80</span>,<br><span class="hljs-string">&quot;http.skin&quot;</span>: <span class="hljs-string">&quot;nasLogin&quot;</span>,<br>   <span class="hljs-string">&quot;http.skin.list&quot;</span>: [<br>       &#123;<br>           <span class="hljs-string">&quot;desc&quot;</span>: <span class="hljs-string">&quot;Plain HTML Login&quot;</span>,<br>           <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;basicLogin&quot;</span><br>       &#125;,<br>       &#123;<br>           <span class="hljs-string">&quot;desc&quot;</span>: <span class="hljs-string">&quot;Synology NAS Login&quot;</span>,<br>           <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;nasLogin&quot;</span><br>       &#125;<br>   ],<br></code></pre></td></tr></table></figure>
+<p>添加desc，name，以及http.skin中配置上选用的皮</p>
+<h4 id="httpproxy"><a href="#httpproxy" class="headerlink" title="httpproxy"></a>httpproxy</h4><p><code>PROFILES</code>里默认设置了<code>ms-isa</code>和<code>squid</code>的</p>
+<p>ToDo</p>
+<h3 id="init"><a href="#init" class="headerlink" title="init"></a><strong>init</strong></h3><p>ToDo</p>
 <h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>函数<code>__init__</code><br>功能：负责读取三个位置的配置文件</p>
 <p>函数<code>moduleEnabled</code><br>功能：判断模组是否启用</p>
 <p>函数<code>getVal</code><br>功能：获取配置的某个值</p>
