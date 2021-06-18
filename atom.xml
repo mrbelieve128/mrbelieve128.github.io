@@ -42,6 +42,27 @@
   </entry>
   
   <entry>
+    <title>WebGoat代码审计其3-路径穿越</title>
+    <link href="http://yoursite.com/2021/06/17/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B63-%E8%B7%AF%E5%BE%84%E7%A9%BF%E8%B6%8A/"/>
+    <id>http://yoursite.com/2021/06/17/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B63-%E8%B7%AF%E5%BE%84%E7%A9%BF%E8%B6%8A/</id>
+    <published>2021-06-17T00:28:44.000Z</published>
+    <updated>2021-06-17T00:28:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Path-traversal-2&quot;&gt;&lt;a href=&quot;#Path-traversal-2&quot; class=&quot;headerlink&quot; title=&quot;Path traversal 2&quot;&gt;&lt;/a&gt;Path traversal 2&lt;/h2&gt;&lt;p&gt;请求 URL:</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>WebGoat代码审计其2-sql注入</title>
     <link href="http://yoursite.com/2021/05/31/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B62-sql%E6%B3%A8%E5%85%A5/"/>
     <id>http://yoursite.com/2021/05/31/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B62-sql%E6%B3%A8%E5%85%A5/</id>
@@ -110,9 +131,9 @@
   </entry>
   
   <entry>
-    <title>Xray poc 编写学习</title>
-    <link href="http://yoursite.com/2021/04/27/Xray%20poc%20%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2021/04/27/Xray%20poc%20%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/</id>
+    <title>Xray_poc_编写学习</title>
+    <link href="http://yoursite.com/2021/04/27/Xray_poc_%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2021/04/27/Xray_poc_%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-04-26T17:15:25.000Z</published>
     <updated>2021-04-26T17:15:25.000Z</updated>
     
@@ -427,28 +448,6 @@
         
     <summary type="html">&lt;p&gt;小声：因为nvram那里我实在搞不定了，如果有愿意帮忙的师傅欢迎联系！&lt;/p&gt;
 &lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PCTF2016：Confused ARM 调试记录</title>
-    <link href="http://yoursite.com/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/"/>
-    <id>http://yoursite.com/2020/10/09/PCTF2016%EF%BC%9AConfused%20ARM%20%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/</id>
-    <published>2020-10-09T02:29:08.000Z</published>
-    <updated>2020-10-09T02:29:08.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;结合书《CTF特训营》IoT篇看最佳&lt;/p&gt;
-&lt;h2 id=&quot;0x01-静态分析&quot;&gt;&lt;a href=&quot;#0x01-静态分析&quot;</summary>
         
       
     

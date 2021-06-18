@@ -238,6 +238,47 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/06/17/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B63-%E8%B7%AF%E5%BE%84%E7%A9%BF%E8%B6%8A/">WebGoat代码审计其3-路径穿越</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/17/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B63-%E8%B7%AF%E5%BE%84%E7%A9%BF%E8%B6%8A/">
+          
+          
+            
+          
+          Path traversal 2请求 URL: http://localhost:8080/WebGoat/PathTraversal/profile-upload请求方法: POST
+全局搜索后找到
+
+
+跳入 ProfileUploadBase类，看里面的execute函数
+
+
+先检查file和fullName是否为空，然后检查上传路径是否存在。最后开始新建上传路径，创建file对象并将上传图片
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-17 08:28" pubdate>
+              2021-06-17
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/05/31/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B62-sql%E6%B3%A8%E5%85%A5/">WebGoat代码审计其2-sql注入</a>
       </h1>
 
@@ -362,18 +403,24 @@ The constant indicating the t
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/04/27/Xray%20poc%20%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/">Xray poc 编写学习</a>
+        <a href="/2021/04/27/Xray_poc_%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/">Xray_poc_编写学习</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/04/27/Xray%20poc%20%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/">
+        <a href="/2021/04/27/Xray_poc_%E7%BC%96%E5%86%99%E5%AD%A6%E4%B9%A0/">
           
           
             
           
           环境设置在线自动生成直接访问 https://phith0n.github.io/xray-poc-generation/源仓库phith0n/xray-poc-generation: 🧬 辅助生成 XRay YAML POC
-本地我使用vscode多，所以选择vsc的。![](Xray poc 编写学习/Snipaste_2021-04-28_23-43-47.png)
-安装后在这里点击![]
+本地我使用vscode多，所以选择vsc的。
+
+
+安装后在这里点击
+
+
+然后改yaml.schemas为
+12345&#123;    &quot;yaml.schema
         </a>
       </p>
 
@@ -539,46 +586,6 @@ mysql连接池建立连接池
             <i class="iconfont icon-date"></i>
             <time datetime="2021-03-19 22:03" pubdate>
               2021-03-19
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/06/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">Xray 社区版 再学习记录</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/06/Xray%20%E7%A4%BE%E5%8C%BA%E7%89%88%20%E5%86%8D%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-          
-          
-            
-          
-          前言以前也有用xray扫扫学校的漏洞，最近有在开发自己的扫描平台，估借此机会再学习。
-官方文档
-VulnType的复现在最后边。
-三种基本模式代理模式初始配置证书部分看官方文档吧Orz， 代理模式进行扫描 - xray 安全评估工具文档
-建议配合 SwitchyOmega 这个插件使用，可以随意切换代理服务器及端口。
-config.yaml配置好
-123mitm:  restriction: # 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-06 14:12" pubdate>
-              2021-03-06
             </time>
           </div>
         

@@ -195,6 +195,55 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">数据库复习笔记</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/01/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+          
+          
+            
+          
+          使用的是sql server，操作可能跟mysql有区别
+新建数据库123456789101112131415161718create database stuhyyon (	name &#x3D; stu, 	filename&#x3D;&#39;C:\stu_data.mdf&#39;,	size &#x3D; 3mb,	maxsize &#x3D; 500mb,	filegrowth &#x
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-13 23:08" pubdate>
+              2020-01-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/01/13/%E6%89%8B%E5%8A%A8%E8%84%B1%E5%A3%B3/">手动脱壳</a>
       </h1>
 
@@ -646,70 +695,6 @@ S12700 整个网络核心 S9k S7k
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/%E7%BD%91%E7%BB%9C%E4%B8%93%E4%B8%9A%E7%9F%A5%E8%AF%86/">网络专业知识</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">GXY_CTF_my_cannary-从零记录如何调试出来</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/01/13/GXY_CTF_my_cannary-%E4%BB%8E%E9%9B%B6%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E5%87%BA%E6%9D%A5/">
-          
-          
-            
-          
-          查看main
-
-
-进入test()
-
-
-看见了read，等等先
-
-
-judge无法反编译，查看汇编
-
-
-看见了xor rdx,[rbp-8]，以及上图的mov rdx, [rdx] 也就是先讲rdx指针里的数值放在rdx里，再将rdx和rbp-8的那个进行异或，一致则校验成功
-点开read的buf
-
-
-buf只有30字节
-再看看strings
-
-
-没有/bin/sh
-所以我们得先绕过栈校验，再le
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-13 22:55" pubdate>
-              2020-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/CTF/">CTF</a>
-            
-              <a href="/categories/CTF/%E6%AF%94%E8%B5%9B/">比赛</a>
             
           </div>
         

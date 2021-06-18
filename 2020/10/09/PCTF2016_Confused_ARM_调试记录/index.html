@@ -18,7 +18,7 @@
   <meta name="author" content="Mr.BelieVe">
   <meta name="keywords" content="">
   
-  <title>PCTF2016：Confused ARM 调试记录 - Mr.BelieVe&#39;s Treasure</title>
+  <title>PCTF2016_Confused_ARM_调试记录 - Mr.BelieVe&#39;s Treasure</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -176,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="PCTF2016：Confused ARM 调试记录">
+            <span class="h2" id="subtitle" title="PCTF2016_Confused_ARM_调试记录">
               
             </span>
 
@@ -198,7 +198,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      14
        分钟
     </span>
   
@@ -238,12 +238,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">PCTF2016：Confused ARM 调试记录</h1>
+            <h1 style="display: none">PCTF2016_Confused_ARM_调试记录</h1>
             
             <div class="markdown-body">
               <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>结合书《CTF特训营》IoT篇看最佳</p>
 <h2 id="0x01-静态分析"><a href="#0x01-静态分析" class="headerlink" title="0x01 静态分析"></a>0x01 静态分析</h2><p>指定处理器类型为ARM little-endian，不然</p>
-<p>![image-20201009103732001](PCTF2016：Confused ARM 调试记录/image-20201009103732001.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009103732001.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009103732001">
+
 <p>正常打开之后先看看DCD部分</p>
 <blockquote>
 <p>DCD：数据定义（ Data Definition ）伪指令<br>一般用于为特定的数据分配存储单元，同时可完成已分配存储单元的初始化。</p>
@@ -269,29 +270,38 @@
 <p>这有一段指令，判断出目前是thumb指令集的</p>
 <p><a target="_blank" rel="noopener" href="https://sakura-1252236262.cos.ap-beijing.myqcloud.com/blog/180118/bDfa164Gm2.png?imageslim">![mark](PCTF2016：Confused ARM 调试记录/bDfa164Gm2.png)</a></p>
 <p>（图来自sakura博客，与confused arm无关）</p>
-<p>![mark](PCTF2016：Confused ARM 调试记录/L44GbeBb0g.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/L44GbeBb0g.png" srcset="/img/loading.gif" lazyload class="" title="mark">
+
 <ul>
 <li>Edit-&gt;segments-&gt;change segment register value(快捷键ALT+G)</li>
 </ul>
 </blockquote>
 <p>按下ALT+G，T的value 为0x0，就是指定为ARM指令集，设定为0x1，就是thumb指令集</p>
 <p>然后在<code>0x8000100</code>处按C转换成code</p>
-<p>![image-20201009153839279](PCTF2016：Confused ARM 调试记录/image-20201009153839279.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009153839279.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009153839279">
+
 <p>然后我们跟随<code>0x8000100</code>这个程序入口开始，一路跳转到<code>0x8001084</code></p>
-<p>![image-20201009154947339](PCTF2016：Confused ARM 调试记录/image-20201009154947339.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009154947339.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009154947339">
+
 <p>多选然后转换成hex</p>
-<p>![image-20201009155719385](PCTF2016：Confused ARM 调试记录/image-20201009155719385.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009155719385.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009155719385">
+
 <p><code>0x40000000</code>和<code>0x20000000</code>，前者是特殊功能寄存器的基地址，后者是sram的起始地址</p>
 <p>将这些地址添加为segment，在Edit-&gt;Segments-&gt;Create segemt </p>
-<p>![image-20201009160159665](PCTF2016：Confused ARM 调试记录/image-20201009160159665.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009160159665.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009160159665">
+
 <p>SRAM部分同上，</p>
 <p>然后在汇编中对这地址按O</p>
-<p>![image-20201009160319480](PCTF2016：Confused ARM 调试记录/image-20201009160319480.png)</p>
-<p>![image-20201009160429796](PCTF2016：Confused ARM 调试记录/image-20201009160429796.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009160319480.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009160319480">
+
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009160429796.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009160429796">
+
 <p>然后在伪代码中再按一次F5刷新</p>
-<p>![image-20201009160509472](PCTF2016：Confused ARM 调试记录/image-20201009160509472.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009160509472.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009160509472">
+
 <p>随后在这些疑似数组的地方用如下方式进行转换</p>
-<p>![image-20201009160758788](PCTF2016：Confused ARM 调试记录/image-20201009160758788.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201009160758788.png" srcset="/img/loading.gif" lazyload class="" title="image-20201009160758788">
+
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> __fastcall __noreturn <span class="hljs-title">sub_8001084</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a1)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">int</span> v1; <span class="hljs-comment">// r0</span><br>  <span class="hljs-keyword">int</span> v2; <span class="hljs-comment">// r0</span><br><br>  v1 = sub_8000A00(a1);<br>  v2 = sub_80006A4(v1);<br>  sub_80007F0(v2);<br>  sub_8000A50(<span class="hljs-number">0x1C200</span>);<br>  sub_8000AA8(&amp;USART1, <span class="hljs-number">0x40</span>);<br>  sub_8000560(byte_2000000C, &amp;unk_2000026C);<br>  <span class="hljs-keyword">while</span> ( <span class="hljs-number">1</span> )<br>  &#123;<br>    <span class="hljs-keyword">if</span> ( unk_20000000 )<br>    &#123;<br>      sub_8000BA4(<br>        <span class="hljs-string">&quot;Key is :0x%08x,0x%08x,0x%08x,0x%08x\r\n&quot;</span>,<br>        byte_2000000C[<span class="hljs-number">0</span>],<br>        byte_2000000C[<span class="hljs-number">1</span>],<br>        byte_2000000C[<span class="hljs-number">2</span>],<br>        byte_2000000C[<span class="hljs-number">3</span>]);<br>      unk_20000000 = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> ( !sub_80007E2(<span class="hljs-number">1073809408</span>, <span class="hljs-number">2</span>) )<br>    &#123;<br>      sub_800055C(byte_2000000C, &amp;unk_2000026C);<br>      sub_8000248(&amp;unk_2000001C, byte_2000031C);<br>      sub_8000AA8(&amp;USART1, <span class="hljs-number">64</span>);<br>      sub_8000BA4(<br>        <span class="hljs-string">&quot;Fl4g 1s :PCTF&#123;%08x%08x%08x%08x&#125;\r\n&quot;</span>,<br>        byte_2000031C[<span class="hljs-number">0</span>],<br>        byte_2000031C[<span class="hljs-number">1</span>],<br>        byte_2000031C[<span class="hljs-number">2</span>],<br>        byte_2000031C[<span class="hljs-number">3</span>]);<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="0x02-动态调试"><a href="#0x02-动态调试" class="headerlink" title="0x02 动态调试"></a>0x02 动态调试</h2><p>参考书459页进行配置</p>
@@ -299,7 +309,8 @@
 <p>如果load hex之后提示no write permission，请按照462页的工程设置界面，将最下面的CPU DLL, Driver DLl, Dialog DLL和Parameter对照一致设置好就行</p>
 </blockquote>
 <p>按照书上改名过后</p>
-<p>![image-20201010091446144](PCTF2016：Confused ARM 调试记录/image-20201010091446144.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201010091446144.png" srcset="/img/loading.gif" lazyload class="" title="image-20201010091446144">
+
 <p>资料可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40117614/article/details/93018940">这儿</a></p>
 <p>==打patch为0C 4A，改成0B 4A 理解不能QwQ，后面的打patch也理解不能QwQ==</p>
 <p>改checksum，可用以下脚本计算，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28840013/article/details/84143501">来源</a></p>
@@ -308,7 +319,8 @@
 
 
 <p>然后MDK里reload之后，run就可以了</p>
-<p>![image-20201010155940502](PCTF2016：Confused ARM 调试记录/image-20201010155940502.png)</p>
+<img src="/2020/10/09/PCTF2016_Confused_ARM_%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/image-20201010155940502.png" srcset="/img/loading.gif" lazyload class="" title="image-20201010155940502">
+
 
             </div>
             <hr>
