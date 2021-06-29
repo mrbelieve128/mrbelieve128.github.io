@@ -195,6 +195,56 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">堆之UAF(Use_after_free)及调试-hitcontraining_uaf</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/02/02/%E5%A0%86%E4%B9%8BUAF(Use_after_free)%E5%8F%8A%E8%B0%83%E8%AF%95-hitcontraining_uaf/">
+          
+          
+            
+          
+          
+https://wiki.x10sec.org/pwn/heap/use_after_free/
+一个很直接的想法是修改note的put字段为magic函数的地址，从而实现在执行print note 的时候执行magic函数。 那么该怎么执行呢？
+我们可以简单来看一下每一个note生成的具体流程
+
+程序申请8字节内存用来存放note中的put以及content指针。
+
+程序根据输入的size来申
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-02-02 00:06" pubdate>
+              2020-02-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/CTF/">CTF</a>
+            
+              <a href="/categories/CTF/buu/">buu</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/01/30/BrainOverFlow_Vol.1_BUU%E7%89%B9%E4%BE%9B/">BrainOverFlow_Vol.1_BUU特供</a>
       </h1>
 
@@ -661,57 +711,6 @@ ROPgadget --binary not_the_same_3dsctf_2016 --ropchain
               <a href="/categories/CTF/buu/">buu</a>
             
               <a href="/categories/CTF/%E5%A4%87%E5%BF%98/">备忘</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">汇编基础</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/01/13/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/">
-          
-          
-            
-          
-          X86汇编基础==Intel和AT&amp;T语法区别：==
-
-Intel操作数在前面，AT&amp;T的在后面
-
-
-在Intel语法中：  在AT&amp;T语法中：  有一个简单的记住它们的方法: 当你面对intel语法的时候，你可以想象把等号(=)放到2个操作数中间，当面对AT&amp;T语法的时候，你可以放一个右箭头(→）到两个操作数之间。
-
-
-AT&amp;T: 寄存器名之前需要写一个百
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-01-13 23:08" pubdate>
-              2020-01-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/CTF/">CTF</a>
-            
-              <a href="/categories/CTF/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
             
           </div>
         

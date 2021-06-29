@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Mr.BelieVe">
+  <meta name="keywords" content="">
+  
+  <title>From Zero To Keep Learning - Mr.BelieVe&#39;s Treasure</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.9-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Mr.BelieVe's Treasure" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Mr.BelieVe's Treasure</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="From Zero To Keep Learning">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-06-07 20:30" pubdate>
+        2021年6月7日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">From Zero To Keep Learning</h1>
+            
+            <div class="markdown-body">
+              <p>本文作为备份，给19，20的学弟学妹们学习。</p>
+<blockquote>
+<p><strong>多读书，多看推送，多学习</strong></p>
+</blockquote>
+<h2 id="Week-1"><a href="#Week-1" class="headerlink" title="Week 1"></a>Week 1</h2><p><a target="_blank" rel="noopener" href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">原文-精简版</a></p>
+<p>我的学习过程</p>
+<pre><code class=" mermaid">graph TD;
+    First[用Typora写md笔记];
+    T[有人教如何记笔记];
+    Auto[将md笔记自动生成博客,用hexo];
+    Blow[笔记过多,爆炸];
+    Obsidian[使用obsidian管理笔记,使用Zettelkasten 卡片盒笔记法];
+    Update[寻找笔记管理系统,笔记管理升级];
+    Final[挑选笔记写成文章放到博客中];
+    Keep[保持学习Keep Learning]
+    First--&gt;T;
+    T--&gt;|无|Auto;
+    T--&gt;|有|Obsidian;
+    Auto--&gt;Blow;
+    Obsidian--&gt;Final;
+    Blow--&gt;Update;
+    Update--&gt;Final;
+    Final--&gt;Keep;
+</code></pre>
+
+<h3 id="任务："><a href="#任务：" class="headerlink" title="任务："></a>任务：</h3><ul>
+<li><p>学习 Markdown 语法。通过谷歌/百度，以及我附上来的简要文档学习</p>
+</li>
+<li><p>下载 Typora</p>
+</li>
+<li><p>注册 Github/Gitee 账户，进入 repository</p>
+</li>
+<li><p>报告交pdf格式的上传到群文件中。</p>
+<p>学习Git 的使用</p>
+<p>。简单几种先能使用就行，后续各种操作慢慢自学</p>
+<ol>
+<li><p>打开 CMD 或者 Powershell，进入随便哪个文件夹，执行以下命令（</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-symbol">$</span><br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>代表最前面的命令提示符）：
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/mrbelieve128/</span>From_Zero_To_Keep_Learning.git<br></code></pre></td></tr></table></figure>
+
+这样相当于把这个项目保存到当前文件夹</code></pre><ol start="2">
+<li><p>编辑完你的文件之后，执行：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">$ git <span class="hljs-builtin-name">add</span> .<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>.</code> 代表当前文件夹</li>
+<li>这条命令相当于把当前文件夹下 <strong>修改</strong> 过的所有文件添加到 <em>暂存区</em></li>
+</ul>
+</li>
+<li><p>提交 Commit</p>
+<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>git commit -m <span class="hljs-comment">&quot;your message&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-m</code> 是一个选项（Option），后面跟参数（Argument）</li>
+<li>在这条命令中，<code>your message</code> 代表 <code>-m</code> 选项的参数，<code>-m</code> 是指留言（Message），<code>--message</code> 与之等效</li>
+<li>可以不留言直接 <code>git commit</code>，但是团队开发中需要遵循一定的规范。比较著名的规范有来自 <a target="_blank" rel="noopener" href="https://angular.io/">Angular</a> 开发团队的 <a target="_blank" rel="noopener" href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines">commitizen</a>，可自行查阅</li>
+</ul>
+</li>
+<li><p>推送到代码仓库，这里用的就是 Github</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">$ git <span class="hljs-keyword">push</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>获取更新</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git fetch<br></code></pre></td></tr></table></figure>
+
+<p>Git 是一个分布式代码托管工具，所以别人也会给这个仓库提交代码，用上述命令从远程仓库获取最新的代码</p>
+</li>
+</ol>
+<ul>
+<li>借助 Typora，使用 Markdown 语法的书写第一篇笔记，记录 Git 的常用使用方法等知识点</li>
+</ul>
+<h3 id="可选"><a href="#可选" class="headerlink" title="可选"></a>可选</h3><h4 id="Web方向"><a href="#Web方向" class="headerlink" title="Web方向"></a>Web方向</h4><p>搭建以下环境：</p>
+<ul>
+<li>Kali</li>
+<li><a target="_blank" rel="noopener" href="https://www.sqlsec.com/2020/10/winbp.html">BurpSuite Pro 2020.9.2 For Windows | 国光</a></li>
+<li><a target="_blank" rel="noopener" href="https://owasp.org/www-project-top-ten/">OWASP Top Ten Web Application Security Risks | OWASP</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/WebGoat/WebGoat">靶场-WebGoat</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.dvwa.co.uk/">经典靶场-dvwa</a></li>
+</ul>
+<p>同时可以去 BUUCTF 解题。</p>
+<p>靶场给了，具体怎么搭一般项目的 README 文件里都有，不会再问我。</p>
+<h3 id="阅读清单"><a href="#阅读清单" class="headerlink" title="阅读清单"></a>阅读清单</h3><h4 id="笔记管理方面"><a href="#笔记管理方面" class="headerlink" title="笔记管理方面"></a>笔记管理方面</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://sspai.com/post/62414">玩转 Obsidian | 打造知识循环利器 - 少数派</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI1NTA4Nzk5Mw==&action=getalbum&album_id=1464601583634939905">《how to take smart note》中文版</a></li>
+<li><a target="_blank" rel="noopener" href="https://sspai.com/post/63481">玩转 Obsidian | 基础设置篇 - 少数派</a></li>
+<li><a target="_blank" rel="noopener" href="https://sspai.com/post/63674">玩转 Obsidian | 间歇式日记 - 少数派</a></li>
+</ul>
+<h4 id="计算机底层方面（长期）"><a href="#计算机底层方面（长期）" class="headerlink" title="计算机底层方面（长期）"></a>计算机底层方面（长期）</h4><ul>
+<li>《计算机组成原理（第2版）》-唐朔飞</li>
+<li>《深入理解计算机系统（原书第三版）》(长，厚，多）</li>
+</ul>
+<p>书可以结合网课看，上完网课再看书补充知识点。记得做笔记。</p>
+<h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><p><strong>下载请在官网下载</strong>，先看操作系统部分的，网络部分可以往后放放</p>
+<h3 id="任务：-1"><a href="#任务：-1" class="headerlink" title="任务："></a>任务：</h3><ul>
+<li>安装Vmware workstation pro 15，激活码自行网上搜索</li>
+<li>安装 ubuntu 20.04，iso形式安装，了解过程</li>
+<li>ubuntu里面安装docker，安装步骤见官网</li>
+<li>学习linux操作，包括安装软件（vim、proxychains4，vs code）（换源提升下载速度</li>
+<li>学习vim和proxychains4的使用</li>
+</ul>
+<h3 id="可选-1"><a href="#可选-1" class="headerlink" title="可选:"></a>可选:</h3><ul>
+<li>安装渗透测试最常用的kali虚拟机</li>
+<li>学习使用nmap，burpsuite</li>
+<li>阅读linux相关的书籍，了解设计，以及linux和windows的差异</li>
+<li>读书</li>
+</ul>
+<h3 id="阅读清单-1"><a href="#阅读清单-1" class="headerlink" title="阅读清单"></a>阅读清单</h3><p>linux:</p>
+<p>《鸟哥的Linux私房菜：基础学习篇》(第四版)</p>
+<p>计算机网络相关:</p>
+<p>TCP/IP入门经典</p>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">Python教程 -网络编程部分- 廖雪峰的官方网站</a></p>
+<h2 id="Week3"><a href="#Week3" class="headerlink" title="Week3"></a>Week3</h2><h3 id="任务：-2"><a href="#任务：-2" class="headerlink" title="任务："></a>任务：</h3><ul>
+<li>学习linux部分软件操作，vim/vi/nano任选，建议vim。</li>
+<li>学习vscode的使用，建议使用vsc写python。</li>
+<li>安装vsc插件，vsc仅仅是个文本编辑器，插件才是灵魂。</li>
+<li>学习快捷键。包括但不限于windows快捷键、vsc快捷键、游览器（chrome或者edge）、typora快捷键。</li>
+</ul>
+<blockquote>
+<p>windows快捷键至少有：</p>
+<ul>
+<li>切换窗口</li>
+<li>隐藏当前窗口</li>
+<li>按词往前、往后跳动(Ctrl + left/right)</li>
+</ul>
+<p>vsc：</p>
+<ul>
+<li>多行光标</li>
+<li>快捷键替换</li>
+</ul>
+<p>游览器：</p>
+<ul>
+<li>恢复被关闭的页面</li>
+<li>切换页面</li>
+</ul>
+<p>typora：</p>
+<ul>
+<li>高亮</li>
+<li>加粗</li>
+<li>切换标题级别（h1–&gt;h2 或者h2–&gt;h1）</li>
+</ul>
+</blockquote>
+<h3 id="可选-2"><a href="#可选-2" class="headerlink" title="可选:"></a>可选:</h3><ul>
+<li>读书</li>
+</ul>
+<h3 id="阅读清单-2"><a href="#阅读清单-2" class="headerlink" title="阅读清单"></a>阅读清单</h3><p>看以前那些</p>
+<h2 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h2><ul>
+<li><input disabled="" type="checkbox"> 学习ssh<a target="_blank" rel="noopener" href="https://wangdoc.com/ssh/">SSH 教程 - 网道</a></li>
+<li><input disabled="" type="checkbox"> 学习bash脚本<a target="_blank" rel="noopener" href="https://wangdoc.com/bash/index.html">Bash 脚本教程 - 网道</a>，看完变量那部分就差不多了，虽然不常用但是部分还是要学一下</li>
+<li><input disabled="" type="checkbox"> 学习sql语言。通过docker安装mysql并在其中创建表，添加信息，删除信息，查询信息，添加外键等。不要求全会，但这基本几个要会。</li>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+<h3 id="可选-3"><a href="#可选-3" class="headerlink" title="可选:"></a>可选:</h3><ul>
+<li>读书</li>
+</ul>
+<h3 id="阅读清单-3"><a href="#阅读清单-3" class="headerlink" title="阅读清单"></a>阅读清单</h3><p>看以前那些</p>
+<h3 id="知识基础（大一，大二时间多推荐看看）"><a href="#知识基础（大一，大二时间多推荐看看）" class="headerlink" title="知识基础（大一，大二时间多推荐看看）"></a>知识基础（大一，大二时间多推荐看看）</h3><p>计算机底层相关:</p>
+<ul>
+<li><p>《计算机组成原理（第2版）》-唐朔飞</p>
+</li>
+<li><p>《深入理解计算机系统（原书第三版）》(长，厚，多，有空把几个lab也做一下最好）</p>
+</li>
+<li><p>《鸟哥的Linux私房菜：基础学习篇》(第四版)</p>
+</li>
+<li><p>计算机网络</p>
+</li>
+</ul>
+<h2 id="Week-5-9-n"><a href="#Week-5-9-n" class="headerlink" title="Week 5-9+n"></a>Week 5-9+n</h2><p>基础漏洞成因</p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/web-security/all-materials">All learning materials | Web Security Academy (portswigger.net)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.owasp.org.cn/owasp-project/OWASPTop102017v1.3.pdf">OWASP top10</a></p>
+<p>按照top10来刷portswigger</p>
+<ul>
+<li><p>sql注入</p>
+</li>
+<li><p>身份认证漏斗</p>
+</li>
+<li><p>XML(XXE)外部实体</p>
+</li>
+<li><p>访问控制和权限提升</p>
+</li>
+<li><p>跨站脚本XSS</p>
+</li>
+<li><p>CORS跨域漏洞</p>
+</li>
+<li><p>SSRF服务端请求伪造</p>
+</li>
+<li><p>不安全的反序列化(这个可以稍稍)</p>
+</li>
+</ul>
+<p>选择你的方向:渗透测试,代码审计? 至于攻防,非知攻焉知防.</p>
+<p>目标是一专多强.无论哪个方向, 最好有开发能力来写点工具什么的.</p>
+<h3 id="渗透测试："><a href="#渗透测试：" class="headerlink" title="渗透测试："></a>渗透测试：</h3><p>入门安全的基础。搞安全的没点基本渗透思路都不好意思出来说自己是搞安全的。</p>
+<ul>
+<li>建议dvwa,burp实验靶场刷完。</li>
+<li>awvs,xray,goby工具装好，然后去挖挖学校漏洞，挖挖edusrc</li>
+<li>装好阅读RSS的东西，每天抽时间看RSS记笔记</li>
+</ul>
+<p>信息收集部分文章参考</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/271678.html">实战|从零开始的SRC挖掘——如何一洞百分 - FreeBuf网络安全行业门户</a></li>
+</ul>
+<h3 id="代码审计："><a href="#代码审计：" class="headerlink" title="代码审计："></a>代码审计：</h3><p>代码审计也算是安全领域比较基础的能力。不会代码也可以在安全圈活下去，但是会了代码能够让你在安全圈形成一种降维打击</p>
+<p>推荐路线</p>
+<ul>
+<li>渗透的思路要有</li>
+<li>基础的java开发</li>
+<li>找个b站视频学着写一个小网站</li>
+<li>webgot靶场学习分析</li>
+<li>cc链分析</li>
+<li>weglogic系列漏洞分析</li>
+<li>shiro系列漏洞分析</li>
+<li>fastjson系列漏洞分析</li>
+<li>struts2系列漏洞分析</li>
+<li>spring系列漏洞分析</li>
+</ul>
+<p>分析完你也就入门了</p>
+<p>学习参考：<br><a target="_blank" rel="noopener" href="https://www.yuque.com/tianxiadamutou/zcfd4v">Java安全 · 语雀</a></p>
+<h3 id="内网安全（红队）："><a href="#内网安全（红队）：" class="headerlink" title="内网安全（红队）："></a>内网安全（红队）：</h3><p>学习路线：</p>
+<ul>
+<li>熟练掌握渗透测试</li>
+<li>目标系统获取（webshell,命令执行）</li>
+<li>提权</li>
+<li>免杀</li>
+<li>内网代理</li>
+<li>内网横向</li>
+<li>域渗透。</li>
+</ul>
+<p>参考书籍：</p>
+<ul>
+<li>《内网安全攻防 渗透测试实战指南》</li>
+</ul>
+<h3 id="安全开发："><a href="#安全开发：" class="headerlink" title="安全开发："></a>安全开发：</h3><p>如果你喜欢安全，又喜欢开发。欢迎去搞安全开发。安全开发需要具备基本渗透测试能力。然后将渗透手法开发工具自动化完成。或者将渗透手法开发工具进行自动化拦截。</p>
+<p>目前比较多的就红队工具开发，安全产品开发，甲方安全平台开发等等。</p>
+<p>学习路线：</p>
+<ul>
+<li>底层书要看完</li>
+<li>渗透测试思路</li>
+<li>golang开发学习</li>
+<li>分析知名开源工具源码</li>
+<li>二次开发知名开源工具。</li>
+</ul>
+<h2 id="附录：Web方向说明"><a href="#附录：Web方向说明" class="headerlink" title="附录：Web方向说明"></a>附录：Web方向说明</h2><p>渗透测试, 代码审计，内网安全，安全开发，移动安全</p>
+<p>安全是一个极其广泛的领域。有很多不同的分支，大多数人终其一生也很难达到一个分支的顶点，学不完也不用太悲伤，找准一个方向学习就好了。</p>
+<p>现在基本都讲究一个一专多能，上面五个方向至少要拿得出手一样，这样才能保证你至少能找到一个工作。其他的了解的越多越好。</p>
+<p>以上五个方向的简单了解：</p>
+<p>从一个应届生（大三暑假投简历）的角度来看，以上五个方向。</p>
+<p>渗透测试，内网安全更偏向乙方厂商（你学好这两个方向去安全厂商（奇安信，360，安恒）实验室的概率更大）。</p>
+<p>代码审计，安全开发，移动安全（这三个方向学好至少一个冲一下甲方大厂（阿里，腾讯，字节）不是问题）。</p>
+<p>毕业之后的话就都一样，技术好哪都能去。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/17/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B63-%E8%B7%AF%E5%BE%84%E7%A9%BF%E8%B6%8A/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WebGoat代码审计其3-路径穿越</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/31/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B62-sql%E6%B3%A8%E5%85%A5/">
+                        <span class="hidden-mobile">WebGoat代码审计其2-sql注入</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <script type="text/javascript">
+    Fluid.utils.lazyComments('comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'mrbelieve128/mrbelieve128.github.io');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备19033044号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
