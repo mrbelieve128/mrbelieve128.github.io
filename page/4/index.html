@@ -195,6 +195,45 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">hexo升级跳坑</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/04/07/hexo%E5%8D%87%E7%BA%A7%E8%B7%B3%E5%9D%91/">
+          
+          
+            
+          
+          应该是从4.0升级到4.2，_config.yml的更改就不说了，主要讲讲昨天晚上都干了啥（吐血捂肝
+4.2多了个友链（万恶起源）上来之后，最开始的变化就是，所有文章的日期都变成了创建时间，即便修改时间比创建时间还早0.0
+
+
+于是，写了脚本给每个文章加上date，确定最早的发布/创建时间，并且，没有这个Front-matter是会报莫名其妙的YAMLException的。
+12345678910
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-07 07:58" pubdate>
+              2020-04-07
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/04/07/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BD%AC%E7%A7%BB%E7%8E%AF%E5%A2%83%E4%B8%8A%E6%9C%8D%E5%8A%A1%E5%99%A8/">记一次转移环境上服务器</a>
       </h1>
 
@@ -682,55 +721,6 @@ C类
               <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AD%A6%E4%B9%A0/">专业学习</a>
             
           </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/02/08/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">强网杯2019_拟态-STKOF</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/02/08/%E5%BC%BA%E7%BD%91%E6%9D%AF2019_%E6%8B%9F%E6%80%81-STKOF/">
-          
-          
-            
-          
-          这题给了两文件，分别是32和64位的，32位的由于是静态链接，直接自动生成就能打通。
-打到buu服务器上时，exp是随机打到两个程序中的一个的，就我测试来看64位的出现多点
-搜了一搜，当时比赛好像是要一个exp打通两个程序才行
-备份学习链接：
-强网杯 签到re 签到pwn 题解
-拟态防御型Pwn题做题思路总结
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-02-08 02:53" pubdate>
-              2020-02-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/CTF/">CTF</a>
-            
-              <a href="/categories/CTF/buu/">buu</a>
-            
-          </div>
-        
         
       </div>
     </article>

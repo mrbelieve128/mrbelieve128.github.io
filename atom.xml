@@ -42,6 +42,27 @@
   </entry>
   
   <entry>
+    <title>WebGoat代码审计其4-失效的身份认证</title>
+    <link href="http://yoursite.com/2021/07/04/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B64-%E5%A4%B1%E6%95%88%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/"/>
+    <id>http://yoursite.com/2021/07/04/WebGoat%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%85%B64-%E5%A4%B1%E6%95%88%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/</id>
+    <published>2021-07-03T23:18:48.000Z</published>
+    <updated>2021-07-03T23:18:48.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;认证绕过&quot;&gt;&lt;a href=&quot;#认证绕过&quot; class=&quot;headerlink&quot; title=&quot;认证绕过&quot;&gt;&lt;/a&gt;认证绕过&lt;/h2&gt;&lt;p&gt;POST</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>From Zero To Keep Learning</title>
     <link href="http://yoursite.com/2021/06/29/From%20Zero%20To%20Keep%20Learning/"/>
     <id>http://yoursite.com/2021/06/29/From%20Zero%20To%20Keep%20Learning/</id>
@@ -430,27 +451,6 @@
         
     <summary type="html">&lt;h2 id=&quot;VPN-连接&quot;&gt;&lt;a href=&quot;#VPN-连接&quot; class=&quot;headerlink&quot; title=&quot;VPN 连接&quot;&gt;&lt;/a&gt;VPN 连接&lt;/h2&gt;&lt;p&gt;&lt;code&gt;sudo openvpn example.ovpn&lt;/code&gt;&lt;/p&gt;
 &lt;h2</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>IoTGoat</title>
-    <link href="http://yoursite.com/2020/11/03/IoTGoat/"/>
-    <id>http://yoursite.com/2020/11/03/IoTGoat/</id>
-    <published>2020-11-03T11:50:01.000Z</published>
-    <updated>2020-11-03T11:50:01.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;No-1-Weak-Guessable-or-Hardcoded-Passwords&quot;&gt;&lt;a href=&quot;#No-1-Weak-Guessable-or-Hardcoded-Passwords&quot; class=&quot;headerlink&quot; title=&quot;No 1:</summary>
         
       
     
